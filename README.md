@@ -48,3 +48,25 @@
 
 ・lv 玩家等级 
 
+### 打开宝箱(openBox) 
+#### 参数
+・id 宝箱的box_id 
+#### 处理说明
+・这里需要先判断宝箱是否可以打开，如果没有打开，或者正在解锁，则消耗宝石来打开宝箱，消耗的宝石数量根据解锁宝箱的剩余时间来换算，换算公式暂时定为5分钟1宝石。 
+#### 返回值
+    {
+        playerModel:playerModel,
+        contents:{
+            gem:2,
+            coin:300,
+            cards:[
+                {id:1, amount:22},
+                {id:2, amount:2},
+                {id:3, amount:10}
+            ]
+        }
+    }
+・playerModel 玩家信息，和login时的返回结果相同 
+
+・contents 宝箱打开后获取的资源，只能获取到gem宝石，coin金币，cards卡牌这三种结果，每个宝箱可能获取到的资源在master_boxs中进行设定。 
+
