@@ -1,0 +1,110 @@
+[
+    {
+        "id":1,
+        "name":"Vampire",
+        "target":"self",
+        "type":"heal",
+        "arrows":["right","right","left","right","left"],
+        "value":[0.5, 1, 1.5],
+        "introduction":"xi xue A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":2,
+        "name":"Attack+",
+        "target":"self",
+        "type":"atk",
+        "arrows":["up","right","down","left","up"],
+        "value":[1.2, 1.5, 2],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":3,
+        "name":"Attack-",
+        "target":"enemy",
+        "type":"atk",
+        "arrows":["up","left","down","right","up"],
+        "value":[0.9,0.7,0.5],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":4,
+        "name":"DoubleAttack",
+        "target":"self",
+        "type":"dbl_atk",
+        "arrows":["right","down","left","down","right"],
+        "value":[0.6,0.75,1],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":5,
+        "name":"PhysicsDefense+",
+        "target":"self",
+        "type":"phy_def",
+        "arrows":["down","down","left","up","right"],
+        "value":[1.2,1.5,2],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":6,
+        "name":"MagicDefense+",
+        "target":"self",
+        "type":"mag_def",
+        "arrows":["down","down","up","right","down"],
+        "value":[1.2,1.5,2],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":7,
+        "name":"Defense+",
+        "target":"self",
+        "type":"all_def",
+        "arrows":["down","left","up","right","down"],
+        "value":[1.2,1.4,1.6],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":8,
+        "name":"PhysicsDefense-",
+        "target":"enemy",
+        "type":"phy_def",
+        "arrows":["right","up","left","down","down"],
+        "value":[0.9,0.7,0.5],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":9,
+        "name":"MagicDefense-",
+        "target":"enemy",
+        "type":"mag_def",
+        "arrows":["down","right","up","down","down"],
+        "value":[0.9,0.7,0.5],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":10,
+        "name":"Defense-",
+        "target":"enemy",
+        "type":"all_def",
+        "arrows":["down","right","up","left","down"],
+        "value":[0.9,0.8,0.7],
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":11,
+        "name":"Ice",
+        "target":"enemy",
+        "type":"ice",
+        "arrows":["up","down","up","down","up"],
+        "value":[3,6,9],
+        "introduction":"bing dong A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":12,
+        "name":"Poison",
+        "target":"enemy",
+        "type":"poison",
+        "arrows":["left","right","left","right","left"],
+        "value":[3,6,9],
+        "introduction":"zhong du A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    }
+]

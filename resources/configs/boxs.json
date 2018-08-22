@@ -1,0 +1,53 @@
+[
+    {
+        "id":1,
+        "name":"aaaa",
+        "img":"a",
+        "coin":[200,300],
+        "cards":[
+            {"rarity":"c","amount":8},
+            {"rarity":"r","amount":1}
+        ],
+        "time":10800,
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":2,
+        "name":"bbbb",
+        "img":"b",
+        "coin":[200,300],
+        "cards":[
+            {"rarity":"c","amount":18},
+            {"rarity":"r","amount":2}
+        ],
+        "time":28800,
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":3,
+        "name":"cccc",
+        "img":"c",
+        "coin":[200,300],
+        "cards":[
+            {"rarity":"c","amount":25},
+            {"rarity":"r","amount":2},
+            {"rarity":"sr","amount":1}
+        ],
+        "time":43200,
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":4,
+        "name":"dddd",
+        "img":"d",
+        "coin":[200,300],
+        "cards":[
+            {"rarity":"c","amount":40},
+            {"rarity":"r","amount":8},
+            {"rarity":"sr","amount":2},
+            {"rarity":"ssr","amount":1}
+        ],
+        "time":86400,
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    }
+]
