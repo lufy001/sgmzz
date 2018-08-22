@@ -30,7 +30,13 @@
         coin:1000000,
         gem:1000000,
         exp:2222,
-        lv:11
+        lv:11,
+        versions:{
+            master_boxs:1,
+            master_characters:1,
+            master_level:1,
+            master_skills:1
+        }
     }
 ・characters 玩家拥有的卡牌，从cards表中获取，id是卡牌的card_id，也就是master_characters的id，level是卡牌等级，amount是卡牌的数量 
 
@@ -46,7 +52,9 @@
 
 ・exp 经验 
 
-・lv 玩家等级 
+・lv 玩家等级  
+
+・versions 各个master数据的版本，用户从服务器上获取的master数据会连同它们的版本一起保存到本地，之后通过对比来更新数据，如果不需要更新数据，则不会再次进行通信从服务器上获取 
 
 ### 打开宝箱(openBox) 
 #### 参数
@@ -70,3 +78,31 @@
 
 ・contents 宝箱打开后获取的资源，只能获取到gem宝石，coin金币，cards卡牌这三种结果，每个宝箱可能获取到的资源在master_boxs中进行设定。 
 
+## 类(master)
+### 获取数据(getList) 
+#### 参数
+・keys 需要获取的数据的name，例如["master_skills","news"] 
+#### 处理说明
+・这些数据是游戏的基本数据，通过参数中的keys来获取相应的数据
+#### 返回值
+    {
+        master_characters:[],
+        master_skills:[],
+        master_boxs:[],
+        master_level:[],
+        news:[
+            {id:1, title:"111", message:"0110test"},
+            {id:2, title:"222", message:"22220test"},
+            {id:3, title:"333", message:"33333test"}
+        ],
+        chapters:[
+            {id:100, title:"huang jin zhi luan",stages:[
+                {id:100001,title:"ying chuan zhi zhan",map:1,
+                enemys:[
+                    [{id:1,level:5},{id:2,level:5,isBoss:1},{id:3,level:5}],
+                    [{id:2,level:5},{id:3,level:5,isBoss:1},{id:1,level:5}]
+                ]}
+            ]}
+        ],
+    }
+・把每个master表中的所有数据转换成json返回
