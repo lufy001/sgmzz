@@ -33,6 +33,11 @@ var CharacterArrowListView = (function(){
             var direction = directions[directions.length * Math.random() >>> 0];
             _this.add(direction);
         }
+        if(_this._isSkillEnabled()){
+            _this.filters = [new LDropShadowFilter(5,0,"#FF0000")];
+        }else{
+            _this.filters = null;
+        }
     };
     CharacterArrowListView.prototype._isReady = function() {
         return this.childList.findIndex(function(child){
@@ -45,16 +50,8 @@ var CharacterArrowListView = (function(){
             _this._arrowsInit();
             return;
         }
-        if(event.type === 'plus'){
-            if(_this.numChildren !== event.arrowLength){
-                _this._arrowsInit();
-                return;
-            }
-        }
-        //var e = new LEvent(event.type === 'ok' ? CommonEvent.ARROW_ATTACK:CommonEvent.ARROW_WAIT);
         var e = new LEvent(CommonEvent.ARROW_ATTACK);
         e.characterId = _this.model.id();
-        //e.waitIndex = event.waitIndex;
         e.directions = [];
         var skill = _this.model.skill();
         var skillArrows = !!skill ? skill.arrows() : null;
@@ -71,9 +68,6 @@ var CharacterArrowListView = (function(){
                 skillEnabled = false;
             }
         }
-        /*_this.childList.forEach(function(child){
-            e.directions.push(child.currentDirection);
-        });*/
         if(skillEnabled){
             e.skill = skill;
         }
@@ -84,6 +78,20 @@ var CharacterArrowListView = (function(){
             CommonEvent.dispatchEvent(e);
         }
         _this.init();
+    };
+    CharacterArrowListView.prototype._isSkillEnabled = function(){
+        var _this = this;
+        var skill = _this.model.skill();
+        var skillArrows = !!skill ? skill.arrows() : null;
+        var skillEnabled = !!skill && _this.childList.length >= 3;
+        for(var i=0;skillEnabled && i<_this.childList.length;i++){
+            var child = _this.childList[i];
+            var direction = child.direction;
+            if(skillEnabled && direction !== Direction.ALL && skillArrows[i] !== direction){
+                skillEnabled = false;
+            }
+        }
+        return skillEnabled;
     };
     CharacterArrowListView.prototype._arrowsInit = function(){
         this.childList.forEach(function(child){

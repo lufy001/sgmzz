@@ -73,11 +73,11 @@ var BattleCharacterView = (function(){
         var _this = this;
         var skill = event.skill;
         var model = event.model;
-        var sameBelong = model.belong() === _this.characterModel.belong();
-        if(skill.target() === "self" ^ sameBelong){
+        var sameBelong = model.belong() === _this.model.belong();
+        if((skill.target() === "self") ^ sameBelong){
         	return;
         }
-        if(!event.isToAll && model.id() != _this.characterModel.id()){
+        if(!event.isToAll && model.id() !== _this.model.id()){
         	return;
         }
         switch(skill.type()){

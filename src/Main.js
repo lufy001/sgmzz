@@ -175,7 +175,6 @@ var loadData = [
 {type : "js",path : "src/View/Game/ArrowBoardView.js"},
 {type : "js",path : "src/View/Game/ArrowListView.js"},
 {type : "js",path : "src/View/Game/CharacterArrowListView.js"},
-{type : "js",path : "src/View/Game/BattleCardView.js"},
 {type : "js",path : "src/View/Game/BattleSkillIconView.js"},
 {type : "js",path : "src/View/Game/BattleResultView.js"}
 ];
