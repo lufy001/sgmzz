@@ -72,22 +72,6 @@
     }
 ・boxs 宝箱状态，和login时的boxs相同 
 
-### 解锁宝箱(unlockBox) 
-#### 参数
-・id 宝箱的id,boxs表的id 
-#### 处理说明
-・每位玩家最多可以同时拥有4个宝箱，宝箱最开始的状态是lock，当玩家选择进行解锁后，状态变为unlock，并开始进入倒计时解锁，倒计时结束后可以随时打开宝箱，同一时间只能解锁一个宝箱，所以需要验证一下是否有其他宝箱正在解锁。 
-#### 返回值
-    {
-        boxs:[
-            {id:1,boxId:4,time:3400000,status:"unlock"},
-            {id:2,boxId:3,time:0,status:"unlock"},
-            {id:3,boxId:2,time:0,status:"lock"},
-            null
-        ]
-    }
-・boxs 宝箱状态，和login时的boxs相同
-
 ### 广告解锁宝箱(adUnlockBox) 
 #### 参数
 ・id 宝箱的id,boxs表的id 
