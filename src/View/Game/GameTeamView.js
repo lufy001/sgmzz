@@ -44,9 +44,18 @@ var GameTeamView = (function(){
         });
         _this.hpProgress.updateView({progress: hp, sum:hp, fontSize:22});
     };
+    GameTeamView.prototype._onHeal = function(event){
+        var _this = this;
+        var hp = _this.hpProgress.progress + event.value;
+    	if(hp > _this.hpProgress.sum){
+    		hp = _this.hpProgress.sum;
+    	}
+        _this.hpProgress.updateView({progress: hp, sum:_this.hpProgress.sum, fontSize:22});
+    };
     GameTeamView.prototype.addCharacter = function(data){
         var _this = this;
         var character = new CharacterView(data, _this.layer.numChildren);
+        character.addEventListener("player:heal", _this._onHeal, _this)
         character.y = 76*_this.layer.numChildren;
         _this.layer.addChild(character);
     };

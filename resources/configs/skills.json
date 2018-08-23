@@ -91,9 +91,9 @@
     },
     {
         "id":11,
-        "name":"Ice",
+        "name":"Sleep",
         "target":"enemy",
-        "type":"ice",
+        "type":"sleep",
         "arrows":["up","down","up","down","up"],
         "value":[3,6,9],
         "introduction":"bing dong A LBitmapData object can be drawn to the screen by a LBitmap object in one "

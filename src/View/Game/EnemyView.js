@@ -92,5 +92,10 @@ var EnemyView = (function(){
     		CommonEvent.dispatchEvent(CommonEvent.RESULT_CHECK);
     	}
     };
+    EnemyView.prototype.addHp = function(value) {
+    	var _this = this;
+    	var hp = _this.hpProgress.progress + value;
+    	_this.hpProgress.updateView({progress: hp<_this.hpProgress.sum?hp:_this.hpProgress.sum, fontSize:14});
+    };
     return EnemyView;
 })();

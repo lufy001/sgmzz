@@ -1,3 +1,4 @@
+var DEFAULT_BUFFER_TIME = 10;
 var BattleCharacterView = (function(){
     function BattleCharacterView(model, properties){
         var _this = this;
@@ -43,6 +44,7 @@ var BattleCharacterView = (function(){
         _this.character.speed = 3;
         _this.layer.addChild(_this.character);
         _this.character.setFrameSpeedAt(13,0,2);
+        _this.addEventListener(LEvent.ENTER_FRAME, _this._onFrame, _this);
     };
     BattleCharacterView.prototype.setActionDirection = function(action, direction) {
         var _this = this;
@@ -55,19 +57,48 @@ var BattleCharacterView = (function(){
         _this.action = action;
         _this.direction = direction;
     };
-    BattleCharacterView.prototype.addBuffer = function(key, value, state) {
+    BattleCharacterView.prototype.addBuffer = function(key, value, time, state) {
         var _this = this;
         _this.model.addBuffer(key, value);
         var bufferChild = _this.bufferLayer.getChildByName(key);
         if(bufferChild){
             bufferChild.visible = true;
+            _this._resetBufferPosition();
             return;
         }
-        var img = "buffer_"+key + "_" + state;
+        var img = "buffer_"+key + (state ? ("_" + state) : "");
         bufferChild = new LBitmap(new LBitmapData(dataList[img]));
         bufferChild.name = key;
         bufferChild.y = 64 - bufferChild.getHeight();
         _this.bufferLayer.addChild(bufferChild);
+        _this._resetBufferPosition();
+    };
+    BattleCharacterView.prototype._deleteBufferFrame = function() {
+        var _this = this;
+        var keys = _this.model.deleteBuffer();
+        keys.forEach(function(key){
+            var bufferChild = _this.bufferLayer.getChildByName(key);
+            bufferChild.visible = false;
+        });
+        if(keys.length > 0){
+            _this._resetBufferPosition();
+        }
+    };
+    BattleCharacterView.prototype._onFrame = function(event) {
+        var _this = this;
+        _this._deleteBufferFrame();
+    };
+    BattleCharacterView.prototype._resetBufferPosition = function(value) {
+        var _this = this;
+        var position = 0;
+        _this.bufferLayer.childList.forEach(function(child){
+            if(child.visible){
+                child.x = position;
+                position += child.getWidth();
+            }
+        });
+    };
+    BattleCharacterView.prototype.addHp = function(value) {
     };
     BattleCharacterView.prototype._onSkillStart = function(event) {
         var _this = this;
@@ -80,23 +111,27 @@ var BattleCharacterView = (function(){
         if(!event.isToAll && model.id() !== _this.model.id()){
         	return;
         }
+        var directionCount = event.directionCount;
+        var value = skill.value()[directionCount - 3];
         switch(skill.type()){
         	case "heal":
-        	break;
-        	case "atk":
-        	break;
+        		_this.addHp(value*event.hert>>0);
+        		break;
         	case "dbl_atk":
-        	break;
+        		break;
+        	case "atk":
         	case "phy_def":
-        	break;
         	case "mag_def":
-        	break;
-        	case "all_def":
-        	break;
-        	case "ice":
-        	break;
+                _this.addBuffer(skill.type(), value, DEFAULT_BUFFER_TIME, value>1?"up":"down");
+                break;
+        	case "sleep":
         	case "poison":
-        	break;
+        		_this.addBuffer(skill.type(), 1, value, null);
+        		break;
+            case "all_def":
+                _this.addBuffer("phy_def", value, DEFAULT_BUFFER_TIME, value>1?"up":"down");
+                _this.addBuffer("mag_def", value, DEFAULT_BUFFER_TIME, value>1?"up":"down");
+                break;
         }
     };
     return BattleCharacterView;

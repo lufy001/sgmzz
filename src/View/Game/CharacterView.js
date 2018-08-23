@@ -38,6 +38,7 @@ var CharacterView = (function(){
 		}
 		event = new LEvent(CommonEvent.SKILL_START);
         event.skill = skill;
+        event.hert = hert;
         event.directionCount = directions.length;
         event.model = _this.model;
         event.isToAll = false;
@@ -59,6 +60,11 @@ var CharacterView = (function(){
 		_this._directions = event.directions;
 		_this._skill = event.skill;
         _this.setActionDirection(CharacterAction.ATTACK, CharacterDirection.RIGHT);
+    };
+    CharacterView.prototype.addHp = function(value) {
+    	var event = new LEvent("player:heal");
+    	event.value = value;
+    	_this.dispatchEvent(event);
     };
     return CharacterView;
 })();
