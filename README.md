@@ -66,10 +66,10 @@
         id:1,
         name:"lufy",
         team:[
-            {id:1, level:1, amount:22},
-            {id:2, level:2, amount:2},
-            {id:4, level:4, amount:1},
-            {id:6, level:2, amount:0}
+            {id:1, level:1},
+            {id:2, level:2},
+            {id:4, level:4},
+            {id:6, level:2}
         ],
         cup:300,
         maxCup:4000,
