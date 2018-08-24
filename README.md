@@ -167,13 +167,16 @@
     {
         playerModel:playerModel,
         boxId:1,
-        cup:20
+        cup:20,
+        coin:30
     }
 ・playerModel 玩家信息，和login时的返回结果相同 
 
 ・boxId 新获取的宝箱,新宝箱已经放到playerModel里了，这里的boxId是为了在战斗结果画面中显示。 如果没有获取新宝箱，则boxId为0。
 
 ・cup 获取的奖杯数。  
+
+・coin 获取的金币数。  
 
 
 ## 表
