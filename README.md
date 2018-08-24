@@ -56,6 +56,38 @@
 
 ・versions 各个master数据的版本，用户从服务器上获取的master数据会连同它们的版本一起保存到本地，之后通过对比来更新数据，如果不需要更新数据，则不会再次进行通信从服务器上获取 
 
+### 获取玩家信息(getPlayer) 
+#### 参数
+・id 玩家id   
+#### 处理说明
+・点击排行榜等地方后，为了显示玩家的信息，需要从服务器上获取玩家的部分信息 
+#### 返回值
+    {
+        id:1,
+        name:"lufy",
+        team:[
+            {id:1, level:1, amount:22},
+            {id:2, level:2, amount:2},
+            {id:4, level:4, amount:1},
+            {id:6, level:2, amount:0}
+        ],
+        cup:300,
+        maxCup:4000,
+        lv:11
+    }
+
+・id 玩家id。
+
+・name 玩家昵称。
+
+・team 玩家当前所使用的卡牌组合 
+
+・cup 玩家奖杯数  
+
+・maxCup 玩家奖历史最高杯数  
+
+・lv 玩家等级
+
 ### 解锁宝箱(unlockBox) 
 #### 参数
 ・id 宝箱的id,boxs表的id 
@@ -178,6 +210,26 @@
 
 ・coin 获取的金币数。  
 
+### 排行榜(getLeaderboard) 
+#### 参数
+・rank 开始位置
+・count 人数
+#### 处理说明
+・玩家对战获取的奖杯数排行榜 
+#### 返回值
+    {
+        leaderboard:[
+        {rank:1,userId:1,name:"lufy01",cup:3000},
+        {rank:2,userId:2,name:"lufy02",cup:2999}
+        ]
+    }
+・rank 排名 
+
+・userId 玩家id。
+
+・name 玩家昵称。
+
+・cup 玩家的奖杯数。    
 
 ## 表
 ### master_chapters 
