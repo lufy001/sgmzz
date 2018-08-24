@@ -162,19 +162,24 @@
 ## 表
 ### master_chapters 
 相当于一个大的章节目录
+
 |name|说明|
 |--|--|
 |id|3位数字，从100开始依次递增|
 |title|章节名|
+
 ### master_stages
 每一个大的章节里所包含小的战斗stage
+
 |name|说明|
 |--|--|
 |id|6位数字，前3位是章节id，后三位才是stage的id，比如100001,100002|
 |title|战斗名称|
 |map|地图id，地图我都按照id放到客户端，根据这个id来显示|
 |gem|首次获胜奖励的宝石个数|
+
 ### master_stages_enemys
+
 |name|说明|
 |--|--|
 |stage_id|master_stages的id|
