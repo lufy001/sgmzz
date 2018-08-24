@@ -36,7 +36,9 @@
             master_characters:1,
             master_level:1,
             master_skills:1
-        }
+        },
+        loginBonusCalled:1，
+        loginBonusCount:3
     }
 ・characters 玩家拥有的卡牌，从cards表中获取，id是卡牌的card_id，也就是master_characters的id，level是卡牌等级，amount是卡牌的数量 
 
@@ -55,6 +57,9 @@
 ・lv 玩家等级  
 
 ・versions 各个master数据的版本，用户从服务器上获取的master数据会连同它们的版本一起保存到本地，之后通过对比来更新数据，如果不需要更新数据，则不会再次进行通信从服务器上获取 
+
+・loginBonusCalled 登录奖励是否已经领取
+・loginBonusCount 一个周期内登录奖励领取次数
 
 ### 获取玩家信息(getPlayer) 
 #### 参数
@@ -234,7 +239,31 @@
 
 ・level 玩家等级。
 
-・cup 玩家的奖杯数。    
+・cup 玩家的奖杯数。   
+
+### 获取登录奖励(getLoginBonus) 
+#### 参数
+无
+#### 处理说明
+登录奖励每天领取一次，可以获得宝石，金币，卡牌或者宝箱 
+登录奖励采用周期制，七天一个周期，比如七天的奖励分别是100金币,200金币，1张白卡，1张橙卡，1个初级宝箱，1张紫卡，1个中级宝箱，玩家每次登录依次获取，当获取到最后的中级宝箱之后，进入下一个周期继续领取，玩家不需要连续登录，第一天登录1次，隔三天再登录的时候，可以接着继续领取奖励，不需要重新从第一天算起。
+登录奖励的设置需要新增一个master_loginbonus表来设置
+#### 返回值
+    {
+        playerModel:playerModel,
+        contents:{
+            gem:2,
+            coin:300,
+            cards:[
+                {id:1, amount:22},
+                {id:2, amount:2},
+                {id:3, amount:10}
+            ]
+        }
+    }
+・playerModel 玩家信息，和login时的返回结果相同 
+
+・contents 登录奖励，如果是宝箱的话，宝箱会自动打开，玩家直接显示宝箱内的奖励，所以服务器判断，玩家得到宝箱的时候，直接打开宝箱。   
 
 ## 表
 ### master_chapters 
