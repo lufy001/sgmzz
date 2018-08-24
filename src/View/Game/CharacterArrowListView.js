@@ -1,8 +1,8 @@
 var ARROW_SPEED_MAP = {
-  'very fast': 4,
-  'fast': 3,
-  'medium': 2,
-  'slow': 1
+  'very fast': 4.5,
+  'fast': 3.5,
+  'medium': 2.5,
+  'slow': 1.5
 };
 var CharacterArrowListView = (function() {
   function CharacterArrowListView(model) {

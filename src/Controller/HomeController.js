@@ -35,13 +35,22 @@ var HomeController = (function() {
           y: 100
         }
       },
-      btnAttack: {
+      btnSingleAttack: {
         type: 'LButton',
-        state: 'btn_attack',
+        state: 'btn_single_attack',
         onClick: '_gotoGame',
         properties: {
-          x: (LGlobal.width - dataList['btn_attack'].width) * 0.5,
-          y: (LGlobal.height - dataList['btn_attack'].height) * 0.5
+          x: LGlobal.width * 0.5 - dataList['btn_single_attack'].width,
+          y: (LGlobal.height - dataList['btn_single_attack'].height) * 0.5
+        }
+      },
+      btnMultiAttack: {
+        type: 'LButton',
+        state: 'btn_multi_attack',
+        onClick: '_gotoGame',
+        properties: {
+          x: LGlobal.width * 0.5,
+          y: (LGlobal.height - dataList['btn_multi_attack'].height) * 0.5
         }
       },
       boxLayer: {

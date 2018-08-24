@@ -100,7 +100,7 @@ var UserService = (function() {
       { id: 14, level: 2, amount: 8 },
       { id: 15, level: 1, amount: 9 },
       { id: 16, level: 1, amount: 6 }];
-    var teams = [[1, 2, 4, 5]];
+    var teams = [[1, 2, 3, 4]];
     var teamIndex = 0;
     var boxs = [
       { id: 1, boxId: 4, time: 3400000, status: 'unlock' },

@@ -4,7 +4,7 @@ var HomeCupView = (function() {
     var properties = {
       cupLayer: {
         type: 'LPanel',
-        data: 'btn_gree_64',
+        data: 'btn_gray_64',
         width: 260,
         height: 64
       },

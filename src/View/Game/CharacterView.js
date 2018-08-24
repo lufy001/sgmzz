@@ -12,14 +12,22 @@ var CharacterView = (function() {
     _this.setActionDirection(CharacterAction.MOVE, CharacterDirection.RIGHT);
 
     _this.character.addFrameScript(String.format('{0}-{1}', CharacterAction.ATTACK_START, CharacterDirection.RIGHT), function() {
-      _this.attackToHert();
+      _this._attackToHert();
     }, []);
     _this.character.addEventListener(LEvent.COMPLETE, _this.actionComplete, _this);
 
     CommonEvent.addEventListener(CommonEvent.ARROW_ATTACK, _this._checkAttack, _this);
     CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
+    CommonEvent.addEventListener(CommonEvent.PLAYER_HERT, _this._onHert, _this);
   };
-  CharacterView.prototype.attackToHert = function() {
+  CharacterView.prototype.die = function() {
+    var _this = this;
+    CommonEvent.removeEventListener(CommonEvent.ARROW_ATTACK, _this._checkAttack, _this);
+    CommonEvent.removeEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
+    CommonEvent.removeEventListener(CommonEvent.PLAYER_HERT, _this._onHert, _this);
+    _this.callParent('die', arguments);
+  };
+  CharacterView.prototype._attackToHert = function() {
     var _this = this;
     var skill = _this.skill;
     var directions = _this._directions;
@@ -62,9 +70,24 @@ var CharacterView = (function() {
     _this.setActionDirection(CharacterAction.ATTACK, CharacterDirection.RIGHT);
   };
   CharacterView.prototype.addHp = function(value) {
-    var event = new LEvent('player:heal');
+    var event = new LEvent('player:changeHp');
     event.value = value;
     _this.dispatchEvent(event);
+  };
+  CharacterView.prototype._onHert = function(event) {
+    var _this = this;
+    if (event.targetId !== _this.model.id()) {
+      return;
+    }
+    var hert = event.hertValue;
+    if (event.attackType === 'physice') {
+      hert = hert * _this.model.physiceDefense();
+    } else {
+      hert = hert * _this.model.magicDefense();
+    }
+    var e = new LEvent('player:changeHp');
+    e.value = -hert;
+    _this.dispatchEvent(e);
   };
   return CharacterView;
 })();
