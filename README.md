@@ -222,8 +222,8 @@
 #### 返回值
     {
         leaderboard:[
-        {rank:1,userId:1,name:"lufy01",cup:3000},
-        {rank:2,userId:2,name:"lufy02",cup:2999}
+        {rank:1,userId:1,name:"lufy01",level:10,cup:3000},
+        {rank:2,userId:2,name:"lufy02",level:9,cup:2999}
         ]
     }
 ・rank 排名 
@@ -231,6 +231,8 @@
 ・userId 玩家id。
 
 ・name 玩家昵称。
+
+・level 玩家等级。
 
 ・cup 玩家的奖杯数。    
 
