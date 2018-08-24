@@ -56,7 +56,10 @@ var CharacterModel = (function(){
     CharacterModel.prototype.getBuffer = function(key){
         return this.data._buffer[key];
     };
-    CharacterModel.prototype.deleteBuffer = function(){
+    CharacterModel.prototype.deleteBuffer = function(key){
+        delete this.data._buffer[key];
+    };
+    CharacterModel.prototype.autoBufferDelete = function(keys){
         var _this = this;
         var bufferKeys = ["atk", "phy_def", "mag_def", "poison", "ice"];
         var deleteKeys = [];
@@ -67,7 +70,7 @@ var CharacterModel = (function(){
             }
             buffer.time -= LGlobal.speed;
             if(buffer.time <= 0){
-                delete  _this.data._buffer[key];
+                delete _this.data._buffer[key];
                 deleteKeys.push(key);
             }
         });

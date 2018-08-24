@@ -57,16 +57,31 @@ var BattleCharacterView = (function(){
         _this.action = action;
         _this.direction = direction;
     };
-    BattleCharacterView.prototype.addBuffer = function(key, value, time, state) {
+    BattleCharacterView.prototype.addBuffer = function(key, value, time) {
         var _this = this;
-        _this.model.addBuffer(key, value);
+        var buffer = _this.model.getBuffer(key);
         var bufferChild = _this.bufferLayer.getChildByName(key);
+        if(buffer && typeof buffer === "number"){
+            _this.model.deleteBuffer(key);
+            if(buffer * value < 0){
+                bufferChild.visible = false;
+                _this._resetBufferPosition();
+                return;
+            }
+        }
+        _this.model.addBuffer(key, value, time);
+
+        var img = "buffer_"+key;
+        if(typeof value === "number"){
+            img = value > 1 ? "_up" : "_down";
+        }
+
         if(bufferChild){
+            bufferChild.bitmapData = new LBitmapData(dataList[img]);
             bufferChild.visible = true;
             _this._resetBufferPosition();
             return;
         }
-        var img = "buffer_"+key + (state ? ("_" + state) : "");
         bufferChild = new LBitmap(new LBitmapData(dataList[img]));
         bufferChild.name = key;
         bufferChild.y = 64 - bufferChild.getHeight();
@@ -75,7 +90,7 @@ var BattleCharacterView = (function(){
     };
     BattleCharacterView.prototype._deleteBufferFrame = function() {
         var _this = this;
-        var keys = _this.model.deleteBuffer();
+        var keys = _this.model.autoBufferDelete();
         keys.forEach(function(key){
             var bufferChild = _this.bufferLayer.getChildByName(key);
             bufferChild.visible = false;
@@ -113,7 +128,8 @@ var BattleCharacterView = (function(){
         }
         var directionCount = event.directionCount;
         var value = skill.value()[directionCount - 3];
-        switch(skill.type()){
+        var skillType = skill.type();
+        switch(skillType){
         	case "heal":
         		_this.addHp(value*event.hert>>0);
         		break;
@@ -122,15 +138,15 @@ var BattleCharacterView = (function(){
         	case "atk":
         	case "phy_def":
         	case "mag_def":
-                _this.addBuffer(skill.type(), value, DEFAULT_BUFFER_TIME, value>1?"up":"down");
+                _this.addBuffer(skillType, value, DEFAULT_BUFFER_TIME);
                 break;
         	case "sleep":
         	case "poison":
-        		_this.addBuffer(skill.type(), 1, value, null);
+        		_this.addBuffer(skillType, true, value);
         		break;
             case "all_def":
-                _this.addBuffer("phy_def", value, DEFAULT_BUFFER_TIME, value>1?"up":"down");
-                _this.addBuffer("mag_def", value, DEFAULT_BUFFER_TIME, value>1?"up":"down");
+                _this.addBuffer("phy_def", value, DEFAULT_BUFFER_TIME);
+                _this.addBuffer("mag_def", value, DEFAULT_BUFFER_TIME);
                 break;
         }
     };
