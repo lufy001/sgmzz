@@ -157,3 +157,29 @@
 ・玩家对战获胜后能得到金币，宝箱以及奖杯，获得的金币和奖杯根据对战玩家和自己的奖杯差来决定，这个后面再讨论 
 #### 返回值
 待定 
+
+
+## 表
+### master_chapters 
+相当于一个大的章节目录
+|name|说明|
+|--|--|
+|id|3位数字，从100开始依次递增|
+|title|章节名|
+### master_stages
+每一个大的章节里所包含小的战斗stage
+|name|说明|
+|--|--|
+|id|6位数字，前3位是章节id，后三位才是stage的id，比如100001,100002|
+|title|战斗名称|
+|map|地图id，地图我都按照id放到客户端，根据这个id来显示|
+|gem|首次获胜奖励的宝石个数|
+### master_stages_enemys
+|name|说明|
+|--|--|
+|stage_id|master_stages的id|
+|step_id|战斗中分为2-3个小阶段，所以需要有个区分|
+|character_id|敌人id|
+|level|敌人的等级|
+|is_boss|是否是boss|
+
