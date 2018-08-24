@@ -1,54 +1,54 @@
 var CharacterAction = {
-	/**
+  /**
 	 * 站立
 	 **/
-	STAND:"stand",
-	/**
+  STAND: 'stand',
+  /**
 	 * 移动
 	 **/
-	MOVE:"move",
-	/**
+  MOVE: 'move',
+  /**
 	 * 攻击
 	 **/
-	ATTACK:"attack",
-	/**
+  ATTACK: 'attack',
+  /**
 	 * 攻击开始
 	 **/
-	ATTACK_START:"attack_start",
-	/**
+  ATTACK_START: 'attack_start',
+  /**
 	 * 挡格
 	 **/
-	BLOCK:"block",
-	/**
+  BLOCK: 'block',
+  /**
 	 * 受伤
 	 **/
-	HERT:"hert",
-	/**
+  HERT: 'hert',
+  /**
 	 * 觉醒
 	 **/
-	WAKE:"wake",
-	/**
+  WAKE: 'wake',
+  /**
 	 * 喘气
 	 **/
-	PANT:"pant",
-	/**
+  PANT: 'pant',
+  /**
 	 * 升级
 	 **/
-	LEVELUP:"levelup",
-	/**
+  LEVELUP: 'levelup',
+  /**
 	 * 法攻
 	 **/
-	MAGIC_ATTACK:"magic_attack"
+  MAGIC_ATTACK: 'magic_attack'
 };
 var CharacterDirection = {
-	DOWN:"down",
-	LEFT:"left",
-	RIGHT:"right",
-	UP:"up"
+  DOWN: 'down',
+  LEFT: 'left',
+  RIGHT: 'right',
+  UP: 'up'
 };
 var CharacterBelong = {
-	SELF:"self",
-	ENEMY:"enemy",
-	OPPONENT:"opponent"
+  SELF: 'self',
+  ENEMY: 'enemy',
+  OPPONENT: 'opponent'
 };
 var CHARACTER_SIZE = 48;
