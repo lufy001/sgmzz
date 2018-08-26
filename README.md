@@ -184,7 +184,7 @@
 ## 类(game)
 ### 单人战斗结束(sendSingleResult) 
 #### 参数
-・stageId master_stages表中的id，master_stages表的结构可以先参考login返回值中的chapters那部分里的stages
+・stageId master_stages表中的id
 #### 处理说明
 ・单人战斗只有胜利的时候才进行通信，获胜后能得到宝箱，首次获胜会获取少量宝石，只能获取一次，获取的宝石数量从master_stages中获取 
 #### 返回值
