@@ -116,7 +116,8 @@ var UserService = (function() {
       coin: 1000000,
       gem: 1000000,
       exp: 2222,
-      lv: 11
+      lv: 11,
+      lastStageId: 102002
     };
     var response = new PlayerModel(res);
     _this.playerModel = response;

@@ -24,6 +24,7 @@ var loadData = [
   { name: 'btn_gree', path: 'resources/images/ui/btn_gree.png' },
   { name: 'btn_gree_64', path: 'resources/images/ui/btn_gree_64.png' },
   { name: 'btn_gray_64', path: 'resources/images/ui/btn_gray_64.png' },
+  { name: 'btn_blue_48', path: 'resources/images/ui/btn_blue_48.png' },
   { name: 'btn01', path: 'resources/images/ui/btn01.png' },
   { name: 'btn02', path: 'resources/images/ui/btn02.png' },
   { name: 'btn03', path: 'resources/images/ui/btn03.png' },
@@ -49,6 +50,7 @@ var loadData = [
   { name: 'amount_bg', path: 'resources/images/ui/amount_bg.png' },
   { name: 'amount_front', path: 'resources/images/ui/amount_front.png' },
   { name: 'amount_front_green', path: 'resources/images/ui/amount_front_green.png' },
+  { name: 'icon_quit', path: 'resources/images/icons/quit.png' },
   { name: 'icon_attack', path: 'resources/images/icons/attack.png' },
   { name: 'icon_hp', path: 'resources/images/icons/hp.png' },
   { name: 'icon_speed', path: 'resources/images/icons/speed.png' },
@@ -67,6 +69,8 @@ var loadData = [
   { name: 'icon_ranking', path: 'resources/images/icons/ranking.png' },
   { name: 'icon_news', path: 'resources/images/icons/news.png' },
   { name: 'icon_game_menu', path: 'resources/images/icons/game_menu.png' },
+  { name: 'icon_ok', path: 'resources/images/icons/ok.png' },
+  { name: 'icon_exclamation', path: 'resources/images/icons/exclamation.png' },
 
   { name: 'buffer_phy_def_down', path: 'resources/images/status/buffer_phy_def_down.png' },
   { name: 'buffer_phy_def_up', path: 'resources/images/status/buffer_phy_def_up.png' },
@@ -76,6 +80,10 @@ var loadData = [
   { name: 'buffer_phy_atk_up', path: 'resources/images/status/buffer_phy_atk_up.png' },
   { name: 'buffer_poison', path: 'resources/images/status/buffer_poison.png' },
   { name: 'buffer_sleep', path: 'resources/images/status/buffer_sleep.png' },
+  
+  { name: 'chapter-title', path: 'resources/images/chapter/chapter-title.png' },
+  { name: 'area-background', path: 'resources/images/chapter/area-background.png' },
+  { name: 'stage-background', path: 'resources/images/chapter/stage-background.png' },
 
   { name: 'arrow-question', path: 'resources/images/game/arrow-question.png' },
   { name: 'arrow-down', path: 'resources/images/game/arrow-down.png' },
@@ -107,7 +115,10 @@ var loadData = [
   { type: 'js', path: 'src/Manager/SkillManager.js' },
   { type: 'js', path: 'src/Manager/LevelManager.js' },
   { type: 'js', path: 'src/Manager/BoxManager.js' },
+
   { type: 'js', path: 'src/Service/RankingService.js' },
+  { type: 'js', path: 'src/Service/GameService.js' },
+
   { type: 'js', path: 'src/Core/AutoDisplayObject.js' },
   { type: 'js', path: 'src/Controller/BaseController.js' },
   { type: 'js', path: 'src/Controller/CardsController.js' },
@@ -116,6 +127,7 @@ var loadData = [
   { type: 'js', path: 'src/Controller/GroupController.js' },
   { type: 'js', path: 'src/Controller/ShopController.js' },
   { type: 'js', path: 'src/Controller/EventsController.js' },
+  { type: 'js', path: 'src/Controller/ChapterMapController.js' },
   { type: 'js', path: 'src/Controller/Dialog/DialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/CardDetailDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ConfirmGoldDialogController.js' },
@@ -165,6 +177,9 @@ var loadData = [
   { type: 'js', path: 'src/Util/PseudoRandom.js' },
   { type: 'js', path: 'src/Util/Common.js' },
   { type: 'js', path: 'src/Util/CommonEvent.js' },
+  
+  { type: 'js', path: 'src/View/ChapterMap/ChapterMapChildView.js' },
+  { type: 'js', path: 'src/View/ChapterMap/StageChildView.js' },
 
   { type: 'js', path: 'src/View/Game/BattleView.js' },
   { type: 'js', path: 'src/View/Game/BattleCharacterView.js' },

@@ -57,6 +57,87 @@ var MasterService = (function() {
           enemys: [
             [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
             [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 100002, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 100003, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 100004, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] }
+      ] },
+      { id: 101, title: 'huang jin zhi luan', stages: [
+        { id: 101001, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 101002, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 101003, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 101004, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] }
+      ] },
+      { id: 102, title: 'huang jin zhi luan', stages: [
+        { id: 102001, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 102002, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 102003, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 102004, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] }
+      ] },
+      { id: 103, title: 'huang jin zhi luan', stages: [
+        { id: 103001, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 103002, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 103003, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
+          ] },
+        { id: 103004, title: 'ying chuan zhi zhan', map: 1,
+          enemys: [
+            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
+            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
           ] }
       ] }
     ];

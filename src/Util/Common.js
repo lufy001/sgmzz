@@ -41,24 +41,34 @@ var Common = (function() {
     return background;
   };
   Common.getButton = function(text, params) {
+    console.log('getButton', text, params);
     var img = 'btn01';
     var offsetY = 0;
+    var offsetX = 0;
     var size = 18;
     if (params) {
       img = params.img || img;
+      offsetX = params.offsetX || offsetX;
       offsetY = params.offsetY || offsetY;
       size = params.size || size;
     }
+    //console.log('img', img, dataList[img]);
     var buttonLayer = new LSprite();
     var btnBitmap = new LBitmap(new LBitmapData(dataList[img]));
     buttonLayer.addChild(btnBitmap);
     var textLabel = Common.getStrokeLabel({ text: text, size: size });
     textLabel.name = 'label';
-    textLabel.x = (btnBitmap.getWidth() - textLabel.getWidth()) * 0.5;
+    textLabel.x = (btnBitmap.getWidth() - textLabel.getWidth()) * 0.5 + offsetX;
     textLabel.y = (btnBitmap.getHeight() - textLabel.getHeight()) * 0.5 + offsetY;
     buttonLayer.addChild(textLabel);
     if (params && params.icon) {
       var icon = new LBitmap(new LBitmapData(dataList[params.icon]));
+      if (params.iconWidth) {
+        icon.scaleX = params.iconWidth / icon.getWidth();
+      }
+      if (params.iconHeight) {
+        icon.scaleY = params.iconHeight / icon.getHeight();
+      }
       textLabel.x = (btnBitmap.getWidth() - textLabel.getWidth() - icon.getWidth()) * 0.5;
       icon.x = textLabel.x + textLabel.getWidth();
       icon.y = (btnBitmap.getHeight() - icon.getHeight()) * 0.5 + offsetY;

@@ -36,17 +36,19 @@ var HomeController = (function() {
         }
       },
       btnSingleAttack: {
-        type: 'LButton',
-        state: 'btn_single_attack',
-        onClick: '_gotoGame',
+        type: 'CommonButton',
+        label: 'Story',
+        params: { img: 'btn_single_attack', size: 28, offsetX: 10, offsetY: -5 },
+        onClick: '_gotoChapterMap',
         properties: {
           x: LGlobal.width * 0.5 - dataList['btn_single_attack'].width,
           y: (LGlobal.height - dataList['btn_single_attack'].height) * 0.5
         }
       },
       btnMultiAttack: {
-        type: 'LButton',
-        state: 'btn_multi_attack',
+        type: 'CommonButton',
+        label: 'Battle',
+        params: { img: 'btn_multi_attack', size: 28, offsetX: 10, offsetY: -5 },
         onClick: '_gotoGame',
         properties: {
           x: LGlobal.width * 0.5,
@@ -87,6 +89,10 @@ var HomeController = (function() {
     var _this = this;
     _this._boxUpdateView();
     headerView.updateView();
+  };
+  HomeController.prototype._gotoChapterMap = function(event) {
+    var _this = this;
+    Common.changeScene('ChapterMapController', { selectChapterId: 100, selectStageId: 100001 });
   };
   HomeController.prototype._gotoGame = function(event) {
     var _this = this;

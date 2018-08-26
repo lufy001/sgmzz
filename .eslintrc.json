@@ -32,7 +32,6 @@
       }],
       "key-spacing": "error",
       "keyword-spacing": "error",
-      "lines-between-class-members": ["error", "always"],
       "newline-per-chained-call": "error",
       "no-array-constructor": "error",
       "no-extra-parens": "error",

@@ -3,6 +3,9 @@ var PlayerModel = (function() {
     var _this = this;
     _this.data = data;
   }
+  PlayerModel.prototype.lastStageId = function() {
+    return this.data.lastStageId;
+  };
   PlayerModel.prototype.coin = function(value) {
     if (value) {
       this.data.coin = value;

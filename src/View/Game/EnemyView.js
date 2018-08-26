@@ -1,8 +1,8 @@
 var AUTO_ATTACK_TIME = {
-  'very fast': 3000,
-  'fast': 4000,
-  'medium': 5000,
-  'slow': 6000
+  'very fast': 4000,
+  'fast': 6000,
+  'medium': 8000,
+  'slow': 10000
 };
 var EnemyView = (function() {
   function EnemyView(model, scale) {

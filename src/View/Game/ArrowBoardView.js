@@ -38,6 +38,13 @@ var ArrowBoardView = (function() {
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
     CommonEvent.addEventListener(CommonEvent.ARROW_CLICK, _this._arrowClick, _this);
     CommonEvent.addEventListener(CommonEvent.ADD_SKILL_POWER, _this._onAddSkillPower, _this);
+    CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onGameOver, _this);
+    CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onGameOver, _this);
+  };
+  ArrowBoardView.prototype._onGameOver = function(event) {
+    var _this = this;
+    _this.layer.removeAllChild();
+    _this.inputArrowList.clear();
   };
   ArrowBoardView.prototype._onGameStart = function(event) {
     var _this = this;
@@ -65,8 +72,7 @@ var ArrowBoardView = (function() {
     _this.skillProgress.updateView({ progress: progress, sum: _this.skillProgress.sum });
   };
   ArrowBoardView.prototype._arrowClick = function(event) {
-    var _this = this;
-        
+    var _this = this;   
     var e;
     if (event.input === 'ok') {
       e = new LEvent(CommonEvent.ARROW_CHECK);

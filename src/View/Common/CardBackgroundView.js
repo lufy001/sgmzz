@@ -1,5 +1,5 @@
 var CardBackgroundView = (function() {
-  function CardBackgroundView() {
+  function CardBackgroundView(rarity) {
     var _this = this;
     var properties = {
       background: {
@@ -10,6 +10,9 @@ var CardBackgroundView = (function() {
       }
     };
     LExtends(_this, BaseView, [properties]);
+    if (rarity) {
+      _this.updateView(rarity);
+    }
   }
   CardBackgroundView.prototype.updateView = function(rarity, isHidden) {
     var _this = this;
@@ -23,6 +26,7 @@ var CardBackgroundView = (function() {
       _this.background.alpha = 1;
       _this.rarityBitmap.visible = true;
     }
+    console.log('card_' + rarity);
     _this.rarityBitmap.bitmapData = new LBitmapData(dataList['card_' + rarity]);
   };
   return CardBackgroundView;

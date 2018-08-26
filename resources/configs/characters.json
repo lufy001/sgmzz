@@ -3,7 +3,7 @@
         "id":1,
         "name":"zhang fei",
         "skillId":1,
-        "rarity":"c",
+        "rarity":"sr",
         "attack":10,
         "attackPlus":5,
         "hp":100,
