@@ -38,7 +38,8 @@
             master_skills:1
         },
         loginBonusCalled:1，
-        loginBonusCount:3
+        loginBonusCount:3,
+        lastStageId:100002
     }
 ・characters 玩家拥有的卡牌，从cards表中获取，id是卡牌的card_id，也就是master_characters的id，level是卡牌等级，amount是卡牌的数量 
 
@@ -59,7 +60,10 @@
 ・versions 各个master数据的版本，用户从服务器上获取的master数据会连同它们的版本一起保存到本地，之后通过对比来更新数据，如果不需要更新数据，则不会再次进行通信从服务器上获取 
 
 ・loginBonusCalled 登录奖励是否已经领取
+
 ・loginBonusCount 一个周期内登录奖励领取次数
+
+・lastStageId 最后通过的master_stages的id
 
 ### 获取玩家信息(getPlayer) 
 #### 参数
