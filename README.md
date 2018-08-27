@@ -298,3 +298,34 @@
 |level|敌人的等级|
 |is_boss|是否是boss|
 
+
+## 防作弊设想
+### 增加对战表(battle_match)
+
+|name|说明|
+|--|--|
+|id|key|
+|player_id1|对战玩家1的id|
+|player_id2|对战玩家2的id|
+|player1_ok|对战玩家1确认|
+|player2_ok|对战玩家2确认|
+|register_time|数据登录时间|
+
+### 游戏开始
+#### API
+gameStart
+#### 参数
+・targetId 对手id
+#### 处理说明
+insert或者update表battle_match中的数据，首先玩家将自己的id与传入的对手id做比较，如果较小的id是自己，则进行insert，反之进行update。为了保证处理正常进行，update请求我会延迟1秒钟发送。
+##### insert处理
+player_id1=自己id，player_id2=对手id，player1_ok=1，player2_ok=0,register_time=当前服务器时间
+##### update处理
+搜索player_id1=对手id and idplayer_id2=自己的数据，然后进行player2_ok=1
+ 
+### 游戏结束
+验证battle_match表，搜索player_id1=自己id，player_id2=对手id的数据，如果数据存在，并且player1_ok=1，player2_ok=1，则数据有效，则进行游戏胜利的处理，处理结束后删除记录
+### 服务器自动删除处理
+为防止对战双方同时退出游戏，没有进行最后的通信，导致battle_match无法删除记录，暂定服务器每5分钟（之后根据一场战斗时间再调整）删除一次过期记录。
+### 漏洞
+作弊玩家依然可以在游戏开始后，即battle_match的数据登录完成之后，再直接进行作弊处理，但是至少增大了作弊的难度和流程。
