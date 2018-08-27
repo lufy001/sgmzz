@@ -32,7 +32,10 @@ var DialogController = (function() {
     closeBtn.addEventListener(LMouseEvent.MOUSE_UP, _this._onClose, _this);
   };
   DialogController.prototype._onClose = function(event) {
+    this.onClose();
     this.remove();
+  };
+  DialogController.prototype.onClose = function() {
   };
   DialogController.prototype.onLoad = function(request) {
   };

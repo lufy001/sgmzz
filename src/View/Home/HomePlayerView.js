@@ -50,6 +50,7 @@ var HomePlayerView = (function() {
       },
       settingButton: {
         type: 'CommonButton',
+        onClick: '_onClickSetting',
         label: '',
         params: { img: 'frame06', icon: 'icon_setting' },
         properties: {
@@ -69,8 +70,6 @@ var HomePlayerView = (function() {
     _this.playerLayer.cacheAsBitmap(true);
     var btnPlayer = new LButton(_this.playerLayer);
     _this.addChild(btnPlayer);
-        
-    _this.settingButton.addEventListener(LMouseEvent.MOUSE_UP, _this._onClickSetting, _this);
   };
   HomePlayerView.prototype._onClickSetting = function(event) {
     var _this = this;

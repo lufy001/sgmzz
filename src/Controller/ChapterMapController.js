@@ -137,7 +137,7 @@ var ChapterMapController = (function() {
     var _this = this;
     var stageId = event.model.id();
     var chapterId = stageId / 1000 >>> 0;
-    Common.changeScene('GameController', { selectChapterId: chapterId, selectStageId: stageId });
+    Common.changeScene('GameController', { selectChapterId: chapterId, selectStageId: stageId, battleType: 'single' });
   };
     
   ChapterMapController.prototype._init = function() {

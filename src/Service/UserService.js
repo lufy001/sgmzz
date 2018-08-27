@@ -67,13 +67,13 @@ var UserService = (function() {
     var response = new ContentsModel(res.contents);
     return Promise.resolve(response);
   };
-  UserService.prototype.login = function(id) {
+  UserService.prototype.login = function(id, name) {
     var _this = this;
     var action = {
       'class': 'user',
       'method': 'login'
     };
-    var request = { 'id': id };
+    var request = { 'id': id, name: name };
     if (!window.setting.isLocal) {
       return _this.send(action, request)
         .then(function(data) {

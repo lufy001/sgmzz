@@ -1,9 +1,8 @@
 var GameEvent = {
-  ROOM_IN: 'roomIn', //进入战斗房间
-  GAME_INIT: 'gameInit', //双方准备OK
-  BOUT_WIN: 'boutWin', //回合胜利
-  BOUT_FAIL: 'boutFail', //回合失败
-  SEND_ICON: 'sendIcon', //发送表情
+  ROOM_IN: 'photon:roomIn', //进入战斗房间
+  GAME_INIT: 'photon:gameInit', //双方准备OK
+  JOINED_LOBBY: 'photon:joinedLobby', //回合胜利
+  ATTACK: 'photon:attack', //攻击
 };
 var ClientEvent = {
   READY: 1, //单方战斗画面准备OK
@@ -51,6 +50,12 @@ var MasterClient = (function() {
   };
   MasterClient.prototype.playerId = function() {
     return this.player().getId();
+  };
+  MasterClient.prototype.leaveRoom = function() {
+    this.client.leaveRoom();
+  };
+  MasterClient.prototype.onJoinedLobby = function() {
+    MessagePipeline.sendMessage(GameEvent.JOINED_LOBBY);
   };
   MasterClient.prototype.sendMessage = function(eventCode, data, options) {
     this.client.raiseEventAll(eventCode, data, options);

@@ -18,9 +18,21 @@ var GameController = (function() {
   }
   GameController.prototype.onLoad = function(request) {
     var _this = this;
-        
-    var selectChapterId = request.selectChapterId;
+    if(request.battleType === 'single'){
+      _this._onLoadSingle(request);
+    }else{
+      _this._onLoadMulti(request);
+    }
+  };
+  GameController.prototype._onLoadMulti = function(request) {
+  	var _this = this;
+  	
+  };
+  GameController.prototype._onLoadSingle = function(request) {
+  	var _this = this;
+  	var selectChapterId = request.selectChapterId;
     var selectStageId = request.selectStageId;
+    _this.selectStageId = selectStageId;
     var masters = MasterService.instance().masters;
     var chapter = masters.chapters().find(function(child) {
       return child.id() === selectChapterId;
@@ -34,8 +46,6 @@ var GameController = (function() {
     event.chapter = chapter;
     event.stage = stage;
     CommonEvent.dispatchEvent(event);
-        
-    _this.selectStageId = selectStageId;
   };
   GameController.prototype._onResultWin = function() {
     var _this = this;

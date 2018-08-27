@@ -85,18 +85,17 @@ var HomeController = (function() {
     dialogLayer.addChild(dialog);
   };
   HomeController.prototype._boxOpened = function(event) {
-    console.log('HomeController.prototype._boxOpened');
     var _this = this;
     _this._boxUpdateView();
     headerView.updateView();
   };
   HomeController.prototype._gotoChapterMap = function(event) {
-    var _this = this;
-    Common.changeScene('ChapterMapController', { selectChapterId: 100, selectStageId: 100001 });
+    Common.changeScene('ChapterMapController');
   };
   HomeController.prototype._gotoGame = function(event) {
-    var _this = this;
-    Common.changeScene('GameController', { selectChapterId: 100, selectStageId: 100001 });
+    var dialog = new MatchDialogController({ width: 400, height: 210, hideClose: true });
+    dialogLayer.addChild(dialog);
+    //Common.changeScene('GameController', { battleType: 'multi' });
   };
   HomeController.prototype._openBoxs = function(event) {
     var _this = this;

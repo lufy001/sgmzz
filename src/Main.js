@@ -71,6 +71,7 @@ var loadData = [
   { name: 'icon_game_menu', path: 'resources/images/icons/game_menu.png' },
   { name: 'icon_ok', path: 'resources/images/icons/ok.png' },
   { name: 'icon_exclamation', path: 'resources/images/icons/exclamation.png' },
+  { name: 'icon_search', path: 'resources/images/icons/search.png' },
 
   { name: 'buffer_phy_def_down', path: 'resources/images/status/buffer_phy_def_down.png' },
   { name: 'buffer_phy_def_up', path: 'resources/images/status/buffer_phy_def_up.png' },
@@ -138,6 +139,7 @@ var loadData = [
   { type: 'js', path: 'src/Controller/Dialog/NewsDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/RankingDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ProfileDialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/MatchDialogController.js' },
   { type: 'js', path: 'src/Model/Master/CharacterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/ChapterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/StageMasterModel.js' },
@@ -207,6 +209,11 @@ function main() {
     LGlobal.stageScale = LStageScaleMode.SHOW_ALL;
     LSystem.screen(LStage.FULL_SCREEN);
   }
+  if (window.setting.isLocal) {
+    loadingLayer = new LoadingSample4();
+    addChild(loadingLayer);
+    FBInstant.setLoadingDisplay(loadingLayer);
+  }
   FBIManager.initializeAsync()
     .then(function() {
       LLoadManage.load(loadFristData, function(progress) {
@@ -216,8 +223,8 @@ function main() {
 }
 function dataFristLoadComplete(data) {
   var playerId = FBIManager.player().getID();
-  //var playerName = FBIManager.player().getName();
-  UserService.instance().login(playerId)
+  var playerName = FBIManager.player().getName();
+  UserService.instance().login(playerId, playerName)
     .then(function(playerModel) {
       FBIManager.setLoadingProgress(15);
       return MasterService.instance().getList(playerModel.versions());
@@ -239,7 +246,10 @@ function dataLoadComplete(data) {
   LevelManager.setMasters(master.masterLevel());
 
   dataList = data;
-    
+  if (loadingLayer) {
+    loadingLayer.remove();
+    loadingLayer = null;
+  }
   addCommonBackground();
   rootLayer = new LSprite();
   addChild(rootLayer);
