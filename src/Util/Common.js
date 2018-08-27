@@ -100,7 +100,13 @@ var Common = (function() {
   Common.getNumber = function(value) {
     return value < 10 ? '0' + value : value;
   };
-    
+  Common.delay = function(time) {
+    return new Promise(function(resolve, reject) {
+      setTimeout(function() {
+        resolve();
+      }, time);
+    });
+  };
   return Common;
 })();
 

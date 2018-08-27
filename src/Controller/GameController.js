@@ -18,19 +18,19 @@ var GameController = (function() {
   }
   GameController.prototype.onLoad = function(request) {
     var _this = this;
-    if(request.battleType === 'single'){
+    if (request.battleType === 'single') {
       _this._onLoadSingle(request);
-    }else{
+    } else {
       _this._onLoadMulti(request);
     }
   };
   GameController.prototype._onLoadMulti = function(request) {
-  	var _this = this;
-  	
+    var _this = this;
+    
   };
   GameController.prototype._onLoadSingle = function(request) {
-  	var _this = this;
-  	var selectChapterId = request.selectChapterId;
+    var _this = this;
+    var selectChapterId = request.selectChapterId;
     var selectStageId = request.selectStageId;
     _this.selectStageId = selectStageId;
     var masters = MasterService.instance().masters;

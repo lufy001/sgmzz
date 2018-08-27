@@ -3,6 +3,53 @@ var GameService = (function() {
     var _this = this;
     LExtends(_this, BaseService, []);
   }
+  GameService.prototype.matchStart = function() {
+    var _this = this;
+    var action = {
+      'class': 'match',
+      'method': 'matchStart'
+    };
+    var request = { };
+    if (!window.setting.isLocal) {
+      return _this.send(action, request);
+    }
+    
+    var res = {
+    };
+    return Promise.resolve(res);
+  };
+
+  GameService.prototype.getMatchTarget = function() {
+    var _this = this;
+    var action = {
+      'class': 'match',
+      'method': 'getMatchTarget'
+    };
+    var request = { };
+    if (!window.setting.isLocal) {
+      return _this.send(action, request);
+    }
+    
+    var res = {
+      targetId: 111
+    };
+    return Promise.resolve(res);
+  };
+  GameService.prototype.matchCancel = function() {
+    var _this = this;
+    var action = {
+      'class': 'match',
+      'method': 'matchCancel'
+    };
+    var request = { };
+    if (!window.setting.isLocal) {
+      return _this.send(action, request);
+    }
+    
+    var res = {
+    };
+    return Promise.resolve(res);
+  };
   GameService.prototype.sendSingleResult = function(stageId) {
     var _this = this;
     var action = {

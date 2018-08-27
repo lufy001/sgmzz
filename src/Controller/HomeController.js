@@ -93,9 +93,16 @@ var HomeController = (function() {
     Common.changeScene('ChapterMapController');
   };
   HomeController.prototype._gotoGame = function(event) {
+    var _this = this;
     var dialog = new MatchDialogController({ width: 400, height: 210, hideClose: true });
+    dialog.addEventListener('close', _this._matchOver, _this);
     dialogLayer.addChild(dialog);
-    //Common.changeScene('GameController', { battleType: 'multi' });
+  };
+  HomeController.prototype._matchOver = function(event) {
+    var _this = this;
+    if (event.targetId) {
+      Common.changeScene('GameController', { battleType: 'multi', targetId: event.targetId });
+    }
   };
   HomeController.prototype._openBoxs = function(event) {
     var _this = this;

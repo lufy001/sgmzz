@@ -12,6 +12,7 @@ var DialogController = (function() {
   DialogController.prototype.__init = function(request) {
     var _this = this;
     var maskBackground = Common.getTranslucentMask();
+    maskBackground.name = 'maskBackground';
     _this.addChild(maskBackground);
     _this.layer = new LSprite();
     var bitmapData = new LBitmapData(dataList['frame01']);
