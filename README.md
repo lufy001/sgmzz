@@ -348,9 +348,16 @@ battle_match_ready表
 |player_id2|玩家2的id|
 |register_time|数据登录时间|
 
+#### 频率
+每1秒钟执行1次，因为battle_match表中的数据配对完成后就会删除，数据量应该是很有限的，所以每秒执行1次应该不会对服务器造成压力。
+
 #### 处理说明
 1，玩家选择对战后，先调用matchStart将自己的id添加到battle_match表中，然后等待服务器为自己搜寻对手。服务器每1秒钟查询一次battle_match表，将所有数据按照奖杯数排序取出，自上而下或自下而上，按照奖杯数两两配对，配对条件为奖杯数相差200以内，两两配对成功的用户登录到battle_match_ready表，并从battle_match表中删除。
+
 2，将过期数据从battle_match表和battle_match_ready表中删除
 
 ### 一个赛季结束后的奖品发放
+#### 频率
+每周一次
+#### 处理说明
 待添加
