@@ -55,18 +55,23 @@ var MasterClient = (function() {
     this.client.leaveRoom();
   };
   MasterClient.prototype.onJoinedLobby = function() {
-    MessagePipeline.sendMessage(GameEvent.JOINED_LOBBY);
+    this.dispatchEvent(GameEvent.JOINED_LOBBY);
   };
   MasterClient.prototype.sendMessage = function(eventCode, data, options) {
     this.client.raiseEventAll(eventCode, data, options);
   };
-  MasterClient.prototype.start = function(id, name, data) {
-    this.client.start(id, name, data);
+  MasterClient.prototype.isConnected = function() {
+    return this.client.isConnectedToMaster() || this.client.isConnectedToGame();
+  };
+  MasterClient.prototype.start = function(id, data) {
+    this.client.start(id, data);
+  };
+  MasterClient.prototype.matching = function() {
+    this.client.createPhotonClientRoom();
   };
   MasterClient.prototype.attack = function(event) {
     this.sendMessage(ClientEvent.ATTACK, { 'id': this.client.myActor().getId(), params: event.params });
   };
-  
   var masterClient = new MasterClient();
   var client = new window.PhotonClient(masterClient);
   masterClient.client = client;

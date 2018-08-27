@@ -1,5 +1,4 @@
-var GLOBAL_ROOM_NAME = 'GlobalRoom (XXX Game)';
-//var GLOBAL_ROOM_NAME = 'DemoPairsGame (Master Client)';
+var GLOBAL_ROOM_NAME = 'GlobalRoom (SGMZZ Game)';
 var AppInfo = {
   //	Wss: true,
   AppId: '6915e697-bc86-4518-9e90-ac2b5ad7800c',
@@ -162,6 +161,8 @@ var PhotonClient = (function(_super) {
     console.warn('onStateChange', state, LBC.State.JoinedLobby);
     switch (state) {
       case LBC.State.JoinedLobby:
+        this.onJoinedLobby();
+        /*
         if (this.myActor().getTarget()) {
           if (this.myActor().isLeader()) {
             this.joinRoom(this.myActor().getBattleRoom());
@@ -172,10 +173,15 @@ var PhotonClient = (function(_super) {
           //console.warn(`this.joinRoom(${GLOBAL_ROOM_NAME});`);
           //this.joinRandomRoom();
           this.joinRoom(GLOBAL_ROOM_NAME);
-        }
+        }*/
         break;
       default:
         break;
+    }
+  };
+  PhotonClient.prototype.onJoinedLobby = function() {
+    if (this.masterClient && this.masterClient.onJoinedLobby) {
+      this.masterClient.onJoinedLobby();
     }
   };
   PhotonClient.prototype._findMinNrActor = function() {
@@ -183,25 +189,61 @@ var PhotonClient = (function(_super) {
     var acotr = actorsArray[0];
     for (var i = 1; i < actorsArray.length; i++) {
       var currentActor = actorsArray[i];
-      if (acotr.getTime() > currentActor.getTime()) {
+      if (acotr.getId() > currentActor.getId()) {
         acotr = currentActor;
       }
     }
     return acotr;
   };
-  PhotonClient.prototype.searchBattleTarget = function() {
+  PhotonClient.prototype._findEnemyActors = function() {
     var actorsArray = this.myRoomActorsArray();
-    if (actorsArray.length >= 2) {
-      var minActor = this._findMinNrActor();
-      if (this.myActor().getId() === minActor.getId() && !this.myActor().isLeader()) {
-        this.myActor().setCustomProperty('leader', true);
-        this.myActor().setCustomProperty('target', actorsArray[1].getId());
-        var battleRoom = this.myActor().getId() + '_' + actorsArray[0].getId();
-        this.myActor().setCustomProperty('battleRoom', battleRoom);
-        this.raiseEventAll(PhotonEvent.BUILD, { 'target': actorsArray[0].getId(), 'id': actorsArray[1].getId(), 'battleRoom': battleRoom });
-                
+    var arr = [];
+    for (var i = 0; i < actorsArray.length; i++) {
+      var currentActor = actorsArray[i];
+      if (currentActor.getTarget() > 0) {
+        continue;
+      }
+      arr.push(currentActor);
+    }
+    arr = arr.sort(function(a, b) {
+      return b.getCup() - a.getCup();
+    });
+    return arr;
+  };
+  PhotonClient.prototype.searchBattleTarget = function() {
+    if (this.myRoomActorCount() < 2) {
+      return;
+    }
+    /*var minActor = this._findMinNrActor();
+    if (this.myActor().getId() !== minActor.getId() || this.myActor().isLeader()) {
+      return;
+    }*/
+    var actors = this._findEnemyActors();
+    if (this.myActor().getId() !== actors[0].getId() || this.myActor().isLeader()) {
+      return;
+    }
+    var length = actors.length;
+    var findTarget = false;
+    for (var i = 0; i < length - 1; i++) {
+      var child1 = actors[i];
+      var child2 = actors[i + 1];
+      if (child1.getCup() - child2.getCup() < 200) {
+        child1.setCustomProperty('target', child2.getId());
+        child2.setCustomProperty('target', child1.getId());
+        i++;
+        findTarget = true;
       }
     }
+    if (findTarget) {
+      this.raiseEventAll(PhotonEvent.BUILD, {});
+    }
+    /*
+    this.myActor().setCustomProperty('leader', true);
+    this.myActor().setCustomProperty('target', actorsArray[1].getId());
+    var battleRoom = this.myActor().getId() + '_' + actorsArray[0].getId();
+    this.myActor().setCustomProperty('battleRoom', battleRoom);
+    this.raiseEventAll(PhotonEvent.BUILD, { 'target': actorsArray[0].getId(), 'id': actorsArray[1].getId(), 'battleRoom': battleRoom });
+    */
   };
   PhotonClient.prototype.onJoinRoom = function() {
     //console.error('onJoinRoom myRoom', this.myRoom().name, this.myRoomActorsArray());
@@ -277,6 +319,9 @@ var PhotonPlayer = (function(_super) {
   };
   PhotonPlayer.prototype.getName = function() {
     return this.getCustomProperty('name');
+  };
+  PhotonPlayer.prototype.getCup = function() {
+    return this.getCustomProperty('cup');
   };
   PhotonPlayer.prototype.getTarget = function() {
     return this.getCustomProperty('target');

@@ -18,7 +18,7 @@ var GameService = (function() {
     };
     return Promise.resolve(res);
   };
-
+  
   GameService.prototype.getMatchTarget = function() {
     var _this = this;
     var action = {

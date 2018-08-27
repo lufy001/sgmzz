@@ -7,6 +7,7 @@ var dialogLayer;
 window.setting = window.setting || {};
 var loadFristData = [
   { type: 'js', path: 'src/Util/LPlugin.js' },
+  { type: 'js', path: 'src/Util/MasterClient.js' },
   { type: 'js', path: 'src/Model/CharacterModel.js' },
   { type: 'js', path: 'src/Model/PlayerModel.js' },
   { type: 'js', path: 'src/Model/Response/MastersResponse.js' },
@@ -224,6 +225,8 @@ function main() {
 function dataFristLoadComplete(data) {
   var playerId = FBIManager.player().getID();
   var playerName = FBIManager.player().getName();
+  MasterClient.addEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
+  MasterClient.start(playerId, {});
   UserService.instance().login(playerId, playerName)
     .then(function(playerModel) {
       FBIManager.setLoadingProgress(15);
@@ -235,7 +238,7 @@ function dataFristLoadComplete(data) {
 }
 function dataLoad() {
   LLoadManage.load(loadData, function(progress) {
-    FBIManager.setLoadingProgress(20 + progress * 0.8);
+    FBIManager.setLoadingProgress(20 + progress * 0.7);
   }, dataLoadComplete);
 }
 function dataLoadComplete(data) {
@@ -244,8 +247,17 @@ function dataLoadComplete(data) {
   SkillManager.setMasters(master.masterSkills());
   BoxManager.setMasters(master.masterBoxs());
   LevelManager.setMasters(master.masterLevel());
-
   dataList = data;
+  onGameStart();
+}
+function onJoinedLobby() {
+  MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
+  onGameStart();
+}
+function onGameStart() {
+  if (!dataList || !MasterClient.isConnected()) {
+    return;
+  }
   if (loadingLayer) {
     loadingLayer.remove();
     loadingLayer = null;
