@@ -199,6 +199,35 @@
 
 ・gem 获取的个数。 
 
+### 搜寻对手准备(matchStart) 
+#### 参数
+・无
+#### 处理说明
+・将自己的id添加到battle_match表中 
+#### 返回值
+    {
+    }
+
+### 获取对战的对手id(getMatchTarget) 
+#### 参数
+・无
+#### 处理说明
+・查询battle_match_ready表，找出自己的对战配对数据 
+#### 返回值
+    {
+        targetId:123
+    }
+・targetId 与自己对战的对手id 
+
+### 取消对战(matchCancel) 
+#### 参数
+・无
+#### 处理说明
+・将自己相关的数据从battle_match表和battle_match_ready表中删除 
+#### 返回值
+    {
+    } 
+
 ### 玩家对战结束(sendMultiResult) 
 #### 参数
 ・targetId 对战玩家id
@@ -298,34 +327,28 @@
 |level|敌人的等级|
 |is_boss|是否是boss|
 
-
-## 防作弊设想
-### 增加对战表(battle_match)
+---------------------------------------
+## 定时任务
+### 对战对手搜寻配对
+#### 相关表
+battle_match表
 
 |name|说明|
 |--|--|
-|id|key|
-|player_id1|对战玩家1的id|
-|player_id2|对战玩家2的id|
-|player1_ok|对战玩家1确认|
-|player2_ok|对战玩家2确认|
+|player_id|玩家的id|
+|cup|玩家的奖杯数|
 |register_time|数据登录时间|
 
-### 游戏开始
-#### API
-gameStart
-#### 参数
-・targetId 对手id
+battle_match_ready表
+
+|name|说明|
+|--|--|
+|player_id1|玩家1的id|
+|player_id2|玩家2的id|
+|register_time|数据登录时间|
+
 #### 处理说明
-insert或者update表battle_match中的数据，首先玩家将自己的id与传入的对手id做比较，如果较小的id是自己，则进行insert，反之进行update。为了保证处理正常进行，update请求我会延迟1秒钟发送。
-##### insert处理
-player_id1=自己id，player_id2=对手id，player1_ok=1，player2_ok=0,register_time=当前服务器时间
-##### update处理
-搜索player_id1=对手id and idplayer_id2=自己的数据，然后进行player2_ok=1
- 
-### 游戏结束
-验证battle_match表，搜索player_id1=自己id，player_id2=对手id的数据，如果数据存在，并且player1_ok=1，player2_ok=1，则数据有效，则进行游戏胜利的处理，处理结束后删除记录
-### 服务器自动删除处理
-为防止对战双方同时退出游戏，没有进行最后的通信，导致battle_match无法删除记录，暂定服务器每5分钟（之后根据一场战斗时间再调整）删除一次过期记录。
-### 漏洞
-作弊玩家依然可以在游戏开始后，即battle_match的数据登录完成之后，再直接进行作弊处理，但是至少增大了作弊的难度和流程。
+玩家选择对战后，先调用matchStart将自己的id添加到battle_match表中，然后等待服务器为自己搜寻对手。服务器每1秒钟查询一次battle_match表，将所有数据按照奖杯数排序取出，自上而下或自下而上，按照奖杯数两两配对，配对条件为奖杯数相差200以内，两两配对成功的用户登录到battle_match_ready表，并从battle_match表中删除。
+
+### 一个赛季结束后的奖品发放
+待添加
