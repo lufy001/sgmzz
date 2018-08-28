@@ -100,7 +100,7 @@ var HomeController = (function() {
   };
   HomeController.prototype._matchOver = function(event) {
     var _this = this;
-    if (event.targetId) {
+    if (event.success) {
       Common.changeScene('GameController', { battleType: 'multi', targetId: event.targetId });
     }
   };

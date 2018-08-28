@@ -57,9 +57,11 @@ var CharacterArrowListView = (function() {
       _this._arrowsInit();
       return;
     }
+    var params = {};
     var e = new LEvent(CommonEvent.ARROW_ATTACK);
-    e.characterId = _this.model.id();
-    e.directions = [];
+    params.characterId = _this.model.id();
+    params.belong = CharacterBelong.SELF;
+    params.directions = [];
     var skill = _this.model.skill();
     var skillArrows = skill ? skill.arrows() : null;
     var skillEnabled = !!skill && _this.childList.length >= 3;
@@ -70,15 +72,19 @@ var CharacterArrowListView = (function() {
         skillPower++;
       }
       var currentDirection = child.currentDirection;
-      e.directions.push(currentDirection);
+      params.directions.push(currentDirection);
       if (skillEnabled && skillArrows[i] !== currentDirection) {
         skillEnabled = false;
       }
     }
     if (skillEnabled) {
-      e.skill = skill;
+      params.skill = skill;
     }
+    e.params = params;
     CommonEvent.dispatchEvent(e);
+    if (_this.model.belong() === CharacterBelong.SELF) {
+      MasterClient.attack({ params: params });
+    }
     if (skillPower > 0) {
       e = new LEvent(CommonEvent.ADD_SKILL_POWER);
       e.value = skillPower;

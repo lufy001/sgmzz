@@ -61,16 +61,47 @@ var MatchDialogController = (function() {
       })
       .then(function(response) {
         if (response.targetId > 0) {
-          var event = new LEvent('close');
-          event.targetId = response.targetId;
-          _this.dispatchEvent(event);
-          _this._onClose();
+          _this._getTargetSuccess(response.targetId);
         } else if (!_this._canceled) {
           return _this._getTarget();
         } else {
           _this._onClose();
         }
       });
+  };
+  MatchDialogController.prototype._getTargetSuccess = function(targetId) {
+    var _this = this;
+    _this._connectRoom(targetId);
+    /*
+    //TODO:Local
+    if (window.setting.isLocal) {
+      var event = new LEvent('close');
+      event.success = true;
+      _this.dispatchEvent(event);
+      _this._onClose();
+    } else {
+      _this._connectRoom();
+    }*/
+  };
+  MatchDialogController.prototype._connectRoom = function(targetId) {
+    var _this = this;
+    _this.title.text = 'Connecting room';
+    MasterClient.addEventListener(GameEvent.ROOM_IN, function() {
+      var event = new LEvent('close');
+      event.success = true;
+      _this.dispatchEvent(event);
+      _this._onClose();
+    });
+    var playerId = FBIManager.player().getID();
+    console.error('_connectRoom', playerId, targetId);
+    if (playerId > targetId) {
+      Common.delay(1000).then(function() {
+        MasterClient.player().setCustomProperty('team', UserService.instance().playerModel.teamToJson());
+        MasterClient.joinRoom(targetId + '_' + playerId);
+      });
+    } else {
+      MasterClient.createRoom(playerId + '_' + targetId);
+    }
   };
   MatchDialogController.prototype.onClose = function() {
     LTweenLite.remove(this._tween);

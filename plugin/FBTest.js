@@ -1,12 +1,14 @@
 var FBInstant = (function() {
   function FBInstant() {
-    this._randId = 10000000 * Math.random() >>> 0;
-    this.player = {
+    var _this = this;
+    _this._randId = Math.random() > 0.5 ? 100 : 50;
+    console.error('id: ', this._randId);
+    _this.player = {
       getID: function() {
-        return this._randId;
+        return _this._randId + '';
       },
       getName: function() {
-        return this._randId + 'abc';
+        return _this._randId + 'abc';
       }
     };
   }

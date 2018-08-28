@@ -35,6 +35,13 @@ var BattleView = (function() {
           y: 300
         }
       },
+      opponentTeam: {
+        type: 'OpponentTeamView',
+        properties: {
+          x: 480,
+          y: 120
+        }
+      },
       board: {
         type: 'ArrowBoardView',
         properties: {
@@ -71,11 +78,17 @@ var BattleView = (function() {
   BattleView.prototype.init = function() {
     var _this = this;
     _this._initScale();
+    CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameMultiStart, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_CONTINUE, _this._onGameContinue, _this);
   };
+  BattleView.prototype._onGameMultiStart = function(event) {
+    var _this = this;
+    _this.stepLabel.visible = false;
+  };
   BattleView.prototype._onGameStart = function(event) {
     var _this = this;
+    _this.stepLabel.visible = true;
     _this.stepLabel.text = GameManager.stepIndex + '/' + GameManager.stepSum;
     _this.gameTeam.x = _this.gameTeam.startX;
     _this.gameTeam.hpProgress.visible = false;

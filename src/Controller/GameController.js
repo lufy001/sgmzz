@@ -19,14 +19,17 @@ var GameController = (function() {
   GameController.prototype.onLoad = function(request) {
     var _this = this;
     if (request.battleType === 'single') {
+      GameManager.isMulti(false);
       _this._onLoadSingle(request);
     } else {
+      GameManager.isMulti(true);
       _this._onLoadMulti(request);
     }
   };
   GameController.prototype._onLoadMulti = function(request) {
     var _this = this;
-    
+    var event = new LEvent(CommonEvent.GAME_MULTI_START);
+    CommonEvent.dispatchEvent(event);
   };
   GameController.prototype._onLoadSingle = function(request) {
     var _this = this;

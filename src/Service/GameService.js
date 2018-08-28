@@ -9,7 +9,7 @@ var GameService = (function() {
       'class': 'match',
       'method': 'matchStart'
     };
-    var request = { };
+    var request = {};
     if (!window.setting.isLocal) {
       return _this.send(action, request);
     }
@@ -31,7 +31,7 @@ var GameService = (function() {
     }
     
     var res = {
-      targetId: 111
+      targetId: parseInt(FBIManager.player().getID()) === 100 ? 50 : 100
     };
     return Promise.resolve(res);
   };

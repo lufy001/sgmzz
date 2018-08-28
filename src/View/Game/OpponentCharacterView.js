@@ -1,0 +1,45 @@
+var OpponentCharacterView = (function() {
+  function OpponentCharacterView(model) {
+    var _this = this;
+    var properties = {
+      selectIcon: {
+        type: 'LBitmap',
+        data: 'arrow-select',
+        properties: {
+          x: 80,
+          y: 30,
+          visible: false
+        }
+      }
+    };
+    LExtends(_this, CharacterView, [model, properties]);
+    
+  }
+  OpponentCharacterView.prototype.init = function(data) {
+    var _this = this;
+    _this.callParent('init', arguments);
+    _this.setActionDirection(CharacterAction.MOVE, CharacterDirection.LEFT);
+
+    _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
+    CommonEvent.addEventListener(CommonEvent.SELECT_ENEMY, _this._onSelectEnemy, _this);
+  };
+  EnemyView.prototype.die = function() {
+    CommonEvent.removeEventListener(CommonEvent.SELECT_ENEMY, this._onSelectEnemy, this);
+    this.callParent('die');
+  };
+  OpponentCharacterView.prototype._onClick = function(event) {
+    this.toSelect();
+  };
+  OpponentCharacterView.prototype.toSelect = function() {
+    var _this = this;
+    var e = new LEvent(CommonEvent.SELECT_ENEMY);
+    e.model = _this.model;
+    CommonEvent.dispatchEvent(e);
+  };
+  OpponentCharacterView.prototype._onSelectEnemy = function(event) {
+    var _this = this;
+    var model = event.model;
+    _this.selectIcon.visible = _this.model.id() === model.id();
+  };
+  return OpponentCharacterView;
+})();

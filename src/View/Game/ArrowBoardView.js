@@ -36,6 +36,7 @@ var ArrowBoardView = (function() {
     _this.layer.mask = new LSprite();
     _this.layer.mask.graphics.drawRect(0, '#ff0000', [20, 15, 600, 160]);
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
+    CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameStart, _this);
     CommonEvent.addEventListener(CommonEvent.ARROW_CLICK, _this._arrowClick, _this);
     CommonEvent.addEventListener(CommonEvent.ADD_SKILL_POWER, _this._onAddSkillPower, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onGameOver, _this);

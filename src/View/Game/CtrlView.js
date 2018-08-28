@@ -70,6 +70,7 @@ var CtrlView = (function() {
   CtrlView.prototype.init = function() {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
+    CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameStart, _this);
     CommonEvent.addEventListener(CommonEvent.BATTLE_SKILL_RESET, _this._onBattleSkillReset, _this);
   };
   CtrlView.prototype._onGameStart = function(event) {

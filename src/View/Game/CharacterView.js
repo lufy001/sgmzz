@@ -1,14 +1,13 @@
 var CharacterView = (function() {
-  function CharacterView(model) {
+  function CharacterView(model, properties) {
     var _this = this;
-    LExtends(_this, BattleCharacterView, [model]);
+    LExtends(_this, BattleCharacterView, [model, properties]);
     //_this.model = model;
     _this.load();
   }
   CharacterView.prototype.init = function(data) {
     var _this = this;
     _this.callParent('init', arguments);
-        
     _this.setActionDirection(CharacterAction.MOVE, CharacterDirection.RIGHT);
 
     _this.character.addFrameScript(String.format('{0}-{1}', CharacterAction.ATTACK_START, CharacterDirection.RIGHT), function() {
@@ -56,18 +55,19 @@ var CharacterView = (function() {
     var _this = this;
     switch (_this.action) {
       case CharacterAction.ATTACK:
-        _this.setActionDirection(CharacterAction.MOVE, CharacterDirection.RIGHT);
+        _this.setActionDirection(CharacterAction.MOVE, _this.direction);
         break;
     }
   };
   CharacterView.prototype._checkAttack = function(event) {
     var _this = this;
-    if (_this.model.id() !== event.characterId) {
+    var params = event.params;
+    if (_this.model.belong() !== params.belong || _this.model.id() !== params.characterId) {
       return;
     }
-    _this._directions = event.directions;
-    _this._skill = event.skill;
-    _this.setActionDirection(CharacterAction.ATTACK, CharacterDirection.RIGHT);
+    _this._directions = params.directions;
+    _this._skill = params.skill;
+    _this.setActionDirection(CharacterAction.ATTACK, _this.direction);
   };
   CharacterView.prototype.addHp = function(value) {
     var event = new LEvent('player:changeHp');

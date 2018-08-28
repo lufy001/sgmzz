@@ -29,9 +29,11 @@ var GameManager = (function() {
     this._arrowPool.push(arrow);
     LGlobal.destroy = true;
   };
-  GameManager.prototype.createQuadTree = function() {
-    this._query = new LQuadTree(new LRectangle(0, 0, MAP_SIZE, MAP_SIZE));
-    this._query.createChildren(3);
+  GameManager.prototype.isMulti = function(value) {
+  	if(typeof value === UNDEFINED){
+  		return this._multi;
+  	}
+    this._multi = value;
   };
   GameManager.prototype.quadTreePlus = function(child) {
     this._query.add(child, child.x, child.y);

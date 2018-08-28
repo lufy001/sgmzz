@@ -17,13 +17,10 @@ var MasterClient = (function() {
   }
   MasterClient.prototype.gameStart = function(id) {
     var event = new LEvent(GameEvent.ROOM_IN);
-    event.enemyPlayer = this.enemy;
+    event.enemyPlayer = this.enemy();
     this.dispatchEvent(event);
   };
   MasterClient.prototype.onEvent = function(code, content, actorNr) {
-    if (this.client.myActor().getId() !== content.id) {
-      this.synchronisedTime(content.now);
-    }
     var event;
     switch (code) {
       case ClientEvent.READY:
@@ -34,12 +31,43 @@ var MasterClient = (function() {
           this.dispatchEvent(GameEvent.GAME_INIT);
         }
         break;
+      case ClientEvent.ATTACK:
+        if (this.client.myActor().getId() !== content.id) {
+          break;
+        }
+        this._onAttack(content.params);
+        break;
     }
+  };
+  MasterClient.prototype._onAttack = function(params) {
+    var e = new LEvent(CommonEvent.ARROW_ATTACK);
+    params.belong = CharacterBelong.OPPONENT;
+    e.params = params;
+    CommonEvent.dispatchEvent(e);
+  };
+  MasterClient.prototype.createRoom = function(roomName) {
+    return this.client.createPhotonClientRoom(roomName);
+  };
+  MasterClient.prototype.joinRoom = function(roomName) {
+    return this.client.joinRoom(roomName);
   };
   MasterClient.prototype.isLeader = function() {
     return this.client.myActor().isLeader();
   };
   MasterClient.prototype.enemy = function() {
+    //TODO:local
+    /*if (window.setting.isLocal) {
+      return {
+        getCustomProperty: function() {
+          var team = UserService.instance().playerModel.team();
+          var res = [];
+          team.forEach(function(model) {
+            res.push({ id: model.id(), level: model.level() });
+          });
+          return res;
+        }
+      };
+    }*/
     return this.client.myRoomActorsArray()[1];
   };
   MasterClient.prototype.player = function() {

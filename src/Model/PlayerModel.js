@@ -41,6 +41,14 @@ var PlayerModel = (function() {
     }
     return this.data.teamIndex;
   };
+  PlayerModel.prototype.teamToJson = function() {
+    var team = this.team();
+    var res = [];
+    team.forEach(function(model) {
+      res.push({ id: model.id(), level: model.level() });
+    });
+    return res;
+  };
   PlayerModel.prototype.teamData = function() {
     return this.data.teams[this.data.teamIndex];
   };
