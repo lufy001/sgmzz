@@ -13,7 +13,7 @@ var CharacterModel = (function() {
     return this.data.id;
   };
   CharacterModel.prototype.belong = function() {
-    return 'player';
+    return 'self';
   };
   CharacterModel.prototype.level = function() {
     return this.data.level;

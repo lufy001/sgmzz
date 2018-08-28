@@ -85,10 +85,14 @@ var BattleView = (function() {
   BattleView.prototype._onGameMultiStart = function(event) {
     var _this = this;
     _this.stepLabel.visible = false;
+    _this.enemyTeam.visible = false;
+    _this.opponentTeam.visible = true;
   };
   BattleView.prototype._onGameStart = function(event) {
     var _this = this;
     _this.stepLabel.visible = true;
+    _this.enemyTeam.visible = true;
+    _this.opponentTeam.visible = false;
     _this.stepLabel.text = GameManager.stepIndex + '/' + GameManager.stepSum;
     _this.gameTeam.x = _this.gameTeam.startX;
     _this.gameTeam.hpProgress.visible = false;

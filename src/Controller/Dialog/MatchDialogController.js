@@ -94,9 +94,10 @@ var MatchDialogController = (function() {
     });
     var playerId = FBIManager.player().getID();
     console.error('_connectRoom', playerId, targetId);
+    var teamJson = UserService.instance().playerModel.teamToJson();
+    MasterClient.player().setCustomProperty('team', teamJson);
     if (playerId > targetId) {
       Common.delay(1000).then(function() {
-        MasterClient.player().setCustomProperty('team', UserService.instance().playerModel.teamToJson());
         MasterClient.joinRoom(targetId + '_' + playerId);
       });
     } else {

@@ -28,18 +28,18 @@ var CharacterView = (function() {
   };
   CharacterView.prototype._attackToHert = function() {
     var _this = this;
-    var skill = _this.skill;
-    var directions = _this._directions;
-    _this._directions = null;
-    _this._skill = null;
+    var params = _this.params;
+    var skill = params.skill;
+    var directions = params.directions;
+    _this.params = null;
         
     var hert = _this.model.attack();
     hert = hert + hert * (directions.length - 2) * 0.5;
     var event = new LEvent(CommonEvent.ENEMY_HERT);
     event.hertValue = hert >>> 0;
     event.attackType = _this.model.attackType();
+    event.targetId = params.targetId;
     CommonEvent.dispatchEvent(event);
-        
     if (!skill) {
       return;
     }
@@ -65,8 +65,9 @@ var CharacterView = (function() {
     if (_this.model.belong() !== params.belong || _this.model.id() !== params.characterId) {
       return;
     }
-    _this._directions = params.directions;
-    _this._skill = params.skill;
+    //_this._directions = params.directions;
+    //_this._skill = params.skill;
+    _this._params = params;
     _this.setActionDirection(CharacterAction.ATTACK, _this.direction);
   };
   CharacterView.prototype.addHp = function(value) {

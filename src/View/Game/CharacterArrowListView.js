@@ -61,6 +61,7 @@ var CharacterArrowListView = (function() {
     var e = new LEvent(CommonEvent.ARROW_ATTACK);
     params.characterId = _this.model.id();
     params.belong = CharacterBelong.SELF;
+    params.targetId = GameManager.selectEnemyId;
     params.directions = [];
     var skill = _this.model.skill();
     var skillArrows = skill ? skill.arrows() : null;

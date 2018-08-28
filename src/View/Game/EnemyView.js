@@ -81,10 +81,13 @@ var EnemyView = (function() {
     var _this = this;
     var model = event.model;
     _this.selectIcon.visible = _this.model.id() === model.id();
+    if (_this.selectIcon.visible) {
+      GameManager.selectEnemyId = _this.model.id();
+    }
   };
   EnemyView.prototype._onHert = function(event) {
     var _this = this;
-    if (!_this.selectIcon.visible) {
+    if (_this.model.id() !== event.targetId) {
       return;
     }
     var hert = event.hertValue;
