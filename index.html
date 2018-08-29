@@ -9,20 +9,21 @@
             var tag = '<script type="text/javascript" src="./plugin/es6-promise.auto.min.js"><\/script>';
             document.write(tag);
         }
-        window.setting = {isLocal:true, platform:"fb"};
-        if(window.setting.isLocal){
-            var tag = '<script type="text/javascript" src="./plugin/FBTest.js"><\/script>';
-            document.write(tag);
-        }else{
-            var tag = '<script type="text/javascript" charset="utf-8" src="https://connect.facebook.net/en_US/fbinstant.6.2.js"><\/script>';
-            document.write(tag);
+        //window.setting = {isLocal:false, platform:"fb"};
+        window.setting = {isLocal:true, platform:"debug"};
+        var tag;
+        if (window.setting.platform === 'fb') {
+        tag = '<script type="text/javascript" charset="utf-8" src="https://connect.facebook.net/en_US/fbinstant.6.2.js"><\/script>';
+        } else {
+        tag = '<script type="text/javascript" src="./plugin/LocalPlatform.js"><\/script>';
         }
+        document.write(tag);
     </script>
     <script type="text/javascript" src="./plugin/Photon-Javascript_SDK.js"></script>
     <script type="text/javascript" src="./plugin/PhotonClient.js"></script>
     <script type="text/javascript" src="./plugin/lufylegend-2.0.0.beta.js"></script>
     <script type="text/javascript" src="./plugin/lufylegend.ui-0.15.0.min.js"></script>
-    <script type="text/javascript" src="./src/Manager/FBIManager.js"></script>
+    <script type="text/javascript" src="./plugin/LPlatform.js"></script>
     <script type="text/javascript" src="./src/Main.js"></script>
 </head>
     <body style="margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;background-color:#000000;">

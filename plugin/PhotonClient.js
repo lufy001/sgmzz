@@ -90,32 +90,26 @@ var PhotonClient = (function(_super) {
           break;
         case window.Photon.LoadBalancing.Constants.OperationCode.CreateGame:
           if (errorCode !== 0) {
-            if (this.myActor().getTarget()) {
-              if (!this.myActor().isLeader()) {
-                this.createPhotonClientRoom(this.myActor().getBattleRoom());
-                return;
-              }
+            if (this.myActor().getBattleRoom()) {
+              this.joinRoom(this.myActor().getBattleRoom());
             } else {
               this.joinRoom(GLOBAL_ROOM_NAME);
-              return;
+              //return;
             }
-            this.disconnect();
+            //this.disconnect();
           }
           break;
         case window.Photon.LoadBalancing.Constants.OperationCode.JoinGame:
           if (errorCode !== 0) {
             console.warn('JoinGame:', errorMsg);
             var self = this;
-            if (this.myActor().getTarget()) {
-              if (this.myActor().isLeader()) {
-                setTimeout(function() {
-                  self.joinRoom(self.myActor().getBattleRoom());
-                }, 200);
-              } else {
-                this.createPhotonClientRoom(this.myActor().getBattleRoom());
-              }
+            if (this.myActor().getBattleRoom()) {
+              setTimeout(function() {
+                self.joinRoom(self.myActor().getBattleRoom());
+              }, 200);
             } else {
-              this.createPhotonClientRoom();
+              this.joinRoom(GLOBAL_ROOM_NAME);
+              //return;
             }
             //this.disconnect();
           }

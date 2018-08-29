@@ -17,28 +17,29 @@ var CharacterView = (function() {
 
     CommonEvent.addEventListener(CommonEvent.ARROW_ATTACK, _this._checkAttack, _this);
     CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
-    CommonEvent.addEventListener(CommonEvent.PLAYER_HERT, _this._onHert, _this);
+    CommonEvent.addEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
   };
   CharacterView.prototype.die = function() {
     var _this = this;
     CommonEvent.removeEventListener(CommonEvent.ARROW_ATTACK, _this._checkAttack, _this);
     CommonEvent.removeEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
-    CommonEvent.removeEventListener(CommonEvent.PLAYER_HERT, _this._onHert, _this);
+    CommonEvent.removeEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
     _this.callParent('die', arguments);
   };
   CharacterView.prototype._attackToHert = function() {
     var _this = this;
-    var params = _this.params;
+    var params = _this._params;
     var skill = params.skill;
     var directions = params.directions;
-    _this.params = null;
+    _this._params = null;
         
     var hert = _this.model.attack();
     hert = hert + hert * (directions.length - 2) * 0.5;
-    var event = new LEvent(CommonEvent.ENEMY_HERT);
+    var event = new LEvent(CommonEvent.ON_HERT);
     event.hertValue = hert >>> 0;
     event.attackType = _this.model.attackType();
     event.targetId = params.targetId;
+    event.belong = params.belong;
     CommonEvent.dispatchEvent(event);
     if (!skill) {
       return;
@@ -65,8 +66,7 @@ var CharacterView = (function() {
     if (_this.model.belong() !== params.belong || _this.model.id() !== params.characterId) {
       return;
     }
-    //_this._directions = params.directions;
-    //_this._skill = params.skill;
+    console.log('_checkAttack', _this.model.belong(), '!==', params.belong, _this);
     _this._params = params;
     _this.setActionDirection(CharacterAction.ATTACK, _this.direction);
   };
@@ -77,7 +77,7 @@ var CharacterView = (function() {
   };
   CharacterView.prototype._onHert = function(event) {
     var _this = this;
-    if (event.targetId !== _this.model.id()) {
+    if (_this.model.belong() === event.belong || _this.model.id() !== event.targetId) {
       return;
     }
     var hert = event.hertValue;

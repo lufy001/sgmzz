@@ -46,7 +46,8 @@ var OpponentTeamView = (function() {
       hp = _this.hpProgress.sum;
     } else if (hp <= 0) {
       hp = 0;
-      CommonEvent.dispatchEvent(CommonEvent.RESULT_FAIL);
+      //CommonEvent.dispatchEvent(CommonEvent.RESULT_WIN);
+      MasterClient.gameOver();
     }
     _this.hpProgress.updateView({ progress: hp, sum: _this.hpProgress.sum, fontSize: 22 });
   };

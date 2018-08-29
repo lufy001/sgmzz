@@ -11,6 +11,7 @@ var loadFristData = [
   { type: 'js', path: 'src/Model/CharacterModel.js' },
   { type: 'js', path: 'src/Model/PlayerModel.js' },
   { type: 'js', path: 'src/Model/Response/MastersResponse.js' },
+  { type: 'js', path: 'src/Manager/PlayerManager.js' },
   { type: 'js', path: 'src/Service/BaseService.js' },
   { type: 'js', path: 'src/Service/UserService.js' },
   { type: 'js', path: 'src/Service/MasterService.js' }
@@ -117,7 +118,6 @@ var loadData = [
   { type: 'js', path: 'src/Manager/SkillManager.js' },
   { type: 'js', path: 'src/Manager/LevelManager.js' },
   { type: 'js', path: 'src/Manager/BoxManager.js' },
-  { type: 'js', path: 'src/Manager/PlayerManager.js' },
 
   { type: 'js', path: 'src/Service/RankingService.js' },
   { type: 'js', path: 'src/Service/GameService.js' },
@@ -222,22 +222,22 @@ function main() {
     addChild(loadingLayer);
     FBInstant.setLoadingDisplay(loadingLayer);
   }
-  FBIManager.initializeAsync()
+  LPlatform.initializeAsync()
     .then(function() {
       LLoadManage.load(loadFristData, function(progress) {
-        FBIManager.setLoadingProgress(progress * 0.1);
+        LPlatform.setLoadingProgress(progress * 0.1);
       }, dataFristLoadComplete);
     });
 }
 function dataFristLoadComplete(data) {
-  var playerId = FBIManager.player().getID();
-  var playerName = FBIManager.player().getName();
+  var playerId = LPlatform.player().getID();
+  var playerName = LPlatform.player().getName();
   MasterClient.addEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
   MasterClient.start(playerId, {});
   UserService.instance().login(playerId, playerName)
     .then(function(playerModel) {
       PlayerManager.playerModel = playerModel;
-      FBIManager.setLoadingProgress(15);
+      LPlatform.setLoadingProgress(15);
       return MasterService.instance().getList(playerModel.versions());
     })
     .then(function(response) {
@@ -246,7 +246,7 @@ function dataFristLoadComplete(data) {
 }
 function dataLoad() {
   LLoadManage.load(loadData, function(progress) {
-    FBIManager.setLoadingProgress(20 + progress * 0.7);
+    LPlatform.setLoadingProgress(20 + progress * 0.7);
   }, dataLoadComplete);
 }
 function dataLoadComplete(data) {
@@ -283,7 +283,7 @@ function onGameStart() {
 
   dialogLayer = new LSprite();
   addChild(dialogLayer);
-  FBIManager.startGameAsync();
+  LPlatform.startGameAsync();
 }
 function addCommonBackground() {
   var imgBackground = new LBitmapData(dataList['top_background']);

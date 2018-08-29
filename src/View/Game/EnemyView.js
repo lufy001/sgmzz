@@ -60,12 +60,12 @@ var EnemyView = (function() {
   EnemyView.prototype._addEvent = function() {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.SELECT_ENEMY, _this._onSelectEnemy, _this);
-    CommonEvent.addEventListener(CommonEvent.ENEMY_HERT, _this._onHert, _this);
+    CommonEvent.addEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
     _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
   };
   EnemyView.prototype.die = function() {
     CommonEvent.removeEventListener(CommonEvent.SELECT_ENEMY, this._onSelectEnemy, this);
-    CommonEvent.removeEventListener(CommonEvent.ENEMY_HERT, this._onHert, this);
+    CommonEvent.removeEventListener(CommonEvent.ON_HERT, this._onHert, this);
     this.callParent('die');
   };
   EnemyView.prototype._onClick = function(event) {
@@ -87,7 +87,7 @@ var EnemyView = (function() {
   };
   EnemyView.prototype._onHert = function(event) {
     var _this = this;
-    if (_this.model.id() !== event.targetId) {
+    if (_this.model.belong() === event.belong || _this.model.id() !== event.targetId) {
       return;
     }
     var hert = event.hertValue;
@@ -126,7 +126,7 @@ var EnemyView = (function() {
     var team = PlayerManager.playerModel.team();
     var hert = _this.model.attack();
     hert = hert + hert * (directionLength - 2) * 0.5;
-    var event = new LEvent(CommonEvent.PLAYER_HERT);
+    var event = new LEvent(CommonEvent.ON_HERT);
     event.targetId = team[team.length * Math.random() >> 0].id();
     event.hertValue = hert >>> 0;
     event.attackType = _this.model.attackType();

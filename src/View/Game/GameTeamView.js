@@ -52,7 +52,9 @@ var GameTeamView = (function() {
       hp = _this.hpProgress.sum;
     } else if (hp <= 0) {
       hp = 0;
-      CommonEvent.dispatchEvent(CommonEvent.RESULT_FAIL);
+      if (!GameManager.isMulti()) {
+        CommonEvent.dispatchEvent(CommonEvent.RESULT_FAIL);
+      }
     }
     _this.hpProgress.updateView({ progress: hp, sum: _this.hpProgress.sum, fontSize: 22 });
   };

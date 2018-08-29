@@ -32,10 +32,17 @@ var MasterClient = (function() {
         }
         break;
       case ClientEvent.ATTACK:
-        if (this.client.myActor().getId() !== content.id) {
+        if (this.client.myActor().getId() === content.id) {
           break;
         }
         this._onAttack(content.params);
+        break;
+      case ClientEvent.GAME_OVER:
+        if (this.client.myActor().getId() === content.id) {
+          CommonEvent.dispatchEvent(CommonEvent.RESULT_WIN);
+        } else {
+          CommonEvent.dispatchEvent(CommonEvent.RESULT_FAIL);
+        }
         break;
     }
   };
@@ -73,6 +80,7 @@ var MasterClient = (function() {
     this.dispatchEvent(GameEvent.JOINED_LOBBY);
   };
   MasterClient.prototype.sendMessage = function(eventCode, data, options) {
+    data.id = this.client.myActor().getId();
     this.client.raiseEventAll(eventCode, data, options);
   };
   MasterClient.prototype.isConnected = function() {
@@ -85,7 +93,10 @@ var MasterClient = (function() {
     this.client.createPhotonClientRoom();
   };
   MasterClient.prototype.attack = function(event) {
-    this.sendMessage(ClientEvent.ATTACK, { 'id': this.client.myActor().getId(), params: event.params });
+    this.sendMessage(ClientEvent.ATTACK, { params: event.params });
+  };
+  MasterClient.prototype.gameOver = function() {
+    this.sendMessage(ClientEvent.GAME_OVER, { });
   };
   var masterClient = new MasterClient();
   var client = new window.PhotonClient(masterClient);

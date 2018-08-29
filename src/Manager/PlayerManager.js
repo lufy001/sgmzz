@@ -2,7 +2,7 @@ var PlayerManager = (function() {
   function PlayerManager() {
     var _this = this;
     _this.playerModel = null;
-		_this.masterList = {};
+    _this.masterList = {};
   }
   PlayerManager.prototype.setMasters = function(jsonDataList) {
     var _this = this;

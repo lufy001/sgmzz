@@ -83,7 +83,7 @@ var CharacterArrowListView = (function() {
     }
     e.params = params;
     CommonEvent.dispatchEvent(e);
-    if (_this.model.belong() === CharacterBelong.SELF) {
+    if (GameManager.isMulti()) {
       MasterClient.attack({ params: params });
     }
     if (skillPower > 0) {

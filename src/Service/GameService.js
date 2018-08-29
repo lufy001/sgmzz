@@ -31,8 +31,14 @@ var GameService = (function() {
     }
     
     var res = {
-      targetId: parseInt(FBIManager.player().getID()) === 100 ? 50 : 100
+      targetId: 'TESTID'
     };
+    if (LPlatform.player().getID() === 'MULTI01') {
+      res.targetId = 'MULTI02';
+    } else if (LPlatform.player().getID() === 'MULTI02') {
+      res.targetId = 'MULTI01';
+    }
+    console.log('getMatchTarget', res);
     return Promise.resolve(res);
   };
   GameService.prototype.matchCancel = function() {
@@ -59,10 +65,10 @@ var GameService = (function() {
     var request = { 'stageId': stageId };
     if (!window.setting.isLocal) {
       return _this.send(action, request)
-      .then(function(data){
-      	var response = new BattleResultResponse(data);
-    		return Promise.resolve(response);
-      });
+        .then(function(data) {
+          var response = new BattleResultResponse(data);
+          return Promise.resolve(response);
+        });
     }
     var characters = [
       { id: 1, level: 1, amount: 22 }, 
@@ -118,10 +124,10 @@ var GameService = (function() {
     var request = { 'targetId': targetId };
     if (!window.setting.isLocal) {
       return _this.send(action, request)
-      .then(function(data){
-      	var response = new BattleResultResponse(data);
-    		return Promise.resolve(response);
-      });
+        .then(function(data) {
+          var response = new BattleResultResponse(data);
+          return Promise.resolve(response);
+        });
     }
     var characters = [
       { id: 1, level: 1, amount: 22 }, 

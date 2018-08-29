@@ -60,7 +60,7 @@ var MatchDialogController = (function() {
         return GameService.instance().getMatchTarget();
       })
       .then(function(response) {
-        if (response.targetId > 0) {
+        if (response.targetId) {
           _this._connectRoom(response.targetId);
         } else if (!_this._canceled) {
           return _this._getTarget();
@@ -78,15 +78,17 @@ var MatchDialogController = (function() {
       _this.dispatchEvent(event);
       _this._onClose();
     });
-    var playerId = FBIManager.player().getID();
+    var playerId = LPlatform.player().getID();
     console.error('_connectRoom', playerId, targetId);
     var teamJson = PlayerManager.playerModel.teamToJson();
     MasterClient.player().setCustomProperty('team', teamJson);
     if (playerId > targetId) {
       Common.delay(1000).then(function() {
+        MasterClient.player().setCustomProperty('battleRoom', targetId + '_' + playerId);
         MasterClient.joinRoom(targetId + '_' + playerId);
       });
     } else {
+      MasterClient.player().setCustomProperty('battleRoom', playerId + '_' + targetId);
       MasterClient.createRoom(playerId + '_' + targetId);
     }
   };
