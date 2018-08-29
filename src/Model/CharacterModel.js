@@ -79,7 +79,8 @@ var CharacterModel = (function() {
   CharacterModel.prototype.skill = function() {
     var _this = this;
     if (!_this._skill && _this._master.skillId()) {
-      _this._skill = new SkillModel({ id: _this._master.skillId(), level: _this.level() }); 
+      //_this._skill = new SkillModel({ id: _this._master.skillId(), level: _this.level() }); 
+      _this._skill = SkillManager.getMasterModel(_this._master.skillId());
     }
     return _this._skill;
   };

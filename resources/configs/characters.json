@@ -15,7 +15,7 @@
     {
         "id":2,
         "name":"guan yu",
-        "skillId":1,
+        "skillId":2,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -28,7 +28,7 @@
     {
         "id":3,
         "name":"xia hou dun",
-        "skillId":1,
+        "skillId":3,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -41,7 +41,7 @@
     {
         "id":4,
         "name":"cao cao",
-        "skillId":1,
+        "skillId":2,
         "rarity":"r",
         "attack":10,
         "attackPlus":5,
