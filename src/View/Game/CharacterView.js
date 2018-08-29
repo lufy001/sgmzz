@@ -15,13 +15,13 @@ var CharacterView = (function() {
     }, []);
     _this.character.addEventListener(LEvent.COMPLETE, _this.actionComplete, _this);
 
-    CommonEvent.addEventListener(CommonEvent.ARROW_ATTACK, _this._checkAttack, _this);
-    CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
+    CommonEvent.addEventListener(CommonEvent.ARROW_ATTACK, _this._onArrowAttack, _this);
+    CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStartHandl, _this);
     CommonEvent.addEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
   };
   CharacterView.prototype.die = function() {
     var _this = this;
-    CommonEvent.removeEventListener(CommonEvent.ARROW_ATTACK, _this._checkAttack, _this);
+    CommonEvent.removeEventListener(CommonEvent.ARROW_ATTACK, _this._onArrowAttack, _this);
     CommonEvent.removeEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
     CommonEvent.removeEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
     _this.callParent('die', arguments);
@@ -41,9 +41,13 @@ var CharacterView = (function() {
     event.targetId = params.targetId;
     event.belong = params.belong;
     CommonEvent.dispatchEvent(event);
+
+    skil = _this.model.skill();
+    console.error('skil', skil, !skill);
     if (!skill) {
       return;
     }
+    console.error('CommonEvent.SKILL_START');
     event = new LEvent(CommonEvent.SKILL_START);
     event.skill = skill;
     event.hert = hert;
@@ -60,13 +64,12 @@ var CharacterView = (function() {
         break;
     }
   };
-  CharacterView.prototype._checkAttack = function(event) {
+  CharacterView.prototype._onArrowAttack = function(event) {
     var _this = this;
     var params = event.params;
     if (_this.model.belong() !== params.belong || _this.model.id() !== params.characterId) {
       return;
     }
-    console.log('_checkAttack', _this.model.belong(), '!==', params.belong, _this);
     _this._params = params;
     _this.setActionDirection(CharacterAction.ATTACK, _this.direction);
   };

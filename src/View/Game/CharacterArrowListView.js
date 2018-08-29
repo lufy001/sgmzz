@@ -10,6 +10,7 @@ var CharacterArrowListView = (function() {
     _this._width = 640;
     LExtends(_this, ArrowListView, [[]]);
     _this.model = model;
+    console.error(model);
     _this.speed = ARROW_SPEED_MAP[_this.model.attackSpeed()];
     _this._addEvent();
         

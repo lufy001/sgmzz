@@ -74,7 +74,8 @@
         "hp":100,
         "hpPlus":20,
         "attackType":"physice",
-        "attackSpeed":2200
+        "attackSpeed":"medium",
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one of two ways: by using the vector renderer as a fill-bitmap shape"
     },
     {
         "id":7,

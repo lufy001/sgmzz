@@ -25,6 +25,13 @@ var OpponentTeamView = (function() {
     var _this = this;
     _this.hpProgress.label.visible = false;
     CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameMultiStart, _this);
+    CommonEvent.addEventListener(CommonEvent.ENEMY_AUTO_SELECT, _this._onEnemyAutoSelect, _this);
+  };
+  OpponentTeamView.prototype._onEnemyAutoSelect = function(event) {
+    var _this = this;
+    if (_this.layer.numChildren > 0) {
+      _this.layer.getChildAt(0).toSelect();
+    }
   };
   OpponentTeamView.prototype._onGameMultiStart = function(event) {
     var _this = this;
@@ -32,7 +39,6 @@ var OpponentTeamView = (function() {
     var teamData = MasterClient.enemy().getCustomProperty('team');
     var hp = 0;
     teamData.forEach(function(data) {
-      console.error(data);
       var child = new OpponentModel(data);
       hp += child.hp();
       _this.addCharacter(child);

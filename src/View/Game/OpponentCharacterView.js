@@ -19,7 +19,9 @@ var OpponentCharacterView = (function() {
     var _this = this;
     _this.callParent('init', arguments);
     _this.setActionDirection(CharacterAction.MOVE, CharacterDirection.LEFT);
-
+    _this.character.addFrameScript(String.format('{0}-{1}', CharacterAction.ATTACK_START, CharacterDirection.LEFT), function() {
+      _this._attackToHert();
+    }, []);
     _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
     CommonEvent.addEventListener(CommonEvent.SELECT_ENEMY, _this._onSelectEnemy, _this);
   };

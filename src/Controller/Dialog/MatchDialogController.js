@@ -81,14 +81,15 @@ var MatchDialogController = (function() {
     var playerId = LPlatform.player().getID();
     console.error('_connectRoom', playerId, targetId);
     var teamJson = PlayerManager.playerModel.teamToJson();
-    MasterClient.player().setCustomProperty('team', teamJson);
+    var player = MasterClient.player();
+    player.setCustomProperty('team', teamJson);
     if (playerId > targetId) {
       Common.delay(1000).then(function() {
-        MasterClient.player().setCustomProperty('battleRoom', targetId + '_' + playerId);
+        player.setCustomProperty('battleRoom', targetId + '_' + playerId);
         MasterClient.joinRoom(targetId + '_' + playerId);
       });
     } else {
-      MasterClient.player().setCustomProperty('battleRoom', playerId + '_' + targetId);
+      player.setCustomProperty('battleRoom', playerId + '_' + targetId);
       MasterClient.createRoom(playerId + '_' + targetId);
     }
   };
@@ -104,6 +105,9 @@ var MatchDialogController = (function() {
     GameService.instance().matchCancel()
       .then(function() {
         _this._canceled = true;
+        var player = MasterClient.player();
+        player.setCustomProperty('team', null);
+        player.setCustomProperty('battleRoom', null);
       });
   };
     

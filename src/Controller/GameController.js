@@ -18,8 +18,8 @@ var GameController = (function() {
   }
   GameController.prototype.onLoad = function(request) {
     var _this = this;
-    CommonEvent.removeEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
-    CommonEvent.removeEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
+    CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
+    CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
 
     if (request.battleType === 'single') {
       GameManager.isMulti(false);
@@ -55,12 +55,14 @@ var GameController = (function() {
   };
   GameController.prototype._onResultWin = function() {
     var _this = this;
+    console.error('_onResultWin');
     _this._removeResultEvent();
     _this.resultView.visible = true;
     //_this.resultView.updateView();
   };
   GameController.prototype._onResultFail = function() {
     var _this = this;
+    console.error('_onResultFail');
     _this._removeResultEvent();
     _this.resultView.visible = true;
   };
@@ -74,18 +76,18 @@ var GameController = (function() {
   };
   GameController.prototype.die = function() {
     var _this = this;
+    _this._removeResultEvent();
     CommonEvent.removeEventListener(CommonEvent.BATTLE_MASK_SHOW, _this._onMaskShow, _this);
     CommonEvent.removeEventListener(CommonEvent.BATTLE_MASK_HIDE, _this._onMaskHide, _this);
     _this.callParent('die', arguments);
   };
   GameController.prototype._removeResultEvent = function() {
     var _this = this;
-    CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
-    CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
+    CommonEvent.removeEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
+    CommonEvent.removeEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
   };
   GameController.prototype._init = function() {
     var _this = this;
-    _this._removeResultEvent();
     CommonEvent.addEventListener(CommonEvent.BATTLE_MASK_SHOW, _this._onMaskShow, _this);
     CommonEvent.addEventListener(CommonEvent.BATTLE_MASK_HIDE, _this._onMaskHide, _this);
         

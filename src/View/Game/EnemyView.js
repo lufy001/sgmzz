@@ -128,6 +128,7 @@ var EnemyView = (function() {
     hert = hert + hert * (directionLength - 2) * 0.5;
     var event = new LEvent(CommonEvent.ON_HERT);
     event.targetId = team[team.length * Math.random() >> 0].id();
+    event.belong = _this.model.belong();
     event.hertValue = hert >>> 0;
     event.attackType = _this.model.attackType();
     CommonEvent.dispatchEvent(event);

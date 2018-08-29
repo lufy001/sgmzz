@@ -38,6 +38,8 @@ var BattleView = (function() {
       opponentTeam: {
         type: 'OpponentTeamView',
         properties: {
+          startX: 530,
+          endX: 480,
           x: 480,
           y: 120
         }
@@ -87,6 +89,16 @@ var BattleView = (function() {
     _this.stepLabel.visible = false;
     _this.enemyTeam.visible = false;
     _this.opponentTeam.visible = true;
+    _this.gameTeam.x = _this.gameTeam.startX;
+    _this.opponentTeam.x = _this.opponentTeam.startX;
+    LTweenLite.to(_this.opponentTeam, 1, { x: _this.opponentTeam.endX });
+    LTweenLite.to(_this.gameTeam, 1, { x: _this.gameTeam.endX, onStart: function() {
+      CommonEvent.dispatchEvent(CommonEvent.BATTLE_MASK_SHOW);
+    }, onComplete: function() {
+      CommonEvent.dispatchEvent(CommonEvent.BATTLE_MASK_HIDE);
+      CommonEvent.dispatchEvent(CommonEvent.ENEMY_AUTO_SELECT);
+      _this.gameTeam.hpProgress.visible = true;
+    } });
   };
   BattleView.prototype._onGameStart = function(event) {
     var _this = this;
