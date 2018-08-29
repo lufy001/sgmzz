@@ -50,7 +50,7 @@ var ArrowBoardView = (function() {
   ArrowBoardView.prototype._onGameStart = function(event) {
     var _this = this;
     _this.layer.removeAllChild();
-    UserService.instance().playerModel.team().forEach(function(child) {
+    PlayerManager.playerModel.team().forEach(function(child) {
       _this._addArrowList(child);
     });
     _this.skillProgress.updateView({ progress: 0, sum: _this.skillProgress.sum });

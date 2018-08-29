@@ -58,7 +58,11 @@ var GameService = (function() {
     };
     var request = { 'stageId': stageId };
     if (!window.setting.isLocal) {
-      return _this.send(action, request);
+      return _this.send(action, request)
+      .then(function(data){
+      	var response = new BattleResultResponse(data);
+    		return Promise.resolve(response);
+      });
     }
     var characters = [
       { id: 1, level: 1, amount: 22 }, 
@@ -101,7 +105,7 @@ var GameService = (function() {
       boxId: 1,
       gem: 2
     };
-    var response = new PlayerModel(res);
+    var response = new BattleResultResponse(res);
     return Promise.resolve(response);
   };
 
@@ -113,7 +117,11 @@ var GameService = (function() {
     };
     var request = { 'targetId': targetId };
     if (!window.setting.isLocal) {
-      return _this.send(action, request);
+      return _this.send(action, request)
+      .then(function(data){
+      	var response = new BattleResultResponse(data);
+    		return Promise.resolve(response);
+      });
     }
     var characters = [
       { id: 1, level: 1, amount: 22 }, 
@@ -157,7 +165,7 @@ var GameService = (function() {
       cup: 20,
       coin: 30
     };
-    var response = new PlayerModel(res);
+    var response = new BattleResultResponse(res);
     return Promise.resolve(response);
   };
   GameService._instance;

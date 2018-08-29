@@ -75,7 +75,7 @@ var CardDetailDialogController = (function() {
       statusHert: {
         type: 'CardStatusView',
         parent: 'layer',
-        params: { label: '伤害', value: model.hert(), background: 'frame04', icon: 'icon_attack' },
+        params: { label: 'hert', value: model.hert(), background: 'frame04', icon: 'icon_attack' },
         properties: {
           x: 30,
           y: 260
@@ -84,7 +84,7 @@ var CardDetailDialogController = (function() {
       statusHp: {
         type: 'CardStatusView',
         parent: 'layer',
-        params: { label: '血量', value: model.hp(), background: 'frame04', icon: 'icon_hp' },
+        params: { label: 'hp', value: model.hp(), background: 'frame04', icon: 'icon_hp' },
         properties: {
           x: 230,
           y: 260
@@ -93,7 +93,7 @@ var CardDetailDialogController = (function() {
       statusSpeed: {
         type: 'CardStatusView',
         parent: 'layer',
-        params: { label: '攻击速度', value: model.attackSpeed(), background: 'frame05', icon: 'icon_speed' },
+        params: { label: 'speed', value: model.attackSpeed(), background: 'frame05', icon: 'icon_speed' },
         properties: {
           x: 30,
           y: 320
@@ -164,13 +164,16 @@ var CardDetailDialogController = (function() {
   CardDetailDialogController.prototype.updateView = function(event) {
     var _this = this;
     var levelData = LevelManager.getMaster(_this.model.level());
-    var canUp = _this.model.amount() >= levelData.amount && UserService.instance().playerModel.coin() >= levelData.coin;
+    var canUp = _this.model.amount() >= levelData.amount && PlayerManager.playerModel.coin() >= levelData.coin;
     _this.buttonLevelUp.visible = canUp;
     _this.buttonDisabled.visible = !canUp;
   };
   CardDetailDialogController.prototype._levelUpClick = function(event) {
     var _this = this;
-
+    CardService.instance().levelUp(_this.model.id())
+      .then(function(playerModel) {
+        PlayerManager.playerModel = playerModel;
+      });
   };
   return CardDetailDialogController;
 })();

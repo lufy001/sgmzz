@@ -79,7 +79,7 @@ var CtrlView = (function() {
   };
   CtrlView.prototype._onBattleSkillReset = function(event) {
     var _this = this;
-    var team = UserService.instance().playerModel.team();
+    var team = PlayerManager.playerModel.team();
     var character = team[team.length * Math.random() >>> 0];
     var e = new LEvent(CommonEvent.BATTLE_SKILL_RESET);
     //_this.btnSkill.updateView(character.skill());

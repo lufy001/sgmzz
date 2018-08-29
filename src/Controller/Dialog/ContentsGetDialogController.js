@@ -79,7 +79,7 @@ var ContentsGetDialogController = (function() {
   };
   ContentsGetDialogController.prototype._addCard = function(data) {
     var _this = this;
-    var model = UserService.instance().playerModel.characters()
+    var model = PlayerManager.playerModel.characters()
       .find(function(child) {
         return child.id() === data.id;
       });

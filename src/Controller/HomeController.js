@@ -113,7 +113,7 @@ var HomeController = (function() {
     var _this = this;
     _this.boxLayer.removeAllChild();
     var boxs = [];
-    UserService.instance().playerModel.boxs().forEach(function(box) {
+    PlayerManager.playerModel.boxs().forEach(function(box) {
       if (box && box.status() === 'unlock') {
         boxs.push(box);
       }

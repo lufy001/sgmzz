@@ -117,9 +117,11 @@ var loadData = [
   { type: 'js', path: 'src/Manager/SkillManager.js' },
   { type: 'js', path: 'src/Manager/LevelManager.js' },
   { type: 'js', path: 'src/Manager/BoxManager.js' },
+  { type: 'js', path: 'src/Manager/PlayerManager.js' },
 
   { type: 'js', path: 'src/Service/RankingService.js' },
   { type: 'js', path: 'src/Service/GameService.js' },
+  { type: 'js', path: 'src/Service/CardService.js' },
 
   { type: 'js', path: 'src/Core/AutoDisplayObject.js' },
   { type: 'js', path: 'src/Controller/BaseController.js' },
@@ -148,6 +150,8 @@ var loadData = [
   { type: 'js', path: 'src/Model/Master/SkillMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/BoxMasterModel.js' },
   { type: 'js', path: 'src/Model/Response/RankingResponse.js' },
+  { type: 'js', path: 'src/Model/Response/OpenBoxResponse.js' },
+  { type: 'js', path: 'src/Model/Response/BattleResultResponse.js' },
   { type: 'js', path: 'src/Model/RankingPlayerModel.js' },
   { type: 'js', path: 'src/Model/SkillModel.js' },
   { type: 'js', path: 'src/Model/BoxModel.js' },
@@ -232,6 +236,7 @@ function dataFristLoadComplete(data) {
   MasterClient.start(playerId, {});
   UserService.instance().login(playerId, playerName)
     .then(function(playerModel) {
+      PlayerManager.playerModel = playerModel;
       FBIManager.setLoadingProgress(15);
       return MasterService.instance().getList(playerModel.versions());
     })

@@ -37,7 +37,7 @@ var TeamView = (function() {
     var _this = this;
         
     _this._tweens = [];
-    UserService.instance().playerModel.team().forEach(function(child) {
+    PlayerManager.playerModel.team().forEach(function(child) {
       var cardView = new CardView(child);
       cardView.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
       cardView._x = cardView.x = _this.cardLayer.numChildren * 110;
@@ -47,7 +47,7 @@ var TeamView = (function() {
   };
   TeamView.prototype.updateView = function() {
     var _this = this;
-    var team = UserService.instance().playerModel.team();
+    var team = PlayerManager.playerModel.team();
     for (var i = 0; i < team.length; i++) {
       var cardView = _this.cardLayer.childList[i];
       cardView.updateView(team[i]);

@@ -61,27 +61,13 @@ var MatchDialogController = (function() {
       })
       .then(function(response) {
         if (response.targetId > 0) {
-          _this._getTargetSuccess(response.targetId);
+          _this._connectRoom(response.targetId);
         } else if (!_this._canceled) {
           return _this._getTarget();
         } else {
           _this._onClose();
         }
       });
-  };
-  MatchDialogController.prototype._getTargetSuccess = function(targetId) {
-    var _this = this;
-    _this._connectRoom(targetId);
-    /*
-    //TODO:Local
-    if (window.setting.isLocal) {
-      var event = new LEvent('close');
-      event.success = true;
-      _this.dispatchEvent(event);
-      _this._onClose();
-    } else {
-      _this._connectRoom();
-    }*/
   };
   MatchDialogController.prototype._connectRoom = function(targetId) {
     var _this = this;
@@ -94,7 +80,7 @@ var MatchDialogController = (function() {
     });
     var playerId = FBIManager.player().getID();
     console.error('_connectRoom', playerId, targetId);
-    var teamJson = UserService.instance().playerModel.teamToJson();
+    var teamJson = PlayerManager.playerModel.teamToJson();
     MasterClient.player().setCustomProperty('team', teamJson);
     if (playerId > targetId) {
       Common.delay(1000).then(function() {

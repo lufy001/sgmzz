@@ -57,9 +57,9 @@ var CardsController = (function() {
   };
   CardsController.prototype._cardListUpdate = function(event) {
     var _this = this;
-    var team = UserService.instance().playerModel.teamData();
+    var team = PlayerManager.playerModel.teamData();
     var items = [];
-    UserService.instance().playerModel.characters()
+    PlayerManager.playerModel.characters()
       .forEach(function(model) {
         var index = team.indexOf(model.id());
         if (index >= 0) {
@@ -81,10 +81,10 @@ var CardsController = (function() {
     _this.teamView.stop();
     _this.selectCardView.visible = false;
     var changeModel = event.model;
-    var team = UserService.instance().playerModel.teamData();
+    var team = PlayerManager.playerModel.teamData();
     var index = team.indexOf(changeModel.id());
     team[index] = _this._selectModel.id();
-    UserService.instance().playerModel.team(team);
+    PlayerManager.playerModel.team(team);
     _this.teamView.updateView();
     _this.listView.visible = true;
     CommonEvent.dispatchEvent(CommonEvent.CARD_LIST_UPDATE);

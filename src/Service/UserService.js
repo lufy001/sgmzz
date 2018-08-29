@@ -12,7 +12,11 @@ var UserService = (function() {
     };
     var request = { 'id': id };
     if (!window.setting.isLocal) {
-      return _this.send(action, request);
+      return _this.send(action, request)
+        .then(function(data) {
+          var response = new OpenBoxResponse(data);
+          return Promise.resolve(response);
+        });
     }
 
     var characters = [
@@ -63,8 +67,7 @@ var UserService = (function() {
         ]
       }
     };
-    _this.playerModel = new PlayerModel(res.playerModel);
-    var response = new ContentsModel(res.contents);
+    var response = new OpenBoxResponse(res);
     return Promise.resolve(response);
   };
   UserService.prototype.login = function(id, name) {
@@ -79,7 +82,6 @@ var UserService = (function() {
         .then(function(data) {
           BaseService.ssid = data.ssid;
           var response = new PlayerModel(data.user);
-          _this.playerModel = response;
           return Promise.resolve(response);
         });
     }
@@ -120,7 +122,6 @@ var UserService = (function() {
       lastStageId: 102002
     };
     var response = new PlayerModel(res);
-    _this.playerModel = response;
     return Promise.resolve(response);
   };
   UserService._instance;

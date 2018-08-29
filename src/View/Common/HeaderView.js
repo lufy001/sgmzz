@@ -50,7 +50,7 @@ var HeaderView = (function() {
   }
   HeaderView.prototype.updateView = function(data) {
     var _this = this;
-    var playerModel = UserService.instance().playerModel;
+    var playerModel = PlayerManager.playerModel;
     _this.expProgress.updateView({ progress: 9900, sum: 20000, fontSize: 14 });
     _this.gemView.updateView(playerModel.gem());
     _this.coinView.updateView(playerModel.coin());

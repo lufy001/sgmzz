@@ -68,7 +68,7 @@ var ChapterMapController = (function() {
   ChapterMapController.prototype.onLoad = function(request) {
     var _this = this;
 
-    var lastStageId = UserService.instance().playerModel.lastStageId();
+    var lastStageId = PlayerManager.playerModel.lastStageId();
     var lastChapterId = lastStageId / 1000 >>> 0;
     var items = [];
     var masters = MasterService.instance().masters;
@@ -87,7 +87,7 @@ var ChapterMapController = (function() {
   };
   ChapterMapController.prototype._onShowStage = function(event) {
     var _this = this;
-    var lastStageId = UserService.instance().playerModel.lastStageId();
+    var lastStageId = PlayerManager.playerModel.lastStageId();
     var chapterModel = event.model;
     var items = [];
     var stages = chapterModel.stages();

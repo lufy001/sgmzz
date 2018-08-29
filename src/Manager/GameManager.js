@@ -35,19 +35,5 @@ var GameManager = (function() {
   	}
     this._multi = value;
   };
-  GameManager.prototype.quadTreePlus = function(child) {
-    this._query.add(child, child.x, child.y);
-  };
-  GameManager.prototype.quadTreeUpdate = function(child) {
-    this._query.remove(child);
-    this._query.add(child, child.x, child.y);
-  };
-  GameManager.prototype.quadTreeRemove = function(child) {
-    this._query.remove(child);
-  };
-  GameManager.prototype.getCharactersInRect = function(rect) {
-    var characters = this._query.getDataInRect(rect);
-    return characters;
-  };
   return new GameManager();
 })();

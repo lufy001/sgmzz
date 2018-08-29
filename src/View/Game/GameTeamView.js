@@ -35,7 +35,7 @@ var GameTeamView = (function() {
   GameTeamView.prototype._onGameStart = function(event) {
     var _this = this;
     _this.layer.removeAllChild();
-    var team = UserService.instance().playerModel.team();
+    var team = PlayerManager.playerModel.team();
     var hp = 0;
     team.forEach(function(child) {
       hp += child.hp();

@@ -22,7 +22,7 @@ var HomeBoxsDialogController = (function() {
   HomeBoxsDialogController.prototype.updateView = function(event) {
     var _this = this;
     _this._boxLayer.removeAllChild();
-    UserService.instance().playerModel.boxs().forEach(function(box) {
+    PlayerManager.playerModel.boxs().forEach(function(box) {
       _this._addBox(box);
     });
   };
@@ -49,7 +49,7 @@ var HomeBoxsDialogController = (function() {
   };
   HomeBoxsDialogController.prototype._onClickBox = function(event) {
     var _this = this;
-    var unlocking = UserService.instance().playerModel.boxs().find(function(box) {
+    var unlocking = PlayerManager.playerModel.boxs().find(function(box) {
       return box.status() === 'unlock' && box.time() > 0;
     });
     var boxView = event.currentTarget;

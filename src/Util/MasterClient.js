@@ -55,19 +55,6 @@ var MasterClient = (function() {
     return this.client.myActor().isLeader();
   };
   MasterClient.prototype.enemy = function() {
-    //TODO:local
-    /*if (window.setting.isLocal) {
-      return {
-        getCustomProperty: function() {
-          var team = UserService.instance().playerModel.team();
-          var res = [];
-          team.forEach(function(model) {
-            res.push({ id: model.id(), level: model.level() });
-          });
-          return res;
-        }
-      };
-    }*/
     return this.client.myRoomActorsArray()[1];
   };
   MasterClient.prototype.player = function() {
