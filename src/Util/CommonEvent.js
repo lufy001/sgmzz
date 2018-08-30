@@ -18,6 +18,7 @@ CommonEvent.ARROW_DRAW = 'common:arrowDraw';
 CommonEvent.ARROW_ATTACK = 'common:arrowAttack';
 CommonEvent.ARROW_WAIT = 'common:arrowWait';
 CommonEvent.ON_HERT = 'common:onHert';
+CommonEvent.SELECT_ENEMY = 'common:selectEnemy';
 CommonEvent.ENEMY_AUTO_SELECT = 'common:enemyAutoSelect';
 
 CommonEvent.RESULT_CHECK = 'common:resultCheck';

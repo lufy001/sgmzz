@@ -1,9 +1,11 @@
+var VERSION = '1.0.0';
 var loadingLayer;
 var dataList;
 var rootLayer;
 var footerView;
 var headerView;
 var dialogLayer;
+
 window.setting = window.setting || {};
 var loadFristData = [
   { type: 'js', path: 'src/Util/LPlugin.js' },
@@ -14,6 +16,7 @@ var loadFristData = [
   { type: 'js', path: 'src/Manager/PlayerManager.js' },
   { type: 'js', path: 'src/Service/BaseService.js' },
   { type: 'js', path: 'src/Service/UserService.js' },
+  { type: 'js', path: 'src/Service/AnalyticService.js' },
   { type: 'js', path: 'src/Service/MasterService.js' }
 ];
 var loadData = [
@@ -79,8 +82,8 @@ var loadData = [
   { name: 'buffer_phy_def_up', path: 'resources/images/status/buffer_phy_def_up.png' },
   { name: 'buffer_mac_def_down', path: 'resources/images/status/buffer_mac_def_down.png' },
   { name: 'buffer_mac_def_up', path: 'resources/images/status/buffer_mac_def_up.png' },
-  { name: 'buffer_phy_atk_down', path: 'resources/images/status/buffer_phy_atk_down.png' },
-  { name: 'buffer_phy_atk_up', path: 'resources/images/status/buffer_phy_atk_up.png' },
+  { name: 'buffer_atk_down', path: 'resources/images/status/buffer_phy_atk_down.png' },
+  { name: 'buffer_atk_up', path: 'resources/images/status/buffer_phy_atk_up.png' },
   { name: 'buffer_poison', path: 'resources/images/status/buffer_poison.png' },
   { name: 'buffer_sleep', path: 'resources/images/status/buffer_sleep.png' },
   
@@ -232,6 +235,8 @@ function main() {
 function dataFristLoadComplete(data) {
   var playerId = LPlatform.player().getID();
   var playerName = LPlatform.player().getName();
+  AnalyticService.instance().setUserId(playerId);
+  AnalyticService.instance().setUserProperties('version', VERSION, false);
   MasterClient.addEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
   MasterClient.start(playerId, {});
   UserService.instance().login(playerId, playerName)

@@ -21,18 +21,18 @@ var BattleSkillIconView = (function() {
       return;
     }
     var e = new LEvent(CommonEvent.SKILL_START);
-    e.skill = skill;
-    e.directionCount = directions.length;
+    e.skill = _this.characterModel.skill();
+    e.directionCount = 4;
     e.model = _this.characterModel;
-    event.isToAll = true;
-    CommonEvent.dispatchEvent(event);
-
+    e.isToAll = true;
+    CommonEvent.dispatchEvent(e);
   };
   BattleSkillIconView.prototype._toDisable = function() {
     this.filters = [new LColorMatrixFilter([0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0, 0, 0, 1, 0])];
   };
   BattleSkillIconView.prototype._onSkillReady = function() {
     this.filters = null;
+    this.cacheAsBitmap(false);
   };
   return BattleSkillIconView;
 })();

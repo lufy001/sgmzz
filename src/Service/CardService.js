@@ -41,15 +41,15 @@ var CardService = (function() {
       { id: 4, boxId: 1, time: 0, status: 'lock' }
     ];
     var res = {
-        characters: characters,
-        boxs: boxs,
-        teams: teams,
-        teamIndex: teamIndex,
-        coin: 100,
-        gem: 100,
-        exp: 2222,
-        lv: 11
-      };
+      characters: characters,
+      boxs: boxs,
+      teams: teams,
+      teamIndex: teamIndex,
+      coin: 100,
+      gem: 100,
+      exp: 2222,
+      lv: 11
+    };
     var response = new PlayerModel(res);
     return Promise.resolve(response);
   };

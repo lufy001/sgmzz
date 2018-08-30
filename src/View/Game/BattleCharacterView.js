@@ -1,4 +1,4 @@
-var DEFAULT_BUFFER_TIME = 10;
+var DEFAULT_BUFFER_TIME = 10000;
 var BattleCharacterView = (function() {
   function BattleCharacterView(model, properties) {
     var _this = this;
@@ -73,7 +73,7 @@ var BattleCharacterView = (function() {
 
     var img = 'buffer_' + key;
     if (typeof value === 'number') {
-      img = value > 1 ? '_up' : '_down';
+      img += value > 1 ? '_up' : '_down';
     }
 
     if (bufferChild) {
@@ -84,7 +84,7 @@ var BattleCharacterView = (function() {
     }
     bufferChild = new LBitmap(new LBitmapData(dataList[img]));
     bufferChild.name = key;
-    bufferChild.y = 64 - bufferChild.getHeight();
+    bufferChild.y = _this.character.y + _this.character.getHeight() - bufferChild.getHeight();
     _this.bufferLayer.addChild(bufferChild);
     _this._resetBufferPosition();
   };
@@ -108,7 +108,7 @@ var BattleCharacterView = (function() {
     var position = 0;
     _this.bufferLayer.childList.forEach(function(child) {
       if (child.visible) {
-        child.x = position;
+        child.x = _this.character.x + position;
         position += child.getWidth();
       }
     });

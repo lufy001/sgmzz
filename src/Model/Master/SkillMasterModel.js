@@ -21,14 +21,11 @@ var SkillMasterModel = (function() {
   SkillMasterModel.prototype.type = function() {
     return this.data.type;
   };
-  SkillMasterModel.prototype.percentage = function() {
-    return this.data.percentage;
+  SkillMasterModel.prototype.value = function() {
+    return this.data.value;
   };
-  SkillMasterModel.prototype.plus = function() {
-    return this.data.plus;
-  };
-  SkillMasterModel.prototype.amount = function() {
-    return this.data.amount;
+  SkillMasterModel.prototype.special = function() {
+    return this.data.special;
   };
   SkillMasterModel.prototype.introduction = function() {
     return this.data.introduction || ' ';

@@ -59,11 +59,13 @@ var EnemyView = (function() {
   };
   EnemyView.prototype._addEvent = function() {
     var _this = this;
+    CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
     CommonEvent.addEventListener(CommonEvent.SELECT_ENEMY, _this._onSelectEnemy, _this);
     CommonEvent.addEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
     _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
   };
   EnemyView.prototype.die = function() {
+    CommonEvent.removeEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
     CommonEvent.removeEventListener(CommonEvent.SELECT_ENEMY, this._onSelectEnemy, this);
     CommonEvent.removeEventListener(CommonEvent.ON_HERT, this._onHert, this);
     this.callParent('die');

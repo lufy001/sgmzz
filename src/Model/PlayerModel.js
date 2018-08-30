@@ -32,7 +32,7 @@ var PlayerModel = (function() {
       this.data.level = value;
       return;
     }
-    return this.data.level;
+    return this.data.level || this.data.lv;
   };
   PlayerModel.prototype.teamIndex = function(value) {
     if (value) {

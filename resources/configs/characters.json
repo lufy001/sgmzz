@@ -2,7 +2,7 @@
     {
         "id":1,
         "name":"zhang fei",
-        "skillId":1,
+        "skillId":3,
         "rarity":"sr",
         "attack":10,
         "attackPlus":5,
@@ -15,7 +15,7 @@
     {
         "id":2,
         "name":"guan yu",
-        "skillId":2,
+        "skillId":3,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -41,7 +41,7 @@
     {
         "id":4,
         "name":"cao cao",
-        "skillId":2,
+        "skillId":3,
         "rarity":"r",
         "attack":10,
         "attackPlus":5,

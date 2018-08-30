@@ -16,7 +16,7 @@ var CharacterView = (function() {
     _this.character.addEventListener(LEvent.COMPLETE, _this.actionComplete, _this);
 
     CommonEvent.addEventListener(CommonEvent.ARROW_ATTACK, _this._onArrowAttack, _this);
-    CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStartHandl, _this);
+    CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
     CommonEvent.addEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
   };
   CharacterView.prototype.die = function() {
@@ -42,12 +42,10 @@ var CharacterView = (function() {
     event.belong = params.belong;
     CommonEvent.dispatchEvent(event);
 
-    skil = _this.model.skill();
-    console.error('skil', skil, !skill);
+    //skill = _this.model.skill();
     if (!skill) {
       return;
     }
-    console.error('CommonEvent.SKILL_START');
     event = new LEvent(CommonEvent.SKILL_START);
     event.skill = skill;
     event.hert = hert;
@@ -76,7 +74,7 @@ var CharacterView = (function() {
   CharacterView.prototype.addHp = function(value) {
     var event = new LEvent('player:changeHp');
     event.value = value;
-    _this.dispatchEvent(event);
+    this.dispatchEvent(event);
   };
   CharacterView.prototype._onHert = function(event) {
     var _this = this;
