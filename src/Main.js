@@ -198,6 +198,7 @@ var loadData = [
   { type: 'js', path: 'src/View/Game/CtrlView.js' },
   { type: 'js', path: 'src/View/Game/GameMapView.js' },
   { type: 'js', path: 'src/View/Game/GameMenuView.js' },
+  { type: 'js', path: 'src/View/Game/BaseTeamView.js' },
   { type: 'js', path: 'src/View/Game/GameTeamView.js' },
   { type: 'js', path: 'src/View/Game/EnemyTeamView.js' },
   { type: 'js', path: 'src/View/Game/OpponentTeamView.js' },

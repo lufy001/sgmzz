@@ -121,10 +121,10 @@ var BattleCharacterView = (function() {
     var model = event.model;
     var sameBelong = model.belong() === _this.model.belong();
     if (skill.target() === 'self' ^ sameBelong) {
-      return;
+      //return;
     }
     if (!event.isToAll && model.id() !== _this.model.id()) {
-      return;
+      //return;
     }
     var directionCount = event.directionCount;
     var value = skill.value()[directionCount - 3];

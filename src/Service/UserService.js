@@ -70,6 +70,19 @@ var UserService = (function() {
     var response = new OpenBoxResponse(res);
     return Promise.resolve(response);
   };
+  UserService.prototype.setTeams = function(teams, teamIndex) {
+    console.log('UserService.prototype.openBox');
+    var _this = this;
+    var action = {
+      'class': 'user',
+      'method': 'openBox'
+    };
+    var request = { 'teams': teams, 'teamIndex': teamIndex };
+    if (!window.setting.isLocal) {
+      return _this.send(action, request);
+    }
+    return Promise.resolve();
+  };
   UserService.prototype.login = function(id, name) {
     var _this = this;
     var action = {

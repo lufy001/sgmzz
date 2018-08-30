@@ -20,11 +20,22 @@ var BattleSkillIconView = (function() {
     if (_this.filters) {
       return;
     }
+    /*
     var e = new LEvent(CommonEvent.SKILL_START);
     e.skill = _this.characterModel.skill();
     e.directionCount = 4;
     e.model = _this.characterModel;
-    e.isToAll = true;
+    e.isToAll = true;*/
+
+    var e = new LEvent(CommonEvent.SKILL_START);
+    var skill = _this.characterModel.skill();
+    e.skill = skill;
+    //e.hert = hert;
+    e.directionCount = 5;
+    e.model = _this.characterModel;
+    e.belong = _this.characterModel.belong();
+    e.targetId = skill.target() === 'self' ? _this.characterModel.id() : GameManager.selectEnemyId;
+    e.amount = skill.special();
     CommonEvent.dispatchEvent(e);
   };
   BattleSkillIconView.prototype._toDisable = function() {

@@ -16,7 +16,7 @@
         "type":"atk",
         "arrows":["up","right","down","left","up"],
         "value":[1.2, 1.5, 2],
-        "special":4,
+        "special":2,
         "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
     },
     {
@@ -26,7 +26,7 @@
         "type":"atk",
         "arrows":["up","left","down","right","up"],
         "value":[0.9,0.7,0.5],
-        "special":4,
+        "special":2,
         "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
     },
     {

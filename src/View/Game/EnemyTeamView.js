@@ -2,8 +2,11 @@ var EnemyTeamView = (function() {
   function EnemyTeamView() {
     var _this = this;
     var properties = {
+      layer: {
+        type: 'LSprite'
+      }
     };
-    LExtends(_this, BaseView, [properties]);
+    LExtends(_this, BaseTeamView, [properties]);
     _this.init();
   }
   EnemyTeamView.prototype.init = function() {
@@ -15,13 +18,13 @@ var EnemyTeamView = (function() {
   };
   EnemyTeamView.prototype._onEnemyAutoSelect = function(event) {
     var _this = this;
-    if (_this.numChildren > 0) {
-      _this.getChildAt(0).toSelect();
+    if (_this.layer.numChildren > 0) {
+      _this.layer.getChildAt(0).toSelect();
     }
   };
   EnemyTeamView.prototype._onGameStart = function(event) {
     var _this = this;
-    _this.removeAllChild();
+    _this.layer.removeAllChild();
     _this._stage = event.stage;
     _this.updateView();
   };
@@ -30,8 +33,8 @@ var EnemyTeamView = (function() {
   };
   EnemyTeamView.prototype._onResultCheck = function() {
     var _this = this;
-    if (_this.numChildren > 0) {
-      _this.getChildAt(0).toSelect();
+    if (_this.layer.numChildren > 0) {
+      _this.layer.getChildAt(0).toSelect();
       return;
     } else if (GameManager.stepIndex < GameManager.stepSum) {
       GameManager.stepIndex++;
@@ -51,12 +54,12 @@ var EnemyTeamView = (function() {
   };
   EnemyTeamView.prototype.addCharacter = function(data) {
     var _this = this;
-    var point = _this.points[_this.numChildren];
+    var point = _this.points[_this.layer.numChildren];
     var card = new EnemyView(data, point.scale);
     card.x = point.x;
     card.y = point.y;
     //card.scaleX = card.scaleY = point.scale;
-    _this.addChild(card);
+    _this.layer.addChild(card);
   };
   return EnemyTeamView;
 })();

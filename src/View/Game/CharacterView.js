@@ -14,15 +14,15 @@ var CharacterView = (function() {
       _this._attackToHert();
     }, []);
     _this.character.addEventListener(LEvent.COMPLETE, _this.actionComplete, _this);
+    _this.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
 
     CommonEvent.addEventListener(CommonEvent.ARROW_ATTACK, _this._onArrowAttack, _this);
-    CommonEvent.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
     CommonEvent.addEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
   };
   CharacterView.prototype.die = function() {
     var _this = this;
     CommonEvent.removeEventListener(CommonEvent.ARROW_ATTACK, _this._onArrowAttack, _this);
-    CommonEvent.removeEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
+    //CommonEvent.removeEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
     CommonEvent.removeEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
     _this.callParent('die', arguments);
   };
@@ -51,7 +51,9 @@ var CharacterView = (function() {
     event.hert = hert;
     event.directionCount = directions.length;
     event.model = _this.model;
-    event.isToAll = false;
+    event.belong = params.belong;
+    event.targetId = skill.target() === 'self' ? _this.model.id() : params.targetId;
+    event.amount = 1;
     CommonEvent.dispatchEvent(event);
   };
   CharacterView.prototype.actionComplete = function(event) {

@@ -18,7 +18,7 @@ var GameTeamView = (function() {
         }
       }
     };
-    LExtends(_this, BaseView, [properties]);
+    LExtends(_this, BaseTeamView, [properties]);
     _this.init();
   }
   GameTeamView.prototype.init = function() {
