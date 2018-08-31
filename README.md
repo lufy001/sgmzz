@@ -195,6 +195,28 @@
 #### 返回值
     与login的返回值相同 
 
+## 类(shop)
+### 购买(buy) 
+#### 参数
+・id master_shop里的id 
+#### 处理说明
+・最初商品只有宝箱，金币两种，消耗宝石，获得宝箱或者金币，如果是宝箱，则直接打开宝箱，把宝箱里的东西返回给客户端
+#### 返回值
+    {
+        playerModel:playerModel，
+        contents:{
+            coin:300,
+            cards:[
+                {id:1, amount:22},
+                {id:2, amount:2},
+                {id:3, amount:10}
+            ]
+        }
+    }
+・playerModel 玩家信息，和login时的返回结果相同 
+
+・contents 购买宝箱时宝箱中的资源，宝箱可能获取到的资源在master_boxs中进行设定。如果是购买金币的话，就没有cards了。 
+
 ## 类(game)
 ### 单人战斗结束(sendSingleResult) 
 #### 参数
@@ -349,6 +371,21 @@
 |--|--|
 |level|玩家等级|
 |exp|升到下一级所需经验|
+
+### master_shop 
+商品列表
+
+|name|说明|
+|--|--|
+|id|商品id|
+|name|商品名|
+|price_gem|宝石价格|
+|price_coin|金币价格|
+|coin|可以获得的金币|
+|box_id|可以获得的宝箱id|
+
+### master_purchase 
+氪金列表,这个按照你之前激战的规则来定义吧
 
 ---------------------------------------
 ## 定时任务
