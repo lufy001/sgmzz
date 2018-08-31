@@ -1,14 +1,13 @@
 var GameEvent = {
   ROOM_IN: 'photon:roomIn', //进入战斗房间
   GAME_INIT: 'photon:gameInit', //双方准备OK
-  JOINED_LOBBY: 'photon:joinedLobby', //回合胜利
-  ATTACK: 'photon:attack', //攻击
+  JOINED_LOBBY: 'photon:joinedLobby'
 };
 var ClientEvent = {
   READY: 1, //单方战斗画面准备OK
   ATTACK: 2, //攻击
   GAME_OVER: 3, //游戏结束
-  SEND_ICON: 4, //发送表情
+  SKILL_START: 4, //技能发动
 };
 var MasterClient = (function() {
   function MasterClient() {
@@ -21,6 +20,7 @@ var MasterClient = (function() {
     this.dispatchEvent(event);
   };
   MasterClient.prototype.onEvent = function(code, content, actorNr) {
+    console.error('onEvent', code, content);
     switch (code) {
       case ClientEvent.READY:
         if (this.client.myActor().getId() !== content.id) {
@@ -36,6 +36,12 @@ var MasterClient = (function() {
         }
         this._onAttack(content.params);
         break;
+      case ClientEvent.SKILL_START:
+        if (this.client.myActor().getId() === content.id) {
+          break;
+        }
+        this._onSkillStart(content.params);
+        break;
       case ClientEvent.GAME_OVER:
         if (this.client.myActor().getId() === content.id) {
           CommonEvent.dispatchEvent(CommonEvent.RESULT_WIN);
@@ -44,6 +50,12 @@ var MasterClient = (function() {
         }
         break;
     }
+  };
+  MasterClient.prototype._onSkillStart = function(params) {
+    var e = new LEvent(CommonEvent.SKILL_START);
+    params.belong = CharacterBelong.OPPONENT;
+    e.params = params;
+    CommonEvent.dispatchEvent(e);
   };
   MasterClient.prototype._onAttack = function(params) {
     var e = new LEvent(CommonEvent.ARROW_ATTACK);
@@ -90,6 +102,9 @@ var MasterClient = (function() {
   };
   MasterClient.prototype.matching = function() {
     this.client.createPhotonClientRoom();
+  };
+  MasterClient.prototype.skillStart = function(event) {
+    this.sendMessage(ClientEvent.SKILL_START, { params: event.params });
   };
   MasterClient.prototype.attack = function(event) {
     this.sendMessage(ClientEvent.ATTACK, { params: event.params });

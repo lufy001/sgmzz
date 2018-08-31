@@ -129,21 +129,28 @@ var EnemyView = (function() {
     var hert = _this.model.attack();
     hert = hert + hert * (directionLength - 2) * 0.5;
     var event = new LEvent(CommonEvent.ON_HERT);
-    event.targetId = team[team.length * Math.random() >> 0].id();
+    var targetId = team[team.length * Math.random() >> 0].id();
+    event.targetId = targetId;
     event.belong = _this.model.belong();
     event.hertValue = hert >>> 0;
     event.attackType = _this.model.attackType();
     CommonEvent.dispatchEvent(event);
+    
+    _this._dispatchSkillStart(skill, directionLength, targetId);
+    /*
     if (!skill) {
       return;
     }
     event = new LEvent(CommonEvent.SKILL_START);
-    event.skill = skill;
-    event.hert = hert;
-    event.directionCount = directionLength;
-    event.model = _this.model;
-    event.isToAll = false;
-    CommonEvent.dispatchEvent(event);
+    var params = {};
+    params.skillId = skill.id();
+    params.targetId = skill.target() === 'self' ? _this.model.id() : targetId;
+    params.belong = _this.model.belong();
+    params.directionCount = directionLength;
+    params.hert = _this.model.attack();
+    params.amount = 1;
+    event.params = params;
+    CommonEvent.dispatchEvent(event);*/
   };
   return EnemyView;
 })();

@@ -10,10 +10,15 @@ var BaseTeamView = (function() {
   };
   BaseTeamView.prototype._onSkillStart = function(event) {
     var _this = this;
-    var skill = event.skill;
-    var belong = event.belong;
-    var amount = event.amount;
-    var targetId = event.targetId;
+    if (_this.layer.numChildren === 0) {
+      return;
+    }
+    var params = event.params;
+    var skill = params.skillId ? SkillManager.getMasterModel(params.skillId) : null;
+    params.skill = skill;
+    var belong = params.belong;
+    var amount = params.amount;
+    var targetId = params.targetId;
     var selfBelong = _this.layer.getChildAt(0).model.belong();
     var sameBelong = belong === selfBelong;
     if (skill.target() === 'self' ^ sameBelong) {

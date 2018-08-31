@@ -79,8 +79,9 @@ var MatchDialogController = (function() {
       _this._onClose();
     });
     var playerId = LPlatform.player().getID();
-    console.error('_connectRoom', playerId, targetId);
+    player.setCustomProperty('level', PlayerManager.playerModel.level());
     var teamJson = PlayerManager.playerModel.teamToJson();
+    player.setCustomProperty('level', PlayerManager.playerModel.level());
     var player = MasterClient.player();
     player.setCustomProperty('team', teamJson);
     if (playerId > targetId) {

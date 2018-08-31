@@ -36,7 +36,7 @@ var GameTeamView = (function() {
     var _this = this;
     _this.layer.removeAllChild();
     var team = PlayerManager.playerModel.team();
-    var hp = PlayerManager.playerModel.level() * 1000;
+    var hp = PlayerManager.playerModel.level() * 500;
     team.forEach(function(child) {
       hp += child.hp();
       _this.addCharacter(child);
@@ -47,6 +47,7 @@ var GameTeamView = (function() {
   };
   GameTeamView.prototype._onChangeHp = function(event) {
     var _this = this;
+    console.error('GameTeamView_onChangeHp', event.value);
     var hp = _this.hpProgress.progress + event.value;
     if (hp > _this.hpProgress.sum) {
       hp = _this.hpProgress.sum;

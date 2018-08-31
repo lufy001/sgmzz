@@ -29,7 +29,7 @@ var CharacterView = (function() {
   CharacterView.prototype._attackToHert = function() {
     var _this = this;
     var params = _this._params;
-    var skill = params.skill;
+    var skill = params.skillId ? SkillManager.getMasterModel(params.skillId) : null;
     var directions = params.directions;
     _this._params = null;
         
@@ -43,18 +43,20 @@ var CharacterView = (function() {
     CommonEvent.dispatchEvent(event);
 
     //skill = _this.model.skill();
-    if (!skill) {
+    _this._dispatchSkillStart(skill, directions.length, params.targetId);
+    /*if (!skill) {
       return;
     }
     event = new LEvent(CommonEvent.SKILL_START);
-    event.skill = skill;
-    event.hert = hert;
-    event.directionCount = directions.length;
-    event.model = _this.model;
-    event.belong = params.belong;
-    event.targetId = skill.target() === 'self' ? _this.model.id() : params.targetId;
-    event.amount = 1;
-    CommonEvent.dispatchEvent(event);
+    var skillParams = {};
+    skillParams.skillId = skill.id();
+    skillParams.hert = _this.model.attack();
+    skillParams.directionCount = directions.length;
+    skillParams.belong = params.belong;
+    skillParams.targetId = skill.target() === 'self' ? _this.model.id() : params.targetId;
+    skillParams.amount = 1;
+    event.params = skillParams;
+    CommonEvent.dispatchEvent(event);*/
   };
   CharacterView.prototype.actionComplete = function(event) {
     var _this = this;

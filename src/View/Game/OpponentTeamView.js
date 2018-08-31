@@ -18,7 +18,7 @@ var OpponentTeamView = (function() {
         }
       }
     };
-    LExtends(_this, BaseView, [properties]);
+    LExtends(_this, BaseTeamView, [properties]);
     _this.init();
   }
   OpponentTeamView.prototype.init = function() {
@@ -37,7 +37,8 @@ var OpponentTeamView = (function() {
     var _this = this;
     _this.layer.removeAllChild();
     var teamData = MasterClient.enemy().getCustomProperty('team');
-    var hp = 0;
+    var level = MasterClient.enemy().getCustomProperty('level');
+    var hp = level * 500;
     teamData.forEach(function(data) {
       var child = new OpponentModel(data);
       hp += child.hp();
@@ -47,6 +48,7 @@ var OpponentTeamView = (function() {
   };
   OpponentTeamView.prototype._onChangeHp = function(event) {
     var _this = this;
+    console.error('OpponentTeamView_onChangeHp', event.value);
     var hp = _this.hpProgress.progress + event.value;
     if (hp > _this.hpProgress.sum) {
       hp = _this.hpProgress.sum;

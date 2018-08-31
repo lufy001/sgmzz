@@ -80,7 +80,7 @@ var CharacterArrowListView = (function() {
       }
     }
     if (skillEnabled) {
-      params.skill = skill;
+      params.skillId = skill.id();
     }
     e.params = params;
     CommonEvent.dispatchEvent(e);

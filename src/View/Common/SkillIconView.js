@@ -29,7 +29,6 @@ var SkillIconView = (function() {
   };
   SkillIconView.prototype.updateView = function(model) {
     var _this = this;
-    console.log('SkillIconView', model);
     _this.skillModel = model;
     if (!model) {
       return;
@@ -39,6 +38,7 @@ var SkillIconView = (function() {
   SkillIconView.prototype.init = function(data) {
     var _this = this;
     _this.icon.bitmapData = new LBitmapData(data['skill']);
+    _this.cacheAsBitmap(false);
   };
   SkillIconView.prototype._skillClick = function(event) {
     var _this = this;

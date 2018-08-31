@@ -113,25 +113,33 @@ var BattleCharacterView = (function() {
       }
     });
   };
+  BattleCharacterView.prototype._dispatchSkillStart = function(skill, directionCount, targetId) {
+    if (!skill) {
+      return;
+    }
+    var event = new LEvent(CommonEvent.SKILL_START);
+    var params = {};
+    params.skillId = skill.id();
+    params.hert = _this.model.attack();
+    params.directionCount = directionCount;
+    params.belong = _this.model.belong();
+    params.targetId = skill.target() === 'self' ? _this.model.id() : targetId;
+    params.amount = 1;
+    event.params = params;
+    CommonEvent.dispatchEvent(event);
+  };
   BattleCharacterView.prototype.addHp = function(value) {
   };
   BattleCharacterView.prototype._onSkillStart = function(event) {
     var _this = this;
-    var skill = event.skill;
-    var model = event.model;
-    var sameBelong = model.belong() === _this.model.belong();
-    if (skill.target() === 'self' ^ sameBelong) {
-      //return;
-    }
-    if (!event.isToAll && model.id() !== _this.model.id()) {
-      //return;
-    }
-    var directionCount = event.directionCount;
+    var params = event.params;
+    var skill = params.skill;
+    var directionCount = params.directionCount;
     var value = skill.value()[directionCount - 3];
     var skillType = skill.type();
     switch (skillType) {
       case 'heal':
-        _this.addHp(value * event.hert >> 0);
+        _this.addHp(value * params.hert >> 0);
         break;
       case 'dbl_atk':
         break;

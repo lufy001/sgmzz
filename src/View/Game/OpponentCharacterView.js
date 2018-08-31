@@ -15,6 +15,15 @@ var OpponentCharacterView = (function() {
     LExtends(_this, CharacterView, [model, properties]);
     
   }
+  OpponentCharacterView.prototype._onArrowAttack = function(event) {
+    var _this = this;
+    var params = event.params;
+    if (_this.model.belong() !== params.belong || _this.model.id() !== params.characterId) {
+      return;
+    }
+    _this._params = params;
+    _this.setActionDirection(CharacterAction.ATTACK, _this.direction);
+  };
   OpponentCharacterView.prototype.init = function(data) {
     var _this = this;
     _this.callParent('init', arguments);
@@ -25,7 +34,7 @@ var OpponentCharacterView = (function() {
     _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
     CommonEvent.addEventListener(CommonEvent.SELECT_ENEMY, _this._onSelectEnemy, _this);
   };
-  EnemyView.prototype.die = function() {
+  OpponentCharacterView.prototype.die = function() {
     CommonEvent.removeEventListener(CommonEvent.SELECT_ENEMY, this._onSelectEnemy, this);
     this.callParent('die');
   };
