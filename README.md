@@ -379,6 +379,7 @@
 |--|--|
 |id|商品id|
 |name|商品名|
+|icon|商品图标|
 |price_gem|宝石价格|
 |price_coin|金币价格|
 |coin|可以获得的金币|
