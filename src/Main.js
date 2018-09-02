@@ -53,6 +53,8 @@ var loadData = [
   { name: 'card_sr', path: 'resources/images/ui/card_sr.png' },
   { name: 'card_ssr', path: 'resources/images/ui/card_ssr.png' },
   { name: 'team', path: 'resources/images/ui/team.png' },
+  { name: 'skill_bar_bg', path: 'resources/images/ui/skill_bar_bg.png' },
+  { name: 'skill_bar_front', path: 'resources/images/ui/skill_bar_front.png' },
   { name: 'amount_bg', path: 'resources/images/ui/amount_bg.png' },
   { name: 'amount_front', path: 'resources/images/ui/amount_front.png' },
   { name: 'amount_front_green', path: 'resources/images/ui/amount_front_green.png' },

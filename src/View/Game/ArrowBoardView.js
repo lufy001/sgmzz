@@ -22,9 +22,9 @@ var ArrowBoardView = (function() {
       skillProgress: {
         type: 'ProgressView',
         //params: { progress: 0, sum: 50, background: 'hp_back', foreground: 'hp_front', labelVisible: false },
-        params: { progress: 0, sum: 1, background: 'hp_back', foreground: 'hp_front', labelVisible: false },
+        params: { progress: 0, sum: 1, background: 'skill_bar_bg', foreground: 'skill_bar_front', labelVisible: false },
         properties: {
-          x: 10,
+          x: 20,
           y: 260,
         }
       }
