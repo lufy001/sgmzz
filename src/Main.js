@@ -143,12 +143,15 @@ var loadData = [
   { type: 'js', path: 'src/Controller/Dialog/ConfirmGoldDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/HomeBoxsDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/BoxDetailDialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/ShopBoxDetailDialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/ShopItemDetailDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/SettingDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ContentsGetDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/NewsDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/RankingDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ProfileDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/MatchDialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/AlertDialogController.js' },
   { type: 'js', path: 'src/Model/Master/CharacterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/ChapterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/StageMasterModel.js' },
@@ -245,8 +248,10 @@ function dataFristLoadComplete(data) {
   var playerName = LPlatform.player().getName();
   AnalyticService.instance().setUserId(playerId);
   AnalyticService.instance().setUserProperties('version', VERSION, false);
-  MasterClient.addEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
-  MasterClient.start(playerId, {});
+  if (!window.setting.isLocal) {
+    MasterClient.addEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
+    MasterClient.start(playerId, {});
+  }
   UserService.instance().login(playerId, playerName)
     .then(function(playerModel) {
       PlayerManager.playerModel = playerModel;
@@ -276,7 +281,7 @@ function onJoinedLobby() {
   onGameStart();
 }
 function onGameStart() {
-  if (!dataList || !MasterClient.isConnected()) {
+  if (!dataList || !window.setting.isLocal && !MasterClient.isConnected()) {
     return;
   }
   if (loadingLayer) {

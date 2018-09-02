@@ -53,6 +53,9 @@ var FooterButtonView = (function() {
   };
   FooterButtonView.prototype._onClick = function(event) {
     var _this = this;
+    if (_this.name === 'Group' || _this.name === 'Events') {
+      return;
+    }
     Common.changeScene(_this.name + 'Controller');
   };
   FooterButtonView.prototype.on = function(value) {

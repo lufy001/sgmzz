@@ -1,5 +1,5 @@
-var ConfirmGoldDialogController = (function() {
-  function ConfirmGoldDialogController(request) {
+var AlertDialogController = (function() {
+  function AlertDialogController(request) {
     var _this = this;
         
     var properties = {
@@ -9,25 +9,6 @@ var ConfirmGoldDialogController = (function() {
         properties: {
           y: 60,
           text: request.message
-        }
-      },
-      goldLabel: {
-        type: 'Label',
-        parent: 'layer',
-        properties: {
-          x: request.width * 0.5,
-          y: request.height - 100,
-          text: request.gold,
-          textAlign: 'right'
-        }
-      },
-      icon: {
-        type: 'LBitmap',
-        parent: 'layer',
-        data: 'icon_gem',
-        properties: {
-          x: request.width * 0.5 + 10,
-          y: request.height - 100
         }
       },
       buttonOk: {
@@ -43,7 +24,7 @@ var ConfirmGoldDialogController = (function() {
     LExtends(_this, DialogController, [request, properties]);
     _this._okEvent = request.okEvent;
   }
-  ConfirmGoldDialogController.prototype.onLoad = function(request) {
+  AlertDialogController.prototype.onLoad = function(request) {
     var _this = this;
     if (_this.message.getWidth() > request.width - 40) {
       _this.message.x = 20;
@@ -53,11 +34,13 @@ var ConfirmGoldDialogController = (function() {
     }
     _this.buttonOk.addEventListener(LMouseEvent.MOUSE_UP, _this._okClick, _this);
   };
-  ConfirmGoldDialogController.prototype._okClick = function(event) {
+  AlertDialogController.prototype._okClick = function(event) {
     var _this = this;
     var callback = _this._okEvent;
     _this.remove();
-    callback();
+    if (callback) {
+      callback();
+    }
   };
-  return ConfirmGoldDialogController;
+  return AlertDialogController;
 })();

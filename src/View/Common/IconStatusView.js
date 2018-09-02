@@ -29,6 +29,7 @@ var IconStatusView = (function() {
       plusButton: {
         type: 'CommonButton',
         label: '+',
+        onClick: '_plusClick',
         params: { img: 'btn06' },
         properties: {
           x: 0,
@@ -43,7 +44,6 @@ var IconStatusView = (function() {
     var _this = this;
     _this.label.x = _this.icon.x - 5;
     _this.label.y = (_this.background.getHeight() - _this.label.getHeight()) * 0.5;
-    _this.plusButton.addEventListener(LMouseEvent.MOUSE_UP, _this._plusClick, _this);
   };
   IconStatusView.prototype.updateView = function(value) {
     var _this = this;

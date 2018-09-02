@@ -16,6 +16,26 @@ var ShopItemView = (function() {
         data: 'translucent',
         properties: {
           x: 20,
+          y: 50
+        }
+      },
+      nameLabel: {
+        type: 'Label',
+        properties: {
+          text: '',
+          textAlign: 'center',
+          size: 24,
+          x: 70,
+          y: 10
+        }
+      },
+      amountLabel: {
+        type: 'Label',
+        properties: {
+          text: _this.model.coin || _this.model.gem || '',
+          textAlign: 'center',
+          size: 28,
+          x: 70,
           y: 40
         }
       },
@@ -53,6 +73,16 @@ var ShopItemView = (function() {
       _this.load('shop_box_' + _this.model.box_id, 'boxs/' + boxModel.img() + '/1-0');
     }
     _this._initPrice();
+    _this._initName();
+  };
+  ShopItemView.prototype._initName = function() {
+    var _this = this;
+    if (_this.model.box_id > 0) {
+      var boxModel = BoxManager.getMasterModel(_this.model.box_id);
+      _this.nameLabel.text = boxModel.name();
+    } else {
+      _this.nameLabel.text = _this.model.name || '';
+    }
   };
   ShopItemView.prototype._initPrice = function() {
     var _this = this;
@@ -94,10 +124,35 @@ var ShopItemView = (function() {
     this._y = event.offsetY;
   };
   ShopItemView.prototype._onUp = function(event) {
-    if (Math.abs(this._x - event.offsetX) > 5 || Math.abs(this._y - event.offsetY) > 5) {
+    var _this = this;
+    if (Math.abs(_this._x - event.offsetX) > 5 || Math.abs(_this._y - event.offsetY) > 5) {
       return;
     }
-    console.log(this.model.id);
+    if (_this.model.price > 0) {
+      _this._purchaseAsync();
+    } else if (_this.model.box_id > 0) {
+      _this._confirmBox();
+    } else {
+      _this._confirmItem();
+    }
+  };
+  ShopItemView.prototype._confirmBox = function() {
+    var _this = this;
+    var boxModel = BoxManager.getMasterModel(_this.model.box_id);
+    var params = { width: 360, height: 300, shopModel: _this.model, boxModel: boxModel, hideClose: true };
+    var dialog = new ShopBoxDetailDialogController(params);
+    dialogLayer.addChild(dialog);
+  };
+  ShopItemView.prototype._confirmItem = function() {
+    var _this = this;
+    var params = { width: 360, height: 300, model: _this.model, hideClose: true };
+    var dialog = new ShopItemDetailDialogController(params);
+    dialogLayer.addChild(dialog);
+  };
+  ShopItemView.prototype._purchaseAsync = function() {
+    var _this = this;
+    //TODO:
+    console.log('');
   };
   return ShopItemView;
 })();

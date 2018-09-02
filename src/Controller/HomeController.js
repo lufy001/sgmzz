@@ -94,6 +94,9 @@ var HomeController = (function() {
   };
   HomeController.prototype._gotoGame = function(event) {
     var _this = this;
+    if (window.setting.isLocal) {
+      return;
+    }
     var dialog = new MatchDialogController({ width: 400, height: 210, hideClose: true });
     dialog.addEventListener('close', _this._matchOver, _this);
     dialogLayer.addChild(dialog);

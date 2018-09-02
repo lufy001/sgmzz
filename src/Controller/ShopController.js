@@ -50,6 +50,9 @@ var ShopController = (function() {
     _this.layer.addEventListener(LMouseEvent.MOUSE_DOWN, _this._onDown, _this);
     _this.layer.addEventListener(LMouseEvent.MOUSE_UP, _this._onUp, _this);
     _this.layer.dragRange = new LRectangle(0, -y, 0, y);
+    if (window.setting.platform === 'fb') {
+      _this.gemLayer.visible = false;
+    }
   };
   ShopController.prototype._onDown = function(event) {
     event.clickTarget.startDrag(event.touchPointID);
@@ -69,6 +72,9 @@ var ShopController = (function() {
         _this._addContent(_this.coinLayer, model);
       }
     });
+    if (window.setting.platform === 'fb') {
+      return;
+    }
     purchaseMasters.forEach(function(model) {
       _this._addContent(_this.gemLayer, model);
     });
