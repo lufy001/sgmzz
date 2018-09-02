@@ -6,7 +6,7 @@ var TimeCountDownView = (function() {
         type: 'LBitmap',
         data: 'icon_time',
         properties: {
-          x: -90,
+          x: -80,
           y: -10
         }
       },

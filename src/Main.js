@@ -81,6 +81,7 @@ var loadData = [
   { name: 'icon_ok', path: 'resources/images/icons/ok.png' },
   { name: 'icon_exclamation', path: 'resources/images/icons/exclamation.png' },
   { name: 'icon_search', path: 'resources/images/icons/search.png' },
+  { name: 'icon_video', path: 'resources/images/icons/video.png' },
 
   { name: 'buffer_phy_def_down', path: 'resources/images/status/buffer_phy_def_down.png' },
   { name: 'buffer_phy_def_up', path: 'resources/images/status/buffer_phy_def_up.png' },

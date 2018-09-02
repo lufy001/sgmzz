@@ -53,7 +53,7 @@ var HomeBoxsDialogController = (function() {
       return box.status() === 'unlock' && box.time() > 0;
     });
     var boxView = event.currentTarget;
-    var params = { width: 360, height: 300, model: boxView.boxModel, hideClose: true, toUnlock: !unlocking };
+    var params = { width: 400, height: 300, model: boxView.boxModel, hideClose: true, toUnlock: !unlocking };
     var dialog = new BoxDetailDialogController(params);
     dialogLayer.addChild(dialog);
   };

@@ -34,6 +34,16 @@ var BoxDetailDialogController = (function() {
           y: 100
         }
       },
+      videoIcon: {
+        type: 'CommonButton',
+        parent: 'layer',
+        label: '',
+        params: { img: 'icon_video' },
+        properties: {
+          x: 140,
+          y: 230
+        }
+      },
       coinIcon: {
         type: 'LBitmap',
         parent: 'layer',
