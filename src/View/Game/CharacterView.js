@@ -91,6 +91,7 @@ var CharacterView = (function() {
     } else {
       hert = hert * _this.model.magicDefense();
     }
+    _this.showHpChange(-hert);
     var e = new LEvent('player:changeHp');
     e.value = -hert;
     _this.dispatchEvent(e);

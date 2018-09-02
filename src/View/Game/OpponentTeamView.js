@@ -38,7 +38,7 @@ var OpponentTeamView = (function() {
     _this.layer.removeAllChild();
     var teamData = MasterClient.enemy().getCustomProperty('team');
     var level = MasterClient.enemy().getCustomProperty('level');
-    var hp = level * 500;
+    var hp = level * HP_LEVEL;
     teamData.forEach(function(data) {
       var child = new OpponentModel(data);
       hp += child.hp();

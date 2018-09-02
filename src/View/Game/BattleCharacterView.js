@@ -9,6 +9,9 @@ var BattleCharacterView = (function() {
       },
       bufferLayer: {
         type: 'LSprite'
+      },
+      showLayer: {
+        type: 'LSprite'
       }
     };
     for (var key in properties) {
@@ -141,7 +144,8 @@ var BattleCharacterView = (function() {
       case 'heal':
         _this.addHp(value * params.hert >> 0);
         break;
-      case 'dbl_atk':
+      case 'ski_atk':
+        _this.addHp(-(value * params.hert >> 0));
         break;
       case 'atk':
       case 'phy_def':
@@ -157,6 +161,15 @@ var BattleCharacterView = (function() {
         _this.addBuffer('mag_def', value, DEFAULT_BUFFER_TIME);
         break;
     }
+  };
+  BattleCharacterView.prototype.showHpChange = function(value) {
+    var _this = this;
+    var label = Common.getStrokeLabel({ text: (value > 0 ? '+' : '-') + value });
+    _this.showLayer.addChild(label);
+    var y = _this.character.y + 40;
+    label.x = _this.character.x + 10 + (40 * Math.random() >> 0);
+    label.y = y;
+    LTweenLite.to(label, 0.1, { y: y - 5 }).to(label, 0.1, { alpha: 0, y: y - 10 });
   };
   return BattleCharacterView;
 })();

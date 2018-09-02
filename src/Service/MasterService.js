@@ -146,7 +146,8 @@ var MasterService = (function() {
       chapters: chapters
     };
     var configs = [{ name: 'master_characters', type: 'text', path: 'resources/configs/characters.json' },
-      //{name : "config_effects",type : "text",path : "resources/configs/effects.json"},
+      { name: 'master_shop', type: 'text', path: 'resources/configs/shop.json' },
+      { name: 'master_purchase', type: 'text', path: 'resources/configs/purchase.json' },
       { name: 'master_skills', type: 'text', path: 'resources/configs/skills.json' },
       { name: 'master_boxs', type: 'text', path: 'resources/configs/boxs.json' },
       { name: 'master_level', type: 'text', path: 'resources/configs/level.json' }];
@@ -159,6 +160,8 @@ var MasterService = (function() {
         data.master_skills = JSON.parse(data.master_skills);
         data.master_boxs = JSON.parse(data.master_boxs);
         data.master_level = JSON.parse(data.master_level);
+        data.master_shop = JSON.parse(data.master_shop);
+        data.master_purchase = JSON.parse(data.master_purchase);
         var response = new MastersResponse(data);
         _this.masters = response;
         resolve();

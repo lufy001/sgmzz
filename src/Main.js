@@ -44,6 +44,7 @@ var loadData = [
   { name: 'frame04', path: 'resources/images/ui/frame04.png' },
   { name: 'frame05', path: 'resources/images/ui/frame05.png' },
   { name: 'frame06', path: 'resources/images/ui/frame06.png' },
+  { name: 'frame07', path: 'resources/images/ui/frame07.png' },
   { name: 'translucent', path: 'resources/images/ui/translucent.png' },
   { name: 'card_background', path: 'resources/images/ui/card_background.png' },
   { name: 'card_background_r', path: 'resources/images/ui/card_background_r.png' },
@@ -62,6 +63,7 @@ var loadData = [
   { name: 'icon_time', path: 'resources/images/icons/time.png' },
   { name: 'icon_coin', path: 'resources/images/icons/coin.png' },
   { name: 'icon_gem', path: 'resources/images/icons/gem.png' },
+  { name: 'icon_dollar', path: 'resources/images/icons/dollar.png' },
   { name: 'icon_lock', path: 'resources/images/icons/lock.png' },
   { name: 'icon_cup', path: 'resources/images/icons/cup.png' },
   { name: 'icon_setting', path: 'resources/images/icons/setting.png' },
@@ -125,6 +127,7 @@ var loadData = [
   { type: 'js', path: 'src/Service/RankingService.js' },
   { type: 'js', path: 'src/Service/GameService.js' },
   { type: 'js', path: 'src/Service/CardService.js' },
+  { type: 'js', path: 'src/Service/ShopService.js' },
 
   { type: 'js', path: 'src/Core/AutoDisplayObject.js' },
   { type: 'js', path: 'src/Controller/BaseController.js' },
@@ -155,6 +158,7 @@ var loadData = [
   { type: 'js', path: 'src/Model/Response/RankingResponse.js' },
   { type: 'js', path: 'src/Model/Response/OpenBoxResponse.js' },
   { type: 'js', path: 'src/Model/Response/BattleResultResponse.js' },
+  { type: 'js', path: 'src/Model/Response/BuyResponse.js' },
   { type: 'js', path: 'src/Model/RankingPlayerModel.js' },
   { type: 'js', path: 'src/Model/SkillModel.js' },
   { type: 'js', path: 'src/Model/BoxModel.js' },
@@ -209,7 +213,10 @@ var loadData = [
   { type: 'js', path: 'src/View/Game/ArrowListView.js' },
   { type: 'js', path: 'src/View/Game/CharacterArrowListView.js' },
   { type: 'js', path: 'src/View/Game/BattleSkillIconView.js' },
-  { type: 'js', path: 'src/View/Game/BattleResultView.js' }
+  { type: 'js', path: 'src/View/Game/BattleResultView.js' },
+
+  { type: 'js', path: 'src/View/Shop/ShopTitleView.js' },
+  { type: 'js', path: 'src/View/Shop/ShopItemView.js' }
 ];
 LGlobal.aspectRatio = PORTRAIT;
 var width = 480;

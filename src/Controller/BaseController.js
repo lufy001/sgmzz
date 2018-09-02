@@ -14,6 +14,9 @@ var BaseController = (function() {
   };
   BaseController.prototype.changeScene = function(request) {
     var _this = this;
+    if (Common.controllerTween) {
+      return;
+    }
     Common.oldController = Common.currentController;
     Common.currentController = _this;
 
@@ -38,8 +41,9 @@ var BaseController = (function() {
     var _this = this;
     _this.x = oldIndex > currentIndex ? -LGlobal.width : LGlobal.width;
     LTweenLite.to(_this, 0.3, { x: 0 });
-    LTweenLite.to(Common.oldController, 0.3, { x: -_this.x, onComplete: function(event) {
+    Common.controllerTween = LTweenLite.to(Common.oldController, 0.3, { x: -_this.x, onComplete: function(event) {
       event.target.visible = false;
+      Common.controllerTween = null;
     } });
   };
   BaseController.prototype._fadeChangeRun = function(isHome) {
@@ -47,11 +51,12 @@ var BaseController = (function() {
     _this.x = 0;
     _this.alpha = 0;
     LTweenLite.to(_this, 0.3, { alpha: 1 });
-    LTweenLite.to(Common.oldController, 0.3, { alpha: 0, onComplete: function(event) {
+    Common.controllerTween = LTweenLite.to(Common.oldController, 0.3, { alpha: 0, onComplete: function(event) {
       event.target.alpha = 1;
       event.target.visible = false;
       footerView.visible = isHome;
       headerView.visible = isHome;
+      Common.controllerTween = null;
     } });
   };
   return BaseController;

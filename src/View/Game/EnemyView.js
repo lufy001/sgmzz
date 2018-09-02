@@ -98,6 +98,7 @@ var EnemyView = (function() {
     } else {
       hert = hert * _this.model.magicDefense();
     }
+    _this.showHpChange(-hert);
     var hp = _this.hpProgress.progress - hert;
     _this.hpProgress.updateView({ progress: hp >= 0 ? hp : 0, fontSize: 14 });
     if (hp <= 0) {
@@ -107,6 +108,7 @@ var EnemyView = (function() {
   };
   EnemyView.prototype.addHp = function(value) {
     var _this = this;
+    _this.showHpChange(value);
     var hp = _this.hpProgress.progress + value;
     _this.hpProgress.updateView({ progress: hp < _this.hpProgress.sum ? hp : _this.hpProgress.sum, fontSize: 14 });
   };

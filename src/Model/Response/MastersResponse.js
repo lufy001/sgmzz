@@ -6,6 +6,12 @@ var MastersResponse = (function() {
   MastersResponse.prototype.news = function() {
     return this.data.news;
   };
+  MastersResponse.prototype.masterShop = function() {
+    return this.data.master_shop;
+  };
+  MastersResponse.prototype.masterPurchase = function() {
+    return this.data.master_purchase;
+  };
   MastersResponse.prototype.masterBoxs = function() {
     return this.data.master_boxs;
   };

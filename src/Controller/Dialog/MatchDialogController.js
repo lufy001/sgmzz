@@ -79,18 +79,19 @@ var MatchDialogController = (function() {
       _this._onClose();
     });
     var playerId = LPlatform.player().getID();
-    player.setCustomProperty('level', PlayerManager.playerModel.level());
     var teamJson = PlayerManager.playerModel.teamToJson();
-    player.setCustomProperty('level', PlayerManager.playerModel.level());
     var player = MasterClient.player();
     player.setCustomProperty('team', teamJson);
+    player.setCustomProperty('level', PlayerManager.playerModel.level());
     if (playerId > targetId) {
       Common.delay(1000).then(function() {
         player.setCustomProperty('battleRoom', targetId + '_' + playerId);
+        player.setCustomProperty('isLeader', 0);
         MasterClient.joinRoom(targetId + '_' + playerId);
       });
     } else {
       player.setCustomProperty('battleRoom', playerId + '_' + targetId);
+      player.setCustomProperty('isLeader', 1);
       MasterClient.createRoom(playerId + '_' + targetId);
     }
   };

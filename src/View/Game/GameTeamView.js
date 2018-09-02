@@ -36,7 +36,7 @@ var GameTeamView = (function() {
     var _this = this;
     _this.layer.removeAllChild();
     var team = PlayerManager.playerModel.team();
-    var hp = PlayerManager.playerModel.level() * 500;
+    var hp = PlayerManager.playerModel.level() * HP_LEVEL;
     team.forEach(function(child) {
       hp += child.hp();
       _this.addCharacter(child);
