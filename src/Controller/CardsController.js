@@ -74,7 +74,17 @@ var CardsController = (function() {
   CardsController.prototype._cardClick = function(event) {
     var _this = this;
     _this._selectModel = event.model;
-    _this.cardButtonsView.show(event.x, event.y, event.isTeamCard);
+    if (event.isTeamCard || event.y <= LGlobal.height - 150) {
+      _this.cardButtonsView.show(event.x, event.y, event.isTeamCard);
+      return;
+    }
+    var dragEffect = _this.listView.dragEffect;
+    _this.listView.dragEffect = LListView.DragEffects.None;
+    LTweenLite.to(_this.listView.clipping, 0.1, { y: _this.listView.clipping.y + event.y - (LGlobal.height - 150), 
+      onComplete: function() {
+        _this.listView.dragEffect = dragEffect;
+        _this.cardButtonsView.show(event.x, event.y, event.isTeamCard);
+      } });
   };
   CardsController.prototype._cardUse = function(event) {
     var _this = this;

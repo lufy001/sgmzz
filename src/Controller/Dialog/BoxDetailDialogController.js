@@ -34,9 +34,10 @@ var BoxDetailDialogController = (function() {
           y: 100
         }
       },
-      videoIcon: {
+      videoButton: {
         type: 'CommonButton',
         parent: 'layer',
+        onClick: '_videoClick',
         label: '',
         params: { img: 'icon_video' },
         properties: {
@@ -109,6 +110,21 @@ var BoxDetailDialogController = (function() {
         CommonEvent.dispatchEvent(event);
         _this.remove();
       });
+  };
+  BoxDetailDialogController.prototype._videoClick = function(event) {
+    var _this = this;
+    if (_this.model.time() === 0 && _this.model.status() === 'unlock') {
+      _this._open();
+      return;
+    }
+    var params = { width: 360, height: 300, gold: 200 };
+    params.okEvent = function() {
+      _this._open();
+    };
+    params.message = 'open this box?';
+      
+    var dialog = new ConfirmGoldDialogController(params);
+    dialogLayer.addChild(dialog);
   };
   BoxDetailDialogController.prototype._openClick = function(event) {
     var _this = this;
