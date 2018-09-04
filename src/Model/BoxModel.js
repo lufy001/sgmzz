@@ -2,41 +2,46 @@ var BoxModel = (function() {
   function BoxModel(data) {
     var _this = this;
     _this.data = data;
-    _this.init();
+    _this._initTime = Date.now();
   }
-  BoxModel.prototype.init = function() {
-    var _this = this;
-    _this._master = BoxManager.getMasterModel(_this.boxId());
-  };
   BoxModel.prototype.id = function() {
     return this.data.id;
+  };
+  BoxModel.prototype.master = function() {
+    var _this = this;
+    _this._master = _this._master || BoxManager.getMasterModel(_this.boxId());
+    return _this._master;
   };
   BoxModel.prototype.boxId = function() {
     return this.data.boxId;
   };
   BoxModel.prototype.time = function() {
-    return this.data.time;
+    var _this = this;
+    var dataTime = _this.data.time;
+    var elapsedTime = Date.now() - _this._initTime;
+    var value = dataTime - (elapsedTime * 0.001 >> 0);
+    return value > 0 ? value : 0;
   };
   BoxModel.prototype.status = function() {
     return this.data.status;
   };
   BoxModel.prototype.name = function() {
-    return this._master.name();
+    return this.master().name();
   };
   BoxModel.prototype.img = function() {
-    return this._master.img();
+    return this.master().img();
   };
   BoxModel.prototype.coin = function() {
-    return this._master.coin();
+    return this.master().coin();
   };
   BoxModel.prototype.allTime = function() {
-    return this._master.allTime();
+    return this.master().allTime();
   };
   BoxModel.prototype.cards = function() {
-    return this._master.cards();
+    return this.master().cards();
   };
   BoxModel.prototype.introduction = function() {
-    return this._master.introduction();
+    return this.master().introduction();
   };
   return BoxModel;
 })();

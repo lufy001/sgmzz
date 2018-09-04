@@ -91,8 +91,8 @@ var BoxDetailDialogController = (function() {
       button = Common.getButton('open', { img: 'btn03', offsetY: -2 });
       button.x = (request.width - button.getWidth()) * 0.5;
     } else {
-      var coin = 200;
-      button = Common.getButton(coin, { img: 'btn03', icon: 'icon_gem', iconWidth: 34, iconHeight: 34, offsetY: -2 });
+      var gem = BoxManager.timeToGem(_this.model.time() || _this.model.allTime());
+      button = Common.getButton(gem, { img: 'btn03', icon: 'icon_gem', iconWidth: 34, iconHeight: 34, offsetY: -2 });
       button.x = request.width * 0.5 + (request.width * 0.5 - button.getWidth()) * 0.5;
     }
     button.y = 230;

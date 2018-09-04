@@ -73,7 +73,7 @@ var BattleResultView = (function() {
   };
   BattleResultView.prototype.updateView = function(params) {
     var _this = this;
-    _this.reset();
+    _this.reset(params);
     if (!params.isWin) {
       if (GameManager.isMulti()) {
         _this._showResult({ cup: -30 });//TODO: change cup
@@ -97,35 +97,35 @@ var BattleResultView = (function() {
     var y = 150;
     var height = 60;
     var promise = Promise.resolve();
-    if (params.cup) {
+    if (params.cup()) {
       _this.cupParamView.y = y;
       y += height;
       promise = promise.then(function() {
         _this.cupParamView.visible = true;
-        _this.cupParamView.updateView(params.cup);
+        _this.cupParamView.updateView(params.cup());
         return Common.delay(500);
       });
     }
-    if (params.gem) {
+    if (params.gem()) {
       _this.gemParamView.y = y;
       y += height;
       promise = promise.then(function() {
         _this.gemParamView.visible = true;
-        _this.gemParamView.updateView(params.gem);
+        _this.gemParamView.updateView(params.gem());
         return Common.delay(500);
       });
     }
-    if (params.coin) {
+    if (params.coin()) {
       _this.coinParamView.y = y;
       y += height;
       promise = promise.then(function() {
         _this.coinParamView.visible = true;
-        _this.coinParamView.updateView(params.coin);
+        _this.coinParamView.updateView(params.coin());
         return Common.delay(500);
       });
     }
-    if (params.boxId) {
-      var boxModel = BoxManager.getMasterModel(params.boxId);
+    if (params.boxId()) {
+      var boxModel = BoxManager.getMasterModel(params.boxId());
       promise = promise.then(function() {
         _this.boxView.visible = true;
         _this.boxView.y = 0;

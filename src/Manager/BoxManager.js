@@ -14,6 +14,9 @@ var BoxManager = (function() {
   BoxManager.prototype.getMasterModel = function(id) {
     return this.masterList[id];
   };
+  BoxManager.prototype.timeToGem = function(time) {
+    return Math.ceil(time / TIME_TO_GEM_UNIT);
+  };
     
   return new BoxManager();
 })();
