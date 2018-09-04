@@ -6,7 +6,7 @@ var CardsController = (function() {
         type: 'LSprite'
       },
       teamView: {
-        type: 'TeamView',
+        type: 'PlayerTeamView',
         parent: 'layer',
         properties: {
           y: 40
@@ -39,6 +39,11 @@ var CardsController = (function() {
     LExtends(_this, BaseController, [request, properties]);
     _this.init();
   }
+  CardsController.prototype.onLoad = function(request) {
+    var _this = this;
+    _this.teamView.updateView(PlayerManager.playerModel.team());
+
+  };
   CardsController.prototype.init = function() {
     var _this = this;
         
@@ -96,7 +101,7 @@ var CardsController = (function() {
     var index = team.indexOf(changeModel.id());
     team[index] = _this._selectModel.id();
     PlayerManager.playerModel.team(team);
-    _this.teamView.updateView();
+    _this.teamView.updateView(PlayerManager.playerModel.team());
     _this.listView.visible = true;
     CommonEvent.dispatchEvent(CommonEvent.CARD_LIST_UPDATE);
   };

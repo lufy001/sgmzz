@@ -21,6 +21,7 @@ var loadFristData = [
   { type: 'js', path: 'src/Service/MasterService.js' }
 ];
 var loadData = [
+  { name: 'title_frame01', path: 'resources/images/ui/title_frame01.png' },
   { name: 'top_background', path: 'resources/images/ui/top_background.jpg' },
   { name: 'hp_background', path: 'resources/images/ui/hp_background.png' },
   { name: 'hp_bar', path: 'resources/images/ui/hp_bar.png' },
@@ -46,6 +47,7 @@ var loadData = [
   { name: 'frame05', path: 'resources/images/ui/frame05.png' },
   { name: 'frame06', path: 'resources/images/ui/frame06.png' },
   { name: 'frame07', path: 'resources/images/ui/frame07.png' },
+  { name: 'frame08', path: 'resources/images/ui/frame08.png' },
   { name: 'translucent', path: 'resources/images/ui/translucent.png' },
   { name: 'card_background', path: 'resources/images/ui/card_background.png' },
   { name: 'card_background_r', path: 'resources/images/ui/card_background_r.png' },
@@ -193,6 +195,7 @@ var loadData = [
   { type: 'js', path: 'src/View/Footer/FooterView.js' },
   { type: 'js', path: 'src/View/Footer/FooterButtonView.js' },
   { type: 'js', path: 'src/View/Cards/TeamView.js' },
+  { type: 'js', path: 'src/View/Cards/PlayerTeamView.js' },
   { type: 'js', path: 'src/View/Cards/CardChildView.js' },
   { type: 'js', path: 'src/View/Cards/CardButtonsView.js' },
   { type: 'js', path: 'src/View/Cards/SelectCardView.js' },

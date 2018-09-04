@@ -154,7 +154,12 @@ var BattleResultView = (function() {
   BattleResultView.prototype._onClick = function(event) {
     var _this = this;
     _this.visible = false;
-    Common.changeScene('HomeController', { selectChapterId: 100, selectStageId: 100001 });
+    if (GameManager.isMulti()) {
+      Common.changeScene('HomeController', {  });
+    } else {
+      Common.changeScene('ChapterMapController', {  });
+    }
+    
   };
     
   return BattleResultView;

@@ -70,7 +70,7 @@ var Common = (function() {
         icon.scaleY = params.iconHeight / icon.getHeight();
       }
       textLabel.x = (btnBitmap.getWidth() - textLabel.getWidth() - icon.getWidth()) * 0.5;
-      icon.x = textLabel.x + textLabel.getWidth() + 5;
+      icon.x = textLabel.x + textLabel.getWidth() + 5 + offsetX;
       icon.y = (btnBitmap.getHeight() - icon.getHeight()) * 0.5 + offsetY;
       buttonLayer.addChild(icon);
     }

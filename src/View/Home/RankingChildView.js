@@ -16,22 +16,24 @@ var RankingChildView = (function() {
           y: 10
         }
       },
-      playerIcon: {
-        type: 'LBitmap',
-        data: 'btn06',
-        properties: {
-          x: 70,
-          y: 10
-        }
-      }, 
       nameLabel: {
         type: 'Label',
         properties: {
           text: model.name(),
-          x: 150,
+          x: 70,
           y: 10
         }
       },  
+      cupIcon: {
+        type: 'LBitmap',
+        data: 'icon_cup',
+        properties: {
+          x: 200,
+          y: 10,
+          scaleX: 0.5,
+          scaleY: 0.5
+        }
+      }, 
       scoreLabel: {
         type: 'Label',
         properties: {

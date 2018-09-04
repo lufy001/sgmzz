@@ -44,7 +44,8 @@ var RankingDialogController = (function() {
   };
   RankingDialogController.prototype._showProfile = function(event) {
     var _this = this;
-    var dialog = new ProfileDialogController({ width: 400, height: 500, model: event.model });
+    //var dialog = new ProfileDialogController({ width: 460, height: 560, model: event.model });
+    var dialog = new ProfileDialogController({ width: 460, height: 560 });
     dialogLayer.addChild(dialog);
   };
   RankingDialogController.prototype._showListView = function(players) {

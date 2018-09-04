@@ -38,6 +38,10 @@ var CardView = (function() {
   };
   CardView.prototype._updateAmount = function() {
     var _this = this;
+    if (typeof _this.characterModel.amount() === UNDEFINED) {
+      _this.amountProgress.visible = false;
+      return;
+    }
     var levelData = LevelManager.getMaster(_this.characterModel.level());
     var params = { progress: _this.characterModel.amount(), sum: levelData.amount };
     params.background = 'amount_bg';

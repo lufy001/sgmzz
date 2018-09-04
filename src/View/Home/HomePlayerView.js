@@ -52,7 +52,7 @@ var HomePlayerView = (function() {
         type: 'CommonButton',
         onClick: '_onClickSetting',
         label: '',
-        params: { img: 'frame06', icon: 'icon_setting' },
+        params: { img: 'frame06', icon: 'icon_setting', offsetX: -5 },
         properties: {
           x: 340
         }
