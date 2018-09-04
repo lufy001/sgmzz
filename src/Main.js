@@ -220,6 +220,7 @@ var loadData = [
   { type: 'js', path: 'src/View/Game/CharacterArrowListView.js' },
   { type: 'js', path: 'src/View/Game/BattleSkillIconView.js' },
   { type: 'js', path: 'src/View/Game/BattleResultView.js' },
+  { type: 'js', path: 'src/View/Game/ResultParamView.js' },
 
   { type: 'js', path: 'src/View/Shop/ShopTitleView.js' },
   { type: 'js', path: 'src/View/Shop/ShopItemView.js' }

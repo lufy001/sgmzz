@@ -38,11 +38,11 @@ var BoxDetailDialogController = (function() {
         type: 'CommonButton',
         parent: 'layer',
         onClick: '_videoClick',
-        label: '',
-        params: { img: 'icon_video' },
+        label: '12/20',
+        params: { img: 'btn03', icon: 'icon_video', iconWidth: 40, iconHeight: 40 },
         properties: {
-          x: 140,
-          y: 230
+          x: 100,
+          y: 310
         }
       },
       coinIcon: {
@@ -113,18 +113,7 @@ var BoxDetailDialogController = (function() {
   };
   BoxDetailDialogController.prototype._videoClick = function(event) {
     var _this = this;
-    if (_this.model.time() === 0 && _this.model.status() === 'unlock') {
-      _this._open();
-      return;
-    }
-    var params = { width: 360, height: 300, gold: 200 };
-    params.okEvent = function() {
-      _this._open();
-    };
-    params.message = 'open this box?';
-      
-    var dialog = new ConfirmGoldDialogController(params);
-    dialogLayer.addChild(dialog);
+    
   };
   BoxDetailDialogController.prototype._openClick = function(event) {
     var _this = this;
@@ -143,6 +132,7 @@ var BoxDetailDialogController = (function() {
   };
   BoxDetailDialogController.prototype._addTime = function(request) {
     var _this = this;
+    _this.videoButton.visible = false;
     if (_this.model.time() === 0 && _this.model.status() === 'unlock') {
       return;
     }
@@ -150,6 +140,7 @@ var BoxDetailDialogController = (function() {
     if (_this.model.status() === 'unlock') {
       label = new TimeCountDownView(_this.model.time(), true);
       _this.countDown = label;
+      _this.videoButton.visible = true;
     } else {
       var time = Common.getFormatTime(_this.model.time() || _this.model.allTime());
       label = Common.getStrokeLabel({ text: time });
