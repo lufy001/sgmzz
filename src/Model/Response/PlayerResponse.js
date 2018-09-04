@@ -3,11 +3,34 @@ var PlayerResponse = (function() {
     var _this = this;
     _this.data = data;
   }
-  PlayerResponse.prototype.playerModel = function() {
-    return new PlayerModel(this.data.playerModel);
+  PlayerResponse.prototype.team = function(value) {
+    var _this = this;
+    if (!_this.data._team) {
+      _this.data._team = [];
+      _this.data.team.forEach(function(child) {
+        var model = new CharacterModel(child);
+        _this.data._team.push(model);
+      });
+    }
+    return _this.data._team;
   };
-  PlayerResponse.prototype.contents = function() {
-    return new ContentsModel(this.data.contents);
+  PlayerResponse.prototype.id = function() {
+    return this.data.id;
+  };
+  PlayerResponse.prototype.name = function() {
+    return this.data.name;
+  };
+  PlayerResponse.prototype.amount = function() {
+    return undefined;
+  };
+  PlayerResponse.prototype.cup = function() {
+    return this.data.cup;
+  };
+  PlayerResponse.prototype.maxCup = function() {
+    return this.data.maxCup;
+  };
+  PlayerResponse.prototype.lv = function() {
+    return this.data.lv;
   };
   return PlayerResponse;
 })();
