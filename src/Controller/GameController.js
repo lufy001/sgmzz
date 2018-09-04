@@ -58,13 +58,14 @@ var GameController = (function() {
     console.error('_onResultWin');
     _this._removeResultEvent();
     _this.resultView.visible = true;
-    //_this.resultView.updateView();
+    _this.resultView.updateView({ isWin: true });
   };
   GameController.prototype._onResultFail = function() {
     var _this = this;
     console.error('_onResultFail');
     _this._removeResultEvent();
     _this.resultView.visible = true;
+    _this.resultView.updateView({ isWin: false });
   };
   GameController.prototype._onMaskShow = function() {
     var _this = this;

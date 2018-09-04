@@ -15,8 +15,13 @@ var DialogController = (function() {
     maskBackground.name = 'maskBackground';
     _this.addChild(maskBackground);
     _this.layer = new LSprite();
-    var bitmapData = new LBitmapData(dataList['frame01']);
-    var background = new LPanel(bitmapData, request.width, request.height);
+    var bitmapData = new LBitmapData(dataList[request.background ? request.background.image : 'frame01']);
+    var background;
+    if (request.background && request.background.x1 && request.background.y1) {
+      background = new LPanel(bitmapData, request.width, request.height, request.background.x1, request.background.x2, request.background.y1, request.background.y2);
+    } else {
+      background = new LPanel(bitmapData, request.width, request.height);
+    }
     _this.layer.addChild(background);
     _this.layer.x = (LGlobal.width - request.width) * 0.5;
     _this.layer.y = (LGlobal.height - request.height) * 0.5;

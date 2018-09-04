@@ -1,10 +1,10 @@
 var AnalyticService = (function() {
   function AnalyticService() {
     if (window.amplitude) {
-      window.amplitude.getInstance().init(window.setting.window.amplitudeApiKey);
+      window.amplitude.getInstance().init(window.setting.amplitudeApiKey);
     }
   }
-  AnalyticService.prototype.setUserId = function(id) {
+  AnalyticService.prototype.setUserId = function(userId) {
     if (window.amplitude) {
       window.amplitude.getInstance().setUserId(userId);
     }

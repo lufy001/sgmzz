@@ -2,7 +2,11 @@ var PlayerModel = (function() {
   function PlayerModel(data) {
     var _this = this;
     _this.data = data;
+    _this._init();
   }
+  PlayerModel.prototype._init = function(value) {
+    this.boxs();
+  };
   PlayerModel.prototype.lastStageId = function() {
     return this.data.lastStageId;
   };
@@ -75,8 +79,12 @@ var PlayerModel = (function() {
     }
     return _this.data._team;
   };
-  PlayerModel.prototype.boxs = function() {
+  PlayerModel.prototype.boxs = function(value) {
     var _this = this;
+    if (typeof value !== UNDEFINED) {
+      _this.data.boxs = value;
+      _this.data._boxs = null;
+    }
     if (!_this.data._boxs) {
       _this.data._boxs = [];
       _this.data.boxs.forEach(function(data) {

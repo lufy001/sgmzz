@@ -67,6 +67,7 @@ var HomeController = (function() {
     _this.init();
   }
   HomeController.prototype.onLoad = function(request) {
+    var _this = this;
   };
   HomeController.prototype.init = function() {
     var _this = this;

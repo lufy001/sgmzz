@@ -1,1 +1,2 @@
 var HP_LEVEL = 500;
+var TIME_TO_GEM_UNIT = 300;

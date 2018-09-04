@@ -32,13 +32,13 @@ var TimeCountDownView = (function() {
   TimeCountDownView.prototype._onframe = function(event) {
     var _this = this;
     var now = Date.now();
-    var time = _this._time - (now - _this._startTime);
+    var time = _this._time - ((now - _this._startTime) * 0.001 >> 0);
     if (time <= 0) {
       _this.removeEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
       _this.dispatchEvent(LEvent.COMPLETE);
       return;
     }
-    _this.label.text = Common.getFormatTime(time * 0.001 >>> 0);
+    _this.label.text = Common.getFormatTime(time);
   };
   return TimeCountDownView;
 })();
