@@ -58,7 +58,7 @@ var NewsDialogController = (function() {
   }
   NewsDialogController.prototype.onLoad = function(request) {
     var _this = this;
-    var news = MasterService.instance().masters.news();
+    var news = MasterService.instance().masters.masterNews();
     var items = [];
     var contentX = 0;
     var contentY = 20;
