@@ -86,7 +86,7 @@ var BattleResultView = (function() {
           _this._showResult(response);
         });
     } else {
-      GameService.instance().sendSingleResult()
+      GameService.instance().sendSingleResult(params.stageId)
         .then(function(response) {
           _this._showResult(response);
         });

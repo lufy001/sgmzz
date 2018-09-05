@@ -57,13 +57,13 @@ var GameController = (function() {
     var _this = this;
     _this._removeResultEvent();
     _this.resultView.visible = true;
-    _this.resultView.updateView({ isWin: true });
+    _this.resultView.updateView({ isWin: true, stageId: _this.selectStageId });
   };
   GameController.prototype._onResultFail = function() {
     var _this = this;
     _this._removeResultEvent();
     _this.resultView.visible = true;
-    _this.resultView.updateView({ isWin: false });
+    _this.resultView.updateView({ isWin: false, stageId: _this.selectStageId });
   };
   GameController.prototype._onMaskShow = function() {
     var _this = this;
