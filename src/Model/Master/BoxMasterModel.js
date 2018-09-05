@@ -5,8 +5,12 @@ var BoxMasterModel = (function() {
     _this._init();
   }
   BoxMasterModel.prototype._init = function() {
-    this.data.cards = JSON.parse(this.data.cards);
-    this.data.coin = JSON.parse(this.data.coin);
+    if (typeof this.data.cards === 'string') {
+      this.data.cards = JSON.parse(this.data.cards);
+    }
+    if (typeof this.data.cards === 'string') {
+      this.data.coin = JSON.parse(this.data.coin);
+    }
   };
   BoxMasterModel.prototype.id = function() {
     return this.data.id;
