@@ -68,8 +68,7 @@ var CardDetailDialogController = (function() {
           y: 130,
           width: 260,
           text: request.model.introduction(),
-          size: 24,
-          textAlign: 'center'
+          size: 24
         }
       },
       statusHert: {

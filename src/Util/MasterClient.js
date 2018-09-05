@@ -20,7 +20,7 @@ var MasterClient = (function() {
     this.dispatchEvent(event);
   };
   MasterClient.prototype.onEvent = function(code, content, actorNr) {
-    console.error('onEvent', code, content);
+    console.log('MasterClient :: onEvent', code, content);
     switch (code) {
       case ClientEvent.READY:
         if (this.client.myActor().getId() !== content.id) {

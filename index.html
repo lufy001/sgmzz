@@ -4,6 +4,7 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>三国记・梦之战</title>
+    <script src="./plugin/raven.min.js"></script>
     <script>
         if(!window.Promise){
             var tag = '<script type="text/javascript" src="./plugin/es6-promise.auto.min.js"><\/script>';
@@ -21,6 +22,10 @@
         document.write(tag);
         if (!window.setting.isLocal) {
             document.write('<script type="text/javascript" src="./plugin/amplitude-4.4.0-min.gz.js"><\/script>');
+            Raven.config('https://9e20e60b59f3499c81a952fce251e7db@sentry.io/1274742', {
+                tags: {gameTitle: 'sgj-mzz', platform: window.setting.platform}
+                , environment: window.setting.env || 'default'
+            }).install();
         }
     </script>
     <script type="text/javascript" src="./plugin/Photon-Javascript_SDK.js"></script>

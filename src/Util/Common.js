@@ -41,7 +41,6 @@ var Common = (function() {
     return background;
   };
   Common.getButton = function(text, params) {
-    console.log('getButton', text, params);
     var img = 'btn01';
     var offsetY = 0;
     var offsetX = 0;
@@ -52,7 +51,6 @@ var Common = (function() {
       offsetY = params.offsetY || offsetY;
       size = params.size || size;
     }
-    //console.log('img', img, dataList[img]);
     var buttonLayer = new LSprite();
     var btnBitmap = new LBitmap(new LBitmapData(dataList[img]));
     buttonLayer.addChild(btnBitmap);

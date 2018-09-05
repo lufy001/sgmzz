@@ -47,7 +47,6 @@ var GameTeamView = (function() {
   };
   GameTeamView.prototype._onChangeHp = function(event) {
     var _this = this;
-    console.error('GameTeamView_onChangeHp', event.value);
     var hp = _this.hpProgress.progress + event.value;
     if (hp > _this.hpProgress.sum) {
       hp = _this.hpProgress.sum;

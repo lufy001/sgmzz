@@ -10,7 +10,6 @@ var CharacterArrowListView = (function() {
     _this._width = 640;
     LExtends(_this, ArrowListView, [[]]);
     _this.model = model;
-    console.error(model);
     _this.speed = ARROW_SPEED_MAP[_this.model.attackSpeed()];
     _this._addEvent();
         
@@ -25,6 +24,10 @@ var CharacterArrowListView = (function() {
   };
   CharacterArrowListView.prototype._onFrame = function(event) {
     var _this = this;
+    var buffer = _this.model.getBuffer('sleep');
+    if (buffer) {
+      return;
+    }
     if (_this.numChildren === 0 || _this.x <= -_this.getWidth()) {
       _this.init();
       return;
@@ -115,6 +118,10 @@ var CharacterArrowListView = (function() {
   };
   CharacterArrowListView.prototype._checkDraw = function(event) {
     var _this = this;
+    if (_this.numChildren > 0 && _this.model.getBuffer('sleep')) {
+      _this.clear();
+      return;
+    }
     var inputChildList = event.inputChildList;
     _this._arrowsInit();
     var length = Math.min(inputChildList.length, _this.numChildren);

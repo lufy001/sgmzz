@@ -300,8 +300,8 @@ function onGameStart() {
   addCommonBackground();
   rootLayer = new LSprite();
   addChild(rootLayer);
-  var homeController = new HomeController();
-  rootLayer.addChild(homeController);
+  //var homeController = new HomeController();
+  //rootLayer.addChild(homeController);
   footerView = new FooterView();
   addChild(footerView);
 
@@ -310,7 +310,23 @@ function onGameStart() {
 
   dialogLayer = new LSprite();
   addChild(dialogLayer);
-  LPlatform.startGameAsync();
+
+  Common.changeScene('HomeController', { });
+
+  LPlatform.startGameAsync()
+    .then(function() {
+      return LPlatform.getDataAsync('player_data');
+    })
+    .then(function(data) {
+      PlayerManager.playerData = data || {};
+      if (typeof PlayerManager.playerData.isNew === UNDEFINED) {
+        PlayerManager.playerData.isNew = true;
+      } else {
+        PlayerManager.playerData.isNew = false;
+        LPlatform.choose();
+      }
+      return LPlatform.setDataAsync('player_data', PlayerManager.playerData);
+    });
 }
 function addCommonBackground() {
   var imgBackground = new LBitmapData(dataList['top_background']);
