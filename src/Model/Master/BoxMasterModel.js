@@ -2,7 +2,12 @@ var BoxMasterModel = (function() {
   function BoxMasterModel(data) {
     var _this = this;
     _this.data = data;
+    _this._init();
   }
+  BoxMasterModel.prototype._init = function() {
+    this.data.cards = JSON.parse(this.data.cards);
+    this.data.coin = JSON.parse(this.data.coin);
+  };
   BoxMasterModel.prototype.id = function() {
     return this.data.id;
   };
