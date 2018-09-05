@@ -1,4 +1,5 @@
 var DEFAULT_BUFFER_TIME = 10000;
+var POISON_BUFFER_TIME = 500;
 var BattleCharacterView = (function() {
   function BattleCharacterView(model, properties) {
     var _this = this;
@@ -105,6 +106,24 @@ var BattleCharacterView = (function() {
   BattleCharacterView.prototype._onFrame = function(event) {
     var _this = this;
     _this._deleteBufferFrame();
+    _this._poisonBuffer();
+  };
+  BattleCharacterView.prototype._poisonBuffer = function(event) {
+    var _this = this;
+    var buffer = _this.model.getBuffer('poison');
+    if(!buffer){
+    	_this._poisonTime = 0;
+    	return;
+    }
+    var now = Date.now();
+    if(_this._poisonTime === 0){
+    	_this._poisonTime = new Date(now + POISON_BUFFER_TIME);
+    }
+    if(_this._poisonTime < now){
+    	_this._poisonTime = new Date(now + POISON_BUFFER_TIME);
+    	var hert = _this.hpProgress.progress*0.01 >> 0;
+    	_this.addHp(-(hert > 0 ? hert : 1));
+    }
   };
   BattleCharacterView.prototype._resetBufferPosition = function(value) {
     var _this = this;

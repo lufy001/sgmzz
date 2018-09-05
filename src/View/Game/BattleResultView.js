@@ -155,9 +155,9 @@ var BattleResultView = (function() {
     var _this = this;
     _this.visible = false;
     if (GameManager.isMulti()) {
-      Common.changeScene('HomeController', {  });
+      Common.changeScene('HomeController', { });
     } else {
-      Common.changeScene('ChapterMapController', {  });
+      Common.changeScene('ChapterMapController', { });
     }
     
   };

@@ -115,6 +115,9 @@ var EnemyView = (function() {
   EnemyView.prototype._onFrame = function(event) {
     var _this = this;
     _this.callParent('_onFrame', arguments);
+    if (_this.model.getBuffer('sleep')) {
+      return;
+    }
     _this._attackSpeedStep -= LGlobal.speed;
     if (_this._attackSpeedStep > 0) {
       return;
@@ -139,20 +142,6 @@ var EnemyView = (function() {
     CommonEvent.dispatchEvent(event);
     
     _this._dispatchSkillStart(skill, directionLength, targetId);
-    /*
-    if (!skill) {
-      return;
-    }
-    event = new LEvent(CommonEvent.SKILL_START);
-    var params = {};
-    params.skillId = skill.id();
-    params.targetId = skill.target() === 'self' ? _this.model.id() : targetId;
-    params.belong = _this.model.belong();
-    params.directionCount = directionLength;
-    params.hert = _this.model.attack();
-    params.amount = 1;
-    event.params = params;
-    CommonEvent.dispatchEvent(event);*/
   };
   return EnemyView;
 })();
