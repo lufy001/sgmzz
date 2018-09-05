@@ -165,12 +165,12 @@ var UserService = (function() {
       'class': 'user',
       'method': 'login'
     };
-    var request = { 'fbid': id, name: name };
+    var request = { name: name };
     if (!window.setting.isLocal) {
       return _this.send(action, request)
         .then(function(data) {
           //BaseService.ssid = data.ssid;
-          var response = new PlayerModel(data.data);
+          var response = new PlayerModel(data);
           return Promise.resolve(response);
         });
     }

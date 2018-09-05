@@ -13,17 +13,17 @@ var MasterService = (function() {
       var saveVersions = LPlugin.GetData('sgmzz_versions', {});
       var saveMaster = LPlugin.GetData('sgmzz_master', {});
       //var request = {"keys":["news"]};
-      var request = {"fbid":window.setting.platform, "keys":"[\"master_boxs\",\"master_characters\",\"master_level\",\"master_skills\",\"master_news\",\"master_loginbonus\",\"master_chapters\",\"master_user_level\",\"master_shop\",\"master_purchase\"]"};
+      var request = { "keys":"[\"master_boxs\",\"master_characters\",\"master_level\",\"master_skills\",\"master_news\",\"master_loginbonus\",\"master_chapters\",\"master_user_level\",\"master_shop\",\"master_purchase\"]"};
       return _this.send(action, request)
         .then(function(data) {
-          saveMaster.news = data.data.master_news;
-          saveMaster.chapters = data.data.master_chapters;
-          saveMaster.master_characters = data.data.master_characters;
-          saveMaster.master_skills = data.data.master_skills;
-          saveMaster.master_boxs = data.data.master_boxs;
-          saveMaster.master_level = data.data.master_level;
-          saveMaster.master_shop = data.data.master_shop;
-          saveMaster.master_purchase = data.data.master_purchase;
+          saveMaster.news = data.master_news;
+          saveMaster.chapters = data.master_chapters;
+          saveMaster.master_characters = data.master_characters;
+          saveMaster.master_skills = data.master_skills;
+          saveMaster.master_boxs = data.master_boxs;
+          saveMaster.master_level = data.master_level;
+          saveMaster.master_shop = data.master_shop;
+          saveMaster.master_purchase = data.master_purchase;
           LPlugin.SetData('sgmzz_master', saveMaster);
           LPlugin.SetData('versions', versions);
           var response = new MastersResponse(saveMaster);

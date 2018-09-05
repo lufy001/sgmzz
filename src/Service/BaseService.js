@@ -7,6 +7,7 @@ var BaseService = (function() {
   BaseService.prototype.send = function(action, request) {
     var _this = this;
     request['platform'] = window.setting.platform;
+    request['fbId'] = LPlatform.player().getID();
     var url = _this.url + '?class=' + action.class + '&action=' + action.method;
     console.log('url=', url);
     if (BaseService.ssid) {
@@ -16,7 +17,7 @@ var BaseService = (function() {
       LAjax.responseType = LAjax.JSON;
       LAjax.post(url, request, function(data) {
         console.log('data=', data);
-        resolve(data);
+        resolve(data.data);
       }, function(err) {
         reject(err);
       });
