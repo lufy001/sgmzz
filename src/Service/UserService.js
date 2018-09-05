@@ -166,7 +166,7 @@ var UserService = (function() {
       'method': 'login'
     };
     var request = { 'fbid': id, name: name };
-    if (window.setting.isLocal) {
+    if (!window.setting.isLocal) {
       return _this.send(action, request)
         .then(function(data) {
           //BaseService.ssid = data.ssid;

@@ -66,7 +66,7 @@ var GameService = (function() {
     if (!window.setting.isLocal) {
       return _this.send(action, request)
         .then(function(data) {
-          var response = new BattleResultResponse(data);
+          var response = new BattleResultResponse(data.data);
           return Promise.resolve(response);
         });
     }

@@ -9,7 +9,7 @@ var MasterService = (function() {
       'class': 'master',
       'method': 'getList'
     };
-    if (window.setting.isLocal) {
+    if (!window.setting.isLocal) {
       var saveVersions = LPlugin.GetData('sgmzz_versions', {});
       var saveMaster = LPlugin.GetData('sgmzz_master', {});
       //var request = {"keys":["news"]};
