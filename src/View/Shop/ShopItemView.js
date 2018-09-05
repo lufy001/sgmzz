@@ -152,7 +152,7 @@ var ShopItemView = (function() {
   ShopItemView.prototype._purchaseAsync = function() {
     var _this = this;
     //TODO:
-    console.log('');
+    console.log('_purchaseAsync');
   };
   return ShopItemView;
 })();

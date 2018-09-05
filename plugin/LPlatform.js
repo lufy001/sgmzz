@@ -54,5 +54,24 @@ var LPlatform = (function() {
     _this._updateContexts[_this._currentContextID] = true;
     return _this.sdk.updateAsync();
   };
+  LPlatform.prototype.isSupported = function(key) {
+    return !!_this.sdk[key];
+  };
+  LPlatform.prototype.showVideoAsync = function() {
+    var _this = this;
+    return _this.loadRewardedVideoAsync()
+      .then(function() {
+        return _this._ad.showAsync();
+      });
+  };
+  LPlatform.prototype.loadRewardedVideoAsync = function(placementId, show) {
+    var _this = this;
+    _this._adPromise = _this._adPromise || _this.sdk.getRewardedVideoAsync(placementId)
+      .then(function(rewardedVideo) {
+        _this._ad = rewardedVideo;
+        return _this._ad.loadAsync();
+      });
+    return _this._adPromise;
+  };
   return new LPlatform();
 })();

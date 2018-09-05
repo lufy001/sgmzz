@@ -48,13 +48,11 @@ var OpponentTeamView = (function() {
   };
   OpponentTeamView.prototype._onChangeHp = function(event) {
     var _this = this;
-    console.error('OpponentTeamView_onChangeHp', event.value);
     var hp = _this.hpProgress.progress + event.value;
     if (hp > _this.hpProgress.sum) {
       hp = _this.hpProgress.sum;
     } else if (hp <= 0) {
       hp = 0;
-      //CommonEvent.dispatchEvent(CommonEvent.RESULT_WIN);
       MasterClient.gameOver();
     }
     _this.hpProgress.updateView({ progress: hp, sum: _this.hpProgress.sum, fontSize: 22 });

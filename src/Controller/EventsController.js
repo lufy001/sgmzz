@@ -10,7 +10,6 @@ var EventsController = (function() {
   };
   EventsController.prototype._gotoGame = function(event) {
     var _this = this;
-    console.log(_this);
     var gameController = new GameController();
     rootLayer.addChild(gameController);
     _this.remove();

@@ -42,7 +42,6 @@ var SkillIconView = (function() {
   };
   SkillIconView.prototype._skillClick = function(event) {
     var _this = this;
-    console.log(_this.skillModel.id(), _this.skillModel.target());
     var eventType;
     if (_this.skillModel.target() === CharacterBelong.SELF) {
       eventType = CommonEvent.SKILL_TO_SELF;

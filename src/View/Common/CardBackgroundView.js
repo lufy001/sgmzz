@@ -26,7 +26,6 @@ var CardBackgroundView = (function() {
       _this.background.alpha = 1;
       _this.rarityBitmap.visible = true;
     }
-    console.log('card_' + rarity);
     _this.rarityBitmap.bitmapData = new LBitmapData(dataList['card_' + rarity]);
   };
   return CardBackgroundView;
