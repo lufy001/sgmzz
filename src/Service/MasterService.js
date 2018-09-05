@@ -12,28 +12,32 @@ var MasterService = (function() {
     if (!window.setting.isLocal) {
       var saveVersions = LPlugin.GetData('sgmzz_versions', {});
       var saveMaster = LPlugin.GetData('sgmzz_master', {});
-      //var request = {"keys":["news"]};
-      var request = {};
+      
+      var request ={"keys":""};
       var keyCount = 0;
       for (var key in versions) {
         if (saveVersions[key] && saveVersions[key] === versions[key]) {
           continue;
         }
-        request[key] = 1;
+        request.keys += ",\"" + key + "\"";
         keyCount++;
       }
       if (keyCount === 0) {
         var response = new MastersResponse(saveMaster);
         _this.masters = response;
         return Promise.resolve(response);
+      } else {
+        request.keys = "["+ request.keys.substr(1) + "]";
       }
+
       return _this.send(action, request)
         .then(function(data) {
           for (var key in data) {
             saveMaster[key] = data[key];
           }
           LPlugin.SetData('sgmzz_master', saveMaster);
-          LPlugin.SetData('versions', versions);
+          LPlugin.SetData('sgmzz_versions', versions);
+          
           var response = new MastersResponse(saveMaster);
           _this.masters = response;
           return Promise.resolve(response);
