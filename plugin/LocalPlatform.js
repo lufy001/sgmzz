@@ -41,7 +41,7 @@ var FBInstant = (function() {
   };
   FBInstant.prototype.setLoadingProgress = function(progress) {
     if (this.loadingDisplay) {
-      this.loadingDisplay.setProgress(progress);
+      this.loadingDisplay.setProgress(parseFloat(progress).toFixed(2));
     }
   };
 

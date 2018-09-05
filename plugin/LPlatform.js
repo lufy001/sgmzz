@@ -12,7 +12,7 @@ var LPlatform = (function() {
     return this.sdk.startGameAsync();
   };
   LPlatform.prototype.setLoadingProgress = function(progress) {
-    return this.sdk.setLoadingProgress(progress);
+    return this.sdk.setLoadingProgress(parseFloat(progress).toFixed(2));
   };
   return new LPlatform();
 })();
