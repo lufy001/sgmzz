@@ -12,7 +12,11 @@ var CardService = (function() {
     };
     var request = { 'id': id };
     if (!window.setting.isLocal) {
-      return _this.send(action, request);
+      return _this.send(action, request)
+        .then(function(data) {
+          var response = new PlayerModel(data);
+          return Promise.resolve(response);
+        });
     }
 
     var characters = [
