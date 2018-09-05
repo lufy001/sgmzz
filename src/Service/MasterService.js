@@ -13,13 +13,13 @@ var MasterService = (function() {
       var saveVersions = LPlugin.GetData('sgmzz_versions', {});
       var saveMaster = LPlugin.GetData('sgmzz_master', {});
       
-      var request ={"keys":""};
+      var request = { 'keys': '' };
       var keyCount = 0;
       for (var key in versions) {
         if (saveVersions[key] && saveVersions[key] === versions[key]) {
           continue;
         }
-        request.keys += ",\"" + key + "\"";
+        request.keys += ',"' + key + '"';
         keyCount++;
       }
       if (keyCount === 0) {
@@ -27,7 +27,7 @@ var MasterService = (function() {
         _this.masters = response;
         return Promise.resolve(response);
       } else {
-        request.keys = "["+ request.keys.substr(1) + "]";
+        request.keys = '[' + request.keys.substr(1) + ']';
       }
 
       return _this.send(action, request)
@@ -145,10 +145,6 @@ var MasterService = (function() {
           ] }
       ] }
     ];
-    var res = {
-      news: news,
-      chapters: chapters
-    };
     var configs = [{ name: 'master_characters', type: 'text', path: 'resources/configs/characters.json' },
       { name: 'master_shop', type: 'text', path: 'resources/configs/shop.json' },
       { name: 'master_purchase', type: 'text', path: 'resources/configs/purchase.json' },
@@ -158,8 +154,8 @@ var MasterService = (function() {
     return new Promise(function(resolve, reject) {
       LLoadManage.load(configs, function(progress) {
       }, function(data) {
-        data.news = news;
-        data.chapters = chapters;
+        data.master_news = news;
+        data.master_chapters = chapters;
         data.master_characters = JSON.parse(data.master_characters);
         data.master_skills = JSON.parse(data.master_skills);
         data.master_boxs = JSON.parse(data.master_boxs);

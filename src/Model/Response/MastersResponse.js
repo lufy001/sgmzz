@@ -3,8 +3,8 @@ var MastersResponse = (function() {
     var _this = this;
     _this.data = data;
   }
-  MastersResponse.prototype.news = function() {
-    return this.data.news;
+  MastersResponse.prototype.masterNews = function() {
+    return this.data.master_news;
   };
   MastersResponse.prototype.masterShop = function() {
     return this.data.master_shop;
@@ -24,12 +24,12 @@ var MastersResponse = (function() {
   MastersResponse.prototype.masterSkills = function() {
     return this.data.master_skills;
   };
-  MastersResponse.prototype.chapters = function() {
+  MastersResponse.prototype.masterChapters = function() {
     var _this = this;
     if (!_this.data._chapters) {
       _this.data._chapters = [];
-      for (var i = 0; i < _this.data.chapters.length; i++) {
-        var model = new ChapterMasterModel(_this.data.chapters[i]);
+      for (var i = 0; i < _this.data.master_chapters.length; i++) {
+        var model = new ChapterMasterModel(_this.data.master_chapters[i]);
         _this.data._chapters.push(model);
       }
     }

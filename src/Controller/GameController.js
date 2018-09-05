@@ -40,7 +40,7 @@ var GameController = (function() {
     var selectStageId = request.selectStageId;
     _this.selectStageId = selectStageId;
     var masters = MasterService.instance().masters;
-    var chapter = masters.chapters().find(function(child) {
+    var chapter = masters.masterChapters().find(function(child) {
       return child.id() === selectChapterId;
     });
     var stage = chapter.stages().find(function(child) {

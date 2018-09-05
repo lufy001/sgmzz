@@ -72,7 +72,7 @@ var ChapterMapController = (function() {
     var lastChapterId = lastStageId / 1000 >>> 0;
     var items = [];
     var masters = MasterService.instance().masters;
-    var chapters = masters.chapters();
+    var chapters = masters.masterChapters();
     for (var i = chapters.length - 1; i >= 0; i--) {
       var child = chapters[i];
       if (child.id() > lastChapterId) {
