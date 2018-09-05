@@ -4,7 +4,10 @@ var FBInstant = (function() {
     _this._playerId = 'DEBUG000001';
     _this._playerName = 'DEBUG000001';
     if (window.setting.platform === 'debug') {
-      _this._playerId = _this._playerName = _this.getWebParameter('id');
+      var id = _this.getWebParameter('id');
+      if (id) {
+        _this._playerId = _this._playerName = id;
+      }
     }
     console.log('_this._playerId', _this._playerId);
     _this.player = {
@@ -13,6 +16,11 @@ var FBInstant = (function() {
       },
       getName: function() {
         return _this._playerName;
+      }
+    };
+    _this.context = {
+      chooseAsync: function() {
+        return Promise.resolve();
       }
     };
   }
@@ -43,6 +51,18 @@ var FBInstant = (function() {
     if (this.loadingDisplay) {
       this.loadingDisplay.setProgress(parseFloat(progress).toFixed(2));
     }
+  };
+  FBInstant.prototype.getDataAsync = function(key) {
+    return Promise.resolve({});
+  };
+  FBInstant.prototype.setDataAsync = function(data) {
+    return Promise.resolve();
+  };
+  FBInstant.prototype.setSessionData = function(data) {
+    //
+  };
+  FBInstant.prototype.updateAsync = function(options) {
+    return Promise.resolve();
   };
 
   return new FBInstant();
