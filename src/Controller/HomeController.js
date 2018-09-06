@@ -67,6 +67,10 @@ var HomeController = (function() {
   }
   HomeController.prototype.onLoad = function(request) {
     var _this = this;
+    if (!PlayerManager.playerModel.loginBonusCalled()) {
+      var dialog = new LoginBonusDialogController({ width: 440, height: 500, hideClose: true });
+      dialogLayer.addChild(dialog);
+    }
   };
   HomeController.prototype.init = function() {
     var _this = this;

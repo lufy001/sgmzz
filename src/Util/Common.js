@@ -85,7 +85,7 @@ var Common = (function() {
       rootLayer.addChild(controller);
     }
     if (Common.currentController && Common.currentController.objectIndex === controller.objectIndex) {
-      return;
+      //return;
     }
     controller.changeScene(request);
   };
