@@ -14,26 +14,25 @@ var MasterService = (function() {
       var saveMaster = LPlugin.GetData('sgmzz_master', {});
       
       var request = { 'keys': '' };
-      var keyCount = 0;
+      var keys = [];
       for (var key in versions) {
         if (saveVersions[key] && saveVersions[key] === versions[key]) {
           continue;
         }
-        request.keys += ',"' + key + '"';
-        keyCount++;
+        keys.push(key);
       }
-      if (keyCount === 0) {
+      if (keys.length === 0) {
         var response = new MastersResponse(saveMaster);
         _this.masters = response;
         return Promise.resolve(response);
-      } else {
-        request.keys = '[' + request.keys.substr(1) + ']';
       }
-
+      request.keys = JSON.stringify(keys);
       return _this.send(action, request)
         .then(function(data) {
           for (var key in data) {
-            saveMaster[key] = data[key];
+            if (data[key] && data[key].length > 0) {
+              saveMaster[key] = data[key];
+            }
           }
           LPlugin.SetData('sgmzz_master', saveMaster);
           LPlugin.SetData('sgmzz_versions', versions);
@@ -150,6 +149,7 @@ var MasterService = (function() {
       { name: 'master_purchase', type: 'text', path: 'resources/configs/purchase.json' },
       { name: 'master_skills', type: 'text', path: 'resources/configs/skills.json' },
       { name: 'master_boxs', type: 'text', path: 'resources/configs/boxs.json' },
+      { name: 'master_loginbonus', type: 'text', path: 'resources/configs/loginbonus.json' },
       { name: 'master_level', type: 'text', path: 'resources/configs/level.json' }];
     return new Promise(function(resolve, reject) {
       LLoadManage.load(configs, function(progress) {
@@ -162,6 +162,7 @@ var MasterService = (function() {
         data.master_level = JSON.parse(data.master_level);
         data.master_shop = JSON.parse(data.master_shop);
         data.master_purchase = JSON.parse(data.master_purchase);
+        data.master_loginbonus = JSON.parse(data.master_loginbonus);
         var response = new MastersResponse(data);
         _this.masters = response;
         resolve();
