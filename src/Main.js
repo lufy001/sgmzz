@@ -257,10 +257,7 @@ function dataFristLoadComplete(data) {
   var playerName = LPlatform.player().getName();
   AnalyticService.instance().setUserId(playerId);
   AnalyticService.instance().setUserProperties('version', VERSION, false);
-  if (!window.setting.isLocal) {
-    MasterClient.addEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
-    MasterClient.start(playerId, {});
-  }
+  
   UserService.instance().login(playerId, playerName)
     .then(function(playerModel) {
       PlayerManager.playerModel = playerModel;
@@ -273,7 +270,7 @@ function dataFristLoadComplete(data) {
 }
 function dataLoad() {
   LLoadManage.load(loadData, function(progress) {
-    LPlatform.setLoadingProgress(20 + progress * 0.7);
+    LPlatform.setLoadingProgress(20 + progress * 0.8);
   }, dataLoadComplete);
 }
 function dataLoadComplete(data) {
@@ -285,14 +282,8 @@ function dataLoadComplete(data) {
   dataList = data;
   onGameStart();
 }
-function onJoinedLobby() {
-  MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, onJoinedLobby);
-  onGameStart();
-}
+
 function onGameStart() {
-  if (!dataList || !window.setting.isLocal && !MasterClient.isConnected()) {
-    return;
-  }
   if (loadingLayer) {
     loadingLayer.remove();
     loadingLayer = null;
@@ -300,8 +291,7 @@ function onGameStart() {
   addCommonBackground();
   rootLayer = new LSprite();
   addChild(rootLayer);
-  //var homeController = new HomeController();
-  //rootLayer.addChild(homeController);
+  
   footerView = new FooterView();
   addChild(footerView);
 

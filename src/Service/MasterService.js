@@ -33,9 +33,7 @@ var MasterService = (function() {
       return _this.send(action, request)
         .then(function(data) {
           for (var key in data) {
-            if (data[key] != null && data[key].length > 0) {
-              saveMaster[key] = data[key];
-            }
+            saveMaster[key] = data[key];
           }
           LPlugin.SetData('sgmzz_master', saveMaster);
           LPlugin.SetData('sgmzz_versions', versions);

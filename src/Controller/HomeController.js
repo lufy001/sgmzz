@@ -1,7 +1,6 @@
 var HomeController = (function() {
   function HomeController(request) {
     var _this = this;
-        
     var properties = {
       playerView: {
         type: 'HomePlayerView',
@@ -116,9 +115,10 @@ var HomeController = (function() {
   HomeController.prototype._boxUpdateView = function(event) {
     var _this = this;
     _this.boxLayer.removeAllChild();
+
     var boxs = [];
     PlayerManager.playerModel.boxs().forEach(function(box) {
-      if (box && box.status() === 'unlock') {
+      if (box) {
         boxs.push(box);
       }
     });
@@ -126,6 +126,9 @@ var HomeController = (function() {
       return;
     } else if (boxs.length > 1) {
       boxs.sort(function(a, b) {
+        if (a.status() !== b.status()) {
+          return a.status() === 'lock' ? 1 : -1;
+        }
         return a.time() - b.time();
       });
     }

@@ -38,7 +38,7 @@ var HomeBoxsDialogController = (function() {
   };
   HomeBoxsDialogController.prototype._addBox = function(box) {
     var _this = this;
-    if (!box) {
+    if (!box || box.boxId() === 0) {
       _this._addEmpty();
       return;
     }

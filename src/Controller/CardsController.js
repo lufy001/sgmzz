@@ -42,7 +42,17 @@ var CardsController = (function() {
   CardsController.prototype.onLoad = function(request) {
     var _this = this;
     _this.teamView.updateView(PlayerManager.playerModel.team());
-
+    _this._oldTeams = JSON.stringify(PlayerManager.playerModel.teams());
+    _this._oldTeamIndex = PlayerManager.playerModel.teamIndex();
+  };
+  CardsController.prototype.onClose = function() {
+    var _this = this;
+    var teamIndex = PlayerManager.playerModel.teamIndex();
+    var teams = PlayerManager.playerModel.teams();
+    if (JSON.stringify(teams) === _this._oldTeams && _this._oldTeamIndex === teamIndex) {
+      return;
+    }
+    UserService.instance().setTeams(teams, teamIndex);
   };
   CardsController.prototype.init = function() {
     var _this = this;

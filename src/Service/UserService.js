@@ -147,11 +147,10 @@ var UserService = (function() {
     return Promise.resolve(response);
   };
   UserService.prototype.setTeams = function(teams, teamIndex) {
-    console.log('UserService.prototype.openBox');
     var _this = this;
     var action = {
       'class': 'user',
-      'method': 'openBox'
+      'method': 'setTeams'
     };
     var request = { 'teams': teams, 'teamIndex': teamIndex };
     if (!window.setting.isLocal) {
