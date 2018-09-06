@@ -10,6 +10,12 @@ var PlayerModel = (function() {
   PlayerModel.prototype.lastStageId = function() {
     return this.data.lastStageId;
   };
+  PlayerModel.prototype.loginBonusCalled = function() {
+    return this.data.loginBonusCalled;
+  };
+  PlayerModel.prototype.loginBonusCount = function() {
+    return this.data.loginBonusCount;
+  };
   PlayerModel.prototype.coin = function(value) {
     if (value) {
       this.data.coin = value;

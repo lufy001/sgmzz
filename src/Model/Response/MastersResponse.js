@@ -15,6 +15,9 @@ var MastersResponse = (function() {
   MastersResponse.prototype.masterBoxs = function() {
     return this.data.master_boxs;
   };
+  MastersResponse.prototype.masterLoginbonus = function() {
+    return this.data.master_loginbonus;
+  };
   MastersResponse.prototype.masterCharacters = function() {
     return this.data.master_characters;
   };
