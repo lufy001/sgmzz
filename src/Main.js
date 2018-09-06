@@ -128,6 +128,7 @@ var loadData = [
   { type: 'js', path: 'src/Manager/EffectManager.js' },
   { type: 'js', path: 'src/Manager/SkillManager.js' },
   { type: 'js', path: 'src/Manager/LevelManager.js' },
+  { type: 'js', path: 'src/Manager/UserLevelManager.js' },
   { type: 'js', path: 'src/Manager/BoxManager.js' },
 
   { type: 'js', path: 'src/Service/RankingService.js' },
@@ -279,6 +280,7 @@ function dataLoadComplete(data) {
   SkillManager.setMasters(master.masterSkills());
   BoxManager.setMasters(master.masterBoxs());
   LevelManager.setMasters(master.masterLevel());
+  UserLevelManager.setMasters(master.masterUserLevel());
   dataList = data;
   onGameStart();
 }
