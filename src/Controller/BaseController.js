@@ -32,8 +32,6 @@ var BaseController = (function() {
       CommonEvent.dispatchEvent(event);
     }
     _this.visible = true;
-    console.log(Common.oldController.objectIndex, '!==', Common.currentController.objectIndex);
-    console.log(Common.oldController.name, '!==', Common.currentController.name);
     if (Common.oldController.objectIndex !== Common.currentController.objectIndex) {
       if (oldIndex >= 0 && currentIndex >= 0) {
         _this._moveChangeRun(oldIndex, currentIndex);
