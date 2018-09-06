@@ -21,6 +21,9 @@ var MastersResponse = (function() {
   MastersResponse.prototype.masterLevel = function() {
     return this.data.master_level;
   };
+  MastersResponse.prototype.masterUserLevel = function() {
+    return this.data.master_user_level;
+  };
   MastersResponse.prototype.masterSkills = function() {
     return this.data.master_skills;
   };
