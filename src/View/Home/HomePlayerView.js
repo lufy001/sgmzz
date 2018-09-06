@@ -12,7 +12,7 @@ var HomePlayerView = (function() {
         type: 'Label',
         parent: 'playerLayer',
         properties: {
-          text: 'lufy',
+          text: PlayerManager.playerModel.name(),
           size: 24,
           x: 20,
           y: 18
@@ -42,7 +42,7 @@ var HomePlayerView = (function() {
         type: 'Label',
         parent: 'playerLayer',
         properties: {
-          text: '4233',
+          text: PlayerManager.playerModel.cup(),
           size: 20,
           x: 250,
           y: 20

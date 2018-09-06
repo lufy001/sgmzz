@@ -13,7 +13,7 @@ var HeaderView = (function() {
       levelLabel: {
         type: 'Label',
         properties: {
-          text: '11',
+          text: '',
           size: 20,
           textAlign: 'center',
           x: 20,
@@ -51,9 +51,10 @@ var HeaderView = (function() {
   HeaderView.prototype.updateView = function(data) {
     var _this = this;
     var playerModel = PlayerManager.playerModel;
-    _this.expProgress.updateView({ progress: 9900, sum: 20000, fontSize: 14 });
+    _this.expProgress.updateView({ progress: playerModel.exp(), sum: UserLevelManager.getMaster(playerModel.level()).exp, fontSize: 14 });
     _this.gemView.updateView(playerModel.gem());
     _this.coinView.updateView(playerModel.coin());
+    _this.levelLabel.text = playerModel.level();
   };
     
   return HeaderView;

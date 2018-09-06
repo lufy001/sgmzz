@@ -115,6 +115,12 @@ var PlayerModel = (function() {
   PlayerModel.prototype.id = function() {
     return this.data.id;
   };
+  PlayerModel.prototype.name = function() {
+    return this.data.name;
+  };
+  PlayerModel.prototype.cup = function() {
+    return this.data.cup;
+  };
   PlayerModel.prototype.versions = function() {
     return this.data.versions;
   };
