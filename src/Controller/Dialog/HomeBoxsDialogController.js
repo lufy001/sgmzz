@@ -11,6 +11,7 @@ var HomeBoxsDialogController = (function() {
     _this.layer.addChild(_this._boxLayer);
     _this.updateView();
     CommonEvent.addEventListener(CommonEvent.OPEN_BOX, _this._boxOpened, _this);
+    CommonEvent.addEventListener(CommonEvent.BOXS_UPDATE, _this.updateView, _this);
   };
   HomeBoxsDialogController.prototype._boxOpened = function(event) {
     var _this = this;
