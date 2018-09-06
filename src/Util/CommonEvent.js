@@ -35,3 +35,5 @@ CommonEvent.SKILL_READY = 'common:skillReady';
 
 CommonEvent.BATTLE_MASK_SHOW = 'common:battleMaskShow';
 CommonEvent.BATTLE_MASK_HIDE = 'common:battleMaskHide';
+
+CommonEvent.BOXS_UPDATE = 'common:boxsUpdate';

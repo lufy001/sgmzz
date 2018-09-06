@@ -87,17 +87,19 @@ var BoxDetailDialogController = (function() {
     if (request.toUnlock && _this.model.status() === 'lock') {
       button = Common.getButton('unlock', { img: 'btn03', offsetY: -2 });
       button.x = request.width * 0.5 + (request.width * 0.5 - button.getWidth()) * 0.5;
+      button.addEventListener(LMouseEvent.MOUSE_UP, _this._unlockClick, _this);
     } else if (_this.model.time() === 0 && _this.model.status() === 'unlock') {
       button = Common.getButton('open', { img: 'btn03', offsetY: -2 });
       button.x = (request.width - button.getWidth()) * 0.5;
+      button.addEventListener(LMouseEvent.MOUSE_UP, _this._openClick, _this);
     } else {
       var gem = BoxManager.timeToGem(_this.model.time() || _this.model.allTime());
       button = Common.getButton(gem, { img: 'btn03', icon: 'icon_gem', iconWidth: 34, iconHeight: 34, offsetY: -2 });
       button.x = request.width * 0.5 + (request.width * 0.5 - button.getWidth()) * 0.5;
+      button.addEventListener(LMouseEvent.MOUSE_UP, _this._openClick, _this);
     }
     button.y = 230;
     _this.layer.addChild(button);
-    button.addEventListener(LMouseEvent.MOUSE_UP, _this._openClick, _this);
   };
   BoxDetailDialogController.prototype._open = function() {
     var _this = this;
@@ -114,6 +116,15 @@ var BoxDetailDialogController = (function() {
   BoxDetailDialogController.prototype._videoClick = function(event) {
     var _this = this;
     
+  };
+  BoxDetailDialogController.prototype._unlockClick = function(event) {
+    var _this = this;
+    UserService.instance().unlockBox(_this.model.id())
+      .then(function(response) {
+        PlayerManager.playerModel.boxs(response.boxs());
+        _this.remove();
+        CommonEvent.dispatchEvent(CommonEvent.BOXS_UPDATE);
+      });
   };
   BoxDetailDialogController.prototype._openClick = function(event) {
     var _this = this;
