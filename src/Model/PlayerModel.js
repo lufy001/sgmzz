@@ -53,6 +53,9 @@ var PlayerModel = (function() {
     });
     return res;
   };
+  PlayerModel.prototype.teams = function() {
+    return this.data.teams;
+  };
   PlayerModel.prototype.teamData = function() {
     return this.data.teams[this.data.teamIndex];
   };

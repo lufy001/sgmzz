@@ -47,14 +47,30 @@ var MatchDialogController = (function() {
       coordinate: [ { x: 180, y: 50 }, { x: 180, y: 70 }, { x: 150, y: 70 }, { x: 150, y: 50 }] });
     _this._canceled = false;
     _this._toCancel = false;
-    
+    if (!MasterClient.isConnected()) {
+      _this._isInLobby = false;
+      MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
+      MasterClient.start(playerId, {});
+    } else {
+      _this._isInLobby = true;
+    }
+
     GameService.instance().matchStart()
       .then(function() {
         return _this._getTarget();
       });
   };
+  MatchDialogController.prototype._onJoinedLobby = function() {
+    var _this = this;
+    MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
+    _this._isInLobby = true;
+    _this._getTarget();
+  };
   MatchDialogController.prototype._getTarget = function() {
     var _this = this;
+    if (!_this._isInLobby) {
+      return Promise.resolve();
+    }
     return Common.delay(2000)
       .then(function() {
         return GameService.instance().getMatchTarget();

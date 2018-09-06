@@ -12,6 +12,8 @@ var BaseController = (function() {
   }
   BaseController.prototype.onLoad = function(request) {
   };
+  BaseController.prototype.onClose = function() {
+  };
   BaseController.prototype.changeScene = function(request) {
     var _this = this;
     if (Common.controllerTween) {
@@ -30,10 +32,14 @@ var BaseController = (function() {
       CommonEvent.dispatchEvent(event);
     }
     _this.visible = true;
-    if (oldIndex >= 0 && currentIndex >= 0) {
-      _this._moveChangeRun(oldIndex, currentIndex);
-    } else {
-      _this._fadeChangeRun(currentIndex >= 0);
+    console.log(Common.oldController.objectIndex, '!==', Common.currentController.objectIndex);
+    console.log(Common.oldController.name, '!==', Common.currentController.name);
+    if (Common.oldController.objectIndex !== Common.currentController.objectIndex) {
+      if (oldIndex >= 0 && currentIndex >= 0) {
+        _this._moveChangeRun(oldIndex, currentIndex);
+      } else {
+        _this._fadeChangeRun(currentIndex >= 0);
+      }
     }
     _this.onLoad(request);
   };
@@ -57,6 +63,9 @@ var BaseController = (function() {
       footerView.visible = isHome;
       headerView.visible = isHome;
       Common.controllerTween = null;
+      if (event.target.onClose) {
+        event.target.onClose();
+      }
     } });
   };
   return BaseController;
