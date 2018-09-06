@@ -127,7 +127,7 @@ var HomeController = (function() {
     } else if (boxs.length > 1) {
       boxs.sort(function(a, b) {
         if (a.status() !== b.status()) {
-          return a.status() === 'unlock' ? 1 : -1;
+          return a.status() === 'lock' ? 1 : -1;
         }
         return a.time() - b.time();
       });
