@@ -132,7 +132,7 @@ var BoxDetailDialogController = (function() {
       _this._open();
       return;
     }
-    var params = { width: 360, height: 300, gold: 200 };
+    var params = { width: 360, height: 300, gold: BoxManager.timeToGem(_this.model.time() || _this.model.allTime()) };
     params.okEvent = function() {
       _this._open();
     };
