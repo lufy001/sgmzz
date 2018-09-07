@@ -5,7 +5,7 @@ var RankingChildView = (function() {
       layer: {
         type: 'LPanel',
         data: iss ? 'frame04' : 'frame05',
-        width: 360,
+        width: 390,
         height: 50
       },  
       rankLabel: {
@@ -28,7 +28,7 @@ var RankingChildView = (function() {
         type: 'LBitmap',
         data: 'icon_cup',
         properties: {
-          x: 200,
+          x: 260,
           y: 10,
           scaleX: 0.5,
           scaleY: 0.5
@@ -38,7 +38,7 @@ var RankingChildView = (function() {
         type: 'Label',
         properties: {
           text: model.score(),
-          x: 250,
+          x: 310,
           y: 10
         }
       }
