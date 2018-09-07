@@ -122,7 +122,7 @@ var HomeController = (function() {
 
     var boxs = [];
     PlayerManager.playerModel.boxs().forEach(function(box) {
-      if (box) {
+      if (box && box.boxId() > 0) {
         boxs.push(box);
       }
     });
