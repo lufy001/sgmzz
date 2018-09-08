@@ -67,7 +67,7 @@ var LoginBonusItemView = (function() {
         _this.card.visible = true;
         break;
       case 'gem':
-        _this.load('icon_gem', 'icons/icon_gem');
+        _this.load('shop_gem', 'icons/shop_gem');
         break;
       case 'box':
         var boxModel = BoxManager.getMasterModel(_this.model.val);
