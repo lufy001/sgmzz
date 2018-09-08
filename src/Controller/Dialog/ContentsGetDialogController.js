@@ -59,7 +59,7 @@ var ContentsGetDialogController = (function() {
   }
   ContentsGetDialogController.prototype.onLoad = function(request) {
     var _this = this;
-    var cards = request.contents.cards();
+    var cards = request.contents.cards() || [];
     _this.layer.getChildAt(0).visible = false;
     var contentX = 0;
     var contentY = _this.staticLayer.getHeight() + 20;
