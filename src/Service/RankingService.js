@@ -7,11 +7,18 @@ var RankingService = (function() {
     var _this = this;
     var action = {
       'class': 'master',
-      'method': 'getList'
+      'method': 'getLeaderboard'
     };
-    var request = { 'keys': ['news'] };
+    var request = { 'rank': 1, 'count': 50 };
     if (!window.setting.isLocal) {
-      return _this.send(action, request);
+      return _this.send(action, request)
+        .then(function (data) {
+          var res = {
+            players: data
+          };
+          var response = new RankingResponse(res);
+          return Promise.resolve(response);
+        });
     }
 
     var players = [

@@ -143,7 +143,7 @@ var ProfileDialogController = (function() {
   }
   ProfileDialogController.prototype.onLoad = function(request) {
     var _this = this;
-    UserService.instance().getPlayer()
+    UserService.instance().getPlayer(request.model.data.userId)
       .then(function(response) {
         _this.teamView.updateView(response.team()); 
         _this.nameLabel.text = response.name();

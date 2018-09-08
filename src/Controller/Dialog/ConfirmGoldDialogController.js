@@ -27,7 +27,9 @@ var ConfirmGoldDialogController = (function() {
         data: 'icon_gem',
         properties: {
           x: request.width * 0.5 + 10,
-          y: request.height - 100
+          y: request.height - 105,
+          scaleX: 0.6,
+          scaleY: 0.6
         }
       },
       buttonOk: {
