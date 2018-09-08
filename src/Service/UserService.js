@@ -161,7 +161,7 @@ var UserService = (function() {
     var _this = this;
     var action = {
       'class': 'user',
-      'method': 'getLeaderboard'
+      'method': 'getLoginBonus'
     };
     var request = { };
     if (!window.setting.isLocal) {
