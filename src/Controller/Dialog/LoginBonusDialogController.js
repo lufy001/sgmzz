@@ -42,14 +42,23 @@ var LoginBonusDialogController = (function() {
   };
   LoginBonusDialogController.prototype._getBonus = function() {
     var _this = this;
-    _this.remove();
+    UserService.instance().getLoginBonus()
+    .then(function(response){
+      PlayerManager.playerModel = response.playerModel();
+      var params = { width: LGlobal.width, height: LGlobal.height, 
+        hideClose: true, contents: response.contents() };
+      var dialog = new ContentsGetDialogController(params);
+      dialogLayer.addChild(dialog);
+      _this.remove();
+    });
   };
   LoginBonusDialogController.prototype._itemInit = function() {
     var _this = this;
+    var loginBonusCount = PlayerManager.playerModel.loginBonusCount();
     var masters = MasterService.instance().masters;
     var loginbonus = masters.masterLoginbonus();
     for (var i = 0; i < loginbonus.length; i++) {
-      var child = new LoginBonusItemView(loginbonus[i]);
+      var child = new LoginBonusItemView(loginbonus[i], loginBonusCount > i);
       var rowIndex = i / 4 >> 0;
       var colIndex = i % 4;
       var startX = rowIndex === 0 ? 0 : 55;
