@@ -5,7 +5,6 @@ var ChapterManager = (function() {
   }
   ChapterManager.prototype.setMasters = function(jsonDataList) {
     var _this = this;
-    console.error(jsonDataList);
     //var jsonDataList = JSON.parse(dataStr);
     jsonDataList.forEach(function(chapter) {
       _this.masterList[chapter.id()] = chapter;
