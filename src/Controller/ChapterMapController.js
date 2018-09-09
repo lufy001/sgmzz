@@ -82,7 +82,7 @@ var ChapterMapController = (function() {
       var currentChapter = chapters.find(function(chapter){
         return chapter.id() > lastChapterId;
       });
-      currentChapterId = currentChapter.id();
+      currentChapterId = currentChapter?currentChapter.id():currentChapterId+1;
     }
     console.error(lastStageId,lastChapterId,currentChapterId);
     for (var i = chapters.length - 1; i >= 0; i--) {
