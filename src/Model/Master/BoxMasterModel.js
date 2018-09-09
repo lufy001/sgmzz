@@ -24,6 +24,9 @@ var BoxMasterModel = (function() {
   BoxMasterModel.prototype.coin = function() {
     return this.data.coin;
   };
+  BoxMasterModel.prototype.gem = function() {
+    return this.data.gem;
+  };
   BoxMasterModel.prototype.allTime = function() {
     return this.data.time;
   };
