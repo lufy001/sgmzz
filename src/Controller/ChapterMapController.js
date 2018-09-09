@@ -84,7 +84,6 @@ var ChapterMapController = (function() {
       });
       currentChapterId = currentChapter?currentChapter.id():currentChapterId+1;
     }
-    console.error(lastStageId,lastChapterId,currentChapterId);
     for (var i = chapters.length - 1; i >= 0; i--) {
       var child = chapters[i];
       if (child.id() > currentChapterId) {
