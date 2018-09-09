@@ -32,7 +32,10 @@ var BoxModel = (function() {
     return this.master().img();
   };
   BoxModel.prototype.coin = function() {
-    return this.master().coin();
+    return JSON.parse(this.master().coin());
+  };
+  BoxModel.prototype.gem = function () {
+    return JSON.parse(this.master().gem());
   };
   BoxModel.prototype.allTime = function() {
     return this.master().allTime();
