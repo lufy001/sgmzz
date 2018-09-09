@@ -130,6 +130,7 @@ var loadData = [
   { type: 'js', path: 'src/Manager/LevelManager.js' },
   { type: 'js', path: 'src/Manager/UserLevelManager.js' },
   { type: 'js', path: 'src/Manager/BoxManager.js' },
+  { type: 'js', path: 'src/Manager/ChapterManager.js' },
 
   { type: 'js', path: 'src/Service/RankingService.js' },
   { type: 'js', path: 'src/Service/GameService.js' },
@@ -283,6 +284,7 @@ function dataLoadComplete(data) {
   BoxManager.setMasters(master.masterBoxs());
   LevelManager.setMasters(master.masterLevel());
   UserLevelManager.setMasters(master.masterUserLevel());
+  ChapterManager.setMasters(master.masterChapters());
   dataList = data;
   onGameStart();
 }
