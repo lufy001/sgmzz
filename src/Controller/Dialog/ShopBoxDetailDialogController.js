@@ -1,7 +1,8 @@
 var ShopBoxDetailDialogController = (function() {
   function ShopBoxDetailDialogController(request) {
     var _this = this;
-    var coin = request.boxModel.coin();
+    var coin = JSON.parse(request.boxModel.coin());
+    var gem = JSON.parse(request.boxModel.gem());
     var properties = {
       boxView: {
         type: 'BoxIconView',
@@ -50,6 +51,25 @@ var ShopBoxDetailDialogController = (function() {
           x: 80,
           y: 115,
           text: coin[0] + '~' + coin[1],
+          size: 24
+        }
+      },
+      gemIcon: {
+        type: 'LBitmap',
+        parent: 'layer',
+        data: 'icon_gem',
+        properties: {
+          x: 210,
+          y: 105
+        }
+      },
+      gemLabel: {
+        type: 'Label',
+        parent: 'layer',
+        properties: {
+          x: 270,
+          y: 115,
+          text: gem[0] + '~' + gem[1],
           size: 24
         }
       },
