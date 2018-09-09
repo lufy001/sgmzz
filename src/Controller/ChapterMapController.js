@@ -70,15 +70,27 @@ var ChapterMapController = (function() {
 
     var lastStageId = PlayerManager.playerModel.lastStageId();
     var lastChapterId = lastStageId / 1000 >>> 0;
+    var currentChapterId = lastChapterId;
     var items = [];
     var masters = MasterService.instance().masters;
     var chapters = masters.masterChapters();
+    var chapter = ChapterManager.getMasterModel(lastChapterId);
+    var newStageId = chapter.stages().find(function(stage){
+      return stage.id() > lastStageId;
+    });
+    if(!newStageId){
+      var currentChapter = chapters.find(function(chapter){
+        return chapter.id() > lastChapterId;
+      });
+      currentChapterId = currentChapter.id();
+    }
+    console.error(lastStageId,lastChapterId,currentChapterId);
     for (var i = chapters.length - 1; i >= 0; i--) {
       var child = chapters[i];
-      if (child.id() > lastChapterId + 1) {
+      if (child.id() > currentChapterId) {
         continue;
       }
-      items.push(new ChapterMapChildView(child, lastChapterId));
+      items.push(new ChapterMapChildView(child, currentChapterId));
     }
     _this.chapterListView.updateList(items);
     
