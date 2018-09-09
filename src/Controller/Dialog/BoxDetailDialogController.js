@@ -2,6 +2,7 @@ var BoxDetailDialogController = (function() {
   function BoxDetailDialogController(request) {
     var _this = this;
     var coin = request.model.coin();
+    var gem = request.model.gem();
     var properties = {
       boxView: {
         type: 'BoxIconView',
@@ -54,13 +55,32 @@ var BoxDetailDialogController = (function() {
           y: 105
         }
       },
-      coinLabel: {
+      gemLabel: {
         type: 'Label',
         parent: 'layer',
         properties: {
           x: 80,
           y: 115,
           text: coin[0] + '~' + coin[1],
+          size: 24
+        }
+      },
+      gemIcon: {
+        type: 'LBitmap',
+        parent: 'layer',
+        data: 'icon_gem',
+        properties: {
+          x: 210,
+          y: 105
+        }
+      },
+      coinLabel: {
+        type: 'Label',
+        parent: 'layer',
+        properties: {
+          x: 270,
+          y: 115,
+          text: gem[0] + '~' + gem[1],
           size: 24
         }
       },
