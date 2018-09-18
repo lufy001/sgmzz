@@ -1,122 +1,822 @@
 [
     {
-        "id":1,
-        "name":"Vampire",
-        "target":"self",
-        "type":"heal",
-        "arrows":["right","right","left","right","left"],
-        "value":[0.5, 1, 1.5],
-        "special":4,
-        "introduction":"Heals your toops. "
+        "id": 1,
+        "name": "Vampire III",
+        "target": "self",
+        "type": "heal",
+        "arrows": [
+            "right",
+            "right",
+            "left",
+            "right",
+            "left"
+        ],
+        "value": [
+            0.5,
+            1,
+            1.5
+        ],
+        "special": 4,
+        "introduction": "Heals your toops. "
     },
     {
-        "id":2,
-        "name":"Attack+",
-        "target":"self",
-        "type":"atk",
-        "arrows":["up","right","down","left","up"],
-        "value":[1.2, 1.5, 2],
-        "special":2,
-        "introduction":"Enhance your attack."
+        "id": 2,
+        "name": "Vampire II",
+        "target": "self",
+        "type": "heal",
+        "arrows": [
+            "right",
+            "right",
+            "left",
+            "right",
+            "left"
+        ],
+        "value": [
+            0.5,
+            1,
+            1.5
+        ],
+        "special": 3,
+        "introduction": "Heals your toops. "
     },
     {
-        "id":3,
-        "name":"Attack-",
-        "target":"enemy",
-        "type":"atk",
-        "arrows":["up","left","down","right","up"],
-        "value":[0.9,0.7,0.5],
-        "special":2,
-        "introduction":"Reduce enemy's attack."
+        "id": 3,
+        "name": "Vampire I",
+        "target": "self",
+        "type": "heal",
+        "arrows": [
+            "right",
+            "right",
+            "left",
+            "right",
+            "left"
+        ],
+        "value": [
+            0.5,
+            1,
+            1.5
+        ],
+        "special": 2,
+        "introduction": "Heals your toops. "
     },
     {
-        "id":4,
-        "name":"FireAttack",
-        "target":"self",
-        "type":"ski_atk",
-        "arrows":["right","down","left","down","right"],
-        "value":[0.6,0.75,1],
-        "special":4,
-        "introduction":"Smash the enemy."
+        "id": 4,
+        "name": "Attack+ III",
+        "target": "self",
+        "type": "atk",
+        "arrows": [
+            "up",
+            "right",
+            "down",
+            "left",
+            "up"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 4,
+        "introduction": "Enhance your attack."
     },
     {
-        "id":5,
-        "name":"PhysicsDefense+",
-        "target":"self",
-        "type":"phy_def",
-        "arrows":["down","down","left","up","right"],
-        "value":[1.2,1.5,2],
-        "special":4,
-        "introduction":"Enhance your physical defense."
+        "id": 5,
+        "name": "Attack+ II",
+        "target": "self",
+        "type": "atk",
+        "arrows": [
+            "up",
+            "right",
+            "down",
+            "left",
+            "up"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 3,
+        "introduction": "Enhance your attack."
     },
     {
-        "id":6,
-        "name":"MagicDefense+",
-        "target":"self",
-        "type":"mag_def",
-        "arrows":["down","down","up","right","down"],
-        "value":[1.2,1.5,2],
-        "special":4,
-        "introduction":"Enhance your magic defense."
+        "id": 6,
+        "name": "Attack+ I",
+        "target": "self",
+        "type": "atk",
+        "arrows": [
+            "up",
+            "right",
+            "down",
+            "left",
+            "up"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 2,
+        "introduction": "Enhance your attack."
     },
     {
-        "id":7,
-        "name":"Defense+",
-        "target":"self",
-        "type":"all_def",
-        "arrows":["down","left","up","right","down"],
-        "value":[1.2,1.4,1.6],
-        "special":4,
-        "introduction":"Enhance your physical defense and magic defense."
+        "id": 7,
+        "name": "Attack- III",
+        "target": "enemy",
+        "type": "atk",
+        "arrows": [
+            "up",
+            "left",
+            "down",
+            "right",
+            "up"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 4,
+        "introduction": "Reduce enemy's attack."
     },
     {
-        "id":8,
-        "name":"PhysicsDefense-",
-        "target":"enemy",
-        "type":"phy_def",
-        "arrows":["right","up","left","down","down"],
-        "value":[0.9,0.7,0.5],
-        "special":4,
-        "introduction":"Reduce enemy's physical defense."
+        "id": 8,
+        "name": "Attack- II",
+        "target": "enemy",
+        "type": "atk",
+        "arrows": [
+            "up",
+            "left",
+            "down",
+            "right",
+            "up"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 3,
+        "introduction": "Reduce enemy's attack."
     },
     {
-        "id":9,
-        "name":"MagicDefense-",
-        "target":"enemy",
-        "type":"mag_def",
-        "arrows":["down","right","up","down","down"],
-        "value":[0.9,0.7,0.5], 
-        "special":4,
-        "introduction":"Reduce enemy's magic defense."
+        "id": 9,
+        "name": "Attack- I",
+        "target": "enemy",
+        "type": "atk",
+        "arrows": [
+            "up",
+            "left",
+            "down",
+            "right",
+            "up"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 2,
+        "introduction": "Reduce enemy's attack."
     },
     {
-        "id":10,
-        "name":"Defense-",
-        "target":"enemy",
-        "type":"all_def",
-        "arrows":["down","right","up","left","down"],
-        "value":[0.9,0.8,0.7],
-        "special":4,
-        "introduction":"Reduce enemy's physical defense and magic defense."
+        "id": 10,
+        "name": "PhysicsDefense+ III",
+        "target": "self",
+        "type": "phy_def",
+        "arrows": [
+            "down",
+            "down",
+            "left",
+            "up",
+            "right"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 4,
+        "introduction": "Enhance your physical defense."
     },
     {
-        "id":11,
-        "name":"Sleep",
-        "target":"enemy",
-        "type":"sleep",
-        "arrows":["up","down","up","down","up"],
-        "value":[3,6,9],
-        "special":4,
-        "introduction":"Let the enemy go to sleep."
+        "id": 11,
+        "name": "PhysicsDefense+ II",
+        "target": "self",
+        "type": "phy_def",
+        "arrows": [
+            "down",
+            "down",
+            "left",
+            "up",
+            "right"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 3,
+        "introduction": "Enhance your physical defense."
     },
     {
-        "id":12,
-        "name":"Poison",
-        "target":"enemy",
-        "type":"poison",
-        "arrows":["left","right","left","right","left"],
-        "value":[3,6,9],
-        "special":4,
-        "introduction":"Damaging enemy troops over time."
+        "id": 12,
+        "name": "PhysicsDefense+ I",
+        "target": "self",
+        "type": "phy_def",
+        "arrows": [
+            "down",
+            "down",
+            "left",
+            "up",
+            "right"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 2,
+        "introduction": "Enhance your physical defense."
+    },
+    {
+        "id": 13,
+        "name": "MagicDefense+ III",
+        "target": "self",
+        "type": "mag_def",
+        "arrows": [
+            "down",
+            "down",
+            "up",
+            "right",
+            "down"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 4,
+        "introduction": "Enhance your magic defense."
+    },
+    {
+        "id": 14,
+        "name": "MagicDefense+ II",
+        "target": "self",
+        "type": "mag_def",
+        "arrows": [
+            "down",
+            "down",
+            "up",
+            "right",
+            "down"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 3,
+        "introduction": "Enhance your magic defense."
+    },
+    {
+        "id": 15,
+        "name": "MagicDefense+ I",
+        "target": "self",
+        "type": "mag_def",
+        "arrows": [
+            "down",
+            "down",
+            "up",
+            "right",
+            "down"
+        ],
+        "value": [
+            1.2,
+            1.5,
+            2
+        ],
+        "special": 2,
+        "introduction": "Enhance your magic defense."
+    },
+    {
+        "id": 16,
+        "name": "Defense+ III",
+        "target": "self",
+        "type": "all_def",
+        "arrows": [
+            "down",
+            "left",
+            "up",
+            "right",
+            "down"
+        ],
+        "value": [
+            1.2,
+            1.4,
+            1.6
+        ],
+        "special": 4,
+        "introduction": "Enhance your physical defense and magic defense."
+    },
+    {
+        "id": 17,
+        "name": "Defense+ II",
+        "target": "self",
+        "type": "all_def",
+        "arrows": [
+            "down",
+            "left",
+            "up",
+            "right",
+            "down"
+        ],
+        "value": [
+            1.2,
+            1.4,
+            1.6
+        ],
+        "special": 3,
+        "introduction": "Enhance your physical defense and magic defense."
+    },
+    {
+        "id": 18,
+        "name": "Defense+ I",
+        "target": "self",
+        "type": "all_def",
+        "arrows": [
+            "down",
+            "left",
+            "up",
+            "right",
+            "down"
+        ],
+        "value": [
+            1.2,
+            1.4,
+            1.6
+        ],
+        "special": 2,
+        "introduction": "Enhance your physical defense and magic defense."
+    },
+    {
+        "id": 19,
+        "name": "PhysicsDefense- III",
+        "target": "enemy",
+        "type": "phy_def",
+        "arrows": [
+            "right",
+            "up",
+            "left",
+            "down",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 4,
+        "introduction": "Reduce enemy's physical defense."
+    },
+    {
+        "id": 20,
+        "name": "PhysicsDefense- II",
+        "target": "enemy",
+        "type": "phy_def",
+        "arrows": [
+            "right",
+            "up",
+            "left",
+            "down",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 3,
+        "introduction": "Reduce enemy's physical defense."
+    },
+    {
+        "id": 21,
+        "name": "PhysicsDefense- I",
+        "target": "enemy",
+        "type": "phy_def",
+        "arrows": [
+            "right",
+            "up",
+            "left",
+            "down",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 2,
+        "introduction": "Reduce enemy's physical defense."
+    },
+    {
+        "id": 22,
+        "name": "MagicDefense- III",
+        "target": "enemy",
+        "type": "mag_def",
+        "arrows": [
+            "down",
+            "right",
+            "up",
+            "down",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 4,
+        "introduction": "Reduce enemy's magic defense."
+    },
+    {
+        "id": 23,
+        "name": "MagicDefense- II",
+        "target": "enemy",
+        "type": "mag_def",
+        "arrows": [
+            "down",
+            "right",
+            "up",
+            "down",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 3,
+        "introduction": "Reduce enemy's magic defense."
+    },
+    {
+        "id": 24,
+        "name": "MagicDefense- I",
+        "target": "enemy",
+        "type": "mag_def",
+        "arrows": [
+            "down",
+            "right",
+            "up",
+            "down",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.7,
+            0.5
+        ],
+        "special": 2,
+        "introduction": "Reduce enemy's magic defense."
+    },
+    {
+        "id": 25,
+        "name": "Defense- III",
+        "target": "enemy",
+        "type": "all_def",
+        "arrows": [
+            "down",
+            "right",
+            "up",
+            "left",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.8,
+            0.7
+        ],
+        "special": 4,
+        "introduction": "Reduce enemy's physical defense and magic defense."
+    },
+    {
+        "id": 26,
+        "name": "Defense- II",
+        "target": "enemy",
+        "type": "all_def",
+        "arrows": [
+            "down",
+            "right",
+            "up",
+            "left",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.8,
+            0.7
+        ],
+        "special": 3,
+        "introduction": "Reduce enemy's physical defense and magic defense."
+    },
+    {
+        "id": 27,
+        "name": "Defense- I",
+        "target": "enemy",
+        "type": "all_def",
+        "arrows": [
+            "down",
+            "right",
+            "up",
+            "left",
+            "down"
+        ],
+        "value": [
+            0.9,
+            0.8,
+            0.7
+        ],
+        "special": 2,
+        "introduction": "Reduce enemy's physical defense and magic defense."
+    },
+    {
+        "id": 28,
+        "name": "Sleep III",
+        "target": "enemy",
+        "type": "sleep",
+        "arrows": [
+            "up",
+            "down",
+            "up",
+            "down",
+            "up"
+        ],
+        "value": [
+            3,
+            6,
+            9
+        ],
+        "special": 4,
+        "introduction": "Let the enemy go to sleep."
+    },
+    {
+        "id": 29,
+        "name": "Sleep II",
+        "target": "enemy",
+        "type": "sleep",
+        "arrows": [
+            "up",
+            "down",
+            "up",
+            "down",
+            "up"
+        ],
+        "value": [
+            3,
+            6,
+            9
+        ],
+        "special": 3,
+        "introduction": "Let the enemy go to sleep."
+    },
+    {
+        "id": 30,
+        "name": "Sleep I",
+        "target": "enemy",
+        "type": "sleep",
+        "arrows": [
+            "up",
+            "down",
+            "up",
+            "down",
+            "up"
+        ],
+        "value": [
+            3,
+            6,
+            9
+        ],
+        "special": 2,
+        "introduction": "Let the enemy go to sleep."
+    },
+    {
+        "id": 31,
+        "name": "Poison III",
+        "target": "enemy",
+        "type": "poison",
+        "arrows": [
+            "left",
+            "right",
+            "left",
+            "right",
+            "left"
+        ],
+        "value": [
+            3,
+            6,
+            9
+        ],
+        "special": 4,
+        "introduction": "Damaging enemy troops over time."
+    },
+    {
+        "id": 32,
+        "name": "Poison II",
+        "target": "enemy",
+        "type": "poison",
+        "arrows": [
+            "left",
+            "right",
+            "left",
+            "right",
+            "left"
+        ],
+        "value": [
+            3,
+            6,
+            9
+        ],
+        "special": 3,
+        "introduction": "Damaging enemy troops over time."
+    },
+    {
+        "id": 33,
+        "name": "Poison I",
+        "target": "enemy",
+        "type": "poison",
+        "arrows": [
+            "left",
+            "right",
+            "left",
+            "right",
+            "left"
+        ],
+        "value": [
+            3,
+            6,
+            9
+        ],
+        "special": 2,
+        "introduction": "Damaging enemy troops over time."
+    },
+    {
+        "id": 34,
+        "name": "Fire Attack III",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.6,
+            0.75,
+            1
+        ],
+        "special": 4,
+        "introduction": "Smash the enemy."
+    },
+    {
+        "id": 35,
+        "name": "Fire Attack II",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.6,
+            0.75,
+            1
+        ],
+        "special": 3,
+        "introduction": "Smash the enemy."
+    },
+    {
+        "id": 36,
+        "name": "Fire Attack I",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.6,
+            0.75,
+            1
+        ],
+        "special": 2,
+        "introduction": "Smash the enemy."
+    },
+    {
+        "id": 37,
+        "name": "Angry Attack II",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.8,
+            1,
+            1.2
+        ],
+        "special": 3,
+        "introduction": "Smash the enemy."
+    },
+    {
+        "id": 38,
+        "name": "Angry Attack I",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.8,
+            1,
+            1.2
+        ],
+        "special": 2,
+        "introduction": "Smash the enemy."
+    },
+    {
+        "id": 39,
+        "name": "Strong Attack III",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.4,
+            0.6,
+            0.8
+        ],
+        "special": 4,
+        "introduction": "Smash the enemy."
+    },
+    {
+        "id": 40,
+        "name": "Strong Attack II",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.4,
+            0.6,
+            0.8
+        ],
+        "special": 3,
+        "introduction": "Smash the enemy."
+    },
+    {
+        "id": 41,
+        "name": "Strong Attack I",
+        "target": "self",
+        "type": "ski_atk",
+        "arrows": [
+            "right",
+            "down",
+            "left",
+            "down",
+            "right"
+        ],
+        "value": [
+            0.4,
+            0.6,
+            0.8
+        ],
+        "special": 2,
+        "introduction": "Smash the enemy."
     }
 ]
