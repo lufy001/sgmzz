@@ -1,0 +1,1300 @@
+[
+  { 
+    "id": 100, 
+    "title": "黄巾之乱", 
+    "level": 2, 
+    "stages": [
+      { 
+        "id": 100001, 
+        "title": "涿县之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 2, "level": 1, "isBoss": 1, "name":"邓茂" }
+          ],
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 1, "isBoss": 1, "name":"程远志" }
+          ]
+        ]
+      },
+      { 
+        "id": 100002, 
+        "title": "登州之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 1, "isBoss": 1, "name":"裴元绍" }
+          ],
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"张梁" }
+          ]
+        ]
+      },
+      { 
+        "id": 100003, 
+        "title": "董卓救援战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 1, "isBoss": 1, "name":"刘辟" }
+          ],
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"张角" }, 
+            { "id": 3, "level": 1, "name":"廖化" }
+          ]
+        ]
+      },
+      { 
+        "id": 100004, 
+        "title": "ying chuan zhi zhan", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"裴元绍" }
+          ],
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"张宝" }, 
+            { "id": 3, "level": 1, "name":"管亥" }
+          ]
+        ]
+      },
+      { 
+        "id": 100005, 
+        "title": "宛城之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 1, "isBoss": 1, "name":"刘辟" }
+          ],
+          [
+            { "id": 1, "level": 1, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"周仓" }, 
+            { "id": 3, "level": 1, "name":"管亥" }
+          ],
+          [
+            { "id": 1, "level": 2, "name":"张梁" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"张角" }, 
+            { "id": 3, "level": 2, "name":"张宝" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 101, 
+    "title": "群雄伐董卓", 
+    "level": 3, 
+    "stages": [
+      { 
+        "id": 101001, 
+        "title": "汜水关之战1", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"李肃" }
+          ],
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"华雄" }
+          ]
+        ]
+      },
+      { 
+        "id": 101002, 
+        "title": "汜水关之战2", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"胡轸" }
+          ],
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"华雄" }, 
+            { "id": 3, "level": 2, "name":"李肃" }
+          ]
+        ]
+      },
+      { 
+        "id": 101003, 
+        "title": "虎牢关之战1", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"徐荣" }, 
+            { "id": 3, "level": 2, "name":"胡轸" }
+          ],
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"吕布" }, 
+            { "id": 3, "level": 2, "name":"李肃" }
+          ]
+        ]
+      },
+      { 
+        "id": 101004, 
+        "title": "虎牢关之战2", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"李榷" }, 
+            { "id": 3, "level": 2, "name":"郭汜" }
+          ],
+          [
+            { "id": 1, "level": 2, "name":"徐荣" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"吕布" }, 
+            { "id": 3, "level": 2, "name":"李肃" }
+          ]
+        ]
+      },
+      { 
+        "id": 101005, 
+        "title": "董卓追击战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 2, "isBoss": 1, "name":"徐荣" }
+          ],
+          [
+            { "id": 1, "level": 2, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"李榷" }, 
+            { "id": 3, "level": 2, "name":"郭汜" }
+          ],
+          [
+            { "id": 1, "level": 3, "name":"吕布" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"董卓" }, 
+            { "id": 3, "level": 3, "name":"李儒" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 102, 
+    "title": "灭吕布", 
+    "level": 4,
+    "stages": [
+      { 
+        "id": 102001, 
+        "title": "汜水关之战1", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"魏続" }
+          ],
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"吕布" }
+          ]
+        ]
+      },
+      { 
+        "id": 102002, 
+        "title": "汜水关之战2", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"宋憲" }
+          ],
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"高顺" }, 
+            { "id": 3, "level": 3, "name":"陈宫" }
+          ]
+        ]
+      },
+      { 
+        "id": 102003, 
+        "title": "濮阳", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"魏続" }, 
+            { "id": 3, "level": 3, "name":"候成" }
+          ],
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"张辽" }, 
+            { "id": 3, "level": 3, "name":"曹性" }
+          ]
+        ]
+      },
+      { 
+        "id": 102004, 
+        "title": "小沛", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"高顺" }, 
+            { "id": 3, "level": 3, "name":"曹性" }
+          ],
+          [
+            { "id": 1, "level": 3, "name":"魏続" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"张辽" }, 
+            { "id": 3, "level": 3, "name":"候成" }
+          ]
+        ]
+      },
+      { 
+        "id": 102005, 
+        "title": "白门楼", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 3, "isBoss": 1, "name":"宋憲" }
+          ],
+          [
+            { "id": 1, "level": 3, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"高顺" }, 
+            { "id": 3, "level": 3, "name":"候成" }
+          ],
+          [
+            { "id": 1, "level": 4, "name":"张辽" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"吕布" }, 
+            { "id": 3, "level": 4, "name":"陈宫" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 103, 
+    "title": "官渡之战", 
+    "level": 5,
+    "stages": [
+      { 
+        "id": 103001, 
+        "title": "白马之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"吕翔" }
+          ],
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"颜良" }
+          ]
+        ]
+      },
+      { 
+        "id": 103002, 
+        "title": "延津之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"吕旷" }
+          ],
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"文丑" }, 
+            { "id": 3, "level": 4, "name":"郭图" }
+          ]
+        ]
+      },
+      { 
+        "id": 103003, 
+        "title": "官渡之战1", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"高览" }, 
+            { "id": 3, "level": 4, "name":"许攸" }
+          ],
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"张郃" }, 
+            { "id": 3, "level": 4, "name":"沮授" }
+          ]
+        ]
+      },
+      { 
+        "id": 103004, 
+        "title": "乌巢之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"袁尚" }, 
+            { "id": 3, "level": 4, "name":"郭图" }
+          ],
+          [
+            { "id": 1, "level": 4, "name":"陈琳" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"淳于琼" }, 
+            { "id": 3, "level": 4, "name":"审配" }
+          ]
+        ]
+      },
+      { 
+        "id": 103005, 
+        "title": "官渡之战2", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 4, "isBoss": 1, "name":"袁谭" }
+          ],
+          [
+            { "id": 1, "level": 4, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"袁熙" }, 
+            { "id": 3, "level": 4, "name":"陈琳" }
+          ],
+          [
+            { "id": 1, "level": 5, "name":"审配" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"袁绍" }, 
+            { "id": 3, "level": 5, "name":"袁尚" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 104, 
+    "title": "赤壁之战", 
+    "level": 6,
+    "stages": [
+      { 
+        "id": 104001, 
+        "title": "三江口之战1", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"徐盛" }
+          ],
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"甘宁" }
+          ]
+        ]
+      },
+      { 
+        "id": 104002, 
+        "title": "三江口之战2", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"周泰" }
+          ],
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"韩当" }, 
+            { "id": 3, "level": 5, "name":"丁奉" }
+          ]
+        ]
+      },
+      { 
+        "id": 104003, 
+        "title": "赤壁", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"黄盖" }, 
+            { "id": 3, "level": 5, "name":"韩当" }
+          ],
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"周泰" }, 
+            { "id": 3, "level": 5, "name":"丁奉" }
+          ]
+        ]
+      },
+      { 
+        "id": 104004, 
+        "title": "赤壁2", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"程普" }, 
+            { "id": 3, "level": 5, "name":"徐盛" }
+          ],
+          [
+            { "id": 1, "level": 5, "name":"鲁肃" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"周瑜" }, 
+            { "id": 3, "level": 5, "name":"甘宁" }
+          ]
+        ]
+      },
+      { 
+        "id": 104005, 
+        "title": "华容道", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 5, "isBoss": 1, "name":"赵云" }
+          ],
+          [
+            { "id": 1, "level": 5, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"张飞" }, 
+            { "id": 3, "level": 5, "name":"陈到" }
+          ],
+          [
+            { "id": 1, "level": 6, "name":"周仓" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"关羽" }, 
+            { "id": 3, "level": 6, "name":"关平" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 105, 
+    "title": "得荆州", 
+    "level": 7,
+    "stages": [
+      { 
+        "id": 105001, 
+        "title": "南郡之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"牛金" }
+          ],
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"曹仁" }
+          ]
+        ]
+      },
+      { 
+        "id": 105002, 
+        "title": "武陵之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"巩志" }
+          ],
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"金旋" }, 
+            { "id": 3, "level": 6, "name":"巩志" }
+          ]
+        ]
+      },
+      { 
+        "id": 105003, 
+        "title": "桂阳之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"鲍隆" }, 
+            { "id": 3, "level": 6, "name":"陈应" }
+          ],
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"赵范" }, 
+            { "id": 3, "level": 6, "name":"鲍隆" }
+          ]
+        ]
+      },
+      { 
+        "id": 105004, 
+        "title": "零陵之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"刘贤" }, 
+            { "id": 3, "level": 6, "name":"刑道荣" }
+          ],
+          [
+            { "id": 1, "level": 6, "name":"刑道荣" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"刘度" }, 
+            { "id": 3, "level": 6, "name":"刘贤" }
+          ]
+        ]
+      },
+      { 
+        "id": 105005, 
+        "title": "长沙之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 6, "isBoss": 1, "name":"韩浩" }
+          ],
+          [
+            { "id": 1, "level": 6, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"黄忠" }, 
+            { "id": 3, "level": 6, "name":"韩浩" }
+          ],
+          [
+            { "id": 1, "level": 7, "name":"魏延" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"韩玄" }, 
+            { "id": 3, "level": 7, "name":"黄忠" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 106, 
+    "title": "入蜀", 
+    "level": 8,
+    "stages": [
+      { 
+        "id": 106001, 
+        "title": "涪水关之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"杨怀" }
+          ],
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"高沛" }
+          ]
+        ]
+      },
+      { 
+        "id": 106002, 
+        "title": "雏城之战1", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"泠苞" }
+          ],
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"张任" }, 
+            { "id": 3, "level": 7, "name":"邓贤" }
+          ]
+        ]
+      },
+      { 
+        "id": 106003, 
+        "title": "巴郡之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"雷铜" }, 
+            { "id": 3, "level": 7, "name":"吴兰" }
+          ],
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"严颜" }, 
+            { "id": 3, "level": 7, "name":"杨怀" }
+          ]
+        ]
+      },
+      { 
+        "id": 106004, 
+        "title": "雏城之战2", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"雷铜" }, 
+            { "id": 3, "level": 7, "name":"张翼" }
+          ],
+          [
+            { "id": 1, "level": 7, "name":"吴兰" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"张任" }, 
+            { "id": 3, "level": 7, "name":"吴懿" }
+          ]
+        ]
+      },
+      { 
+        "id": 106005, 
+        "title": "葭萌关之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 7, "isBoss": 1, "name":"庞德" }
+          ],
+          [
+            { "id": 1, "level": 7, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"马岱" }, 
+            { "id": 3, "level": 7, "name":"庞德" }
+          ],
+          [
+            { "id": 1, "level": 8, "name":"庞德" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"马超" }, 
+            { "id": 3, "level": 8, "name":"马岱" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 107, 
+    "title": "汉中争夺战", 
+    "level": 9,
+    "stages": [
+      { 
+        "id": 107001, 
+        "title": "智取瓦口隘", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"张郃" }
+          ],
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"曹洪" }
+          ]
+        ]
+      },
+      { 
+        "id": 107002, 
+        "title": "计夺天荡山", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"夏侯尚" }
+          ],
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"夏侯德" }, 
+            { "id": 3, "level": 8, "name":"韩浩" }
+          ]
+        ]
+      },
+      { 
+        "id": 107003, 
+        "title": "定军山之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"张郃" }, 
+            { "id": 3, "level": 8, "name":"夏侯尚" }
+          ],
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"夏侯渊" }, 
+            { "id": 3, "level": 8, "name":"张郃" }
+          ]
+        ]
+      },
+      { 
+        "id": 107004, 
+        "title": "汉水之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"张郃" }, 
+            { "id": 3, "level": 8, "name":"文聘" }
+          ],
+          [
+            { "id": 1, "level": 8, "name":"文聘" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"徐晃" }, 
+            { "id": 3, "level": 8, "name":"张郃" }
+          ]
+        ]
+      },
+      { 
+        "id": 107005, 
+        "title": "汉中之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 8, "isBoss": 1, "name":"夏侯惇" }
+          ],
+          [
+            { "id": 1, "level": 8, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"徐晃" }, 
+            { "id": 3, "level": 8, "name":"王平" }
+          ],
+          [
+            { "id": 1, "level": 9, "name":"曹彰" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"曹操" }, 
+            { "id": 3, "level": 9, "name":"曹休" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 108, 
+    "title": "失荆州", 
+    "level": 10,
+    "stages": [
+      { 
+        "id": 108001, 
+        "title": "襄阳之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"牛金" }
+          ],
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"曹仁" }
+          ]
+        ]
+      },
+      { 
+        "id": 108002, 
+        "title": "樊城之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"夏侯尚" }
+          ],
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"曹仁" }, 
+            { "id": 3, "level": 9, "name":"满宠" }
+          ]
+        ]
+      },
+      { 
+        "id": 108003, 
+        "title": "水淹七军", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"庞德" }, 
+            { "id": 3, "level": 9, "name":"夏侯尚" }
+          ],
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"于禁" }, 
+            { "id": 3, "level": 9, "name":"庞德" }
+          ]
+        ]
+      },
+      { 
+        "id": 108004, 
+        "title": "丐水之中", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"夏侯尚" }, 
+            { "id": 3, "level": 9, "name":"牛金" }
+          ],
+          [
+            { "id": 1, "level": 9, "name":"曹仁" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"徐晃" }, 
+            { "id": 3, "level": 9, "name":"满宠" }
+          ]
+        ]
+      },
+      { 
+        "id": 108005, 
+        "title": "麦城之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 9, "isBoss": 1, "name":"徐盛" }
+          ],
+          [
+            { "id": 1, "level": 9, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"陆逊" }, 
+            { "id": 3, "level": 9, "name":"丁奉" }
+          ],
+          [
+            { "id": 1, "level": 10, "name":"潘璋" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"吕蒙" }, 
+            { "id": 3, "level": 10, "name":"马忠" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 109, 
+    "title": "兴师伐吴", 
+    "level": 11,
+    "stages": [
+      { 
+        "id": 109001, 
+        "title": "宜都之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"李异" }
+          ],
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"谢旌" }
+          ]
+        ]
+      },
+      { 
+        "id": 109002, 
+        "title": "夷道之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"谭雄" }
+          ],
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"孙桓" }, 
+            { "id": 3, "level": 10, "name":"朱然" }
+          ]
+        ]
+      },
+      { 
+        "id": 109003, 
+        "title": "彝陵之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"马忠" }, 
+            { "id": 3, "level": 10, "name":"丁封" }
+          ],
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"潘璋" }, 
+            { "id": 3, "level": 10, "name":"马忠" }
+          ]
+        ]
+      },
+      { 
+        "id": 109004, 
+        "title": "獀亭之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"周泰" }, 
+            { "id": 3, "level": 10, "name":"凌统" }
+          ],
+          [
+            { "id": 1, "level": 10, "name":"凌统" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"韩当" }, 
+            { "id": 3, "level": 10, "name":"甘宁" }
+          ]
+        ]
+      },
+      { 
+        "id": 109005, 
+        "title": "夷陵之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 10, "isBoss": 1, "name":"丁奉" }
+          ],
+          [
+            { "id": 1, "level": 10, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"韩当" }, 
+            { "id": 3, "level": 10, "name":"周泰" }
+          ],
+          [
+            { "id": 1, "level": 11, "name":"徐盛" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"陆逊" }, 
+            { "id": 3, "level": 11, "name":"阚泽" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 110, 
+    "title": "平蛮", 
+    "level": 12,
+    "stages": [
+      { 
+        "id": 110001, 
+        "title": "秃龙洞之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"阿会喃" }
+          ],
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"董荼那" }
+          ]
+        ]
+      },
+      { 
+        "id": 110002, 
+        "title": "银坑洞之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"金环三结" }
+          ],
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"带来洞主" }, 
+            { "id": 3, "level": 11, "name":"忙牙长" }
+          ]
+        ]
+      },
+      { 
+        "id": 110003, 
+        "title": "三江城之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"孟优" }, 
+            { "id": 3, "level": 11, "name":"忙牙长" }
+          ],
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"朵思大王" }, 
+            { "id": 3, "level": 11, "name":"忙牙长" }
+          ]
+        ]
+      },
+      { 
+        "id": 110004, 
+        "title": "八纳洞之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"木鹿大王" }, 
+            { "id": 3, "level": 11, "name":"孟优" }
+          ],
+          [
+            { "id": 1, "level": 11, "name":"木鹿大王" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"孟获" }, 
+            { "id": 3, "level": 11, "name":"祝融" }
+          ]
+        ]
+      },
+      { 
+        "id": 110005, 
+        "title": "乌戈国之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 11, "isBoss": 1, "name":"孟优" }
+          ],
+          [
+            { "id": 1, "level": 11, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"兀突骨" }, 
+            { "id": 3, "level": 11, "name":"孟优" }
+          ],
+          [
+            { "id": 1, "level": 12, "name":"兀突骨" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"孟获" }, 
+            { "id": 3, "level": 12, "name":"祝融" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 111, 
+    "title": "北伐", 
+    "level": 13,
+    "stages": [
+      { 
+        "id": 111001, 
+        "title": "凤鸣山之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"韩德" }
+          ],
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"夏侯楙" }
+          ]
+        ]
+      },
+      { 
+        "id": 111002, 
+        "title": "南安郡之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"韩德" }
+          ],
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"夏侯楙" }, 
+            { "id": 3, "level": 12, "name":"程武" }
+          ]
+        ]
+      },
+      { 
+        "id": 111003, 
+        "title": "祁山之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"王双" }, 
+            { "id": 3, "level": 12, "name":"王朗" }
+          ],
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"曹真" }, 
+            { "id": 3, "level": 12, "name":"王双" }
+          ]
+        ]
+      },
+      { 
+        "id": 111004, 
+        "title": "剑阁之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"郭淮" }, 
+            { "id": 3, "level": 12, "name":"孙礼" }
+          ],
+          [
+            { "id": 1, "level": 12, "name":"孙礼" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"张郃" }, 
+            { "id": 3, "level": 12, "name":"郭淮" }
+          ]
+        ]
+      },
+      { 
+        "id": 111005, 
+        "title": "葫芦谷之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 12, "isBoss": 1, "name":"许仪" }
+          ],
+          [
+            { "id": 1, "level": 12, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"郭淮" }, 
+            { "id": 3, "level": 12, "name":"许仪" }
+          ],
+          [
+            { "id": 1, "level": 13, "name":"司马师" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"司马懿" }, 
+            { "id": 3, "level": 13, "name":"司马昭" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 112, 
+    "title": "二将争功-灭蜀", 
+    "level": 14,
+    "stages": [
+      { 
+        "id": 112001, 
+        "title": "汉城之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"蒋舒" }
+          ],
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"傅佥" }
+          ]
+        ]
+      },
+      { 
+        "id": 112002, 
+        "title": "阴平之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"张翼" }
+          ],
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"廖化" }, 
+            { "id": 3, "level": 13, "name":"谯周" }
+          ]
+        ]
+      },
+      { 
+        "id": 112003, 
+        "title": "锦竹之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"诸葛尚" }, 
+            { "id": 3, "level": 13, "name":"张尊" }
+          ],
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"诸葛膽" }, 
+            { "id": 3, "level": 13, "name":"诸葛尚" }
+          ]
+        ]
+      },
+      { 
+        "id": 112004, 
+        "title": "剑阁之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"张翼" }, 
+            { "id": 3, "level": 13, "name":"赵广" }
+          ],
+          [
+            { "id": 1, "level": 13, "name":"廖化" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"姜维" }, 
+            { "id": 3, "level": 13, "name":"谯周" }
+          ]
+        ]
+      },
+      { 
+        "id": 112005, 
+        "title": "成都之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 13, "isBoss": 1, "name":"廖化" }
+          ],
+          [
+            { "id": 1, "level": 13, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"张翼" }, 
+            { "id": 3, "level": 13, "name":"廖化" }
+          ],
+          [
+            { "id": 1, "level": 14, "name":"张翼" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"钟会" }, 
+            { "id": 3, "level": 14, "name":"姜维" }
+          ]
+        ]
+      }
+    ]
+  },
+  { 
+    "id": 113, 
+    "title": "三分归晋-灭吴", 
+    "level": 15,
+    "stages": [
+      { 
+        "id": 113001, 
+        "title": "江陵之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"丁封" }
+          ],
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 15, "isBoss": 1, "name":"吾延" }
+          ]
+        ]
+      },
+      { 
+        "id": 113002, 
+        "title": "夏口之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"留平" }
+          ],
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 15, "isBoss": 1, "name":"伍延" }, 
+            { "id": 3, "level": 14, "name":"丁封" }
+          ]
+        ]
+      },
+      { 
+        "id": 113003, 
+        "title": "牛渚之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"诸葛靓" }, 
+            { "id": 3, "level": 14, "name":"张布" }
+          ],
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 15, "isBoss": 1, "name":"丁奉" }, 
+            { "id": 3, "level": 14, "name":"濮阳兴" }
+          ]
+        ]
+      },
+      { 
+        "id": 113004, 
+        "title": "建业之战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"陆抗" }, 
+            { "id": 3, "level": 14, "name":"濮阳兴" }
+          ],
+          [
+            { "id": 1, "level": 14, "name":"丁奉" }, 
+            { "id": 2, "level": 15, "isBoss": 1, "name":"孙浩" }, 
+            { "id": 3, "level": 14, "name":"陆抗" }
+          ]
+        ]
+      },
+      { 
+        "id": 113005, 
+        "title": "最后一战", 
+        "map": 1,
+        "enemys": [
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 14, "isBoss": 1, "name":"吕蒙" }
+          ],
+          [
+            { "id": 1, "level": 14, "name":"士兵" }, 
+            { "id": 2, "level": 15, "isBoss": 1, "name":"孙权" }, 
+            { "id": 3, "level": 14, "name":"陆逊" }
+          ],
+          [
+            { "id": 1, "level": 15, "name":"孙策" }, 
+            { "id": 2, "level": 15, "isBoss": 1, "name":"孙坚" }, 
+            { "id": 3, "level": 15, "name":"周瑜" }
+          ]
+        ]
+      }
+    ]
+  }
+]
