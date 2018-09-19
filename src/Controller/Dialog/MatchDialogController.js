@@ -47,6 +47,7 @@ var MatchDialogController = (function() {
       coordinate: [ { x: 180, y: 50 }, { x: 180, y: 70 }, { x: 150, y: 70 }, { x: 150, y: 50 }] });
     _this._canceled = false;
     _this._toCancel = false;
+    var playerId = LPlatform.player().getID();
     if (!MasterClient.isConnected()) {
       _this._isInLobby = false;
       MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
