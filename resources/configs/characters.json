@@ -1987,5 +1987,18 @@
         "attackType":"magic",
         "attackSpeed":"very fast",
         "introduction":"c fashu 6"
+    },
+    {
+        "id":154,
+        "name":"士兵",
+        "skillId":1,
+        "rarity":"c",
+        "attack":10,
+        "attackPlus":5,
+        "hp":90,
+        "hpPlus":20,
+        "attackType":"physice",
+        "attackSpeed":"medium",
+        "introduction":"c fashu 6"
     }
 ]

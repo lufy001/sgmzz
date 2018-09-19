@@ -1,3 +1,6 @@
+var TWO_POINTS = [{ x: 0, y: -50, scale: 1.5 }, { x: 0, y: 80, scale: 1.5 }];
+var THREE_POINTS = [{ x: 0, y: -100, scale: 1.5 }, { x: 0, y: 20, scale: 2 }, { x: 0, y: 120, scale: 1.5 }];
+
 var EnemyTeamView = (function() {
   function EnemyTeamView() {
     var _this = this;
@@ -47,7 +50,7 @@ var EnemyTeamView = (function() {
     var _this = this;
     var enemys = _this._stage.enemys();
     var enemyModels = enemys[GameManager.stepIndex - 1];
-    _this.points = [{ x: 0, y: -100, scale: 1.5 }, { x: 0, y: 20, scale: 2 }, { x: 0, y: 120, scale: 1.5 }];
+    _this.points = enemyModels.length === 3 ? THREE_POINTS : TWO_POINTS;
     enemyModels.forEach(function(child) {
       _this.addCharacter(child);
     });

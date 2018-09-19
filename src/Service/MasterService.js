@@ -54,112 +54,25 @@ var MasterService = (function() {
       { id: 8, title: '333', message: '33333test' }, 
       { id: 9, title: '444', message: '4499test' }, 
       { id: 10, title: '555', message: '55555test' }];
-    var chapters = [
-      { id: 100, title: 'huang jin zhi luan', stages: [
-        { id: 100001, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 100002, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 100003, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 100004, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] }
-      ] },
-      { id: 101, title: 'huang jin zhi luan', stages: [
-        { id: 101001, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 101002, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 101003, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 101004, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] }
-      ] },
-      { id: 102, title: 'huang jin zhi luan', stages: [
-        { id: 102001, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 102002, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 102003, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 102004, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] }
-      ] },
-      { id: 103, title: 'huang jin zhi luan', stages: [
-        { id: 103001, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 103002, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 103003, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] },
-        { id: 103004, title: 'ying chuan zhi zhan', map: 1,
-          enemys: [
-            [{ id: 1, level: 5 }, { id: 2, level: 5, isBoss: 1 }, { id: 3, level: 5 }],
-            [{ id: 2, level: 5 }, { id: 3, level: 5, isBoss: 1 }, { id: 1, level: 5 }]
-          ] }
-      ] }
-    ];
     var configs = [{ name: 'master_characters', type: 'text', path: 'resources/configs/characters.json' },
       { name: 'master_shop', type: 'text', path: 'resources/configs/shop.json' },
       { name: 'master_purchase', type: 'text', path: 'resources/configs/purchase.json' },
       { name: 'master_skills', type: 'text', path: 'resources/configs/skills.json' },
       { name: 'master_boxs', type: 'text', path: 'resources/configs/boxs.json' },
       { name: 'master_loginbonus', type: 'text', path: 'resources/configs/loginbonus.json' },
-      { name: 'master_level', type: 'text', path: 'resources/configs/level.json' }];
+      { name: 'master_chapters', type: 'text', path: 'resources/configs/chapter.json' },
+      { name: 'master_level', type: 'text', path: 'resources/configs/level.json' },
+      { name: 'master_user_level', type: 'text', path: 'resources/configs/user_level.json' }];
     return new Promise(function(resolve, reject) {
       LLoadManage.load(configs, function(progress) {
       }, function(data) {
         data.master_news = news;
-        data.master_chapters = chapters;
+        data.master_chapters = JSON.parse(data.master_chapters);
         data.master_characters = JSON.parse(data.master_characters);
         data.master_skills = JSON.parse(data.master_skills);
         data.master_boxs = JSON.parse(data.master_boxs);
         data.master_level = JSON.parse(data.master_level);
+        data.master_user_level = JSON.parse(data.master_user_level);
         data.master_shop = JSON.parse(data.master_shop);
         data.master_purchase = JSON.parse(data.master_purchase);
         data.master_loginbonus = JSON.parse(data.master_loginbonus);
