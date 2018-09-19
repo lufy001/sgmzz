@@ -32,7 +32,10 @@ var CharacterArrowListView = (function() {
       _this.init();
       return;
     }
-    _this.x -= _this.speed;
+    var now = Date.now()
+    var time = now - _this.startTime;
+    var length = _this.totalWidth * time / _this.times;
+    _this.x = _this._width - length;
   };
   CharacterArrowListView.prototype.init = function() {
     var _this = this;
@@ -49,6 +52,9 @@ var CharacterArrowListView = (function() {
     } else {
       _this.filters = null;
     }
+    _this.totalWidth = _this._width + _this.getWidth();
+    _this.startTime = Date.now()
+    _this.times = (_this.totalWidth*LGlobal.speed/_this.speed) >> 0;
   };
   CharacterArrowListView.prototype._isReady = function() {
     return this.childList.findIndex(function(child) {
