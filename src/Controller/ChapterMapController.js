@@ -92,7 +92,10 @@ var ChapterMapController = (function() {
       items.push(new ChapterMapChildView(child, currentChapterId));
     }
     _this.chapterListView.updateList(items);
-    
+    if(_this.stageListView.visible){
+      _this._onShowStage({model:_this.chapterModel });
+      return;
+    }
     LTweenLite.to(_this.titleLayer, 0.3, { x: _this.titleLayer.toX });
     LTweenLite.to(_this.chapterListView, 0.3, { x: 40 });
   };
@@ -100,6 +103,7 @@ var ChapterMapController = (function() {
     var _this = this;
     var lastStageId = PlayerManager.playerModel.lastStageId();
     var chapterModel = event.model;
+    _this.chapterModel = chapterModel;
     var items = [];
     var child;
     var stages = chapterModel.stages();

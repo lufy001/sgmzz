@@ -94,6 +94,7 @@ var BattleResultView = (function() {
   };
   BattleResultView.prototype._showResult = function(params) {
     var _this = this;
+    PlayerManager.playerModel = params.playerModel();
     var y = 150;
     var height = 60;
     var promise = Promise.resolve();
