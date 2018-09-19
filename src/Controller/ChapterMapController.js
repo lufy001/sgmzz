@@ -75,14 +75,14 @@ var ChapterMapController = (function() {
     var masters = MasterService.instance().masters;
     var chapters = masters.masterChapters();
     var chapter = ChapterManager.getMasterModel(lastChapterId);
-    var newStageId = chapter.stages().find(function(stage){
+    var newStageId = chapter.stages().find(function(stage) {
       return stage.id() > lastStageId;
     });
-    if(!newStageId){
-      var currentChapter = chapters.find(function(chapter){
+    if (!newStageId) {
+      var currentChapter = chapters.find(function(chapter) {
         return chapter.id() > lastChapterId;
       });
-      currentChapterId = currentChapter?currentChapter.id():currentChapterId+1;
+      currentChapterId = currentChapter ? currentChapter.id() : currentChapterId + 1;
     }
     for (var i = chapters.length - 1; i >= 0; i--) {
       var child = chapters[i];
