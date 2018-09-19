@@ -11,7 +11,6 @@ var ChapterManager = (function() {
     });
   };
   ChapterManager.prototype.getMasterModel = function(id) {
-    console.error(id,this.masterList);
     return this.masterList[id];
   };
     

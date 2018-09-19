@@ -206,7 +206,8 @@ var UserService = (function() {
         coin: 100,
         gem: 100,
         exp: 2222,
-        lv: 11
+        lv: 11,
+        lastStageId: 113005
       },
       contents: {
         //gem: 2,

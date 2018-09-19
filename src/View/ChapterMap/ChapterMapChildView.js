@@ -30,7 +30,7 @@ var ChapterMapChildView = (function() {
       },
       markIcon: {
         type: 'LBitmap',
-        data: model.id() >= lastChapterId + 1 ? 'icon_exclamation' : 'icon_ok'
+        data: model.id() >= lastChapterId ? 'icon_exclamation' : 'icon_ok'
       }
     };
     LExtends(_this, BaseView, [properties]);
