@@ -8,6 +8,15 @@ var dialogLayer;
 
 window.setting = window.setting || {};
 var loadFristData = [
+  { name: 'frame01', path: 'resources/images/ui/frame01.png' },
+  { name: 'btn01', path: 'resources/images/ui/btn01.png' },
+  { name: 'translucent', path: 'resources/images/ui/translucent.png' },
+  { type: 'js', path: 'src/Util/Common.js' },
+  { type: 'js', path: 'src/Core/AutoDisplayObject.js' },
+  { type: 'js', path: 'src/Controller/BaseController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/DialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/AlertDialogController.js' },
+  { type: 'js', path: 'src/Config/GameConfig.js' },
   { type: 'js', path: 'src/Util/LPlugin.js' },
   { type: 'js', path: 'src/Util/MasterClient.js' },
   { type: 'js', path: 'src/Model/CharacterModel.js' },
@@ -122,7 +131,6 @@ var loadData = [
   { name: 'hp_front_mini', path: 'resources/images/game/hp_front_mini.png' },
 
   { type: 'js', path: 'src/Config/CharacterConfig.js' },
-  { type: 'js', path: 'src/Config/GameConfig.js' },
   { type: 'js', path: 'src/Manager/GameManager.js' },
   { type: 'js', path: 'src/Manager/CharacterManager.js' },
   { type: 'js', path: 'src/Manager/EffectManager.js' },
@@ -137,8 +145,6 @@ var loadData = [
   { type: 'js', path: 'src/Service/CardService.js' },
   { type: 'js', path: 'src/Service/ShopService.js' },
 
-  { type: 'js', path: 'src/Core/AutoDisplayObject.js' },
-  { type: 'js', path: 'src/Controller/BaseController.js' },
   { type: 'js', path: 'src/Controller/CardsController.js' },
   { type: 'js', path: 'src/Controller/HomeController.js' },
   { type: 'js', path: 'src/Controller/GameController.js' },
@@ -146,7 +152,6 @@ var loadData = [
   { type: 'js', path: 'src/Controller/ShopController.js' },
   { type: 'js', path: 'src/Controller/EventsController.js' },
   { type: 'js', path: 'src/Controller/ChapterMapController.js' },
-  { type: 'js', path: 'src/Controller/Dialog/DialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/CardDetailDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ConfirmGoldDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/HomeBoxsDialogController.js' },
@@ -159,7 +164,6 @@ var loadData = [
   { type: 'js', path: 'src/Controller/Dialog/RankingDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ProfileDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/MatchDialogController.js' },
-  { type: 'js', path: 'src/Controller/Dialog/AlertDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/LoginBonusDialogController.js' },
   { type: 'js', path: 'src/Model/Master/CharacterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/ChapterMasterModel.js' },
@@ -205,7 +209,6 @@ var loadData = [
   { type: 'js', path: 'src/View/Cards/SelectCardView.js' },
   { type: 'js', path: 'src/View/Cards/CardStatusView.js' },
   { type: 'js', path: 'src/Util/PseudoRandom.js' },
-  { type: 'js', path: 'src/Util/Common.js' },
   { type: 'js', path: 'src/Util/CommonEvent.js' },
   
   { type: 'js', path: 'src/View/ChapterMap/ChapterMapChildView.js' },
@@ -257,6 +260,11 @@ function main() {
     });
 }
 function dataFristLoadComplete(data) {
+  dataList = data;
+
+  dialogLayer = new LSprite();
+  addChild(dialogLayer);
+
   var playerId = LPlatform.player().getID();
   var playerName = LPlatform.player().getName();
   AnalyticService.instance().setUserId(playerId);
@@ -304,8 +312,7 @@ function onGameStart() {
   headerView = new HeaderView();
   addChild(headerView);
 
-  dialogLayer = new LSprite();
-  addChild(dialogLayer);
+  dialogLayer.parent.setChildIndex(dialogLayer, dialogLayer.parent.numChildren - 1);
 
   Common.changeScene('HomeController', { });
 
