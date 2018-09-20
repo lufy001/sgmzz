@@ -14,15 +14,37 @@ var BaseService = (function() {
       request.ssid = BaseService.ssid;
     }
     return new Promise(function(resolve, reject) {
+      var error;
       LAjax.responseType = LAjax.JSON;
-      LAjax.post(url, request, function(data) {
-        console.log('data=', data);
-        resolve(data.data);
+      LAjax.post(url, request, function(response) {
+        console.log('response=', response);
+        if (response.ret) {
+          resolve(response.data);
+        } else {
+          reject(response);
+        }
       }, function(err) {
         reject(err);
       });
-    });
-        
+    })
+      .catch(function(event) {
+        AnalyticService.instance().trackEvent('SERVICE_ERROR', event);
+        _this.showErrorDialog(event);
+        throw event;
+      });
+  };
+  BaseService.prototype.showErrorDialog = function(event) {
+    var params = { width: 360, height: 200, hideClose: true };
+    var messagekey = SERVICE_MESSAGES[event.msgCode] || SERVICE_DEFAULT_MESSAGE;
+    //TODO:translation
+    params.message = messagekey;
+    if (event.quit) {
+      params.okEvent = function() {
+        //game restart 
+      };
+    }
+    var dialog = new AlertDialogController(params);
+    dialogLayer.addChild(dialog);
   };
   return BaseService;
 })();
