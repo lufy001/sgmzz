@@ -2,7 +2,11 @@ var SkillMasterModel = (function() {
   function SkillMasterModel(data) {
     var _this = this;
     _this.data = data;
+    _this._init();
   }
+  SkillMasterModel.prototype._init = function() {
+    this.data.value = JSON.parse(this.data.value);
+  };
   SkillMasterModel.prototype.id = function() {
     return this.data.id;
   };

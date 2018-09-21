@@ -10,6 +10,7 @@ var BaseTeamView = (function() {
   };
   BaseTeamView.prototype._onSkillStart = function(event) {
     var _this = this;
+    console.log('_this.layer.numChildren', _this.layer.numChildren);
     if (_this.layer.numChildren === 0) {
       return;
     }
@@ -21,12 +22,14 @@ var BaseTeamView = (function() {
     var targetId = params.targetId;
     var selfBelong = _this.layer.getChildAt(0).model.belong();
     var sameBelong = belong === selfBelong;
+    console.log('selfBelong', selfBelong, 'params', params);
     if (skill.target() === 'self' ^ sameBelong) {
       return;
     }
     var targetIndex = _this.layer.childList.findIndex(function(child) {
       return child.model.id() === targetId;
     });
+    console.log('targetIndex', targetIndex);
     for (var i = 0, length = _this.layer.childList.length; i < amount; i++) {
       var index = (targetIndex + i) % length;
       if (i > 0 && index === targetIndex) {

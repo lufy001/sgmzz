@@ -30,6 +30,7 @@ CommonEvent.GAME_CONTINUE = 'common:gameContinue';
 
 CommonEvent.SKILL_START = 'common:skillStart';
 CommonEvent.BATTLE_SKILL_RESET = 'common:battleSkillReset';
+CommonEvent.BATTLE_SKILL_CREATE = 'common:battleSkillCreate';
 CommonEvent.ADD_SKILL_POWER = 'common:addSkillPower';
 CommonEvent.SKILL_READY = 'common:skillReady';
 

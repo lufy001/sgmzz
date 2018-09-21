@@ -1,24 +1,31 @@
 var BattleSkillIconView = (function() {
   function BattleSkillIconView() {
     var _this = this;
-    LExtends(_this, SkillIconView, []);
+    LExtends(_this, LListChildView, []);
+    _this.init();
   }
-  BattleSkillIconView.prototype.init = function(data) {
+  BattleSkillIconView.prototype.init = function() {
     var _this = this;
-    _this.callParent('init', arguments);
-    _this._toDisable();
-    _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onSkillClick, _this);
+    _this._icon = new SkillIconView();
+    _this._icon.addEventListener(LEvent.COMPLETE, _this._onSkillIconUpdate, _this);
+    _this.addChild(_this._icon);
+    _this._mask = Common.getTranslucentBitmap(64, 64);
+    _this.addChild(_this._mask);
     CommonEvent.addEventListener(CommonEvent.SKILL_READY, _this._onSkillReady, _this);
+    
   };
   BattleSkillIconView.prototype.setModel = function(characterModel) {
     var _this = this;
     _this.characterModel = characterModel;
-    _this.updateView(characterModel.skill());
-    _this._toDisable();
+    _this._icon.updateView(characterModel.skill());
   };
-  BattleSkillIconView.prototype._onSkillClick = function(event) {
+  BattleSkillIconView.prototype._onSkillIconUpdate = function(event) {
+    this.cacheAsBitmap(false);
+    this.updateView();
+  };
+  BattleSkillIconView.prototype.onClick = function(event) {
     var _this = this;
-    if (_this.filters) {
+    if (_this._mask) {
       return;
     }
 
@@ -33,21 +40,22 @@ var BattleSkillIconView = (function() {
     params.targetId = skill.target() === 'self' ? _this.characterModel.id() : GameManager.selectEnemyId;
     params.amount = skill.special();
     e.params = params;
-    CommonEvent.dispatchEvent(e);
     if (GameManager.isMulti()) {
       MasterClient.skillStart({ params: params });
     }
-    CommonEvent.dispatchEvent(CommonEvent.BATTLE_SKILL_RESET);
-  };
-  BattleSkillIconView.prototype._toDisable = function() {
-    if (this.filters) {
-      return;
-    }
-    this.filters = [new LColorMatrixFilter([0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0.3086, 0.6094, 0.0820, 0, 0, 0, 0, 0, 1, 0])];
+    event.currentTarget.deleteChildView(_this);
+    CommonEvent.dispatchEvent(e);
   };
   BattleSkillIconView.prototype._onSkillReady = function() {
-    this.filters = null;
-    this.cacheAsBitmap(false);
+    var _this = this;
+    _this._mask.remove();
+    _this._mask = null;
+    _this.cacheAsBitmap(false);
+    _this.updateView();
+    CommonEvent.removeEventListener(CommonEvent.SKILL_READY, _this._onSkillReady, _this);
+    setTimeout(function() {
+      CommonEvent.dispatchEvent(CommonEvent.BATTLE_SKILL_CREATE);
+    });
   };
   return BattleSkillIconView;
 })();

@@ -38,7 +38,8 @@ var SkillIconView = (function() {
   SkillIconView.prototype.init = function(data) {
     var _this = this;
     _this.icon.bitmapData = new LBitmapData(data['skill']);
-    _this.cacheAsBitmap(false);
+    //_this.cacheAsBitmap(false);
+    _this.dispatchEvent(LEvent.COMPLETE);
   };
   SkillIconView.prototype._skillClick = function(event) {
     var _this = this;

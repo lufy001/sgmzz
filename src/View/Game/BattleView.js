@@ -51,6 +51,13 @@ var BattleView = (function() {
           y: 460
         }
       },
+      skillCtrlView: {
+        type: 'SkillCtrlView',
+        properties: {
+          x: 10,
+          y: 756
+        }
+      },
       ctrlView: {
         type: 'CtrlView',
         properties: {

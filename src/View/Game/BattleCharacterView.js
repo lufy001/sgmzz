@@ -79,6 +79,7 @@ var BattleCharacterView = (function() {
     if (typeof value === 'number') {
       img += value > 1 ? '_up' : '_down';
     }
+    console.error('addBuffer', img, dataList[img]);
 
     if (bufferChild) {
       bufferChild.bitmapData = new LBitmapData(dataList[img]);
@@ -111,18 +112,18 @@ var BattleCharacterView = (function() {
   BattleCharacterView.prototype._poisonBuffer = function(event) {
     var _this = this;
     var buffer = _this.model.getBuffer('poison');
-    if(!buffer){
-    	_this._poisonTime = 0;
-    	return;
+    if (!buffer) {
+      _this._poisonTime = 0;
+      return;
     }
     var now = Date.now();
-    if(_this._poisonTime === 0){
-    	_this._poisonTime = new Date(now + POISON_BUFFER_TIME);
+    if (_this._poisonTime === 0) {
+      _this._poisonTime = new Date(now + POISON_BUFFER_TIME);
     }
-    if(_this._poisonTime < now){
-    	_this._poisonTime = new Date(now + POISON_BUFFER_TIME);
-    	var hert = _this.hpProgress.progress*0.01 >> 0;
-    	_this.addHp(-(hert > 0 ? hert : 1));
+    if (_this._poisonTime < now) {
+      _this._poisonTime = new Date(now + POISON_BUFFER_TIME);
+      var hert = _this.hpProgress.progress * 0.01 >> 0;
+      _this.addHp(-(hert > 0 ? hert : 1));
     }
   };
   BattleCharacterView.prototype._resetBufferPosition = function(value) {
@@ -136,7 +137,7 @@ var BattleCharacterView = (function() {
     });
   };
   BattleCharacterView.prototype._dispatchSkillStart = function(skill, directionCount, targetId) {
-    if (!skill) {
+    if (!skill || directionCount < 3) {
       return;
     }
     var event = new LEvent(CommonEvent.SKILL_START);

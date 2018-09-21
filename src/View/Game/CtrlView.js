@@ -45,13 +45,14 @@ var CtrlView = (function() {
           y: 128
         }
       },
-      btnSkill: {
+      /*btnSkill: {
         type: 'BattleSkillIconView',
         properties: {
           x: 220,
-          y: 0
+          y: 0,
+          visible: false
         }
-      },
+      },*/
       btnOk: {
         type: 'LButton',
         state: 'button-ok',
@@ -59,7 +60,7 @@ var CtrlView = (function() {
         properties: {
           name: 'ok',
           x: 220,
-          y: 104
+          y: 64
         }
       }
     };
@@ -71,20 +72,21 @@ var CtrlView = (function() {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameStart, _this);
-    CommonEvent.addEventListener(CommonEvent.BATTLE_SKILL_RESET, _this._onBattleSkillReset, _this);
+    //CommonEvent.addEventListener(CommonEvent.BATTLE_SKILL_RESET, _this._onBattleSkillReset, _this);
   };
   CtrlView.prototype._onGameStart = function(event) {
     var _this = this;
-    CommonEvent.dispatchEvent(CommonEvent.BATTLE_SKILL_RESET);
+    CommonEvent.dispatchEvent(CommonEvent.BATTLE_SKILL_CREATE);
+    //CommonEvent.dispatchEvent(CommonEvent.BATTLE_SKILL_RESET);
   };
-  CtrlView.prototype._onBattleSkillReset = function(event) {
+  /*CtrlView.prototype._onBattleSkillReset = function(event) {
     var _this = this;
     var team = PlayerManager.playerModel.team();
     var character = team[team.length * Math.random() >>> 0];
     var e = new LEvent(CommonEvent.BATTLE_SKILL_RESET);
     //_this.btnSkill.updateView(character.skill());
     _this.btnSkill.setModel(character);
-  };
+  };*/
   CtrlView.prototype._onClick = function(event) {
     var e = new LEvent(CommonEvent.ARROW_CLICK);
     e.input = event.currentTarget.name;

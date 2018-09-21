@@ -22,7 +22,7 @@ var ArrowBoardView = (function() {
       skillProgress: {
         type: 'ProgressView',
         //params: { progress: 0, sum: 50, background: 'hp_back', foreground: 'hp_front', labelVisible: false },
-        params: { progress: 0, sum: 1, background: 'skill_bar_bg', foreground: 'skill_bar_front', labelVisible: false },
+        params: { progress: 0, sum: SKILL_MAX_POWER, background: 'skill_bar_bg', foreground: 'skill_bar_front', labelVisible: false },
         properties: {
           x: 20,
           y: 260,
@@ -68,7 +68,7 @@ var ArrowBoardView = (function() {
     if (progress < 0) {
       progress = 0;
     } else if (progress >= _this.skillProgress.sum) {
-      progress = _this.skillProgress.sum;
+      progress -= _this.skillProgress.sum;
       CommonEvent.dispatchEvent(CommonEvent.SKILL_READY);
     }
     _this.skillProgress.updateView({ progress: progress, sum: _this.skillProgress.sum });
