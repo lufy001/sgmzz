@@ -1,6 +1,7 @@
 var BoxDetailDialogController = (function() {
   function BoxDetailDialogController(request) {
     var _this = this;
+    _this._request = request;
     var coin = request.model.coin();
     var gem = request.model.gem();
     var properties = {
@@ -39,7 +40,7 @@ var BoxDetailDialogController = (function() {
         type: 'CommonButton',
         parent: 'layer',
         onClick: '_videoClick',
-        label: '0/' + UNLOCK_AD_MAX_TIMES,
+        label: PlayerManager.playerModel.unlockBoxAdTimesWatched() + '/' + UNLOCK_AD_MAX_TIMES,
         params: { img: 'btn03', icon: 'icon_video', iconWidth: 40, iconHeight: 40 },
         properties: {
           x: 100,
@@ -101,7 +102,6 @@ var BoxDetailDialogController = (function() {
     _this._addCards(request);
     _this._addTime(request);
     _this._addButton(request);
-    Common.changeButtonLabel(_this.videoButton, PlayerManager.playerModel.unlockBoxAdTimesWatched() + '/' + UNLOCK_AD_MAX_TIMES);
   };
   BoxDetailDialogController.prototype._addButton = function(request) {
     var _this = this, button;
@@ -143,20 +143,30 @@ var BoxDetailDialogController = (function() {
             PlayerManager.playerModel.boxs(response.boxs());
             PlayerManager.playerModel.unlockBoxAdTimesWatched(response.unlockBoxAdTimesWatched());
             CommonEvent.dispatchEvent(CommonEvent.BOXS_UPDATE);
-            Common.changeButtonLabel(_this.videoButton, PlayerManager.playerModel.unlockBoxAdTimesWatched() + '/' + UNLOCK_AD_MAX_TIMES);
+            _this._reOpen();
           });
       })
       .catch(function(error) {
 
       });
   };
+  BoxDetailDialogController.prototype._reOpen = function(event) {
+    var _this = this;
+    _this.remove();
+    _this._request.model = PlayerManager.playerModel.boxs().find(function(box) {
+      return box.id() === _this.model.id();
+    });
+    var dialog = new BoxDetailDialogController(_this._request);
+    dialogLayer.addChild(dialog);
+
+  };
   BoxDetailDialogController.prototype._unlockClick = function(event) {
     var _this = this;
     UserService.instance().unlockBox(_this.model.id())
       .then(function(response) {
         PlayerManager.playerModel.boxs(response.boxs());
-        _this.remove();
         CommonEvent.dispatchEvent(CommonEvent.BOXS_UPDATE);
+        _this._reOpen();
       });
   };
   BoxDetailDialogController.prototype._openClick = function(event) {
