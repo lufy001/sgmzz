@@ -124,5 +124,11 @@ var PlayerModel = (function() {
   PlayerModel.prototype.versions = function() {
     return this.data.versions;
   };
+  PlayerModel.prototype.unlockBoxAdTimesWatched = function(value) {
+    if (typeof value !== UNDEFINED) {
+      this.data.unlockBoxAdTimesWatched = value;
+    }
+    return this.data.unlockBoxAdTimesWatched || 0;
+  };
   return PlayerModel;
 })();

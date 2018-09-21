@@ -64,6 +64,16 @@ var FBInstant = (function() {
   FBInstant.prototype.updateAsync = function(options) {
     return Promise.resolve();
   };
+  FBInstant.prototype.getRewardedVideoAsync = function() {
+    return Promise.resolve({
+      showAsync: function() {
+        return Promise.resolve();
+      },
+      loadAsync: function() {
+        return Promise.resolve();
+      }
+    });
+  };
 
   return new FBInstant();
 })();

@@ -97,8 +97,8 @@ var loadData = [
 
   { name: 'buffer_phy_def_down', path: 'resources/images/status/buffer_phy_def_down.png' },
   { name: 'buffer_phy_def_up', path: 'resources/images/status/buffer_phy_def_up.png' },
-  { name: 'buffer_mac_def_down', path: 'resources/images/status/buffer_mac_def_down.png' },
-  { name: 'buffer_mac_def_up', path: 'resources/images/status/buffer_mac_def_up.png' },
+  { name: 'buffer_mag_def_down', path: 'resources/images/status/buffer_mag_def_down.png' },
+  { name: 'buffer_mag_def_up', path: 'resources/images/status/buffer_mag_def_up.png' },
   { name: 'buffer_atk_down', path: 'resources/images/status/buffer_phy_atk_down.png' },
   { name: 'buffer_atk_up', path: 'resources/images/status/buffer_phy_atk_up.png' },
   { name: 'buffer_poison', path: 'resources/images/status/buffer_poison.png' },
@@ -233,6 +233,7 @@ var loadData = [
   { type: 'js', path: 'src/View/Game/BattleSkillIconView.js' },
   { type: 'js', path: 'src/View/Game/BattleResultView.js' },
   { type: 'js', path: 'src/View/Game/ResultParamView.js' },
+  { type: 'js', path: 'src/View/Game/SkillCtrlView.js' },
 
   { type: 'js', path: 'src/View/Shop/ShopTitleView.js' },
   { type: 'js', path: 'src/View/Shop/ShopItemView.js' }
