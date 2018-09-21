@@ -39,7 +39,8 @@
         },
         loginBonusCalled:1，
         loginBonusCount:3,
-        lastStageId:100002
+        lastStageId:100002,
+        unlockBoxAdTimesWatched:11
     }
 ・characters 玩家拥有的卡牌，从cards表中获取，id是卡牌的card_id，也就是master_characters的id，level是卡牌等级，amount是卡牌的数量 
 
@@ -64,6 +65,8 @@
 ・loginBonusCount 一个周期内登录奖励领取次数
 
 ・lastStageId 最后通过的master_stages的id
+
+・unlockBoxAdTimesWatched 解锁宝箱广告观看次数
 
 ### 获取玩家信息(getPlayer) 
 #### 参数
@@ -124,7 +127,8 @@
             null
         ]
     }
-・boxs 宝箱状态，和login时的boxs相同 
+・boxs 宝箱状态，和login时的boxs相同
+ 
 
 ### 广告解锁宝箱(adUnlockBox) 
 #### 参数
@@ -132,7 +136,18 @@
 #### 处理说明
 ・观看视频广告可以减少解锁宝箱所需的时间，暂定观看一次减少1小时，每天可以观看20次。 
 #### 返回值
-    与unlockBox的返回值相同
+    {
+        boxs:[
+            {id:1,boxId:4,time:3400000,status:"unlock"},
+            {id:2,boxId:3,time:0,status:"unlock"},
+            {id:3,boxId:2,time:0,status:"lock"},
+            null
+        ],
+        unlockBoxAdTimesWatched:11
+    }
+・boxs 宝箱状态，和login时的boxs相同
+
+・unlockBoxAdTimesWatched 解锁宝箱广告观看次数
 
 ### 打开宝箱(openBox) 
 #### 参数

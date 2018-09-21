@@ -6,5 +6,8 @@ var UnlockBoxResponse = (function() {
   UnlockBoxResponse.prototype.boxs = function() {
     return this.data.boxs;
   };
+  UnlockBoxResponse.prototype.unlockBoxAdTimesWatched = function() {
+    return this.data.unlockBoxAdTimesWatched;
+  };
   return UnlockBoxResponse;
 })();

@@ -1,7 +1,7 @@
 [
     {
         "id":1,
-        "name":"aaaa",
+        "name":"yellow chest",
         "img":"a",
         "coin":[200,300],
         "cards":[
@@ -9,11 +9,11 @@
             {"rarity":"r","amount":1}
         ],
         "time":10800,
-        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+        "introduction":"低级宝箱，对战以及"
     },
     {
         "id":2,
-        "name":"bbbb",
+        "name":"green chest",
         "img":"b",
         "coin":[200,300],
         "cards":[
@@ -25,7 +25,7 @@
     },
     {
         "id":3,
-        "name":"cccc",
+        "name":"red chest",
         "img":"c",
         "coin":[200,300],
         "cards":[
@@ -38,7 +38,21 @@
     },
     {
         "id":4,
-        "name":"dddd",
+        "name":"blue chest",
+        "img":"d",
+        "coin":[200,300],
+        "cards":[
+            {"rarity":"c","amount":40},
+            {"rarity":"r","amount":8},
+            {"rarity":"sr","amount":2},
+            {"rarity":"ssr","amount":1}
+        ],
+        "time":86400,
+        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+    },
+    {
+        "id":5,
+        "name":"orange chest",
         "img":"d",
         "coin":[200,300],
         "cards":[

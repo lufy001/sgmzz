@@ -1,8 +1,8 @@
 var ShopBoxDetailDialogController = (function() {
   function ShopBoxDetailDialogController(request) {
     var _this = this;
-    var coin = JSON.parse(request.boxModel.coin());
-    var gem = JSON.parse(request.boxModel.gem());
+    var coin = request.boxModel.coin();
+    var gem = request.boxModel.gem();
     var properties = {
       boxView: {
         type: 'BoxIconView',

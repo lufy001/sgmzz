@@ -39,7 +39,7 @@ var BoxDetailDialogController = (function() {
         type: 'CommonButton',
         parent: 'layer',
         onClick: '_videoClick',
-        label: '12/20',
+        label: '0/' + UNLOCK_AD_MAX_TIMES,
         params: { img: 'btn03', icon: 'icon_video', iconWidth: 40, iconHeight: 40 },
         properties: {
           x: 100,
@@ -55,7 +55,7 @@ var BoxDetailDialogController = (function() {
           y: 105
         }
       },
-      gemLabel: {
+      coinLabel: {
         type: 'Label',
         parent: 'layer',
         properties: {
@@ -74,7 +74,7 @@ var BoxDetailDialogController = (function() {
           y: 105
         }
       },
-      coinLabel: {
+      gemLabel: {
         type: 'Label',
         parent: 'layer',
         properties: {
@@ -101,6 +101,7 @@ var BoxDetailDialogController = (function() {
     _this._addCards(request);
     _this._addTime(request);
     _this._addButton(request);
+    Common.changeButtonLabel(_this.videoButton, PlayerManager.playerModel.unlockBoxAdTimesWatched() + '/' + UNLOCK_AD_MAX_TIMES);
   };
   BoxDetailDialogController.prototype._addButton = function(request) {
     var _this = this, button;
@@ -135,7 +136,19 @@ var BoxDetailDialogController = (function() {
   };
   BoxDetailDialogController.prototype._videoClick = function(event) {
     var _this = this;
-    
+    LPlatform.showVideoAsync('TEST_AD')
+      .then(function() {
+        UserService.instance().adUnlockBox(_this.model.id())
+          .then(function(response) {
+            PlayerManager.playerModel.boxs(response.boxs());
+            PlayerManager.playerModel.unlockBoxAdTimesWatched(response.unlockBoxAdTimesWatched());
+            CommonEvent.dispatchEvent(CommonEvent.BOXS_UPDATE);
+            Common.changeButtonLabel(_this.videoButton, PlayerManager.playerModel.unlockBoxAdTimesWatched() + '/' + UNLOCK_AD_MAX_TIMES);
+          });
+      })
+      .catch(function(error) {
+
+      });
   };
   BoxDetailDialogController.prototype._unlockClick = function(event) {
     var _this = this;

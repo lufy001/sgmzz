@@ -77,6 +77,13 @@ var Common = (function() {
     button.bitmap = btnBitmap;
     return button;
   };
+  Common.changeButtonLabel = function(button, label) {
+    var buttonLayer = button.getChildAt(0);
+    var textLabel = buttonLayer.getChildByName('label');
+    textLabel.text = label;
+    buttonLayer.cacheAsBitmap(false);
+    buttonLayer.cacheAsBitmap(true);
+  };
   Common.changeScene = function(className, request) {
     var _this = this;
     var controller = rootLayer.getChildByName(className);

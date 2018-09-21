@@ -57,9 +57,9 @@ var LPlatform = (function() {
   LPlatform.prototype.isSupported = function(key) {
     return !!_this.sdk[key];
   };
-  LPlatform.prototype.showVideoAsync = function() {
+  LPlatform.prototype.showVideoAsync = function(placementId) {
     var _this = this;
-    return _this.loadRewardedVideoAsync()
+    return _this.loadRewardedVideoAsync(placementId)
       .then(function() {
         return _this._ad.showAsync();
       });
