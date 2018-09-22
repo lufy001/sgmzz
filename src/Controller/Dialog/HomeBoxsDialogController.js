@@ -16,9 +16,6 @@ var HomeBoxsDialogController = (function() {
   HomeBoxsDialogController.prototype._boxOpened = function(event) {
     var _this = this;
     _this.updateView();
-    var params = { width: LGlobal.width, height: LGlobal.height, model: event.model, hideClose: true, contents: event.contents };
-    var dialog = new ContentsGetDialogController(params);
-    dialogLayer.addChild(dialog);
   };
   HomeBoxsDialogController.prototype.updateView = function(event) {
     var _this = this;
