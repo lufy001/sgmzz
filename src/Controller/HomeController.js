@@ -74,7 +74,7 @@ var HomeController = (function() {
   };
   HomeController.prototype.init = function() {
     var _this = this;
-    _this.cupView.updateView(0);
+    _this.cupView.updateView();
 
     _this._boxUpdateView();
         
@@ -92,6 +92,9 @@ var HomeController = (function() {
     var _this = this;
     _this._boxUpdateView();
     headerView.updateView();
+    var params = { width: LGlobal.width, height: LGlobal.height, model: event.model, hideClose: true, contents: event.contents };
+    var dialog = new ContentsGetDialogController(params);
+    dialogLayer.addChild(dialog);
   };
   HomeController.prototype._gotoChapterMap = function(event) {
     Common.changeScene('ChapterMapController');

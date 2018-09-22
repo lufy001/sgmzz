@@ -10,6 +10,12 @@ var PlayerModel = (function() {
   PlayerModel.prototype.lastStageId = function() {
     return this.data.lastStageId;
   };
+  PlayerModel.prototype.winTimesMulti = function() {
+    return this.data.winTimesMulti || 0;
+  };
+  PlayerModel.prototype.winBoxOver = function() {
+    return this.data.winBoxOver;
+  };
   PlayerModel.prototype.loginBonusCalled = function() {
     return this.data.loginBonusCalled;
   };
