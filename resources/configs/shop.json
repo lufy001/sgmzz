@@ -1,56 +1,56 @@
 [
     {
         "id":1,
-        "name":"aaaa",
+        "name":"Fuchsia Chest",
         "icon":"",
         "price_gem":0,
         "price_coin":200,
         "coin":0,
-        "box_id":1
+        "box_id":7
     },
     {
         "id":2,
-        "name":"bbbb",
+        "name":"Purple Chest",
         "icon":"",
         "price_gem":400,
         "price_coin":0,
         "coin":0,
-        "box_id":2
+        "box_id":8
     },
     {
         "id":3,
-        "name":"cccc",
+        "name":"Red Chest",
         "icon":"",
-        "price_gem":500,
+        "price_gem":1000,
         "price_coin":0,
         "coin":0,
-        "box_id":3
+        "box_id":9
     },
     {
         "id":4,
-        "name":"aaaa",
+        "name":"1000 coin",
         "icon":"shop_coin",
-        "price_gem":200,
+        "price_gem":50,
         "price_coin":0,
-        "coin":500,
+        "coin":1000,
         "box_id":0
     },
     {
         "id":5,
-        "name":"bbbb",
+        "name":"10000 coin",
         "icon":"shop_coin",
-        "price_gem":4000,
+        "price_gem":450,
         "price_coin":0,
-        "coin":5000,
+        "coin":10000,
         "box_id":0
     },
     {
         "id":6,
-        "name":"cccc",
+        "name":"100000 coin",
         "icon":"shop_coin",
-        "price_gem":50000,
+        "price_gem":4000,
         "price_coin":0,
-        "coin":20000,
+        "coin":100000,
         "box_id":0
     }
 ]
