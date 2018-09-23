@@ -11,6 +11,7 @@
             {"rarity":"ssr","amount":1,"probability":0.00005}
         ],
         "time":7200,
+        "weight":200,
         "introduction":"劣质宝箱，闯关专用，只在闯关时获得。"
     },
     {
@@ -25,6 +26,7 @@
             {"rarity":"ssr","amount":1,"probability":0.0001}
         ],
         "time":10800,
+        "weight":100,
         "introduction":"低级宝箱，闯关，对战均可以获得。"
     },
     {
@@ -39,6 +41,7 @@
             {"rarity":"ssr","amount":1,"probability":0.0003}
         ],
         "time":28800,
+        "weight":32,
         "introduction":"中级宝箱，闯关，对战均可以获得。"
     },
     {
@@ -54,6 +57,7 @@
             {"rarity":"ssr","amount":1,"probability":0.001}
         ],
         "time":43200,
+        "weight":16,
         "introduction":"高级宝箱，闯关，对战均可以获得。"
     },
     {
@@ -68,7 +72,8 @@
             {"rarity":"sr","amount":4},
             {"rarity":"ssr","amount":1,"probability":0.15}
         ],
-        "time":0,
+        "time":1,
+        "weight":0,
         "introduction":"胜利宝箱，每天对战胜利5次后可领取，而闯关，对战均无法获得。"
     },
     {
@@ -81,6 +86,7 @@
             {"rarity":"ssr","amount":1,"probability":1.0}
         ],
         "time":86400,
+        "weight":0,
         "introduction":"SSR卡宝箱，只含SSR卡，特殊途径获得，而闯关，对战均无法获得。"
     },
     {
@@ -96,6 +102,7 @@
             {"rarity":"ssr","amount":1,"probability":0.1}
         ],
         "time":86400,
+        "weight":8,
         "introduction":"顶级宝箱，闯关，对战均可以获得，且商店可购买。"
     },
     {
@@ -111,6 +118,7 @@
             {"rarity":"ssr","amount":1,"probability":0.2}
         ],
         "time":172800,
+        "weight":4,
         "introduction":"顶级宝箱，闯关，对战均可以获得，且商店可购买。"
     },
     {
@@ -126,6 +134,7 @@
             {"rarity":"ssr","amount":1,"probability":0.4}
         ],
         "time":259200,
+        "weight":2,
         "introduction":"顶级宝箱，闯关，对战均可以获得，且商店可购买。"
     }
 ]
