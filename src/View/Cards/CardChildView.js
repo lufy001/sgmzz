@@ -15,6 +15,9 @@ var CardChildView = (function() {
     cardView.name = 'cardView';
     cardView.addEventListener(LEvent.COMPLETE, _this._loadComplete, _this);
     _this.addChild(cardView);
+    if (!_this.model.id) {
+      return;
+    }
     var disableMask = Common.getTranslucentBitmap(100, 118);
     disableMask.name = 'mask';
     disableMask.visible = !model;
