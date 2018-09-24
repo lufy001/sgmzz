@@ -52,7 +52,6 @@ var CardsController = (function() {
     if (JSON.stringify(teams) === _this._oldTeams && _this._oldTeamIndex === teamIndex) {
       return;
     }
-    console.error(teams);
     UserService.instance().setTeams(teams, teamIndex);
   };
   CardsController.prototype.init = function() {
