@@ -137,6 +137,7 @@ var BattleCharacterView = (function() {
     });
   };
   BattleCharacterView.prototype._dispatchSkillStart = function(skill, directionCount, targetId) {
+    var _this = this;
     if (!skill || directionCount < 3) {
       return;
     }

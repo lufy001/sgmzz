@@ -9,7 +9,6 @@ var BaseService = (function() {
     request['platform'] = window.setting.platform;
     request['fbId'] = LPlatform.player().getID();
     var url = _this.url + '?class=' + action.class + '&action=' + action.method;
-    console.log('url=', url);
     if (BaseService.ssid) {
       request.ssid = BaseService.ssid;
     }
@@ -17,8 +16,7 @@ var BaseService = (function() {
       var error;
       LAjax.responseType = LAjax.JSON;
       LAjax.post(url, request, function(response) {
-        console.log('response=', response);
-        if (response.ret) {
+        if (response && response.ret) {
           resolve(response.data);
         } else {
           reject(response);
@@ -29,7 +27,7 @@ var BaseService = (function() {
     })
       .catch(function(event) {
         AnalyticService.instance().trackEvent('SERVICE_ERROR', event);
-        _this.showErrorDialog(event);
+        _this.showErrorDialog(event || {});
         throw event;
       });
   };

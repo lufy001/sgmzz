@@ -78,6 +78,11 @@ var ShopItemDetailDialogController = (function() {
     var _this = this;
     ShopService.instance().buy(_this.model.id)
       .then(function(response) {
+        PlayerManager.playerModel = response.playerModel();
+        var event = new LEvent(CommonEvent.OPEN_BOX);
+        event.model = _this.model;
+        event.contents = response.contents();
+        CommonEvent.dispatchEvent(event);
         _this.remove();
       });
   };
