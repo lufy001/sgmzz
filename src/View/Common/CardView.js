@@ -92,6 +92,16 @@ var CardView = (function() {
     }
     _this.levelLabel.text = 'level ' + _this.characterModel.level();
   };
+  CardView.prototype._updateName = function() {
+    var _this = this;
+    if (typeof _this.characterModel.level === UNDEFINED) {
+      _this.nameLabel.visible = false;
+      return;
+    } else {
+      _this.nameLabel.visible = true;
+    }
+    _this.nameLabel.text = _this.characterModel.name();
+  };
   CardView.prototype.init = function(data) {
     var _this = this;
     if (_this.anime) {
@@ -117,10 +127,12 @@ var CardView = (function() {
     if (_this.characterModel.id) {
       _this._updateAmount();
       _this._updateLevel();
+      _this._updateName();
       _this.load();
     } else {
       _this.amountProgress.visible = false;
       _this.levelLabel.visible = false;
+      _this.nameLabel.visible = false;
     }
   };
   return CardView;

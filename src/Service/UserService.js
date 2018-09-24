@@ -217,7 +217,7 @@ var UserService = (function() {
       'class': 'user',
       'method': 'setTeams'
     };
-    var request = { 'teams': teams, 'teamIndex': teamIndex };
+    var request = { 'teams': JSON.stringify(teams), 'teamIndex': teamIndex };
     if (!window.setting.isLocal) {
       return _this.send(action, request);
     }
