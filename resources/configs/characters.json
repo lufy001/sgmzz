@@ -1991,14 +1991,14 @@
     {
         "id":154,
         "name":"士兵",
-        "skillId":1,
-        "rarity":"c",
+        "skillId":0,
+        "rarity":"n",
         "attack":10,
         "attackPlus":5,
         "hp":90,
         "hpPlus":20,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"c fashu 6"
+        "introduction":""
     }
 ]
