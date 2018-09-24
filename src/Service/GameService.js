@@ -121,7 +121,7 @@ var GameService = (function() {
       'class': 'game',
       'method': 'sendMultiResult'
     };
-    var request = { 'matchId': matchId };
+    var request = { 'id': matchId };
     if (!window.setting.isLocal) {
       return _this.send(action, request)
         .then(function(data) {
