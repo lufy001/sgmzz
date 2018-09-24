@@ -11,7 +11,7 @@ var LoginBonusItemView = (function() {
         properties: {
         }
       },
-      card:{
+      card: {
         type: 'CardBackgroundView',
         properties: {
           x: 15,

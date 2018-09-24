@@ -20,7 +20,7 @@ var GameController = (function() {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
-
+    
     if (request.battleType === 'single') {
       GameManager.isMulti(false);
       _this._onLoadSingle(request);
@@ -31,6 +31,7 @@ var GameController = (function() {
   };
   GameController.prototype._onLoadMulti = function(request) {
     var _this = this;
+    GameManager.matchId = request.matchId;
     var event = new LEvent(CommonEvent.GAME_MULTI_START);
     CommonEvent.dispatchEvent(event);
   };

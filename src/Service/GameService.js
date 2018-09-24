@@ -115,13 +115,13 @@ var GameService = (function() {
     return Promise.resolve(response);
   };
 
-  GameService.prototype.sendMultiResult = function(targetId) {
+  GameService.prototype.sendMultiResult = function(matchId) {
     var _this = this;
     var action = {
       'class': 'game',
       'method': 'sendMultiResult'
     };
-    var request = { 'targetId': targetId };
+    var request = { 'matchId': matchId };
     if (!window.setting.isLocal) {
       return _this.send(action, request)
         .then(function(data) {

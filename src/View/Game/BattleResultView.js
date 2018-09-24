@@ -81,7 +81,7 @@ var BattleResultView = (function() {
       return;
     }
     if (GameManager.isMulti()) {
-      GameService.instance().sendMultiResult()
+      GameService.instance().sendMultiResult(GameManager.matchId)
         .then(function(response) {
           _this._showResult(response);
         });
