@@ -111,7 +111,7 @@ var HomeController = (function() {
   HomeController.prototype._matchOver = function(event) {
     var _this = this;
     if (event.success) {
-      Common.changeScene('GameController', { battleType: 'multi', targetId: event.targetId });
+      Common.changeScene('GameController', { battleType: 'multi', matchId: event.matchId });
     }
   };
   HomeController.prototype._openBoxs = function(event) {

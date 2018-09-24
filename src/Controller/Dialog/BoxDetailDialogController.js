@@ -213,7 +213,7 @@ var BoxDetailDialogController = (function() {
   };
   BoxDetailDialogController.prototype._addCard = function(child) {
     var _this = this;
-    if(child.rarity === 'ssr' && child.probability < 1){
+    if (child.rarity === 'ssr' && child.probability < 1) {
       return;
     }
     var background = new CardBackgroundView();

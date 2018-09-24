@@ -92,8 +92,8 @@ var ChapterMapController = (function() {
       items.push(new ChapterMapChildView(child, currentChapterId));
     }
     _this.chapterListView.updateList(items);
-    if(_this.stageListView.visible){
-      _this._onShowStage({model:_this.chapterModel });
+    if (_this.stageListView.visible) {
+      _this._onShowStage({ model: _this.chapterModel });
       return;
     }
     LTweenLite.to(_this.titleLayer, 0.3, { x: _this.titleLayer.toX });

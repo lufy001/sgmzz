@@ -77,8 +77,8 @@ var MatchDialogController = (function() {
         return GameService.instance().getMatchTarget();
       })
       .then(function(response) {
-        if (response.targetId) {
-          _this._connectRoom(response.targetId);
+        if (response.matchId) {
+          _this._connectRoom(response);
         } else if (!_this._canceled) {
           return _this._getTarget();
         } else {
@@ -86,30 +86,31 @@ var MatchDialogController = (function() {
         }
       });
   };
-  MatchDialogController.prototype._connectRoom = function(targetId) {
+  MatchDialogController.prototype._connectRoom = function(response) {
     var _this = this;
     _this.title.text = 'Connecting room';
     MasterClient.addEventListener(GameEvent.ROOM_IN, function() {
       var event = new LEvent('close');
       event.success = true;
+      event.matchId = response.matchId;
       _this.dispatchEvent(event);
       _this._onClose();
     });
-    var playerId = LPlatform.player().getID();
+    //var playerId = LPlatform.player().getID();
+    var playerId = PlayerManager.playerModel.id();
     var teamJson = PlayerManager.playerModel.teamToJson();
     var player = MasterClient.player();
     player.setCustomProperty('team', teamJson);
     player.setCustomProperty('level', PlayerManager.playerModel.level());
-    if (playerId > targetId) {
-      Common.delay(1000).then(function() {
-        player.setCustomProperty('battleRoom', targetId + '_' + playerId);
-        player.setCustomProperty('isLeader', 0);
-        MasterClient.joinRoom(targetId + '_' + playerId);
-      });
+    player.setCustomProperty('isLeader', response.isLeader);
+    player.setCustomProperty('battleRoom', roomName);
+    var roomName = 'BattleRoom_' + response.matchId;
+    if (response.isLeader) {
+      MasterClient.createRoom(roomName);
     } else {
-      player.setCustomProperty('battleRoom', playerId + '_' + targetId);
-      player.setCustomProperty('isLeader', 1);
-      MasterClient.createRoom(playerId + '_' + targetId);
+      Common.delay(1000).then(function() {
+        MasterClient.joinRoom(roomName);
+      });
     }
   };
   MatchDialogController.prototype.onClose = function() {

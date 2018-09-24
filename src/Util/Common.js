@@ -119,7 +119,7 @@ var Common = (function() {
       associative[child[keyName]()] = child;
     }
     return associative;
-  }
+  };
   return Common;
 })();
 

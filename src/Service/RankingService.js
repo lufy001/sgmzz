@@ -12,7 +12,7 @@ var RankingService = (function() {
     var request = { 'rank': 1, 'count': 50 };
     if (!window.setting.isLocal) {
       return _this.send(action, request)
-        .then(function (data) {
+        .then(function(data) {
           var res = {
             players: data
           };

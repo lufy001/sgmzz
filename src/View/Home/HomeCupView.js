@@ -38,7 +38,7 @@ var HomeCupView = (function() {
           scaleY: 0.6,
           x: 180,
           y: 0,
-          visible:!PlayerManager.playerModel.winBoxOver()
+          visible: !PlayerManager.playerModel.winBoxOver()
         }
       }
     };
@@ -56,21 +56,21 @@ var HomeCupView = (function() {
   };
   HomeCupView.prototype._iconClick = function(event) {
     var _this = this;
-    if(PlayerManager.playerModel.winTimesMulti() < WIN_TIMES_MULTI_MAX 
-    && !PlayerManager.playerModel.winBoxOver()){
+    if (PlayerManager.playerModel.winTimesMulti() < WIN_TIMES_MULTI_MAX 
+    && !PlayerManager.playerModel.winBoxOver()) {
       return;
     }
     UserService.instance().openMultiBox()
-    .then(function(response) {
-      _this.cupGreyLayer.visible = true;
-      _this.cupLayer.visible = false;
-      _this.boxIcon.visible = false;
-      PlayerManager.playerModel = response.playerModel();
-      var event = new LEvent(CommonEvent.OPEN_BOX);
-      event.model = _this.model;
-      event.contents = response.contents();
-      CommonEvent.dispatchEvent(event);
-    });
+      .then(function(response) {
+        _this.cupGreyLayer.visible = true;
+        _this.cupLayer.visible = false;
+        _this.boxIcon.visible = false;
+        PlayerManager.playerModel = response.playerModel();
+        var event = new LEvent(CommonEvent.OPEN_BOX);
+        event.model = _this.model;
+        event.contents = response.contents();
+        CommonEvent.dispatchEvent(event);
+      });
   };
   return HomeCupView;
 })();
