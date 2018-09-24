@@ -67,14 +67,30 @@ var CardsController = (function() {
     CommonEvent.addEventListener(CommonEvent.CARD_USE_CANCEL, _this._cardUseCancel, _this);
     CommonEvent.addEventListener(CommonEvent.CARD_USE, _this._cardUse, _this);
     CommonEvent.addEventListener(CommonEvent.CARD_LIST_UPDATE, _this._cardListUpdate, _this);
+    CommonEvent.addEventListener(CommonEvent.OPEN_BOX, _this._cardListUpdate, _this);
         
     CommonEvent.dispatchEvent(CommonEvent.CARD_LIST_UPDATE);
   };
   CardsController.prototype._cardListUpdate = function(event) {
     var _this = this;
     var team = PlayerManager.playerModel.teamData();
+    var itemList = _this.listView.getItems();
+    if (itemList.length > 0) {
+      for (var i = 0; i < itemList.length; i++) {
+        itemList[i].updateView();
+      }
+    }
+    
     var items = [];
-    PlayerManager.playerModel.characters()
+    CharacterManager.masterArray.sort(function(a, b) {
+      var aHas = !!PlayerManager.playerModel.getCharacter(a.id());
+      var bHas = !!PlayerManager.playerModel.getCharacter(b.id());
+      if (aHas ^ bHas) {
+        return aHas ? -1 : 1;
+      }
+      return a.id() - b.id();
+    });
+    CharacterManager.masterArray
       .forEach(function(model) {
         var index = team.indexOf(model.id());
         if (index >= 0) {
@@ -128,7 +144,8 @@ var CardsController = (function() {
   };
   CardsController.prototype._cardDetailClick = function(event) {
     var _this = this;
-    var dialog = new CardDetailDialogController({ width: 440, height: 560, model: _this._selectModel });
+    var model = PlayerManager.playerModel.getCharacter(_this._selectModel.id());
+    var dialog = new CardDetailDialogController({ width: 440, height: 560, model: model });
     dialogLayer.addChild(dialog);
     
   };

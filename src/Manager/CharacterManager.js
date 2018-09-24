@@ -1,7 +1,8 @@
 var CharacterManager = (function() {
   function CharacterManager() {
     var _this = this;
-    _this.masterList = [];
+    _this.masterList = {};
+    _this.masterArray = [];
   }
   CharacterManager.prototype.setMasters = function(jsonDataList) {
     var _this = this;
@@ -9,6 +10,7 @@ var CharacterManager = (function() {
     jsonDataList.forEach(function(data) {
       var masterModel = new CharacterMasterModel(data);
       _this.masterList[masterModel.id()] = masterModel;
+      _this.masterArray.push(masterModel);
     });
   };
   CharacterManager.prototype.getMasterModel = function(id) {

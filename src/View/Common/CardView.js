@@ -16,6 +16,17 @@ var CardView = (function() {
           y: 118
         }
       },
+      nameLabel: {
+        type: 'Label',
+        properties: {
+          text: model.name ? model.name() : '',
+          size: 12,
+          color: '#F5DEB3',
+          textAlign: 'center',
+          x: 50,
+          y: 75
+        }
+      },
       levelLabel: {
         type: 'Label',
         properties: {
@@ -38,9 +49,12 @@ var CardView = (function() {
   };
   CardView.prototype._updateAmount = function() {
     var _this = this;
-    if (typeof _this.characterModel.amount() === UNDEFINED) {
+    if (typeof _this.characterModel.amount === UNDEFINED 
+      || typeof _this.characterModel.amount() === UNDEFINED) {
       _this.amountProgress.visible = false;
       return;
+    } else {
+      _this.amountProgress.visible = true;
     }
     var levelData = LevelManager.getMaster(_this.characterModel.level());
     var params = { progress: _this.characterModel.amount(), sum: levelData.amount };
@@ -70,6 +84,12 @@ var CardView = (function() {
   };
   CardView.prototype._updateLevel = function() {
     var _this = this;
+    if (typeof _this.characterModel.level === UNDEFINED) {
+      _this.levelLabel.visible = false;
+      return;
+    } else {
+      _this.levelLabel.visible = true;
+    }
     _this.levelLabel.text = 'level ' + _this.characterModel.level();
   };
   CardView.prototype.init = function(data) {
@@ -80,7 +100,7 @@ var CardView = (function() {
     var bitmapData = new LBitmapData(data['character']);
     _this.anime = new LAnimationTimeline(bitmapData, CharacterManager.getAnimationData());
     _this.anime.x = 18;
-    _this.anime.y = 18;
+    _this.anime.y = 12;
     CharacterManager.setAnimationLabel(_this.anime);
     _this.layer.addChild(_this.anime);
     var label = CharacterAction.STAND + '-' + CharacterDirection.DOWN;

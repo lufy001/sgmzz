@@ -112,6 +112,14 @@ var Common = (function() {
       }, time);
     });
   };
+  Common.getAssociative = function(array, keyName) {
+    var associative = {};
+    for (var i = 0; i < array.length; i++) {
+      var child = array[i];
+      associative[child[keyName]()] = child;
+    }
+    return associative;
+  }
   return Common;
 })();
 
