@@ -24,7 +24,8 @@ var ShopItemView = (function() {
         properties: {
           text: '',
           textAlign: 'center',
-          size: 24,
+          color: '#F5DEB3',
+          size: 20,
           x: 70,
           y: 10
         }

@@ -109,6 +109,13 @@ var PlayerModel = (function() {
     }
     return _this.data._boxs;
   };
+  PlayerModel.prototype.getCharacter = function(characterId) {
+    var _this = this;
+    if(!_this._characterMap){
+      _this.characters();
+    }
+    return _this._characterMap[characterId];
+  };
   PlayerModel.prototype.characters = function() {
     var _this = this;
     if (!_this.data._characters) {
@@ -116,6 +123,8 @@ var PlayerModel = (function() {
       _this.data.characters.forEach(function(data) {
         _this.data._characters.push(new CharacterModel(data));
       });
+      _this.data._characters.sort(function(a, b){return a.id() - b.id();});
+      _this._characterMap = Common.getAssociative(_this.data._characters, 'id');
     }
     return _this.data._characters;
   };

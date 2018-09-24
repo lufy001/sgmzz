@@ -1,5 +1,5 @@
 var ContentCardView = (function() {
-  function ContentCardView(model) {
+  function ContentCardView(model, data) {
     var _this = this;
     var properties = {
       layer: {
@@ -9,10 +9,21 @@ var ContentCardView = (function() {
         type: 'CardBackgroundView',
         parent: 'layer'
       },
+      nameLabel: {
+        type: 'Label',
+        properties: {
+          text: model.name ? model.name() : '',
+          size: 12,
+          color: '#F5DEB3',
+          textAlign: 'center',
+          x: 50,
+          y: 75
+        }
+      },
       amountLabel: {
         type: 'Label',
         properties: {
-          text: 'x' + model.amount(),
+          text: 'x' + data.amount,
           size: 16,
           textAlign: 'center',
           x: 50,
@@ -57,7 +68,7 @@ var ContentCardView = (function() {
     var bitmapData = new LBitmapData(data['character']);
     _this.anime = new LAnimationTimeline(bitmapData, CharacterManager.getAnimationData());
     _this.anime.x = 18;
-    _this.anime.y = 18;
+    _this.anime.y = 12;
     CharacterManager.setAnimationLabel(_this.anime);
     _this.layer.addChild(_this.anime);
     var label = CharacterAction.STAND + '-' + CharacterDirection.DOWN;
