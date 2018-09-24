@@ -97,14 +97,13 @@ var MatchDialogController = (function() {
       _this._onClose();
     });
     //var playerId = LPlatform.player().getID();
-    var playerId = PlayerManager.playerModel.id();
+    var roomName = 'BattleRoom_' + response.matchId;
     var teamJson = PlayerManager.playerModel.teamToJson();
     var player = MasterClient.player();
     player.setCustomProperty('team', teamJson);
     player.setCustomProperty('level', PlayerManager.playerModel.level());
     player.setCustomProperty('isLeader', response.isLeader);
     player.setCustomProperty('battleRoom', roomName);
-    var roomName = 'BattleRoom_' + response.matchId;
     if (response.isLeader) {
       MasterClient.createRoom(roomName);
     } else {
