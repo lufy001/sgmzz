@@ -2,7 +2,7 @@ var ShopBoxDetailDialogController = (function() {
   function ShopBoxDetailDialogController(request) {
     var _this = this;
     var coin = request.boxModel.coin();
-    var gem = request.boxModel.gem();
+    //var gem = request.boxModel.gem();
     var properties = {
       boxView: {
         type: 'BoxIconView',
@@ -54,7 +54,7 @@ var ShopBoxDetailDialogController = (function() {
           size: 24
         }
       },
-      gemIcon: {
+      /*gemIcon: {
         type: 'LBitmap',
         parent: 'layer',
         data: 'icon_gem',
@@ -72,7 +72,7 @@ var ShopBoxDetailDialogController = (function() {
           text: gem[0] + '~' + gem[1],
           size: 24
         }
-      },
+      },*/
       cardLayer: {
         type: 'LSprite',
         parent: 'layer',
@@ -104,7 +104,11 @@ var ShopBoxDetailDialogController = (function() {
     var _this = this;
     ShopService.instance().buy(_this.shopModel.id)
       .then(function(response) {
-        _this._showContents(response);
+        PlayerManager.playerModel = response.playerModel();
+        var event = new LEvent(CommonEvent.OPEN_BOX);
+        event.model = _this.model;
+        event.contents = response.contents();
+        CommonEvent.dispatchEvent(event);
         _this.remove();
       });
   };
@@ -137,6 +141,9 @@ var ShopBoxDetailDialogController = (function() {
   };
   ShopBoxDetailDialogController.prototype._addCard = function(child) {
     var _this = this;
+    if(child.rarity === 'ssr' && child.probability < 1){
+      return;
+    }
     var background = new CardBackgroundView();
     background.updateView(child.rarity, false);
     background.scaleX = background.scaleY = 30 / background.getWidth();

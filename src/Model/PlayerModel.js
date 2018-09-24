@@ -105,6 +105,7 @@ var PlayerModel = (function() {
       _this.data.boxs.forEach(function(data) {
         _this.data._boxs.push(data ? new BoxModel(data) : null);
       });
+      _this.data._boxs.sort(function(a, b){return b.id() - a.id();});
     }
     return _this.data._boxs;
   };

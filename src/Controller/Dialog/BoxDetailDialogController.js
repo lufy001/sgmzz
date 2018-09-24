@@ -3,7 +3,7 @@ var BoxDetailDialogController = (function() {
     var _this = this;
     _this._request = request;
     var coin = request.model.coin();
-    var gem = request.model.gem();
+    //var gem = request.model.gem();
     var properties = {
       boxView: {
         type: 'BoxIconView',
@@ -66,7 +66,7 @@ var BoxDetailDialogController = (function() {
           size: 24
         }
       },
-      gemIcon: {
+      /*gemIcon: {
         type: 'LBitmap',
         parent: 'layer',
         data: 'icon_gem',
@@ -84,7 +84,7 @@ var BoxDetailDialogController = (function() {
           text: gem[0] + '~' + gem[1],
           size: 24
         }
-      },
+      },*/
       cardLayer: {
         type: 'LSprite',
         parent: 'layer',
@@ -213,6 +213,9 @@ var BoxDetailDialogController = (function() {
   };
   BoxDetailDialogController.prototype._addCard = function(child) {
     var _this = this;
+    if(child.rarity === 'ssr' && child.probability < 1){
+      return;
+    }
     var background = new CardBackgroundView();
     background.updateView(child.rarity, false);
     background.scaleX = background.scaleY = 30 / background.getWidth();
