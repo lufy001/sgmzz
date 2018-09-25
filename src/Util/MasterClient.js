@@ -1,35 +1,33 @@
 var GameEvent = {
   ROOM_IN: 'photon:roomIn', //进入战斗房间
   GAME_INIT: 'photon:gameInit', //双方准备OK
-  JOINED_LOBBY: 'photon:joinedLobby'
+  JOINED_LOBBY: 'photon:joinedLobby', //
+  PLAYER_LEAVE: 'photon:playerLeave'//玩家掉线或退出
 };
 var ClientEvent = {
-  READY: 1, //单方战斗画面准备OK
+  READY: 1, //战斗准备OK
   ATTACK: 2, //攻击
   GAME_OVER: 3, //游戏结束
   SKILL_START: 4, //技能发动
+
+  GAME_START: 101, //
 };
 var MasterClient = (function() {
   function MasterClient() {
     var _this = this;
     LExtends(_this, LEventDispatcher, []);
   }
-  MasterClient.prototype.gameStart = function(id) {
-    var event = new LEvent(GameEvent.ROOM_IN);
-    event.enemyPlayer = this.enemy();
-    this.dispatchEvent(event);
-  };
   MasterClient.prototype.onEvent = function(code, content, actorNr) {
     console.log('MasterClient :: onEvent', code, content);
     switch (code) {
-      case ClientEvent.READY:
+      /*case ClientEvent.READY:
         if (this.client.myActor().getId() !== content.id) {
           this.client.myActor().setCustomProperty('ready', true);
         }
         if (this.player.getCustomProperty('ready') && this.enemy.getCustomProperty('ready')) {
           this.dispatchEvent(GameEvent.GAME_INIT);
         }
-        break;
+        break;*/
       case ClientEvent.ATTACK:
         if (this.client.myActor().getId() === content.id) {
           break;
@@ -49,7 +47,15 @@ var MasterClient = (function() {
           CommonEvent.dispatchEvent(CommonEvent.RESULT_FAIL);
         }
         break;
+      case ClientEvent.GAME_START:
+        this._gameStart();
+        break;
     }
+  };
+  MasterClient.prototype._gameStart = function(id) {
+    var event = new LEvent(GameEvent.ROOM_IN);
+    event.enemyPlayer = this.enemy();
+    this.dispatchEvent(event);
   };
   MasterClient.prototype._onSkillStart = function(params) {
     var e = new LEvent(CommonEvent.SKILL_START);
@@ -84,11 +90,25 @@ var MasterClient = (function() {
   MasterClient.prototype.playerId = function() {
     return this.player().getId();
   };
+  MasterClient.prototype.disconnect = function() {
+    this.client.disconnect();
+  };
   MasterClient.prototype.leaveRoom = function() {
     this.client.leaveRoom();
   };
   MasterClient.prototype.onJoinedLobby = function() {
     this.dispatchEvent(GameEvent.JOINED_LOBBY);
+  };
+  MasterClient.prototype.onJoinRoom = function(createdByMe) {
+    if (!createdByMe) {
+      this.sendMessage(ClientEvent.GAME_START, { });
+    }
+  };
+  MasterClient.prototype.onActorLeave = function(actor) {
+    if (actor.getId() === this.playerId()) {
+      return;
+    }
+    this.dispatchEvent(GameEvent.PLAYER_LEAVE);
   };
   MasterClient.prototype.sendMessage = function(eventCode, data, options) {
     data.id = this.client.myActor().getId();
@@ -96,6 +116,19 @@ var MasterClient = (function() {
   };
   MasterClient.prototype.isConnected = function() {
     return this.client.isConnectedToMaster() || this.client.isConnectedToGame();
+  };
+  MasterClient.prototype.startTime = function() {
+    var _this = this;
+    var time = _this.player().getCustomProperty('startTime');
+    if (time) {
+      return time;
+    }
+    time = _this.enemy().getCustomProperty('startTime');
+    if (time) {
+      _this.player().setCustomProperty('startTime', time);
+      return time;
+    }
+    return 0;
   };
   MasterClient.prototype.start = function(id, data) {
     this.client.start(id, data);

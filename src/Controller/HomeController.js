@@ -67,6 +67,52 @@ var HomeController = (function() {
   }
   HomeController.prototype.onLoad = function(request) {
     var _this = this;
+    if (request.isFirst) {
+      _this._checkContinueBattle();
+    } else {
+      _this._checkLoginBonus();
+    }
+  };
+  HomeController.prototype._checkContinueBattle = function() {
+    GameService.instance().getMatchTarget()
+      .then(function(response) {
+        if (response.matchId) {
+          MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
+          MasterClient.start(playerId, response);
+        }
+      });
+  };
+  HomeController.prototype._onFailJoinRoom = function(event) {
+    MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onFailJoinRoom, _this);
+    this._checkLoginBonus();
+  };
+  HomeController.prototype._onJoinedLobby = function(event) {
+    var _this = this;
+    MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
+    MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onFailJoinRoom, _this);
+    _this._connectRoom(response);
+  };
+  HomeController.prototype._connectRoom = function(event) {
+    var _this = this;
+    var player = MasterClient.player();
+    _this.title.text = 'Connecting room';
+    MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    //var playerId = LPlatform.player().getID();
+    var roomName = 'BattleRoom_' + response.matchId;
+    var teamJson = PlayerManager.playerModel.teamToJson();
+    player.setCustomProperty('team', teamJson);
+    player.setCustomProperty('level', PlayerManager.playerModel.level());
+    player.setCustomProperty('isLeader', response.isLeader);
+    player.setCustomProperty('battleRoom', roomName);
+    if (response.isLeader) {
+      MasterClient.createRoom(roomName);
+    } else {
+      Common.delay(1000).then(function() {
+        MasterClient.joinRoom(roomName);
+      });
+    }
+  };
+  HomeController.prototype._checkLoginBonus = function() {
     if (!PlayerManager.playerModel.loginBonusCalled()) {
       var dialog = new LoginBonusDialogController({ width: 440, height: 500, hideClose: true });
       dialogLayer.addChild(dialog);

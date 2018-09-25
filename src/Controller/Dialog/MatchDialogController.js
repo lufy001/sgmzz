@@ -77,8 +77,8 @@ var MatchDialogController = (function() {
         return GameService.instance().getMatchTarget();
       })
       .then(function(response) {
-        if (response.targetId) {
-          _this._connectRoom(response.targetId);
+        if (response.matchId) {
+          _this._connectRoom(response);
         } else if (!_this._canceled) {
           return _this._getTarget();
         } else {
@@ -86,30 +86,43 @@ var MatchDialogController = (function() {
         }
       });
   };
-  MatchDialogController.prototype._connectRoom = function(targetId) {
+  MatchDialogController.prototype._joinRoom = function(e) {
     var _this = this;
+    MasterClient.removeEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    var event = new LEvent('close');
+    event.success = true;
+    event.matchId = _this._matchId;
+    _this.dispatchEvent(event);
+    _this._onClose();
+  };
+  MatchDialogController.prototype._connectRoom = function(response) {
+    var _this = this;
+    var player = MasterClient.player();
+    player.setCustomProperty('startTime', response.startTime || 0);
     _this.title.text = 'Connecting room';
-    MasterClient.addEventListener(GameEvent.ROOM_IN, function() {
+    _this._matchId = response.matchId;
+    MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    /*MasterClient.addEventListener(GameEvent.ROOM_IN, function() {
       var event = new LEvent('close');
       event.success = true;
+      event.matchId = response.matchId;
+      player.setCustomProperty('startTime', response.startTime || 0);
       _this.dispatchEvent(event);
       _this._onClose();
-    });
-    var playerId = LPlatform.player().getID();
+    });*/
+    //var playerId = LPlatform.player().getID();
+    var roomName = 'BattleRoom_' + response.matchId;
     var teamJson = PlayerManager.playerModel.teamToJson();
-    var player = MasterClient.player();
     player.setCustomProperty('team', teamJson);
     player.setCustomProperty('level', PlayerManager.playerModel.level());
-    if (playerId > targetId) {
-      Common.delay(1000).then(function() {
-        player.setCustomProperty('battleRoom', targetId + '_' + playerId);
-        player.setCustomProperty('isLeader', 0);
-        MasterClient.joinRoom(targetId + '_' + playerId);
-      });
+    player.setCustomProperty('isLeader', response.isLeader);
+    player.setCustomProperty('battleRoom', roomName);
+    if (response.isLeader) {
+      MasterClient.createRoom(roomName);
     } else {
-      player.setCustomProperty('battleRoom', playerId + '_' + targetId);
-      player.setCustomProperty('isLeader', 1);
-      MasterClient.createRoom(playerId + '_' + targetId);
+      Common.delay(1000).then(function() {
+        MasterClient.joinRoom(roomName);
+      });
     }
   };
   MatchDialogController.prototype.onClose = function() {
@@ -127,6 +140,11 @@ var MatchDialogController = (function() {
         var player = MasterClient.player();
         player.setCustomProperty('team', null);
         player.setCustomProperty('battleRoom', null);
+        MasterClient.disconnect();
+        var event = new LEvent('close');
+        event.success = false;
+        _this.dispatchEvent(event);
+        _this._onClose();
       });
   };
     
