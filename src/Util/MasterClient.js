@@ -78,6 +78,9 @@ var MasterClient = (function() {
   MasterClient.prototype.isLeader = function() {
     return this.client.myActor().isLeader();
   };
+  MasterClient.prototype.myRoomActorCount = function() {
+    return this.client.myRoomActorCount();
+  };
   MasterClient.prototype.enemy = function() {
     return this.client.myRoomActorsArray()[1];
   };

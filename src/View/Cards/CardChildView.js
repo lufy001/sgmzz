@@ -7,9 +7,33 @@ var CardChildView = (function() {
   }
   CardChildView.prototype.init = function() {
     var _this = this;
-    var cardView = new CardView(_this.model);
+    var model;
+    if (_this.model.id) {
+      model = PlayerManager.playerModel.getCharacter(_this.model.id());
+    }
+    var cardView = new CardView(model ? model : _this.model);
+    cardView.name = 'cardView';
     cardView.addEventListener(LEvent.COMPLETE, _this._loadComplete, _this);
     _this.addChild(cardView);
+    if (!_this.model.id) {
+      return;
+    }
+    var disableMask = Common.getTranslucentBitmap(100, 118);
+    disableMask.name = 'mask';
+    disableMask.visible = !model;
+    _this.addChild(disableMask);
+  };
+  CardChildView.prototype.updateModel = function() {
+    var _this = this;
+    if (!_this.model.id) {
+      return;
+    }
+    var model;
+    if (_this.model.id) {
+      model = PlayerManager.playerModel.getCharacter(_this.model.id());
+    }
+    _this.getChildByName('cardView').updateView(model ? model : _this.model);
+    _this.getChildByName('mask').visible = !model;
   };
   CardChildView.prototype._loadComplete = function(event) {
     var _this = this;
@@ -18,7 +42,7 @@ var CardChildView = (function() {
   };
   CardChildView.prototype.onClick = function(event) {
     var _this = this;
-    if (!_this.model.id) {
+    if (!_this.model.id || !PlayerManager.playerModel.getCharacter(_this.model.id())) {
       return;
     }
     var listView = event.currentTarget;

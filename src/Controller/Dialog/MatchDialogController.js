@@ -102,15 +102,6 @@ var MatchDialogController = (function() {
     _this.title.text = 'Connecting room';
     _this._matchId = response.matchId;
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
-    /*MasterClient.addEventListener(GameEvent.ROOM_IN, function() {
-      var event = new LEvent('close');
-      event.success = true;
-      event.matchId = response.matchId;
-      player.setCustomProperty('startTime', response.startTime || 0);
-      _this.dispatchEvent(event);
-      _this._onClose();
-    });*/
-    //var playerId = LPlatform.player().getID();
     var roomName = 'BattleRoom_' + response.matchId;
     var teamJson = PlayerManager.playerModel.teamToJson();
     player.setCustomProperty('team', teamJson);

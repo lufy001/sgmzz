@@ -79,7 +79,7 @@ var PhotonClient = (function(_super) {
     switch (code) {
       case Constants.OperationCode.CreateGame:
         if (errorCode === Constants.ErrorCode.GameIdAlreadyExists) {
-          roomName = self.myActor().getBattleRoom();
+          roomName = this.myActor().getBattleRoom();
           if (roomName) {
             this.joinRoom(roomName);
             break;
@@ -91,11 +91,6 @@ var PhotonClient = (function(_super) {
       case Constants.OperationCode.JoinGame:
         if (errorCode === Constants.ErrorCode.GameDoesNotExist) {
           var self = this;
-          var isContinue = self.myActor().isContinue();
-          if (isContinue) {
-            
-            break;
-          }
           roomName = self.myActor().getBattleRoom();
           if (roomName) {
             setTimeout(function() {
@@ -121,7 +116,7 @@ var PhotonClient = (function(_super) {
     //this.masterClient.onStateChange(state);
     // "namespace" import for static members shorter acceess
     var LBC = window.Photon.LoadBalancing.LoadBalancingClient;
-    //console.warn('onStateChange', state);
+    console.warn('onStateChange', state);
     switch (state) {
       case LBC.State.JoinedLobby:
         this.onJoinedLobby();

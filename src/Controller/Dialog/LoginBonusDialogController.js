@@ -43,14 +43,14 @@ var LoginBonusDialogController = (function() {
   LoginBonusDialogController.prototype._getBonus = function() {
     var _this = this;
     UserService.instance().getLoginBonus()
-    .then(function(response){
-      PlayerManager.playerModel = response.playerModel();
-      var params = { width: LGlobal.width, height: LGlobal.height, 
-        hideClose: true, contents: response.contents() };
-      var dialog = new ContentsGetDialogController(params);
-      dialogLayer.addChild(dialog);
-      _this.remove();
-    });
+      .then(function(response) {
+        PlayerManager.playerModel = response.playerModel();
+        var params = { width: LGlobal.width, height: LGlobal.height, 
+          hideClose: true, contents: response.contents() };
+        var dialog = new ContentsGetDialogController(params);
+        dialogLayer.addChild(dialog);
+        _this.remove();
+      });
   };
   LoginBonusDialogController.prototype._itemInit = function() {
     var _this = this;

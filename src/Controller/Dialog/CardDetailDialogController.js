@@ -160,7 +160,7 @@ var CardDetailDialogController = (function() {
     _this.buttonLevelUp.addEventListener(LMouseEvent.MOUSE_UP, _this._levelUpClick, _this);
     _this.updateView();
   };
-  CardDetailDialogController.prototype.updateView = function(event) {
+  CardDetailDialogController.prototype.updateView = function() {
     var _this = this;
     var levelData = LevelManager.getMaster(_this.model.level());
     var canUp = _this.model.amount() >= levelData.amount && PlayerManager.playerModel.coin() >= levelData.coin;
@@ -172,6 +172,11 @@ var CardDetailDialogController = (function() {
     CardService.instance().levelUp(_this.model.id())
       .then(function(playerModel) {
         PlayerManager.playerModel = playerModel;
+        CommonEvent.dispatchEvent(CommonEvent.CARD_LIST_UPDATE);
+        var model = PlayerManager.playerModel.getCharacter(_this.model.id());
+        _this.remove();
+        var dialog = new CardDetailDialogController({ width: 440, height: 560, model: model });
+        dialogLayer.addChild(dialog);
       });
   };
   return CardDetailDialogController;

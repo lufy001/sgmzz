@@ -30,9 +30,9 @@ var GameManager = (function() {
     LGlobal.destroy = true;
   };
   GameManager.prototype.isMulti = function(value) {
-  	if(typeof value === UNDEFINED){
-  		return this._multi;
-  	}
+    if (typeof value === UNDEFINED) {
+      return this._multi;
+    }
     this._multi = value;
   };
   return new GameManager();

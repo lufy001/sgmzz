@@ -10,6 +10,12 @@ var PlayerModel = (function() {
   PlayerModel.prototype.lastStageId = function() {
     return this.data.lastStageId;
   };
+  PlayerModel.prototype.winTimesMulti = function() {
+    return this.data.winTimesMulti || 0;
+  };
+  PlayerModel.prototype.winBoxOver = function() {
+    return this.data.winBoxOver;
+  };
   PlayerModel.prototype.loginBonusCalled = function() {
     return this.data.loginBonusCalled;
   };
@@ -99,8 +105,18 @@ var PlayerModel = (function() {
       _this.data.boxs.forEach(function(data) {
         _this.data._boxs.push(data ? new BoxModel(data) : null);
       });
+      _this.data._boxs.sort(function(a, b) {
+        return b.id() - a.id();
+      });
     }
     return _this.data._boxs;
+  };
+  PlayerModel.prototype.getCharacter = function(characterId) {
+    var _this = this;
+    if (!_this._characterMap) {
+      _this.characters();
+    }
+    return _this._characterMap[characterId];
   };
   PlayerModel.prototype.characters = function() {
     var _this = this;
@@ -109,6 +125,10 @@ var PlayerModel = (function() {
       _this.data.characters.forEach(function(data) {
         _this.data._characters.push(new CharacterModel(data));
       });
+      _this.data._characters.sort(function(a, b) {
+        return a.id() - b.id();
+      });
+      _this._characterMap = Common.getAssociative(_this.data._characters, 'id');
     }
     return _this.data._characters;
   };

@@ -40,7 +40,9 @@
         loginBonusCalled:1，
         loginBonusCount:3,
         lastStageId:100002,
-        unlockBoxAdTimesWatched:11
+        unlockBoxAdTimesWatched:11,
+        winTimesMulti:2,
+        winBoxOver:false
     }
 ・characters 玩家拥有的卡牌，从cards表中获取，id是卡牌的card_id，也就是master_characters的id，level是卡牌等级，amount是卡牌的数量 
 
@@ -67,6 +69,10 @@
 ・lastStageId 最后通过的master_stages的id
 
 ・unlockBoxAdTimesWatched 解锁宝箱广告观看次数
+
+・winTimesMulti 当天对战胜利次数
+
+・winBoxOver 已经领取过对战胜利宝箱
 
 ### 获取玩家信息(getPlayer) 
 #### 参数
@@ -154,6 +160,28 @@
 ・id 宝箱的id 
 #### 处理说明
 ・这里需要先判断宝箱是否可以打开，如果没有打开，或者正在解锁，则消耗宝石来打开宝箱，消耗的宝石数量根据解锁宝箱的剩余时间来换算，换算公式暂时定为5分钟1宝石。 
+#### 返回值
+    {
+        playerModel:playerModel,
+        contents:{
+            gem:2,
+            coin:300,
+            cards:[
+                {id:1, amount:22},
+                {id:2, amount:2},
+                {id:3, amount:10}
+            ]
+        }
+    }
+・playerModel 玩家信息，和login时的返回结果相同 
+
+・contents 宝箱打开后获取的资源，只能获取到gem宝石，coin金币，cards卡牌这三种结果，每个宝箱可能获取到的资源在master_boxs中进行设定。 
+
+### 开启胜利宝箱(openMultiBox) 
+#### 参数
+・无
+#### 处理说明
+・每天对战胜利5次，可以获取特殊奖励，每天只能获取一次。 
 #### 返回值
     {
         playerModel:playerModel,
@@ -410,6 +438,14 @@
 |icon|商品图标|
 |price|价格|
 |gem|宝石数量|
+
+---------------------------------------
+## 宝箱奖励
+### 关卡宝箱 
+[1,2,3,4,7,8,9]
+
+### 对战宝箱 
+[2,3,4,7,8,9]
 
 ---------------------------------------
 ## 定时任务

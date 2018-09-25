@@ -1,67 +1,140 @@
 [
     {
         "id":1,
-        "name":"yellow chest",
-        "img":"a",
-        "coin":[200,300],
+        "name":"Silver Chest",
+        "img":"silver",
+        "coin":[100,200],
+        "gem":[0,0],
         "cards":[
-            {"rarity":"c","amount":8},
-            {"rarity":"r","amount":1}
+            {"rarity":"c","amount":6},
+            {"rarity":"r","amount":1},
+            {"rarity":"ssr","amount":1,"probability":0.00005}
         ],
-        "time":10800,
-        "introduction":"低级宝箱，对战以及"
+        "time":7200,
+        "weight":200,
+        "introduction":"劣质宝箱，闯关专用，只在闯关时获得。"
     },
     {
         "id":2,
-        "name":"green chest",
-        "img":"b",
+        "name":"Yellow Chest",
+        "img":"yellow",
         "coin":[200,300],
+        "gem":[0,0],
         "cards":[
-            {"rarity":"c","amount":18},
-            {"rarity":"r","amount":2}
+            {"rarity":"c","amount":10},
+            {"rarity":"r","amount":1},
+            {"rarity":"ssr","amount":1,"probability":0.0001}
         ],
-        "time":28800,
-        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+        "time":10800,
+        "weight":100,
+        "introduction":"低级宝箱，闯关，对战均可以获得。"
     },
     {
         "id":3,
-        "name":"red chest",
-        "img":"c",
-        "coin":[200,300],
+        "name":"Orange Chest",
+        "img":"orange",
+        "coin":[400,600],
+        "gem":[0,0],
         "cards":[
-            {"rarity":"c","amount":25},
+            {"rarity":"c","amount":20},
             {"rarity":"r","amount":2},
-            {"rarity":"sr","amount":1}
+            {"rarity":"ssr","amount":1,"probability":0.0003}
         ],
-        "time":43200,
-        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+        "time":28800,
+        "weight":32,
+        "introduction":"中级宝箱，闯关，对战均可以获得。"
     },
     {
         "id":4,
-        "name":"blue chest",
-        "img":"d",
-        "coin":[200,300],
+        "name":"Green Chest",
+        "img":"green",
+        "coin":[700,1000],
+        "gem":[0,4],
         "cards":[
-            {"rarity":"c","amount":40},
-            {"rarity":"r","amount":8},
-            {"rarity":"sr","amount":2},
-            {"rarity":"ssr","amount":1}
+            {"rarity":"c","amount":25},
+            {"rarity":"r","amount":3},
+            {"rarity":"sr","amount":1},
+            {"rarity":"ssr","amount":1,"probability":0.001}
         ],
-        "time":86400,
-        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+        "time":43200,
+        "weight":16,
+        "introduction":"高级宝箱，闯关，对战均可以获得。"
     },
     {
         "id":5,
-        "name":"orange chest",
-        "img":"d",
-        "coin":[200,300],
+        "name":"SkyBlue Chest",
+        "img":"sky_blue",
+        "coin":[0,0],
+        "gem":[0,0],
         "cards":[
-            {"rarity":"c","amount":40},
+            {"rarity":"c","amount":35},
             {"rarity":"r","amount":8},
-            {"rarity":"sr","amount":2},
-            {"rarity":"ssr","amount":1}
+            {"rarity":"sr","amount":4},
+            {"rarity":"ssr","amount":1,"probability":0.15}
+        ],
+        "time":1,
+        "weight":0,
+        "introduction":"胜利宝箱，每天对战胜利5次后可领取，而闯关，对战均无法获得。"
+    },
+    {
+        "id":6,
+        "name":"Blue Chest",
+        "img":"blue",
+        "coin":[0,0],
+        "gem":[0,0],
+        "cards":[
+            {"rarity":"ssr","amount":1,"probability":1.0}
         ],
         "time":86400,
-        "introduction":"A LBitmapData object can be drawn to the screen by a LBitmap object in one "
+        "weight":0,
+        "introduction":"SSR卡宝箱，只含SSR卡，特殊途径获得，而闯关，对战均无法获得。"
+    },
+    {
+        "id":7,
+        "name":"Fuchsia Chest",
+        "img":"fuchsia",
+        "coin":[1100,2000],
+        "gem":[0,0],
+        "cards":[
+            {"rarity":"c","amount":40},
+            {"rarity":"r","amount":10},
+            {"rarity":"sr","amount":4},
+            {"rarity":"ssr","amount":1,"probability":0.1}
+        ],
+        "time":86400,
+        "weight":8,
+        "introduction":"顶级宝箱，闯关，对战均可以获得，且商店可购买。"
+    },
+    {
+        "id":8,
+        "name":"Purple Chest",
+        "img":"purple",
+        "coin":[2500,4000],
+        "gem":[0,0],
+        "cards":[
+            {"rarity":"c","amount":100},
+            {"rarity":"r","amount":20},
+            {"rarity":"sr","amount":10},
+            {"rarity":"ssr","amount":1,"probability":0.2}
+        ],
+        "time":172800,
+        "weight":4,
+        "introduction":"顶级宝箱，闯关，对战均可以获得，且商店可购买。"
+    },
+    {
+        "id":9,
+        "name":"Red Chest",
+        "img":"red",
+        "coin":[6000,10000],
+        "gem":[0,0],
+        "cards":[
+            {"rarity":"c","amount":300},
+            {"rarity":"r","amount":60},
+            {"rarity":"sr","amount":30},
+            {"rarity":"ssr","amount":1,"probability":0.4}
+        ],
+        "time":259200,
+        "weight":2,
+        "introduction":"顶级宝箱，闯关，对战均可以获得，且商店可购买。"
     }
 ]

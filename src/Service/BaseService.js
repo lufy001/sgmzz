@@ -37,7 +37,6 @@ var BaseService = (function() {
   BaseService.prototype.showErrorDialog = function(event) {
     var params = { width: 360, height: 200, hideClose: true };
     var messagekey = SERVICE_MESSAGES[event.msgCode] || SERVICE_DEFAULT_MESSAGE;
-    //TODO:translation
     params.message = messagekey;
     if (event.quit) {
       params.okEvent = function() {
@@ -47,8 +46,8 @@ var BaseService = (function() {
     var dialog = new AlertDialogController(params);
     dialogLayer.addChild(dialog);
   };
-  BaseService.now = function(){
-  	return new Date(Date.now() + BaseService._timeDiff);
+  BaseService.now = function() {
+    return new Date(Date.now() + BaseService._timeDiff);
   };
   return BaseService;
 })();

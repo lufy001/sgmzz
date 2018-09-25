@@ -48,6 +48,9 @@ var BaseController = (function() {
     Common.controllerTween = LTweenLite.to(Common.oldController, 0.3, { x: -_this.x, onComplete: function(event) {
       event.target.visible = false;
       Common.controllerTween = null;
+      if (event.target.onClose) {
+        event.target.onClose();
+      }
     } });
   };
   BaseController.prototype._fadeChangeRun = function(isHome) {
