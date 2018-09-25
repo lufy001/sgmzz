@@ -3,7 +3,7 @@ var CardChildView = (function() {
     var _this = this;
     LExtends(_this, LListChildView, []);
     _this.model = model;
-    _this.init();
+    //_this.init();
   }
   CardChildView.prototype.init = function() {
     var _this = this;
@@ -23,9 +23,20 @@ var CardChildView = (function() {
     disableMask.visible = !model;
     _this.addChild(disableMask);
   };
+  CardChildView.prototype.updateView = function(bitmap, rectangle, point) {
+    var _this = this;
+    if (_this.numChildren === 0) {
+      _this.ll_baseBitmap = bitmap;
+      _this.ll_baseRectangle = rectangle;
+      _this.ll_basePoint = point;
+      _this.init();
+    } else {
+      _this.callParent('updateView', arguments);
+    }
+  };
   CardChildView.prototype.updateModel = function() {
     var _this = this;
-    if (!_this.model.id) {
+    if (!_this.model.id || _this.numChildren === 0) {
       return;
     }
     var model;

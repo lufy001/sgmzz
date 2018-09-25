@@ -81,12 +81,15 @@ var HomeController = (function() {
           MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
           var playerId = LPlatform.player().getID();
           MasterClient.start(playerId, response);
+        } else {
+          _this._checkLoginBonus();
         }
       });
   };
   HomeController.prototype._onFailJoinRoom = function(event) {
+    var _this = this;
     MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onFailJoinRoom, _this);
-    this._checkLoginBonus();
+    _this._checkLoginBonus();
   };
   HomeController.prototype._onJoinedLobby = function(event) {
     var _this = this;

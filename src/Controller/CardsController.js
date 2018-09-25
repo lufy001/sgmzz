@@ -74,11 +74,13 @@ var CardsController = (function() {
   CardsController.prototype._cardListUpdate = function(event) {
     var _this = this;
     var team = PlayerManager.playerModel.teamData();
+    _this.teamView.updateView(PlayerManager.playerModel.team());
     var itemList = _this.listView.getItems();
     if (itemList.length > 0) {
       for (var i = 0; i < itemList.length; i++) {
-        itemList[i].updateView();
+        itemList[i].updateModel();
       }
+      return;
     }
     
     var items = [];
