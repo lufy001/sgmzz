@@ -31,9 +31,12 @@ var GameController = (function() {
   };
   GameController.prototype._onLoadMulti = function(request) {
     var _this = this;
+    MasterClient.addEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
     GameManager.matchId = request.matchId;
     var event = new LEvent(CommonEvent.GAME_MULTI_START);
     CommonEvent.dispatchEvent(event);
+  };
+  GameController.prototype._onPlayerLeave = function(event) {
   };
   GameController.prototype._onLoadSingle = function(request) {
     var _this = this;

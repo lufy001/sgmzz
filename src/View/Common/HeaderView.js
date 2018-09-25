@@ -48,7 +48,7 @@ var HeaderView = (function() {
     LExtends(_this, BaseView, [properties]);
     _this.updateView();
   }
-  HeaderView.prototype.updateView = function(data) {
+  HeaderView.prototype.updateView = function() {
     var _this = this;
     var playerModel = PlayerManager.playerModel;
     _this.expProgress.updateView({ progress: playerModel.exp(), sum: UserLevelManager.getMaster(playerModel.level()).exp, fontSize: 14 });

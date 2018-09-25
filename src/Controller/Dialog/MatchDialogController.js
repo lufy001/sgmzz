@@ -86,20 +86,24 @@ var MatchDialogController = (function() {
         }
       });
   };
+  MatchDialogController.prototype._joinRoom = function(e) {
+    var _this = this;
+    MasterClient.removeEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    var event = new LEvent('close');
+    event.success = true;
+    event.matchId = _this._matchId;
+    _this.dispatchEvent(event);
+    _this._onClose();
+  };
   MatchDialogController.prototype._connectRoom = function(response) {
     var _this = this;
+    var player = MasterClient.player();
+    player.setCustomProperty('startTime', response.startTime || 0);
     _this.title.text = 'Connecting room';
-    MasterClient.addEventListener(GameEvent.ROOM_IN, function() {
-      var event = new LEvent('close');
-      event.success = true;
-      event.matchId = response.matchId;
-      _this.dispatchEvent(event);
-      _this._onClose();
-    });
-    //var playerId = LPlatform.player().getID();
+    _this._matchId = response.matchId;
+    MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     var roomName = 'BattleRoom_' + response.matchId;
     var teamJson = PlayerManager.playerModel.teamToJson();
-    var player = MasterClient.player();
     player.setCustomProperty('team', teamJson);
     player.setCustomProperty('level', PlayerManager.playerModel.level());
     player.setCustomProperty('isLeader', response.isLeader);
@@ -127,6 +131,11 @@ var MatchDialogController = (function() {
         var player = MasterClient.player();
         player.setCustomProperty('team', null);
         player.setCustomProperty('battleRoom', null);
+        MasterClient.disconnect();
+        var event = new LEvent('close');
+        event.success = false;
+        _this.dispatchEvent(event);
+        _this._onClose();
       });
   };
     

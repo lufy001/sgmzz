@@ -67,6 +67,62 @@ var HomeController = (function() {
   }
   HomeController.prototype.onLoad = function(request) {
     var _this = this;
+    if (request.isFirst) {
+      _this._checkContinueBattle();
+    } else {
+      _this._checkLoginBonus();
+    }
+  };
+  HomeController.prototype._checkContinueBattle = function() {
+    var _this = this;
+    GameService.instance().getMatchTarget()
+      .then(function(response) {
+        if (response.matchId) {
+          MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
+          var playerId = LPlatform.player().getID();
+          MasterClient.start(playerId, response);
+        }
+      });
+  };
+  HomeController.prototype._onFailJoinRoom = function(event) {
+    MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onFailJoinRoom, _this);
+    this._checkLoginBonus();
+  };
+  HomeController.prototype._onJoinedLobby = function(event) {
+    var _this = this;
+    MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
+    MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onFailJoinRoom, _this);
+    _this._connectRoom();
+  };
+  HomeController.prototype._joinRoom = function(e) {
+    var _this = this;
+    MasterClient.removeEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    if (MasterClient.myRoomActorCount() === 1) {
+      MasterClient.disconnect();
+      _this._checkLoginBonus();
+      return;
+    }
+    var player = MasterClient.player();
+    var response = player.getData();
+    _this._matchOver({ success: true, matchId: response.matchId });
+  };
+  HomeController.prototype._matchOver = function(event) {
+    if (event.success) {
+      Common.changeScene('GameController', { battleType: 'multi', matchId: event.matchId });
+    }
+  };
+  HomeController.prototype._connectRoom = function() {
+    var _this = this;
+    var player = MasterClient.player();
+    var response = player.getData();
+    MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    player.setCustomProperty('team', PlayerManager.playerModel.teamToJson());
+    player.setCustomProperty('level', PlayerManager.playerModel.level());
+    player.setCustomProperty('isLeader', response.isLeader);
+    player.setCustomProperty('battleRoom', 'BattleRoom_' + response.matchId);
+    MasterClient.joinRoom(roomName);
+  };
+  HomeController.prototype._checkLoginBonus = function() {
     if (!PlayerManager.playerModel.loginBonusCalled()) {
       var dialog = new LoginBonusDialogController({ width: 440, height: 500, hideClose: true });
       dialogLayer.addChild(dialog);
@@ -107,12 +163,6 @@ var HomeController = (function() {
     var dialog = new MatchDialogController({ width: 400, height: 210, hideClose: true });
     dialog.addEventListener('close', _this._matchOver, _this);
     dialogLayer.addChild(dialog);
-  };
-  HomeController.prototype._matchOver = function(event) {
-    var _this = this;
-    if (event.success) {
-      Common.changeScene('GameController', { battleType: 'multi', matchId: event.matchId });
-    }
   };
   HomeController.prototype._openBoxs = function(event) {
     var _this = this;
