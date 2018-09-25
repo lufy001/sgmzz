@@ -152,6 +152,7 @@ var loadData = [
   { type: 'js', path: 'src/Controller/ShopController.js' },
   { type: 'js', path: 'src/Controller/EventsController.js' },
   { type: 'js', path: 'src/Controller/ChapterMapController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/ConfirmDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/CardDetailDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ConfirmGoldDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/HomeBoxsDialogController.js' },

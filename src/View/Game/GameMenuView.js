@@ -19,7 +19,16 @@ var GameMenuView = (function() {
   };
   GameMenuView.prototype._onClose = function(event) {
     var _this = this;
-    Common.changeScene('HomeController');
+    var request = { message: 'quit game?', width: 300, height: 200 };
+    request.okEvent = function() {
+      _this.visible = false;
+      Common.changeScene('HomeController');
+    };
+    request.cancelEvent = function() {
+      _this.visible = false;
+    };
+    var dialog = new ConfirmDialogController(request);
+    dialogLayer.addChild(dialog);
   };
     
   return GameMenuView;

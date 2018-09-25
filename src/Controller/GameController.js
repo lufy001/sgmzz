@@ -37,6 +37,8 @@ var GameController = (function() {
     CommonEvent.dispatchEvent(event);
   };
   GameController.prototype._onPlayerLeave = function(event) {
+  	var _this = this;
+  	
   };
   GameController.prototype._onLoadSingle = function(request) {
     var _this = this;

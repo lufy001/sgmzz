@@ -88,13 +88,13 @@ var Common = (function() {
     var _this = this;
     var controller = rootLayer.getChildByName(className);
     if (!controller) {
-      controller = new window[className](request);
+      controller = new window[className](request || {});
       rootLayer.addChild(controller);
     }
     if (Common.currentController && Common.currentController.objectIndex === controller.objectIndex) {
       //return;
     }
-    controller.changeScene(request);
+    controller.changeScene(request || {});
   };
   Common.getFormatTime = function(time) {
     var hours = time / 3600 >>> 0;
