@@ -41,13 +41,16 @@ var GameService = (function() {
     console.log('getMatchTarget', res);
     return Promise.resolve(res);
   };
-  GameService.prototype.matchCancel = function() {
+  GameService.prototype.matchCancel = function(force) {
     var _this = this;
     var action = {
       'class': 'match',
       'method': 'matchCancel'
     };
     var request = { };
+    if (force) {
+      request.force = 1;
+    }
     if (!window.setting.isLocal) {
       return _this.send(action, request);
     }

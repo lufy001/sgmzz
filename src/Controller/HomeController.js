@@ -102,7 +102,8 @@ var HomeController = (function() {
     MasterClient.removeEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     if (MasterClient.myRoomActorCount() === 1) {
       MasterClient.disconnect();
-      _this._checkLoginBonus();
+      GameService.instance().matchCancel(true)
+        .then(_this._checkLoginBonus);
       return;
     }
     var player = MasterClient.player();
@@ -118,11 +119,12 @@ var HomeController = (function() {
     var _this = this;
     var player = MasterClient.player();
     var response = player.getData();
+    var roomName = 'BattleRoom_' + response.matchId;
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     player.setCustomProperty('team', PlayerManager.playerModel.teamToJson());
     player.setCustomProperty('level', PlayerManager.playerModel.level());
     player.setCustomProperty('isLeader', response.isLeader);
-    player.setCustomProperty('battleRoom', 'BattleRoom_' + response.matchId);
+    player.setCustomProperty('battleRoom', roomName);
     MasterClient.joinRoom(roomName);
   };
   HomeController.prototype._checkLoginBonus = function() {
