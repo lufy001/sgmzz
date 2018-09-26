@@ -2,9 +2,15 @@ var GameMapView = (function() {
   function GameMapView(params) {
     var _this = this;
     LExtends(_this, LSprite, []);
-    _this.id = params.id;
-    _this.load();
+    if (params) {
+      _this.updateView(params.id);
+    }
   }
+  GameMapView.prototype.updateView = function(id) {
+    var _this = this;
+    _this.id = id;
+    _this.load();
+  };
   GameMapView.prototype.init = function(data) {
     var _this = this;
     var bitmapData = new LBitmapData(data['map']);

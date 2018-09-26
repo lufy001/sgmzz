@@ -5,7 +5,6 @@ var BattleView = (function() {
     _this._height = 960;
     var properties = {
       gameMap: {
-        params: { id: 1 + (24 * Math.random() >> 0) },
         type: 'GameMapView'
       },
       stepLabel: {
@@ -103,6 +102,7 @@ var BattleView = (function() {
   };
   BattleView.prototype._onGameMultiStart = function(event) {
     var _this = this;
+    _this.gameMap.updateView(GameManager.matchId % 24 + 1);
     _this.stepLabel.visible = false;
     _this.enemyTeam.visible = false;
     _this.opponentTeam.visible = true;
@@ -134,6 +134,7 @@ var BattleView = (function() {
   };
   BattleView.prototype._onGameStart = function(event) {
     var _this = this;
+    _this.gameMap.updateView(event.stage.map() % 24 + 1);
     _this.stepLabel.visible = true;
     _this.enemyTeam.visible = true;
     _this.opponentTeam.visible = false;
