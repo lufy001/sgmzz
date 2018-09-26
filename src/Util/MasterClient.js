@@ -20,14 +20,6 @@ var MasterClient = (function() {
   MasterClient.prototype.onEvent = function(code, content, actorNr) {
     console.log('MasterClient :: onEvent', code, content);
     switch (code) {
-      /*case ClientEvent.READY:
-        if (this.client.myActor().getId() !== content.id) {
-          this.client.myActor().setCustomProperty('ready', true);
-        }
-        if (this.player.getCustomProperty('ready') && this.enemy.getCustomProperty('ready')) {
-          this.dispatchEvent(GameEvent.GAME_INIT);
-        }
-        break;*/
       case ClientEvent.ATTACK:
         if (this.client.myActor().getId() === content.id) {
           break;
@@ -122,13 +114,16 @@ var MasterClient = (function() {
   };
   MasterClient.prototype.startTime = function() {
     var _this = this;
-    var time = _this.player().getCustomProperty('startTime');
+    var playerData = _this.player().getData();
+    var time = playerData.startTime;
     if (time) {
       return time;
     }
-    time = _this.enemy().getCustomProperty('startTime');
+    var enemyData = _this.enemy().getData();
+    time = enemyData.startTime;
     if (time) {
-      _this.player().setCustomProperty('startTime', time);
+      playerData.startTime = time;
+      _this.player().setData(playerData);
       return time;
     }
     return 0;

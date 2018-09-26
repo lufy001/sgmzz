@@ -49,5 +49,8 @@ var BaseService = (function() {
   BaseService.now = function() {
     return new Date(Date.now() + BaseService._timeDiff);
   };
+  BaseService.getTime = function() {
+    return Date.now() + BaseService._timeDiff;
+  };
   return BaseService;
 })();

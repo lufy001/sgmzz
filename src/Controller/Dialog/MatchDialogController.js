@@ -48,6 +48,7 @@ var MatchDialogController = (function() {
     _this._canceled = false;
     _this._toCancel = false;
     var playerId = LPlatform.player().getID();
+    console.error('MasterClient.isConnected()', MasterClient.isConnected());
     if (!MasterClient.isConnected()) {
       _this._isInLobby = false;
       MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
@@ -63,12 +64,14 @@ var MatchDialogController = (function() {
   };
   MatchDialogController.prototype._onJoinedLobby = function() {
     var _this = this;
+    console.error('_onJoinedLobby');
     MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
     _this._isInLobby = true;
     _this._getTarget();
   };
   MatchDialogController.prototype._getTarget = function() {
     var _this = this;
+    console.error('_getTarget');
     if (!_this._isInLobby) {
       return Promise.resolve();
     }
@@ -98,16 +101,19 @@ var MatchDialogController = (function() {
   MatchDialogController.prototype._connectRoom = function(response) {
     var _this = this;
     var player = MasterClient.player();
-    player.setCustomProperty('startTime', response.startTime || 0);
+    var data = {};
     _this.title.text = 'Connecting room';
     _this._matchId = response.matchId;
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     var roomName = 'BattleRoom_' + response.matchId;
     var teamJson = PlayerManager.playerModel.teamToJson();
-    player.setCustomProperty('team', teamJson);
-    player.setCustomProperty('level', PlayerManager.playerModel.level());
-    player.setCustomProperty('isLeader', response.isLeader);
-    player.setCustomProperty('battleRoom', roomName);
+    console.error('response.startTime ', response.startTime);
+    data.startTime = response.startTime || 0;
+    data.team = teamJson;
+    data.level = PlayerManager.playerModel.level();
+    data.isLeader = response.isLeader;
+    data.battleRoom = roomName;
+    player.setData(data);
     if (response.isLeader) {
       MasterClient.createRoom(roomName);
     } else {
@@ -129,8 +135,7 @@ var MatchDialogController = (function() {
       .then(function() {
         _this._canceled = true;
         var player = MasterClient.player();
-        player.setCustomProperty('team', null);
-        player.setCustomProperty('battleRoom', null);
+        player.setData(null);
         MasterClient.disconnect();
         var event = new LEvent('close');
         event.success = false;

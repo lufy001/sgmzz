@@ -5,7 +5,7 @@ var BattleView = (function() {
     _this._height = 960;
     var properties = {
       gameMap: {
-        params: { id: 1 },
+        params: { id: 1 + (24 * Math.random() >> 0) },
         type: 'GameMapView'
       },
       stepLabel: {
@@ -13,6 +13,16 @@ var BattleView = (function() {
         properties: {
           textAlign: 'right',
           text: '0/0',
+          size: 30,
+          x: 630,
+          y: 435
+        }
+      },
+      timeLabel: {
+        type: 'Label',
+        properties: {
+          textAlign: 'right',
+          text: '2:00',
           size: 30,
           x: 630,
           y: 10
@@ -106,6 +116,21 @@ var BattleView = (function() {
       CommonEvent.dispatchEvent(CommonEvent.ENEMY_AUTO_SELECT);
       _this.gameTeam.hpProgress.visible = true;
     } });
+    _this.addEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
+  };
+  BattleView.prototype._onframe = function(event) {
+    var _this = this;
+    var times = GameManager.endTime - BaseService.getTime();
+    if (times < 0) {
+      //fail
+      return;
+    } else if (times > BATTLE_TOTAL_TIME) {
+      times = BATTLE_TOTAL_TIME;
+    }
+    times = times * 0.001 >> 0;
+    var minute = times / 60 >> 0;
+    var second = times % 60;
+    _this.timeLabel.text = minute + ':' + second;
   };
   BattleView.prototype._onGameStart = function(event) {
     var _this = this;

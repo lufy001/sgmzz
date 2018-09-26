@@ -94,7 +94,7 @@ var CardView = (function() {
   };
   CardView.prototype._updateName = function() {
     var _this = this;
-    if (typeof _this.characterModel.level === UNDEFINED) {
+    if (typeof _this.characterModel.name === UNDEFINED) {
       _this.nameLabel.visible = false;
       return;
     } else {
