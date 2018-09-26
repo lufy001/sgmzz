@@ -100,6 +100,7 @@ var HomeController = (function() {
   HomeController.prototype._joinRoom = function(e) {
     var _this = this;
     MasterClient.removeEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    console.error('MasterClient.myRoomActorCount()', MasterClient.myRoomActorCount());
     if (MasterClient.myRoomActorCount() === 1) {
       MasterClient.disconnect();
       GameService.instance().matchCancel(true)
@@ -122,6 +123,9 @@ var HomeController = (function() {
     var data = {};
     var roomName = 'BattleRoom_' + response.matchId;
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    if (response.startTime) {
+      response.startTime = parseInt(response.startTime);
+    }
     data.startTime = response.startTime || 0;
     data.team = PlayerManager.playerModel.teamToJson();
     data.level = PlayerManager.playerModel.level();

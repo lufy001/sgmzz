@@ -16,9 +16,9 @@ var BaseService = (function() {
       var error;
       LAjax.responseType = LAjax.JSON;
       LAjax.post(url, request, function(response) {
-        var serverTime = new Date(response.serverTime).getTime();
+        var serverTime = parseInt(response.time);
         var now = Date.now();
-        BaseService._timeDiff = now - serverTime;
+        BaseService._timeDiff = serverTime - now;
         if (response && response.ret) {
           resolve(response.data);
         } else {

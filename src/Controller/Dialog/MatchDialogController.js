@@ -107,6 +107,9 @@ var MatchDialogController = (function() {
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     var roomName = 'BattleRoom_' + response.matchId;
     var teamJson = PlayerManager.playerModel.teamToJson();
+    if (response.startTime) {
+      response.startTime = parseInt(response.startTime);
+    }
     console.error('response.startTime ', response.startTime);
     data.startTime = response.startTime || 0;
     data.team = teamJson;

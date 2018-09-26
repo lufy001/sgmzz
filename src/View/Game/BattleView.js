@@ -87,6 +87,12 @@ var BattleView = (function() {
         properties: {
           visible: false
         }
+      },
+      countDownView: {
+        type: 'BattleCountDownView',
+        properties: {
+          visible: false
+        }
       }
     };
     LExtends(_this, BaseView, [properties]);
@@ -103,6 +109,7 @@ var BattleView = (function() {
   BattleView.prototype._onGameMultiStart = function(event) {
     var _this = this;
     _this.gameMap.updateView(GameManager.matchId % 24 + 1);
+    _this.countDownView.updateView();
     _this.stepLabel.visible = false;
     _this.enemyTeam.visible = false;
     _this.opponentTeam.visible = true;

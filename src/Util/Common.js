@@ -20,9 +20,9 @@ var Common = (function() {
     }
     return label;
   };
-  Common.getTranslucentMask = function() {
+  Common.getTranslucentMask = function(width, height) {
     var layer = new LSprite();
-    var windowBackgrond = Common.getTranslucentBitmap();
+    var windowBackgrond = Common.getTranslucentBitmap(width, height);
     layer.addChild(windowBackgrond);
     layer.addEventListener(LMouseEvent.MOUSE_DOWN, function() {});
     layer.addEventListener(LMouseEvent.MOUSE_UP, function() {});
