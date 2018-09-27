@@ -32,8 +32,8 @@ var GameController = (function() {
   GameController.prototype._onLoadMulti = function(request) {
     var _this = this;
     var startTime = MasterClient.startTime();
-    GameManager.endTime = parseInt(startTime) + BATTLE_TOTAL_TIME + BATTLE_READY_TIME;
-    console.error('GameManager.endTime', GameManager.endTime, parseInt(startTime), BaseService.getTime(), BATTLE_TOTAL_TIME, BATTLE_READY_TIME);
+    GameManager.endTime = parseInt(startTime) + BATTLE_TOTAL_TIME + BATTLE_DELAY_TIME;
+    console.error('GameManager.endTime', GameManager.endTime, parseInt(startTime), BaseService.getTime(), BATTLE_TOTAL_TIME, BATTLE_DELAY_TIME);
     MasterClient.addEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
     GameManager.matchId = request.matchId;
     var event = new LEvent(CommonEvent.GAME_MULTI_START);

@@ -11,6 +11,16 @@ var BattleCountDownView = (function() {
           x: 320,
           y: 400
         }
+      },
+      delayLabel: {
+        type: 'Label',
+        properties: {
+          textAlign: 'center',
+          text: '数据同步中...',
+          size: 50,
+          x: 320,
+          y: 400
+        }
       }
     };
     LExtends(_this, BaseView, [properties]);
@@ -25,6 +35,8 @@ var BattleCountDownView = (function() {
   BattleCountDownView.prototype.updateView = function() {
     var _this = this;
     _this.visible = true;
+    _this.timeLabel.visible = false;
+      _this.delayLabel.visible = false;
     _this.addEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
   };
   BattleCountDownView.prototype._onframe = function(event) {
@@ -35,8 +47,13 @@ var BattleCountDownView = (function() {
       _this.visible = false;
       _this.removeEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
       return;
+    } else if (times > BATTLE_READY_TIME) {
+      _this.delayLabel.visible = true;
+      return;
     }
-    times = times * 0.001 >> 0;
+    _this.delayLabel.visible = false;
+    _this.timeLabel.visible = true;
+    times = 1 + times * 0.001 >> 0;
     _this.timeLabel.text = times;
   };
   

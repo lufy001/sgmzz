@@ -46,6 +46,7 @@ var BaseService = (function() {
     var dialog = new AlertDialogController(params);
     dialogLayer.addChild(dialog);
   };
+  BaseService._timeDiff = 0;
   BaseService.now = function() {
     return new Date(Date.now() + BaseService._timeDiff);
   };
