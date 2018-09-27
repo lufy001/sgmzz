@@ -92,7 +92,10 @@ var MasterClient = (function() {
     this.client.leaveRoom();
   };
   MasterClient.prototype.onJoinedLobby = function() {
-    console.warn('MasterClient.prototype.onJoinedLobby', this._eventList);
+    console.warn('MasterClient.prototype.onJoinedLobby');
+    for (var i = 0; i < this._eventList.length; i++) {
+      console.warn(this._eventList[i]);
+    }
     this.dispatchEvent(GameEvent.JOINED_LOBBY);
   };
   MasterClient.prototype.onJoinRoom = function(createdByMe) {

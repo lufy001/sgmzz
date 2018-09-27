@@ -36,7 +36,7 @@ var BattleCountDownView = (function() {
     var _this = this;
     _this.visible = true;
     _this.timeLabel.visible = false;
-      _this.delayLabel.visible = false;
+    _this.delayLabel.visible = false;
     _this.addEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
   };
   BattleCountDownView.prototype._onframe = function(event) {

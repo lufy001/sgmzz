@@ -104,7 +104,9 @@ var HomeController = (function() {
     if (MasterClient.myRoomActorCount() === 1) {
       MasterClient.disconnect();
       GameService.instance().matchCancel(true)
-        .then(_this._checkLoginBonus);
+        .then(function() {
+          _this._onFailJoinRoom();
+        });
       return;
     }
     var player = MasterClient.player();

@@ -19,6 +19,7 @@ var GameController = (function() {
   GameController.prototype.onLoad = function(request) {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
+    CommonEvent.addEventListener(CommonEvent.RESULT_TIE, _this._onResultTie, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
     
     if (request.battleType === 'single') {
@@ -33,7 +34,6 @@ var GameController = (function() {
     var _this = this;
     var startTime = MasterClient.startTime();
     GameManager.endTime = parseInt(startTime) + BATTLE_TOTAL_TIME + BATTLE_DELAY_TIME;
-    console.error('GameManager.endTime', GameManager.endTime, parseInt(startTime), BaseService.getTime(), BATTLE_TOTAL_TIME, BATTLE_DELAY_TIME);
     MasterClient.addEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
     GameManager.matchId = request.matchId;
     var event = new LEvent(CommonEvent.GAME_MULTI_START);
@@ -68,6 +68,12 @@ var GameController = (function() {
     _this._removeResultEvent();
     _this.resultView.visible = true;
     _this.resultView.updateView({ isWin: true, stageId: _this.selectStageId });
+  };
+  GameController.prototype._onResultTie = function() {
+    var _this = this;
+    _this._removeResultEvent();
+    _this.resultView.visible = true;
+    _this.resultView.updateView({ isTie: false, stageId: _this.selectStageId });
   };
   GameController.prototype._onResultFail = function() {
     var _this = this;

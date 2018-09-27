@@ -23,6 +23,7 @@ CommonEvent.ENEMY_AUTO_SELECT = 'common:enemyAutoSelect';
 
 CommonEvent.RESULT_CHECK = 'common:resultCheck';
 CommonEvent.RESULT_WIN = 'common:resultWin';
+CommonEvent.RESULT_TIE = 'common:resultTie';
 CommonEvent.RESULT_FAIL = 'common:resultFail';
 CommonEvent.GAME_START = 'common:gameStart';
 CommonEvent.GAME_MULTI_START = 'common:gameMultiStart';
