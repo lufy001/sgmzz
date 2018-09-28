@@ -488,7 +488,7 @@ battle_match_ready表
         } else if (cup < -400) {
             cup = -400;
         }
-        var res = 30 + 30 * Math.floor(cup / 400);
+        var res = 30 + Math.floor(30 * cup / 400);
         return res;
     };
 
@@ -502,7 +502,7 @@ battle_match_ready表
         } else if (cup < -400) {
             cup = -400;
         }
-        var res = 30 + 10 * Math.floor(cup / 400);
+        var res = 30 + Math.floor(10 * cup / 400);
         return res;
     };
 
