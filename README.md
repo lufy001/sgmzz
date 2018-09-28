@@ -492,7 +492,7 @@ battle_match_ready表
 
 ### 金币获取公式
 
-    Common.countCup = function(cup) {
+    Common.countCoin = function(cup) {
         if (cup > 400) {
             cup = 400;
         } else if (cup < 400) {
