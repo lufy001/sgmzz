@@ -479,6 +479,8 @@ battle_match_ready表
 ---------------------------------------
 ## 公式
 ### 奖杯获取公式
+#### 参数
+获胜方的奖杯数-败方的奖杯数
 
     Common.countCup = function(cup) {
         if (cup > 400) {
@@ -491,6 +493,8 @@ battle_match_ready表
     };
 
 ### 金币获取公式
+#### 参数
+获胜方的奖杯数-败方的奖杯数
 
     Common.countCoin = function(cup) {
         if (cup > 400) {
