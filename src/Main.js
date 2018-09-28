@@ -317,7 +317,7 @@ function onGameStart() {
 
   dialogLayer.parent.setChildIndex(dialogLayer, dialogLayer.parent.numChildren - 1);
 
-  Common.changeScene('HomeController', { isFirst: true });
+  Common.changeScene('HomeController', { multiCheck: true });
 
   LPlatform.startGameAsync()
     .then(function() {

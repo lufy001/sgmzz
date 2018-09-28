@@ -31,7 +31,9 @@ var GameService = (function() {
     }
     
     var res = {
-      targetId: 'TESTID'
+      matchId: 11,
+      startTime: BaseService.getTime(),
+      isLeader: 1
     };
     return Promise.resolve(res);
   };

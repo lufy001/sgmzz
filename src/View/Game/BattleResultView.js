@@ -88,13 +88,18 @@ var BattleResultView = (function() {
     var _this = this;
     _this.reset(params);
     if (params.isTie) {
+      var data = player.getData();
+      if (data.isLeader || MasterClient.myRoomActorCount() === 1) {
+        GameService.instance().matchCancel(true);
+      }
       _this._addEvent();
       return;
     }
     if (!params.isWin) {
       if (GameManager.isMulti()) {
-        var response = new BattleResultResponse({ cup: -30 });
-        _this._showResult(response);//TODO: change cup
+        var cup = Common.countCup(GameManager.enemyModel.cup() - PlayerManager.playerModel.cup());
+        var response = new BattleResultResponse(new BattleResultResponse({ cup: -cup }));
+        _this._showResult(response);
       }
       _this._addEvent();
       return;
@@ -113,7 +118,10 @@ var BattleResultView = (function() {
   };
   BattleResultView.prototype._showResult = function(params) {
     var _this = this;
-    PlayerManager.playerModel = params.playerModel();
+    var playerModel = params.playerModel();
+    if (playerModel) {
+      PlayerManager.playerModel = playerModel;
+    }
     var y = 150;
     var height = 60;
     var promise = Promise.resolve();
@@ -172,6 +180,7 @@ var BattleResultView = (function() {
   };
   BattleResultView.prototype._addEvent = function() {
     var _this = this;
+    MasterClient.disconnect();
     _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
   };
   BattleResultView.prototype._onClick = function(event) {

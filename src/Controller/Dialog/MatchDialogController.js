@@ -48,7 +48,6 @@ var MatchDialogController = (function() {
     _this._canceled = false;
     _this._toCancel = false;
     var playerId = LPlatform.player().getID();
-    console.error('MasterClient.isConnected()', MasterClient.isConnected());
     if (!MasterClient.isConnected()) {
       _this._isInLobby = false;
       MasterClient.addEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
@@ -64,14 +63,12 @@ var MatchDialogController = (function() {
   };
   MatchDialogController.prototype._onJoinedLobby = function() {
     var _this = this;
-    console.error('_onJoinedLobby');
     MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onJoinedLobby, _this);
     _this._isInLobby = true;
     _this._getTarget();
   };
   MatchDialogController.prototype._getTarget = function() {
     var _this = this;
-    console.error('_getTarget');
     if (!_this._isInLobby) {
       return Promise.resolve();
     }
@@ -110,10 +107,10 @@ var MatchDialogController = (function() {
     if (response.startTime) {
       response.startTime = parseInt(response.startTime);
     }
-    console.error('response.startTime ', response.startTime);
     data.startTime = response.startTime || 0;
     data.team = teamJson;
     data.level = PlayerManager.playerModel.level();
+    data.cup = PlayerManager.playerModel.cup();
     data.isLeader = response.isLeader;
     data.battleRoom = roomName;
     player.setData(data);

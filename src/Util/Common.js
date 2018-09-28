@@ -120,6 +120,15 @@ var Common = (function() {
     }
     return associative;
   };
+  Common.countCup = function(cup) {
+    if (cup > 400) {
+      cup = 400;
+    } else if (cup < 400) {
+      cup = -400;
+    }
+    var res = 30 + Math.floor(cup / 400);
+    return res;
+  };
   return Common;
 })();
 

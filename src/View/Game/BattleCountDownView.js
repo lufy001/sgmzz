@@ -42,7 +42,6 @@ var BattleCountDownView = (function() {
   BattleCountDownView.prototype._onframe = function(event) {
     var _this = this;
     var times = GameManager.endTime - BaseService.getTime() - BATTLE_TOTAL_TIME;
-    console.log('times', times, BaseService.getTime());
     if (times < 0) {
       _this.visible = false;
       _this.removeEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);

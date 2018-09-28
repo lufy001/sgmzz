@@ -92,10 +92,6 @@ var MasterClient = (function() {
     this.client.leaveRoom();
   };
   MasterClient.prototype.onJoinedLobby = function() {
-    console.warn('MasterClient.prototype.onJoinedLobby');
-    for (var i = 0; i < this._eventList.length; i++) {
-      console.warn(this._eventList[i]);
-    }
     this.dispatchEvent(GameEvent.JOINED_LOBBY);
   };
   MasterClient.prototype.onJoinRoom = function(createdByMe) {
@@ -104,10 +100,9 @@ var MasterClient = (function() {
     }
   };
   MasterClient.prototype.onActorLeave = function(actor) {
-    if (actor.getId() === this.playerId()) {
-      return;
-    }
-    this.dispatchEvent(GameEvent.PLAYER_LEAVE);
+    var event = new LEvent(GameEvent.PLAYER_LEAVE);
+    event.actor = event;
+    this.dispatchEvent(event);
   };
   MasterClient.prototype.sendMessage = function(eventCode, data, options) {
     data.id = this.client.myActor().getId();
