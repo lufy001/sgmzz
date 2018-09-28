@@ -4,7 +4,7 @@ var BattleResultResponse = (function() {
     _this.data = data;
   }
   BattleResultResponse.prototype.playerModel = function() {
-    return new PlayerModel(this.data.playerModel);
+    return this.data.playerModel ? new PlayerModel(this.data.playerModel) : null;
   };
   BattleResultResponse.prototype.gem = function() {
     return this.data.gem;

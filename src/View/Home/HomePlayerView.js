@@ -10,7 +10,7 @@ var HomePlayerView = (function() {
       },
       labelName: {
         type: 'Label',
-        parent: 'playerLayer',
+        //parent: 'playerLayer',
         properties: {
           text: PlayerManager.playerModel.name(),
           size: 24,
@@ -21,7 +21,7 @@ var HomePlayerView = (function() {
       amountBackground: {
         type: 'LBitmap',
         data: 'amount_bg',
-        parent: 'playerLayer',
+        //parent: 'playerLayer',
         properties: {
           x: 225,
           y: 17
@@ -30,7 +30,7 @@ var HomePlayerView = (function() {
       icon: {
         type: 'LBitmap',
         data: 'icon_cup',
-        parent: 'playerLayer',
+        //parent: 'playerLayer',
         properties: {
           scaleX: 0.6,
           scaleY: 0.6,
@@ -40,7 +40,7 @@ var HomePlayerView = (function() {
       },
       cupLabel: {
         type: 'Label',
-        parent: 'playerLayer',
+        //parent: 'playerLayer',
         properties: {
           text: PlayerManager.playerModel.cup(),
           size: 20,
@@ -63,22 +63,16 @@ var HomePlayerView = (function() {
   }
   HomePlayerView.prototype.init = function() {
     var _this = this;
-        
-    LGlobal.destroy = false;
-    _this.playerLayer.remove();
-    LGlobal.destroy = true;
     _this.playerLayer.cacheAsBitmap(true);
-    var btnPlayer = new LButton(_this.playerLayer);
-    _this.addChild(btnPlayer);
+  };
+  HomePlayerView.prototype.updateView = function() {
+    var _this = this;
+    _this.cupLabel.text = PlayerManager.playerModel.cup();
   };
   HomePlayerView.prototype._onClickSetting = function(event) {
     var _this = this;
     var dialog = new SettingDialogController({ width: 400, height: 180, hideClose: true });
     dialogLayer.addChild(dialog);
-  };
-  HomePlayerView.prototype.updateView = function(value) {
-    var _this = this;
-        
   };
   return HomePlayerView;
 })();

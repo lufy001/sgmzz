@@ -126,7 +126,7 @@ var Common = (function() {
     } else if (cup < 400) {
       cup = -400;
     }
-    var res = 30 + Math.floor(cup / 400);
+    var res = 30 + Math.floor(30 * cup / 400);
     return res;
   };
   return Common;
