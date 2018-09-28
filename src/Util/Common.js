@@ -20,9 +20,9 @@ var Common = (function() {
     }
     return label;
   };
-  Common.getTranslucentMask = function() {
+  Common.getTranslucentMask = function(width, height) {
     var layer = new LSprite();
-    var windowBackgrond = Common.getTranslucentBitmap();
+    var windowBackgrond = Common.getTranslucentBitmap(width, height);
     layer.addChild(windowBackgrond);
     layer.addEventListener(LMouseEvent.MOUSE_DOWN, function() {});
     layer.addEventListener(LMouseEvent.MOUSE_UP, function() {});
@@ -119,6 +119,15 @@ var Common = (function() {
       associative[child[keyName]()] = child;
     }
     return associative;
+  };
+  Common.countCup = function(cup) {
+    if (cup > 400) {
+      cup = 400;
+    } else if (cup < 400) {
+      cup = -400;
+    }
+    var res = 30 + Math.floor(cup / 400);
+    return res;
   };
   return Common;
 })();

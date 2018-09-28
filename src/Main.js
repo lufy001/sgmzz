@@ -235,6 +235,7 @@ var loadData = [
   { type: 'js', path: 'src/View/Game/BattleResultView.js' },
   { type: 'js', path: 'src/View/Game/ResultParamView.js' },
   { type: 'js', path: 'src/View/Game/SkillCtrlView.js' },
+  { type: 'js', path: 'src/View/Game/BattleCountDownView.js' },
 
   { type: 'js', path: 'src/View/Shop/ShopTitleView.js' },
   { type: 'js', path: 'src/View/Shop/ShopItemView.js' }
@@ -316,7 +317,7 @@ function onGameStart() {
 
   dialogLayer.parent.setChildIndex(dialogLayer, dialogLayer.parent.numChildren - 1);
 
-  Common.changeScene('HomeController', { isFirst: true });
+  Common.changeScene('HomeController', { multiCheck: true });
 
   LPlatform.startGameAsync()
     .then(function() {

@@ -19,6 +19,7 @@ var GameController = (function() {
   GameController.prototype.onLoad = function(request) {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
+    CommonEvent.addEventListener(CommonEvent.RESULT_TIE, _this._onResultTie, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
     
     if (request.battleType === 'single') {
@@ -31,14 +32,36 @@ var GameController = (function() {
   };
   GameController.prototype._onLoadMulti = function(request) {
     var _this = this;
+    var startTime = MasterClient.startTime();
+    GameManager.endTime = parseInt(startTime) + BATTLE_TOTAL_TIME + BATTLE_DELAY_TIME;
     MasterClient.addEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
     GameManager.matchId = request.matchId;
     var event = new LEvent(CommonEvent.GAME_MULTI_START);
     CommonEvent.dispatchEvent(event);
   };
   GameController.prototype._onPlayerLeave = function(event) {
-  	var _this = this;
-  	
+    var _this = this;
+    var actor = event.actor;
+    if (actor.getId() === MasterClient.playerId()) {
+      //自己掉线，返回Home，重新进入战斗
+      MasterClient.disconnect();
+      _this._removeResultEvent();
+      setTimeout(function() {
+        Common.changeScene('HomeController', { multiCheck: true });
+      }, 100);
+      return;
+    }
+    GameService.instance().getMatchTarget()
+      .then(function(response) {
+        if (response.matchId) {
+          //对方掉线，继续战斗
+        } else {
+          //对战已被强制结束，返回Home
+          MasterClient.disconnect();
+          _this._removeResultEvent();
+          Common.changeScene('HomeController', { });
+        }
+      });
   };
   GameController.prototype._onLoadSingle = function(request) {
     var _this = this;
@@ -52,6 +75,7 @@ var GameController = (function() {
     var stage = chapter.stages().find(function(child) {
       return child.id() === selectStageId;
     });
+    GameManager.endTime = BaseService.getTime() + BATTLE_TOTAL_TIME;
     GameManager.stepIndex = 1;
     GameManager.stepSum = stage.enemys().length;
     var event = new LEvent(CommonEvent.GAME_START);
@@ -64,6 +88,12 @@ var GameController = (function() {
     _this._removeResultEvent();
     _this.resultView.visible = true;
     _this.resultView.updateView({ isWin: true, stageId: _this.selectStageId });
+  };
+  GameController.prototype._onResultTie = function() {
+    var _this = this;
+    _this._removeResultEvent();
+    _this.resultView.visible = true;
+    _this.resultView.updateView({ isTie: false, stageId: _this.selectStageId });
   };
   GameController.prototype._onResultFail = function() {
     var _this = this;
@@ -88,6 +118,8 @@ var GameController = (function() {
   };
   GameController.prototype._removeResultEvent = function() {
     var _this = this;
+    MasterClient.removeEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
+    CommonEvent.removeEventListener(CommonEvent.RESULT_TIE, _this._onResultTie, _this);
     CommonEvent.removeEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
     CommonEvent.removeEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
   };

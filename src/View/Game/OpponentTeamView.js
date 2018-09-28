@@ -36,8 +36,8 @@ var OpponentTeamView = (function() {
   OpponentTeamView.prototype._onGameMultiStart = function(event) {
     var _this = this;
     _this.layer.removeAllChild();
-    var teamData = MasterClient.enemy().getCustomProperty('team');
-    var level = MasterClient.enemy().getCustomProperty('level');
+    var teamData = MasterClient.enemy().getData().team;
+    var level = MasterClient.enemy().getData().level;
     var hp = level * HP_LEVEL;
     teamData.forEach(function(data) {
       var child = new OpponentModel(data);

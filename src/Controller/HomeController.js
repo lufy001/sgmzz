@@ -67,7 +67,7 @@ var HomeController = (function() {
   }
   HomeController.prototype.onLoad = function(request) {
     var _this = this;
-    if (request.isFirst) {
+    if (request.multiCheck) {
       _this._checkContinueBattle();
     } else {
       _this._checkLoginBonus();
@@ -103,7 +103,9 @@ var HomeController = (function() {
     if (MasterClient.myRoomActorCount() === 1) {
       MasterClient.disconnect();
       GameService.instance().matchCancel(true)
-        .then(_this._checkLoginBonus);
+        .then(function() {
+          _this._onFailJoinRoom();
+        });
       return;
     }
     var player = MasterClient.player();
@@ -119,12 +121,19 @@ var HomeController = (function() {
     var _this = this;
     var player = MasterClient.player();
     var response = player.getData();
+    var data = {};
     var roomName = 'BattleRoom_' + response.matchId;
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
-    player.setCustomProperty('team', PlayerManager.playerModel.teamToJson());
-    player.setCustomProperty('level', PlayerManager.playerModel.level());
-    player.setCustomProperty('isLeader', response.isLeader);
-    player.setCustomProperty('battleRoom', roomName);
+    if (response.startTime) {
+      response.startTime = parseInt(response.startTime);
+    }
+    data.startTime = response.startTime || 0;
+    data.team = PlayerManager.playerModel.teamToJson();
+    data.level = PlayerManager.playerModel.level();
+    data.isLeader = response.isLeader;
+    data.battleRoom = roomName;
+    player.setData(data);
+    
     MasterClient.joinRoom(roomName);
   };
   HomeController.prototype._checkLoginBonus = function() {

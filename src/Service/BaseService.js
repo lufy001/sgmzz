@@ -16,9 +16,9 @@ var BaseService = (function() {
       var error;
       LAjax.responseType = LAjax.JSON;
       LAjax.post(url, request, function(response) {
-        var serverTime = new Date(response.serverTime).getTime();
+        var serverTime = parseInt(response.time);
         var now = Date.now();
-        BaseService._timeDiff = now - serverTime;
+        BaseService._timeDiff = serverTime - now;
         if (response && response.ret) {
           resolve(response.data);
         } else {
@@ -46,8 +46,12 @@ var BaseService = (function() {
     var dialog = new AlertDialogController(params);
     dialogLayer.addChild(dialog);
   };
+  BaseService._timeDiff = 0;
   BaseService.now = function() {
     return new Date(Date.now() + BaseService._timeDiff);
+  };
+  BaseService.getTime = function() {
+    return Date.now() + BaseService._timeDiff;
   };
   return BaseService;
 })();

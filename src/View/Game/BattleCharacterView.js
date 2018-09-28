@@ -79,7 +79,6 @@ var BattleCharacterView = (function() {
     if (typeof value === 'number') {
       img += value > 1 ? '_up' : '_down';
     }
-    console.error('addBuffer', img, dataList[img]);
 
     if (bufferChild) {
       bufferChild.bitmapData = new LBitmapData(dataList[img]);

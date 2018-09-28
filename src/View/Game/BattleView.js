@@ -5,7 +5,6 @@ var BattleView = (function() {
     _this._height = 960;
     var properties = {
       gameMap: {
-        params: { id: 1 },
         type: 'GameMapView'
       },
       stepLabel: {
@@ -15,6 +14,16 @@ var BattleView = (function() {
           text: '0/0',
           size: 30,
           x: 630,
+          y: 435
+        }
+      },
+      timeLabel: {
+        type: 'Label',
+        properties: {
+          textAlign: 'right',
+          text: '2:00',
+          size: 30,
+          x: 600,
           y: 10
         }
       },
@@ -78,6 +87,12 @@ var BattleView = (function() {
         properties: {
           visible: false
         }
+      },
+      countDownView: {
+        type: 'BattleCountDownView',
+        properties: {
+          visible: false
+        }
       }
     };
     LExtends(_this, BaseView, [properties]);
@@ -90,9 +105,18 @@ var BattleView = (function() {
     CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameMultiStart, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_CONTINUE, _this._onGameContinue, _this);
+
+    CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultOver, _this);
+    CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultOver, _this);
+  };
+  BattleView.prototype._onResultOver = function(event) {
+    var _this = this;
+    _this.removeEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
   };
   BattleView.prototype._onGameMultiStart = function(event) {
     var _this = this;
+    _this.gameMap.updateView(GameManager.matchId % 24 + 1);
+    _this.countDownView.updateView();
     _this.stepLabel.visible = false;
     _this.enemyTeam.visible = false;
     _this.opponentTeam.visible = true;
@@ -106,9 +130,33 @@ var BattleView = (function() {
       CommonEvent.dispatchEvent(CommonEvent.ENEMY_AUTO_SELECT);
       _this.gameTeam.hpProgress.visible = true;
     } });
+    _this.addEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
+  };
+  BattleView.prototype._onTimeout = function() {
+    if (GameManager.isMulti()) {
+      CommonEvent.dispatchEvent(CommonEvent.RESULT_TIE);
+    } else {
+      CommonEvent.dispatchEvent(CommonEvent.RESULT_FAIL);
+    }
+  };
+  BattleView.prototype._onframe = function(event) {
+    var _this = this;
+    var times = GameManager.endTime - BaseService.getTime();
+    if (times < 0) {
+      _this.removeEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
+      _this._onTimeout();
+      return;
+    } else if (times > BATTLE_TOTAL_TIME) {
+      times = BATTLE_TOTAL_TIME;
+    }
+    times = times * 0.001 >> 0;
+    var minute = times / 60 >> 0;
+    var second = times % 60;
+    _this.timeLabel.text = minute + ':' + second;
   };
   BattleView.prototype._onGameStart = function(event) {
     var _this = this;
+    _this.gameMap.updateView(event.stage.map() % 24 + 1);
     _this.stepLabel.visible = true;
     _this.enemyTeam.visible = true;
     _this.opponentTeam.visible = false;

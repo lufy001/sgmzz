@@ -339,6 +339,7 @@ var UserService = (function() {
       gem: 1000000,
       exp: 2222,
       lv: 11,
+      loginBonusCalled: 1,
       lastStageId: 102002
     };
     var response = new PlayerModel(res);

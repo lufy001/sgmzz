@@ -98,16 +98,22 @@ var MatchDialogController = (function() {
   MatchDialogController.prototype._connectRoom = function(response) {
     var _this = this;
     var player = MasterClient.player();
-    player.setCustomProperty('startTime', response.startTime || 0);
+    var data = {};
     _this.title.text = 'Connecting room';
     _this._matchId = response.matchId;
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     var roomName = 'BattleRoom_' + response.matchId;
     var teamJson = PlayerManager.playerModel.teamToJson();
-    player.setCustomProperty('team', teamJson);
-    player.setCustomProperty('level', PlayerManager.playerModel.level());
-    player.setCustomProperty('isLeader', response.isLeader);
-    player.setCustomProperty('battleRoom', roomName);
+    if (response.startTime) {
+      response.startTime = parseInt(response.startTime);
+    }
+    data.startTime = response.startTime || 0;
+    data.team = teamJson;
+    data.level = PlayerManager.playerModel.level();
+    data.cup = PlayerManager.playerModel.cup();
+    data.isLeader = response.isLeader;
+    data.battleRoom = roomName;
+    player.setData(data);
     if (response.isLeader) {
       MasterClient.createRoom(roomName);
     } else {
@@ -129,8 +135,7 @@ var MatchDialogController = (function() {
       .then(function() {
         _this._canceled = true;
         var player = MasterClient.player();
-        player.setCustomProperty('team', null);
-        player.setCustomProperty('battleRoom', null);
+        player.setData(null);
         MasterClient.disconnect();
         var event = new LEvent('close');
         event.success = false;

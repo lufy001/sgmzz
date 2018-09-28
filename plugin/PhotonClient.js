@@ -116,7 +116,7 @@ var PhotonClient = (function(_super) {
     //this.masterClient.onStateChange(state);
     // "namespace" import for static members shorter acceess
     var LBC = window.Photon.LoadBalancing.LoadBalancingClient;
-    console.warn('onStateChange', state);
+    console.warn('onStateChange', state, LBC.State.JoinedLobby);
     switch (state) {
       case LBC.State.JoinedLobby:
         this.onJoinedLobby();
@@ -178,25 +178,23 @@ var PhotonPlayer = (function(_super) {
     return _this;
   }
   PhotonPlayer.prototype.getId = function() {
-    return this.getCustomProperty('id');
+    return this.client.getUserId();
   };
   PhotonPlayer.prototype.getBattleRoom = function() {
-    return this.getCustomProperty('battleRoom');
-  };
-  PhotonPlayer.prototype.isContinue = function() {
-    return this.getCustomProperty('continue');
+    return this.getData().battleRoom;
   };
   PhotonPlayer.prototype.getData = function() {
     return this.getCustomProperty('data');
+  };
+  PhotonPlayer.prototype.setData = function(data) {
+    this.setCustomProperty('data', data);
   };
   PhotonPlayer.prototype.onPropertiesChange = function(changedCustomProps) {
     this.client.onPlayerPropertiesChange(changedCustomProps);
   };
   PhotonPlayer.prototype.setInfo = function(id, data) {
     this.client.setUserId(id);
-    this.setCustomProperty('id', id);
-    this.setCustomProperty('data', data);
-    this.setCustomProperty('battleRoom', null);
+    this.setData(data);
   };
   return PhotonPlayer;
 }(window.Photon.LoadBalancing.Actor));

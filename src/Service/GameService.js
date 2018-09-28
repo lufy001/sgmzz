@@ -31,14 +31,10 @@ var GameService = (function() {
     }
     
     var res = {
-      targetId: 'TESTID'
+      matchId: 11,
+      startTime: BaseService.getTime(),
+      isLeader: 1
     };
-    if (LPlatform.player().getID() === 'MULTI01') {
-      res.targetId = 'MULTI02';
-    } else if (LPlatform.player().getID() === 'MULTI02') {
-      res.targetId = 'MULTI01';
-    }
-    console.log('getMatchTarget', res);
     return Promise.resolve(res);
   };
   GameService.prototype.matchCancel = function(force) {

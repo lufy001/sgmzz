@@ -26,6 +26,18 @@ var BattleResultView = (function() {
           y: 50
         }
       },
+      tieLabel: {
+        type: 'Label',
+        properties: {
+          textAlign: 'center',
+          text: 'Game Tie',
+          color: '#CCCCCC',
+          weight: 'bolder',
+          size: 50,
+          x: LGlobal.width * 0.5,
+          y: 50
+        }
+      },
       cupParamView: {
         type: 'ResultParamView',
         params: { icon: 'icon_cup' },
@@ -64,8 +76,9 @@ var BattleResultView = (function() {
   }
   BattleResultView.prototype.reset = function(params) {
     var _this = this;
-    _this.winLabel.visible = params.isWin;
-    _this.lossLabel.visible = !params.isWin;
+    _this.tieLabel.visible = !!params.isTie;
+    _this.winLabel.visible = !params.isTie && params.isWin;
+    _this.lossLabel.visible = !params.isTie && !params.isWin;
     _this.cupParamView.visible = false;
     _this.gemParamView.visible = false;
     _this.coinParamView.visible = false;
@@ -74,10 +87,21 @@ var BattleResultView = (function() {
   BattleResultView.prototype.updateView = function(params) {
     var _this = this;
     _this.reset(params);
+    if (params.isTie) {
+      var data = player.getData();
+      if (data.isLeader || MasterClient.myRoomActorCount() === 1) {
+        GameService.instance().matchCancel(true);
+      }
+      _this._addEvent();
+      return;
+    }
     if (!params.isWin) {
       if (GameManager.isMulti()) {
-        _this._showResult({ cup: -30 });//TODO: change cup
+        var cup = Common.countCup(GameManager.enemyModel.cup() - PlayerManager.playerModel.cup());
+        var response = new BattleResultResponse(new BattleResultResponse({ cup: -cup }));
+        _this._showResult(response);
       }
+      _this._addEvent();
       return;
     }
     if (GameManager.isMulti()) {
@@ -94,7 +118,10 @@ var BattleResultView = (function() {
   };
   BattleResultView.prototype._showResult = function(params) {
     var _this = this;
-    PlayerManager.playerModel = params.playerModel();
+    var playerModel = params.playerModel();
+    if (playerModel) {
+      PlayerManager.playerModel = playerModel;
+    }
     var y = 150;
     var height = 60;
     var promise = Promise.resolve();
@@ -143,17 +170,22 @@ var BattleResultView = (function() {
       });
     }
     promise.then(function() {
-      _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
+      _this._addEvent();
     });
   };
   BattleResultView.prototype.init = function() {
     var _this = this;
     var maskBackground = Common.getTranslucentMask();
     _this.addChildAt(maskBackground, 0);
-        
+  };
+  BattleResultView.prototype._addEvent = function() {
+    var _this = this;
+    MasterClient.disconnect();
+    _this.addEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
   };
   BattleResultView.prototype._onClick = function(event) {
     var _this = this;
+    _this.removeEventListener(LMouseEvent.MOUSE_UP, _this._onClick, _this);
     _this.visible = false;
     if (GameManager.isMulti()) {
       Common.changeScene('HomeController', { });
