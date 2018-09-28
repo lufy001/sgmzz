@@ -36,6 +36,9 @@ var GameController = (function() {
     GameManager.endTime = parseInt(startTime) + BATTLE_TOTAL_TIME + BATTLE_DELAY_TIME;
     MasterClient.addEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
     GameManager.matchId = request.matchId;
+    var enemy = MasterClient.enemy();
+    var enemyData = enemy.getData();
+    GameManager.enemyModel = new PlayerModel(enemyData);
     var event = new LEvent(CommonEvent.GAME_MULTI_START);
     CommonEvent.dispatchEvent(event);
   };

@@ -149,6 +149,7 @@ var HomeController = (function() {
     _this._boxUpdateView();
         
     CommonEvent.addEventListener(CommonEvent.OPEN_BOX, _this._boxOpened, _this);
+    CommonEvent.addEventListener(CommonEvent.PLAYER_UPDATE, _this._playerUpdate, _this);
   };
   HomeController.prototype._openRanking = function(event) {
     var dialog = new RankingDialogController({ width: 440, height: 500 });
@@ -160,11 +161,17 @@ var HomeController = (function() {
   };
   HomeController.prototype._boxOpened = function(event) {
     var _this = this;
-    _this._boxUpdateView();
-    headerView.updateView();
+    _this._playerUpdate();
     var params = { width: LGlobal.width, height: LGlobal.height, model: event.model, hideClose: true, contents: event.contents };
     var dialog = new ContentsGetDialogController(params);
     dialogLayer.addChild(dialog);
+  };
+  HomeController.prototype._playerUpdate = function(event) {
+    var _this = this;
+    _this.cupView.updateView();
+    _this.playerView.updateView();
+    _this._boxUpdateView();
+    headerView.updateView();
   };
   HomeController.prototype._gotoChapterMap = function(event) {
     Common.changeScene('ChapterMapController');

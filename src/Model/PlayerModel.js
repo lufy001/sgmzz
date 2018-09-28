@@ -2,7 +2,9 @@ var PlayerModel = (function() {
   function PlayerModel(data) {
     var _this = this;
     _this.data = data;
-    _this._init();
+    if (_this.data.boxs) {
+      _this._init();
+    }
   }
   PlayerModel.prototype._init = function(value) {
     this.boxs();
@@ -138,7 +140,10 @@ var PlayerModel = (function() {
   PlayerModel.prototype.name = function() {
     return this.data.name;
   };
-  PlayerModel.prototype.cup = function() {
+  PlayerModel.prototype.cup = function(value) {
+    if (value) {
+      this.data.cup = value;
+    }
     return this.data.cup;
   };
   PlayerModel.prototype.versions = function() {

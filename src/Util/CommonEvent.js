@@ -7,6 +7,7 @@ CommonEvent.CARD_USE_CANCEL = 'common:cardUseCancel';
 CommonEvent.CARD_USE = 'common:cardUse';
 CommonEvent.CARD_LIST_UPDATE = 'common:cardListUpdate';
 CommonEvent.OPEN_BOX = 'common:openBox';
+CommonEvent.PLAYER_UPDATE = 'common:playerUpdate';
 
 CommonEvent.SCENE_CHANGE = 'common:sceneChange';
 CommonEvent.SHOW_NEWS_MESSAGE = 'common:showNewsMwssage';

@@ -97,8 +97,11 @@ var BattleResultView = (function() {
     }
     if (!params.isWin) {
       if (GameManager.isMulti()) {
-        var cup = Common.countCup(GameManager.enemyModel.cup() - PlayerManager.playerModel.cup());
-        var response = new BattleResultResponse(new BattleResultResponse({ cup: -cup }));
+        var currentCup = PlayerManager.playerModel.cup();
+        var cup = Common.countCup(GameManager.enemyModel.cup() - currentCup);
+        currentCup -= cup;
+        PlayerManager.playerModel.cup(currentCup < 0 ? 0 : currentCup);
+        var response = new BattleResultResponse({ cup: -cup });
         _this._showResult(response);
       }
       _this._addEvent();
@@ -122,6 +125,7 @@ var BattleResultView = (function() {
     if (playerModel) {
       PlayerManager.playerModel = playerModel;
     }
+    CommonEvent.dispatchEvent(CommonEvent.PLAYER_UPDATE);
     var y = 150;
     var height = 60;
     var promise = Promise.resolve();
