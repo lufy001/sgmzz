@@ -485,7 +485,7 @@ battle_match_ready表
     Common.countCup = function(cup) {
         if (cup > 400) {
             cup = 400;
-        } else if (cup < 400) {
+        } else if (cup < -400) {
             cup = -400;
         }
         var res = 30 + 30 * Math.floor(cup / 400);
@@ -499,7 +499,7 @@ battle_match_ready表
     Common.countCoin = function(cup) {
         if (cup > 400) {
             cup = 400;
-        } else if (cup < 400) {
+        } else if (cup < -400) {
             cup = -400;
         }
         var res = 30 + 10 * Math.floor(cup / 400);
