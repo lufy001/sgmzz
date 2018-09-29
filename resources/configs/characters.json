@@ -2,7 +2,7 @@
     {
         "id":1,
         "name":"张飞",
-        "skillId":10,
+        "skillId":4,
         "rarity":"ssr",
         "attack":30,
         "attackPlus":21,
@@ -10,12 +10,12 @@
         "hpPlus":53,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"ssr wuli 1"
+        "introduction":"Angry Attack II"
     },
     {
         "id":2,
         "name":"关羽",
-        "skillId":19,
+        "skillId":39,
         "rarity":"ssr",
         "attack":30,
         "attackPlus":25,
@@ -23,7 +23,7 @@
         "hpPlus":54,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"ssr wuli 2"
+        "introduction":"Strong Attack III"
     },
     {
         "id":3,
@@ -36,12 +36,12 @@
         "hpPlus":51,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"ssr wuli 3"
+        "introduction":"MagicDefense+ III"
     },
     {
         "id":4,
         "name":"赵云",
-        "skillId":1,
+        "skillId":34,
         "rarity":"ssr",
         "attack":30,
         "attackPlus":19,
@@ -49,7 +49,7 @@
         "hpPlus":52,
         "attackType":"physice",
         "attackSpeed":"very fast",
-        "introduction":"ssr wuli 4"
+        "introduction":"Fire Attack III"
     },
     {
         "id":5,
@@ -62,12 +62,12 @@
         "hpPlus":53,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"ssr wuli 5"
+        "introduction":"Fire Attack III"
     },
     {
         "id":6,
         "name":"甘宁",
-        "skillId":1,
+        "skillId":22,
         "rarity":"ssr",
         "attack":26,
         "attackPlus":23,
@@ -75,12 +75,12 @@
         "hpPlus":52,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"ssr wuli 6"
+        "introduction":"MagicDefense- III"
     },
     {
         "id":7,
         "name":"黄忠",
-        "skillId":1,
+        "skillId":10,
         "rarity":"ssr",
         "attack":28,
         "attackPlus":23,
@@ -88,12 +88,12 @@
         "hpPlus":51,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"ssr wuli 6"
+        "introduction":"PhysicsDefense+ III"
     },
     {
         "id":8,
         "name":"马超",
-        "skillId":1,
+        "skillId":19,
         "rarity":"ssr",
         "attack":30,
         "attackPlus":23,
@@ -101,12 +101,12 @@
         "hpPlus":53,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"ssr wuli 6"
+        "introduction":"PhysicsDefense- III"
     },
     {
         "id":9,
         "name":"夏侯惇",
-        "skillId":22,
+        "skillId":4,
         "rarity":"ssr",
         "attack":28,
         "attackPlus":24,
@@ -114,25 +114,25 @@
         "hpPlus":54,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"ssr wuli 6"
+        "introduction":"Attack+ III"
     },
     {
         "id":10,
         "name":"孙策",
-        "skillId":1,
+        "skillId":7,
         "rarity":"ssr",
-        "attack":26,
+        "attack":22,
         "attackPlus":19,
         "hp":131,
         "hpPlus":50,
         "attackType":"physice",
         "attackSpeed":"very fast",
-        "introduction":"ssr wuli 6"
+        "introduction":"Attack- III"
     },
     {
         "id":11,
         "name":"曹操",
-        "skillId":25,
+        "skillId":1,
         "rarity":"ssr",
         "attack":28,
         "attackPlus":23,
@@ -140,7 +140,7 @@
         "hpPlus":50,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"ssr fashu 1"
+        "introduction":"Vampire III"
     },
     {
         "id":12,
@@ -153,7 +153,7 @@
         "hpPlus":49,
         "attackType":"magic",
         "attackSpeed":"very fast",
-        "introduction":"ssr fashu 2"
+        "introduction":"Fire Attack III"
     },
     {
         "id":13,
@@ -166,12 +166,12 @@
         "hpPlus":50,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"ssr fashu 3"
+        "introduction":"Defense+ III"
     },
     {
         "id":14,
         "name":"司马懿",
-        "skillId":4,
+        "skillId":25,
         "rarity":"ssr",
         "attack":29,
         "attackPlus":25,
@@ -179,7 +179,7 @@
         "hpPlus":55,
         "attackType":"magic",
         "attackSpeed":"slow",
-        "introduction":"ssr fashu 3"
+        "introduction":"Defense- III"
     },
     {
         "id":15,
@@ -192,7 +192,7 @@
         "hpPlus":50,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"ssr fashu 3"
+        "introduction":"Sleep III"
     },
     {
         "id":16,
@@ -205,12 +205,12 @@
         "hpPlus":49,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"ssr fashu 3"
+        "introduction":"Poison III"
     },
     {
         "id":17,
         "name":"颜良",
-        "skillId":1,
+        "skillId":40,
         "rarity":"sr",
         "attack":25,
         "attackPlus":20,
@@ -218,12 +218,12 @@
         "hpPlus":42,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"sr wuli 1"
+        "introduction":"Strong Attack II"
     },
     {
         "id":18,
         "name":"文丑",
-        "skillId":1,
+        "skillId":8,
         "rarity":"sr",
         "attack":25,
         "attackPlus":20,
@@ -231,12 +231,12 @@
         "hpPlus":43,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"sr wuli 2"
+        "introduction":"Attack- II"
     },
     {
         "id":19,
         "name":"庞德",
-        "skillId":1,
+        "skillId":11,
         "rarity":"sr",
         "attack":25,
         "attackPlus":19,
@@ -244,12 +244,12 @@
         "hpPlus":41,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 3"
+        "introduction":"PhysicsDefense+ II"
     },
     {
         "id":20,
         "name":"张郃",
-        "skillId":1,
+        "skillId":20,
         "rarity":"sr",
         "attack":25,
         "attackPlus":18,
@@ -257,12 +257,12 @@
         "hpPlus":42,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 4"
+        "introduction":"PhysicsDefense- II"
     },
     {
         "id":21,
         "name":"周泰",
-        "skillId":1,
+        "skillId":40,
         "rarity":"sr",
         "attack":25,
         "attackPlus":19,
@@ -270,12 +270,12 @@
         "hpPlus":46,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"sr wuli 5"
+        "introduction":"Strong Attack II"
     },
     {
         "id":22,
         "name":"魏延",
-        "skillId":1,
+        "skillId":23,
         "rarity":"sr",
         "attack":23,
         "attackPlus":18,
@@ -283,12 +283,12 @@
         "hpPlus":44,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 6"
+        "introduction":"MagicDefense- II"
     },
     {
         "id":23,
         "name":"张任",
-        "skillId":1,
+        "skillId":38,
         "rarity":"sr",
         "attack":24,
         "attackPlus":16,
@@ -296,12 +296,12 @@
         "hpPlus":43,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"sr wuli 7"
+        "introduction":"Angry Attack I"
     },
     {
         "id":24,
         "name":"夏侯渊",
-        "skillId":1,
+        "skillId":35,
         "rarity":"sr",
         "attack":23,
         "attackPlus":15,
@@ -309,12 +309,12 @@
         "hpPlus":41,
         "attackType":"physice",
         "attackSpeed":"very fast",
-        "introduction":"sr wuli 8"
+        "introduction":"Fire Attack II"
     },
     {
         "id":25,
         "name":"徐晃",
-        "skillId":1,
+        "skillId":26,
         "rarity":"sr",
         "attack":22,
         "attackPlus":18,
@@ -322,12 +322,12 @@
         "hpPlus":42,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 9"
+        "introduction":"Defense- II"
     },
     {
         "id":26,
         "name":"程普",
-        "skillId":1,
+        "skillId":17,
         "rarity":"sr",
         "attack":22,
         "attackPlus":17,
@@ -335,12 +335,12 @@
         "hpPlus":43,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 10"
+        "introduction":"Defense+ II"
     },
     {
         "id":27,
         "name":"黄盖",
-        "skillId":1,
+        "skillId":5,
         "rarity":"sr",
         "attack":23,
         "attackPlus":17,
@@ -348,12 +348,12 @@
         "hpPlus":43,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 11"
+        "introduction":"Attack+ II"
     },
     {
         "id":28,
         "name":"丁奉",
-        "skillId":1,
+        "skillId":8,
         "rarity":"sr",
         "attack":20,
         "attackPlus":14,
@@ -361,12 +361,12 @@
         "hpPlus":42,
         "attackType":"physice",
         "attackSpeed":"very fast",
-        "introduction":"sr wuli 12"
+        "introduction":"Attack- II"
     },
     {
         "id":29,
         "name":"曹彰",
-        "skillId":1,
+        "skillId":38,
         "rarity":"sr",
         "attack":25,
         "attackPlus":17,
@@ -374,12 +374,12 @@
         "hpPlus":44,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"sr wuli 12"
+        "introduction":"Angry Attack I"
     },
     {
         "id":30,
         "name":"吕蒙",
-        "skillId":1,
+        "skillId":14,
         "rarity":"sr",
         "attack":20,
         "attackPlus":18,
@@ -387,12 +387,12 @@
         "hpPlus":41,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 12"
+        "introduction":"MagicDefense+ II"
     },
     {
         "id":31,
         "name":"凌统",
-        "skillId":1,
+        "skillId":23,
         "rarity":"sr",
         "attack":22,
         "attackPlus":16,
@@ -400,12 +400,12 @@
         "hpPlus":42,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"sr wuli 12"
+        "introduction":"MagicDefense- II"
     },
     {
         "id":32,
         "name":"王双",
-        "skillId":1,
+        "skillId":20,
         "rarity":"sr",
         "attack":22,
         "attackPlus":19,
@@ -413,12 +413,12 @@
         "hpPlus":43,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"sr wuli 12"
+        "introduction":"PhysicsDefense- II"
     },
     {
         "id":33,
         "name":"姜维",
-        "skillId":1,
+        "skillId":37,
         "rarity":"sr",
         "attack":20,
         "attackPlus":15,
@@ -426,12 +426,12 @@
         "hpPlus":43,
         "attackType":"physice",
         "attackSpeed":"very fast",
-        "introduction":"sr wuli 12"
+        "introduction":"Angry Attack II"
     },
     {
         "id":34,
         "name":"孙坚",
-        "skillId":1,
+        "skillId":17,
         "rarity":"sr",
         "attack":22,
         "attackPlus":18,
@@ -439,12 +439,12 @@
         "hpPlus":44,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"sr wuli 12"
+        "introduction":"Defense+ II"
     },
     {
         "id":35,
         "name":"司马师",
-        "skillId":1,
+        "skillId":17,
         "rarity":"sr",
         "attack":23,
         "attackPlus":16,
@@ -452,12 +452,12 @@
         "hpPlus":39,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"sr fashu 1"
+        "introduction":"Defense+ II"
     },
     {
         "id":36,
         "name":"司马昭",
-        "skillId":1,
+        "skillId":26,
         "rarity":"sr",
         "attack":21,
         "attackPlus":16,
@@ -465,12 +465,12 @@
         "hpPlus":39,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"sr fashu 2"
+        "introduction":"Defense- II"
     },
     {
         "id":37,
         "name":"诸葛膽",
-        "skillId":1,
+        "skillId":29,
         "rarity":"sr",
         "attack":20,
         "attackPlus":18,
@@ -478,12 +478,12 @@
         "hpPlus":38,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"sr fashu 3"
+        "introduction":"Sleep II"
     },
     {
         "id":38,
         "name":"鲁肃",
-        "skillId":1,
+        "skillId":2,
         "rarity":"sr",
         "attack":23,
         "attackPlus":16,
@@ -491,12 +491,12 @@
         "hpPlus":39,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"sr fashu 4"
+        "introduction":"Vampire II"
     },
     {
         "id":39,
         "name":"陈宫",
-        "skillId":1,
+        "skillId":35,
         "rarity":"sr",
         "attack":22,
         "attackPlus":15,
@@ -504,12 +504,12 @@
         "hpPlus":40,
         "attackType":"magic",
         "attackSpeed":"very fast",
-        "introduction":"sr fashu 5"
+        "introduction":"Fire Attack II"
     },
     {
         "id":40,
         "name":"张角",
-        "skillId":1,
+        "skillId":32,
         "rarity":"sr",
         "attack":25,
         "attackPlus":20,
@@ -517,12 +517,12 @@
         "hpPlus":38,
         "attackType":"magic",
         "attackSpeed":"slow",
-        "introduction":"sr fashu 6"
+        "introduction":"Poison II"
     },
     {
         "id":41,
         "name":"钟会",
-        "skillId":1,
+        "skillId":32,
         "rarity":"sr",
         "attack":22,
         "attackPlus":15,
@@ -530,12 +530,12 @@
         "hpPlus":39,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"sr fashu 6"
+        "introduction":"Poison II"
     },
     {
         "id":42,
         "name":"陆抗",
-        "skillId":1,
+        "skillId":29,
         "rarity":"sr",
         "attack":25,
         "attackPlus":18,
@@ -543,12 +543,12 @@
         "hpPlus":40,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"sr fashu 6"
+        "introduction":"Sleep II"
     },
     {
         "id":43,
         "name":"孙权",
-        "skillId":1,
+        "skillId":2,
         "rarity":"sr",
         "attack":23,
         "attackPlus":17,
@@ -556,12 +556,12 @@
         "hpPlus":42,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"sr fashu 6"
+        "introduction":"Vampire II"
     },
     {
         "id":44,
         "name":"曹仁",
-        "skillId":1,
+        "skillId":6,
         "rarity":"r",
         "attack":20,
         "attackPlus":15,
@@ -569,12 +569,12 @@
         "hpPlus":33,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"r wuli 1"
+        "introduction":"Attack+ I"
     },
     {
         "id":45,
         "name":"关平",
-        "skillId":1,
+        "skillId":9,
         "rarity":"r",
         "attack":18,
         "attackPlus":13,
@@ -582,12 +582,12 @@
         "hpPlus":32,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 2"
+        "introduction":"Attack- I"
     },
     {
         "id":46,
         "name":"严颜",
-        "skillId":1,
+        "skillId":12,
         "rarity":"r",
         "attack":20,
         "attackPlus":14,
@@ -595,12 +595,12 @@
         "hpPlus":32,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"r wuli 2"
+        "introduction":"PhysicsDefense+ I"
     },
     {
         "id":47,
         "name":"陈到",
-        "skillId":1,
+        "skillId":15,
         "rarity":"r",
         "attack":17,
         "attackPlus":11,
@@ -608,12 +608,12 @@
         "hpPlus":33,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"r wuli 3"
+        "introduction":"MagicDefense+ I"
     },
     {
         "id":48,
         "name":"文聘",
-        "skillId":1,
+        "skillId":18,
         "rarity":"r",
         "attack":19,
         "attackPlus":10,
@@ -621,12 +621,12 @@
         "hpPlus":30,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"r wuli 4"
+        "introduction":"Defense+ I"
     },
     {
         "id":49,
         "name":"王平",
-        "skillId":1,
+        "skillId":21,
         "rarity":"r",
         "attack":20,
         "attackPlus":13,
@@ -634,12 +634,12 @@
         "hpPlus":34,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"r wuli 5"
+        "introduction":"PhysicsDefense- I"
     },
     {
         "id":50,
         "name":"曹休",
-        "skillId":1,
+        "skillId":24,
         "rarity":"r",
         "attack":18,
         "attackPlus":12,
@@ -647,12 +647,12 @@
         "hpPlus":31,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 6"
+        "introduction":"MagicDefense- I"
     },
     {
         "id":51,
         "name":"周仓",
-        "skillId":1,
+        "skillId":27,
         "rarity":"r",
         "attack":15,
         "attackPlus":15,
@@ -660,12 +660,12 @@
         "hpPlus":35,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"r wuli 7"
+        "introduction":"Defense- I"
     },
     {
         "id":52,
         "name":"华雄",
-        "skillId":1,
+        "skillId":6,
         "rarity":"r",
         "attack":19,
         "attackPlus":15,
@@ -673,12 +673,12 @@
         "hpPlus":34,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"r wuli 8"
+        "introduction":"Attack+ I"
     },
     {
         "id":53,
         "name":"董卓",
-        "skillId":1,
+        "skillId":9,
         "rarity":"r",
         "attack":19,
         "attackPlus":12,
@@ -686,12 +686,12 @@
         "hpPlus":35,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 9"
+        "introduction":"Attack- I"
     },
     {
         "id":54,
         "name":"高顺",
-        "skillId":1,
+        "skillId":12,
         "rarity":"r",
         "attack":20,
         "attackPlus":13,
@@ -699,12 +699,12 @@
         "hpPlus":33,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 10"
+        "introduction":"PhysicsDefense+ I"
     },
     {
         "id":55,
         "name":"袁绍",
-        "skillId":1,
+        "skillId":15,
         "rarity":"r",
         "attack":18,
         "attackPlus":12,
@@ -712,12 +712,12 @@
         "hpPlus":34,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 11"
+        "introduction":"MagicDefense+ I"
     },
     {
         "id":56,
         "name":"徐盛",
-        "skillId":1,
+        "skillId":18,
         "rarity":"r",
         "attack":18,
         "attackPlus":13,
@@ -725,12 +725,12 @@
         "hpPlus":32,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"r wuli 12"
+        "introduction":"Defense+ I"
     },
     {
         "id":57,
         "name":"马岱",
-        "skillId":1,
+        "skillId":21,
         "rarity":"r",
         "attack":16,
         "attackPlus":12,
@@ -738,12 +738,12 @@
         "hpPlus":34,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 12"
+        "introduction":"PhysicsDefense- I"
     },
     {
         "id":58,
         "name":"曹洪",
-        "skillId":1,
+        "skillId":24,
         "rarity":"r",
         "attack":18,
         "attackPlus":11,
@@ -751,12 +751,12 @@
         "hpPlus":34,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"r wuli 12"
+        "introduction":"MagicDefense- I"
     },
     {
         "id":59,
         "name":"于禁",
-        "skillId":1,
+        "skillId":27,
         "rarity":"r",
         "attack":20,
         "attackPlus":10,
@@ -764,12 +764,12 @@
         "hpPlus":33,
         "attackType":"physice",
         "attackSpeed":"very fast",
-        "introduction":"r wuli 12"
+        "introduction":"Defense- I"
     },
     {
         "id":60,
         "name":"孙桓",
-        "skillId":1,
+        "skillId":6,
         "rarity":"r",
         "attack":16,
         "attackPlus":11,
@@ -777,25 +777,25 @@
         "hpPlus":33,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"r wuli 12"
+        "introduction":"Attack+ I"
     },
     {
         "id":61,
         "name":"祝融",
-        "skillId":1,
+        "skillId":36,
         "rarity":"r",
-        "attack":16,
-        "attackPlus":14,
-        "hp":111,
-        "hpPlus":29,
+        "attack":20,
+        "attackPlus":10,
+        "hp":115,
+        "hpPlus":33,
         "attackType":"physice",
-        "attackSpeed":"medium",
-        "introduction":"r wuli 12"
+        "attackSpeed":"very fast",
+        "introduction":"Fire Attack I"
     },
     {
         "id":62,
         "name":"孟获",
-        "skillId":1,
+        "skillId":41,
         "rarity":"r",
         "attack":20,
         "attackPlus":14,
@@ -803,12 +803,12 @@
         "hpPlus":35,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"r wuli 12"
+        "introduction":"Strong Attack I"
     },
     {
         "id":63,
         "name":"兀突骨",
-        "skillId":1,
+        "skillId":12,
         "rarity":"r",
         "attack":20,
         "attackPlus":12,
@@ -816,12 +816,12 @@
         "hpPlus":36,
         "attackType":"physice",
         "attackSpeed":"slow",
-        "introduction":"r wuli 12"
+        "introduction":"PhysicsDefense+ I"
     },
     {
         "id":64,
         "name":"曹真",
-        "skillId":1,
+        "skillId":15,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -829,12 +829,12 @@
         "hpPlus":20,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 12"
+        "introduction":"MagicDefense+ I"
     },
     {
         "id":65,
         "name":"郭淮",
-        "skillId":1,
+        "skillId":18,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -842,12 +842,12 @@
         "hpPlus":20,
         "attackType":"physice",
         "attackSpeed":"medium",
-        "introduction":"r wuli 12"
+        "introduction":"Defense+ I"
     },
     {
         "id":66,
         "name":"傅佥",
-        "skillId":1,
+        "skillId":36,
         "rarity":"c",
         "attack":19,
         "attackPlus":14,
@@ -855,12 +855,12 @@
         "hpPlus":34,
         "attackType":"physice",
         "attackSpeed":"very fast",
-        "introduction":"r wuli 12"
+        "introduction":"Fire Attack I"
     },
     {
         "id":67,
         "name":"诸葛尚",
-        "skillId":1,
+        "skillId":6,
         "rarity":"r",
         "attack":16,
         "attackPlus":13,
@@ -868,12 +868,12 @@
         "hpPlus":33,
         "attackType":"physice",
         "attackSpeed":"fast",
-        "introduction":"r wuli 12"
+        "introduction":"Attack+ I"
     },
     {
         "id":68,
         "name":"张宝",
-        "skillId":1,
+        "skillId":27,
         "rarity":"r",
         "attack":14,
         "attackPlus":9,
@@ -881,12 +881,12 @@
         "hpPlus":30,
         "attackType":"magic",
         "attackSpeed":"very fast",
-        "introduction":"r fashu 1"
+        "introduction":"Defense- I"
     },
     {
         "id":69,
         "name":"审配",
-        "skillId":1,
+        "skillId":30,
         "rarity":"r",
         "attack":20,
         "attackPlus":11,
@@ -894,12 +894,12 @@
         "hpPlus":33,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"r fashu 2"
+        "introduction":"Sleep I"
     },
     {
         "id":70,
         "name":"沮授",
-        "skillId":1,
+        "skillId":3,
         "rarity":"r",
         "attack":18,
         "attackPlus":13,
@@ -907,12 +907,12 @@
         "hpPlus":29,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"r fashu 3"
+        "introduction":"Vampire I"
     },
     {
         "id":71,
         "name":"满宠",
-        "skillId":1,
+        "skillId":3,
         "rarity":"r",
         "attack":13,
         "attackPlus":15,
@@ -920,12 +920,12 @@
         "hpPlus":30,
         "attackType":"magic",
         "attackSpeed":"slow",
-        "introduction":"r fashu 4"
+        "introduction":"Vampire I"
     },
     {
         "id":72,
         "name":"朱然",
-        "skillId":1,
+        "skillId":6,
         "rarity":"r",
         "attack":16,
         "attackPlus":12,
@@ -933,12 +933,12 @@
         "hpPlus":31,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"r fashu 5"
+        "introduction":"Attack+ I"
     },
     {
         "id":73,
         "name":"阚泽",
-        "skillId":1,
+        "skillId":9,
         "rarity":"r",
         "attack":15,
         "attackPlus":11,
@@ -946,12 +946,12 @@
         "hpPlus":30,
         "attackType":"magic",
         "attackSpeed":"fast",
-        "introduction":"r fashu 5"
+        "introduction":"Attack- I"
     },
     {
         "id":74,
         "name":"李儒",
-        "skillId":1,
+        "skillId":33,
         "rarity":"r",
         "attack":16,
         "attackPlus":14,
@@ -959,12 +959,12 @@
         "hpPlus":29,
         "attackType":"magic",
         "attackSpeed":"medium",
-        "introduction":"r fashu 6"
+        "introduction":"Poison I"
     },
     {
         "id":75,
         "name":"邓茂",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":9,
         "attackPlus":6,
@@ -977,7 +977,7 @@
     {
         "id":76,
         "name":"程远志",
-        "skillId":1,
+        "skillId":0,
         "rarity":"r",
         "attack":10,
         "attackPlus":6,
@@ -990,7 +990,7 @@
     {
         "id":77,
         "name":"裴元绍",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":12,
         "attackPlus":4,
@@ -1003,7 +1003,7 @@
     {
         "id":78,
         "name":"张梁",
-        "skillId":1,
+        "skillId":0,
         "rarity":"r",
         "attack":11,
         "attackPlus":7,
@@ -1016,7 +1016,7 @@
     {
         "id":79,
         "name":"刘辟",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":13,
         "attackPlus":6,
@@ -1029,7 +1029,7 @@
     {
         "id":80,
         "name":"廖化",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":14,
         "attackPlus":6,
@@ -1042,7 +1042,7 @@
     {
         "id":81,
         "name":"管亥",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":8,
         "attackPlus":8,
@@ -1055,7 +1055,7 @@
     {
         "id":82,
         "name":"胡轸",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1068,7 +1068,7 @@
     {
         "id":83,
         "name":"徐荣",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1081,7 +1081,7 @@
     {
         "id":84,
         "name":"李榷",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":9,
         "attackPlus":7,
@@ -1094,7 +1094,7 @@
     {
         "id":85,
         "name":"郭汜",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1107,7 +1107,7 @@
     {
         "id":86,
         "name":"魏続",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1120,7 +1120,7 @@
     {
         "id":87,
         "name":"宋憲",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1133,7 +1133,7 @@
     {
         "id":88,
         "name":"候成",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1146,7 +1146,7 @@
     {
         "id":89,
         "name":"曹性",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":4,
@@ -1159,7 +1159,7 @@
     {
         "id":90,
         "name":"吕翔",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1172,7 +1172,7 @@
     {
         "id":91,
         "name":"吕旷",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1185,7 +1185,7 @@
     {
         "id":92,
         "name":"高览",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1198,7 +1198,7 @@
     {
         "id":93,
         "name":"袁尚",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1211,7 +1211,7 @@
     {
         "id":94,
         "name":"淳于琼",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1224,7 +1224,7 @@
     {
         "id":95,
         "name":"袁谭",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1237,7 +1237,7 @@
     {
         "id":96,
         "name":"袁熙",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":7,
         "attackPlus":6,
@@ -1250,7 +1250,7 @@
     {
         "id":97,
         "name":"韩当",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":12,
         "attackPlus":8,
@@ -1263,7 +1263,7 @@
     {
         "id":98,
         "name":"牛金",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":8,
@@ -1276,7 +1276,7 @@
     {
         "id":99,
         "name":"金旋",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":13,
         "attackPlus":6,
@@ -1289,7 +1289,7 @@
     {
         "id":100,
         "name":"鲍隆",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1302,7 +1302,7 @@
     {
         "id":101,
         "name":"陈应",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1315,7 +1315,7 @@
     {
         "id":102,
         "name":"刘贤",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1328,7 +1328,7 @@
     {
         "id":103,
         "name":"刑道荣",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":15,
         "attackPlus":7,
@@ -1341,7 +1341,7 @@
     {
         "id":104,
         "name":"韩浩",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -1354,7 +1354,7 @@
     {
         "id":105,
         "name":"韩玄",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -1367,7 +1367,7 @@
     {
         "id":106,
         "name":"杨怀",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":11,
         "attackPlus":6,
@@ -1380,7 +1380,7 @@
     {
         "id":107,
         "name":"高沛",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":9,
         "attackPlus":7,
@@ -1393,7 +1393,7 @@
     {
         "id":108,
         "name":"泠苞",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -1406,7 +1406,7 @@
     {
         "id":109,
         "name":"邓贤",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1419,7 +1419,7 @@
     {
         "id":110,
         "name":"雷铜",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1432,7 +1432,7 @@
     {
         "id":111,
         "name":"吴兰",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1445,7 +1445,7 @@
     {
         "id":112,
         "name":"杨怀",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":11,
         "attackPlus":6,
@@ -1458,7 +1458,7 @@
     {
         "id":113,
         "name":"张翼",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1471,7 +1471,7 @@
     {
         "id":114,
         "name":"夏侯德",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1484,7 +1484,7 @@
     {
         "id":115,
         "name":"夏侯尚",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1497,7 +1497,7 @@
     {
         "id":116,
         "name":"潘璋",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":16,
         "attackPlus":9,
@@ -1510,7 +1510,7 @@
     {
         "id":117,
         "name":"马忠",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":9,
         "attackPlus":5,
@@ -1523,7 +1523,7 @@
     {
         "id":118,
         "name":"李异",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1536,7 +1536,7 @@
     {
         "id":119,
         "name":"谢旌",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1549,7 +1549,7 @@
     {
         "id":120,
         "name":"谭雄",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1562,7 +1562,7 @@
     {
         "id":121,
         "name":"丁封",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":13,
         "attackPlus":5,
@@ -1575,7 +1575,7 @@
     {
         "id":122,
         "name":"阿会喃",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1588,7 +1588,7 @@
     {
         "id":123,
         "name":"董荼那",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1601,7 +1601,7 @@
     {
         "id":124,
         "name":"金环三结",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1614,7 +1614,7 @@
     {
         "id":125,
         "name":"忙牙长",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1627,7 +1627,7 @@
     {
         "id":126,
         "name":"带来洞主",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1640,7 +1640,7 @@
     {
         "id":127,
         "name":"孟优",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1653,7 +1653,7 @@
     {
         "id":128,
         "name":"韩德",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":8,
@@ -1666,7 +1666,7 @@
     {
         "id":129,
         "name":"夏侯楙",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -1679,7 +1679,7 @@
     {
         "id":130,
         "name":"孙礼",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1692,7 +1692,7 @@
     {
         "id":131,
         "name":"许仪",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1705,7 +1705,7 @@
     {
         "id":132,
         "name":"蒋舒",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1718,7 +1718,7 @@
     {
         "id":133,
         "name":"张尊",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1731,7 +1731,7 @@
     {
         "id":134,
         "name":"赵广",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1744,7 +1744,7 @@
     {
         "id":135,
         "name":"吾延",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1757,7 +1757,7 @@
     {
         "id":136,
         "name":"留平",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1770,7 +1770,7 @@
     {
         "id":137,
         "name":"诸葛靓",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":12,
         "attackPlus":5,
@@ -1783,7 +1783,7 @@
     {
         "id":138,
         "name":"濮阳兴",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":9,
         "attackPlus":7,
@@ -1796,7 +1796,7 @@
     {
         "id":139,
         "name":"孙浩",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":12,
         "attackPlus":8,
@@ -1809,7 +1809,7 @@
     {
         "id":140,
         "name":"李肃",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1822,7 +1822,7 @@
     {
         "id":141,
         "name":"郭图",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":8,
@@ -1835,7 +1835,7 @@
     {
         "id":142,
         "name":"许攸",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1848,7 +1848,7 @@
     {
         "id":143,
         "name":"陈琳",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -1861,7 +1861,7 @@
     {
         "id":144,
         "name":"巩志",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":11,
         "attackPlus":4,
@@ -1874,7 +1874,7 @@
     {
         "id":145,
         "name":"赵范",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":9,
         "attackPlus":5,
@@ -1887,7 +1887,7 @@
     {
         "id":146,
         "name":"刘度",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":11,
         "attackPlus":5,
@@ -1900,7 +1900,7 @@
     {
         "id":147,
         "name":"吴懿",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":8,
         "attackPlus":8,
@@ -1913,7 +1913,7 @@
     {
         "id":148,
         "name":"朵思大王",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":7,
@@ -1926,7 +1926,7 @@
     {
         "id":149,
         "name":"木鹿大王",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1939,7 +1939,7 @@
     {
         "id":150,
         "name":"程武",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":8,
@@ -1952,7 +1952,7 @@
     {
         "id":151,
         "name":"王朗",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":5,
@@ -1965,7 +1965,7 @@
     {
         "id":152,
         "name":"谯周",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":10,
         "attackPlus":6,
@@ -1978,7 +1978,7 @@
     {
         "id":153,
         "name":"张布",
-        "skillId":1,
+        "skillId":0,
         "rarity":"c",
         "attack":9,
         "attackPlus":4,
