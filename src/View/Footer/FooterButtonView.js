@@ -33,7 +33,7 @@ var FooterButtonView = (function() {
         type: 'Label',
         parent: 'buttonLayer',
         properties: {
-          text: name,
+          text: Localization.get(name),
           textAlign: 'center',
           size: 24,
           x: 50,
@@ -56,10 +56,12 @@ var FooterButtonView = (function() {
     if (_this.name === 'Group' || _this.name === 'Events') {
       return;
     }
+    SoundManager.playSE('se_click');
     Common.changeScene(_this.name + 'Controller');
   };
   FooterButtonView.prototype.on = function(value) {
     var _this = this;
+    _this.label.visible = value;
     _this.buttonLayer.scaleX = _this.buttonLayer.scaleY = value ? _this._onScale : _this._offScale;
     _this.bitmap.bitmapData = value ? FooterButtonView.onData : FooterButtonView.offData;
     _this.y = value ? -26 : 0;

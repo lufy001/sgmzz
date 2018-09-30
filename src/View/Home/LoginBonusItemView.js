@@ -12,7 +12,7 @@ var LoginBonusItemView = (function() {
         }
       },
       card: {
-        type: 'CardBackgroundView',
+        type: 'LBitmap',
         properties: {
           x: 15,
           y: 20,
@@ -63,7 +63,8 @@ var LoginBonusItemView = (function() {
         _this.load('shop_coin', 'icons/shop_coin');
         break;
       case 'card':
-        _this.card.updateView(_this.model.rarity);
+        //_this.card.updateView(_this.model.rarity);
+        _this.card.bitmapData = new LBitmapData(dataList['xxx_' + _this.model.rarity]);
         _this.card.visible = true;
         break;
       case 'gem':

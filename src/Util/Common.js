@@ -74,6 +74,9 @@ var Common = (function() {
     }
     buttonLayer.cacheAsBitmap(true);
     var button = new LButton(buttonLayer);
+    button.addEventListener(LMouseEvent.MOUSE_UP, function(event) {
+      SoundManager.playSE('se_click');
+    });
     button.bitmap = btnBitmap;
     return button;
   };

@@ -67,6 +67,7 @@ var HomeController = (function() {
   }
   HomeController.prototype.onLoad = function(request) {
     var _this = this;
+    SoundManager.playBGM('bg_home');
     if (request.multiCheck) {
       _this._checkContinueBattle();
     } else {

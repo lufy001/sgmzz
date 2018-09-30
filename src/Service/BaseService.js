@@ -39,9 +39,7 @@ var BaseService = (function() {
     var messagekey = SERVICE_MESSAGES[event.msgCode] || SERVICE_DEFAULT_MESSAGE;
     params.message = messagekey;
     if (event.quit) {
-      params.okEvent = function() {
-        //game restart 
-      };
+      params.okEvent = gameRestart;
     }
     var dialog = new AlertDialogController(params);
     dialogLayer.addChild(dialog);

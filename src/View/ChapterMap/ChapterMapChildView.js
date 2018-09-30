@@ -41,6 +41,7 @@ var ChapterMapChildView = (function() {
   };
   ChapterMapChildView.prototype.onClick = function(event) {
     var _this = event.target;
+    SoundManager.playSE('se_click');
     var listView = event.currentTarget;
     var e = new LEvent('stageShow');
     e.model = _this.model;

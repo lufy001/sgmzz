@@ -129,6 +129,7 @@ var ShopItemView = (function() {
     if (Math.abs(_this._x - event.offsetX) > 5 || Math.abs(_this._y - event.offsetY) > 5) {
       return;
     }
+    SoundManager.playSE('se_click');
     if (_this.model.price > 0) {
       _this._purchaseAsync();
     } else if (_this.model.box_id > 0) {

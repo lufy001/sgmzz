@@ -54,6 +54,7 @@ var MasterClient = (function() {
     params.belong = CharacterBelong.OPPONENT;
     e.params = params;
     CommonEvent.dispatchEvent(e);
+    console.error(CommonEvent._eventList);
   };
   MasterClient.prototype._onAttack = function(params) {
     var e = new LEvent(CommonEvent.ARROW_ATTACK);

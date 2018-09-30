@@ -76,6 +76,9 @@ var AutoDisplayObject = (function() {
   AutoDisplayObject.prototype._initPropertyLButton = function(child) {
     var bitmap = new LBitmap(new LBitmapData(dataList[child.state]));
     var obj = new LButton(bitmap);
+    obj.addEventListener(LMouseEvent.MOUSE_UP, function(event) {
+      SoundManager.playSE('se_click');
+    });
     if (child.onClick) {
       obj.addEventListener(LMouseEvent.MOUSE_UP, this[child.onClick], this);
     }

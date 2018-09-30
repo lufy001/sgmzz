@@ -64,6 +64,10 @@ var loadData = [
   { name: 'card_r', path: 'resources/images/ui/card_r.png' },
   { name: 'card_sr', path: 'resources/images/ui/card_sr.png' },
   { name: 'card_ssr', path: 'resources/images/ui/card_ssr.png' },
+  { name: 'xxx_c', path: 'resources/images/ui/xxx_c.png' },
+  { name: 'xxx_r', path: 'resources/images/ui/xxx_r.png' },
+  { name: 'xxx_sr', path: 'resources/images/ui/xxx_sr.png' },
+  { name: 'xxx_ssr', path: 'resources/images/ui/xxx_ssr.png' },
   { name: 'team', path: 'resources/images/ui/team.png' },
   { name: 'skill_bar_bg', path: 'resources/images/ui/skill_bar_bg.png' },
   { name: 'skill_bar_front', path: 'resources/images/ui/skill_bar_front.png' },
@@ -94,6 +98,9 @@ var loadData = [
   { name: 'icon_exclamation', path: 'resources/images/icons/exclamation.png' },
   { name: 'icon_search', path: 'resources/images/icons/search.png' },
   { name: 'icon_video', path: 'resources/images/icons/video.png' },
+  { name: 'icon_bgm', path: 'resources/images/icons/bgm.png' },
+  { name: 'icon_sfx', path: 'resources/images/icons/sfx.png' },
+  { name: 'icon_language', path: 'resources/images/icons/language.png' },
 
   { name: 'buffer_phy_def_down', path: 'resources/images/status/buffer_phy_def_down.png' },
   { name: 'buffer_phy_def_up', path: 'resources/images/status/buffer_phy_def_up.png' },
@@ -139,6 +146,7 @@ var loadData = [
   { type: 'js', path: 'src/Manager/UserLevelManager.js' },
   { type: 'js', path: 'src/Manager/BoxManager.js' },
   { type: 'js', path: 'src/Manager/ChapterManager.js' },
+  { type: 'js', path: 'src/Manager/SoundManager.js' },
 
   { type: 'js', path: 'src/Service/RankingService.js' },
   { type: 'js', path: 'src/Service/GameService.js' },
@@ -160,6 +168,7 @@ var loadData = [
   { type: 'js', path: 'src/Controller/Dialog/ShopBoxDetailDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ShopItemDetailDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/SettingDialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/LanguageDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/ContentsGetDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/NewsDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/RankingDialogController.js' },
@@ -200,6 +209,7 @@ var loadData = [
   { type: 'js', path: 'src/View/Home/HomePlayerView.js' },
   { type: 'js', path: 'src/View/Home/NewsChildView.js' },
   { type: 'js', path: 'src/View/Home/RankingChildView.js' },
+  { type: 'js', path: 'src/View/Home/LanguageChildView.js' },
   { type: 'js', path: 'src/View/Home/LoginBonusItemView.js' },
   { type: 'js', path: 'src/View/Footer/FooterView.js' },
   { type: 'js', path: 'src/View/Footer/FooterButtonView.js' },
@@ -211,6 +221,7 @@ var loadData = [
   { type: 'js', path: 'src/View/Cards/CardStatusView.js' },
   { type: 'js', path: 'src/Util/PseudoRandom.js' },
   { type: 'js', path: 'src/Util/CommonEvent.js' },
+  { type: 'js', path: 'src/Util/Localization.js' },
   
   { type: 'js', path: 'src/View/ChapterMap/ChapterMapChildView.js' },
   { type: 'js', path: 'src/View/ChapterMap/StageChildView.js' },
@@ -238,7 +249,9 @@ var loadData = [
   { type: 'js', path: 'src/View/Game/BattleCountDownView.js' },
 
   { type: 'js', path: 'src/View/Shop/ShopTitleView.js' },
-  { type: 'js', path: 'src/View/Shop/ShopItemView.js' }
+  { type: 'js', path: 'src/View/Shop/ShopItemView.js' },
+
+  //{ type: 'sound', name: 'se_click', path: 'resources/sound/se_click.wav' }
 ];
 LGlobal.aspectRatio = PORTRAIT;
 var width = 480;
@@ -297,15 +310,28 @@ function dataLoadComplete(data) {
   UserLevelManager.setMasters(master.masterUserLevel());
   ChapterManager.setMasters(master.masterChapters());
   dataList = data;
-  onGameStart();
-}
 
-function onGameStart() {
   if (loadingLayer) {
     loadingLayer.remove();
     loadingLayer = null;
   }
   addCommonBackground();
+
+  gameRestart();
+  //Localization.load().then(onGameStart);
+}
+
+function gameRestart() {
+  if (rootLayer) {
+    dialogLayer.removeAllChild();
+    rootLayer.remove();
+    footerView.remove();
+    headerView.remove();
+  }
+  Localization.load().then(onGameStart);
+}
+
+function onGameStart() {
   rootLayer = new LSprite();
   addChild(rootLayer);
   
