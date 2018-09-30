@@ -71,7 +71,7 @@ var HomePlayerView = (function() {
   };
   HomePlayerView.prototype._onClickSetting = function(event) {
     var _this = this;
-    var dialog = new SettingDialogController({ width: 400, height: 180, hideClose: true });
+    var dialog = new SettingDialogController({ width: 400, height: 320, hideClose: true });
     dialogLayer.addChild(dialog);
   };
   return HomePlayerView;

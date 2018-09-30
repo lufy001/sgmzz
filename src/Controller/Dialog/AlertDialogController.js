@@ -27,6 +27,7 @@ var AlertDialogController = (function() {
   AlertDialogController.prototype.onLoad = function(request) {
     var _this = this;
     if (_this.message.getWidth() > request.width - 40) {
+      _this.message.width = request.width - 40;
       _this.message.x = 20;
       _this.message.setWordWrap(true, 30);
     } else {

@@ -29,7 +29,7 @@ var StageChildView = (function() {
         }
       },
       card: {
-        type: 'CardBackgroundView',
+        type: 'LBitmap',
         properties: {
           scaleX: 0.6,
           scaleY: 0.6,
@@ -78,11 +78,13 @@ var StageChildView = (function() {
       return child === 'r';
     });
     rarity = rarity || 'c';
-    _this.card.updateView(rarity);
+    //_this.card.updateView(rarity);
+    _this.card.bitmapData = new LBitmapData(dataList['xxx_' + rarity]);
     _this.levelLabel.text = 'Lv' + maxLevel;
   };
   StageChildView.prototype.onClick = function(event) {
     var _this = event.target;
+    SoundManager.playSE('se_click');
     var listView = event.currentTarget;
     var e = new LEvent('stageClick');
     e.model = _this.model;

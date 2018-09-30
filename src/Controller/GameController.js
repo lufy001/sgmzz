@@ -21,7 +21,7 @@ var GameController = (function() {
     CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_TIE, _this._onResultTie, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
-    
+    SoundManager.playBGM('bg_battle');
     if (request.battleType === 'single') {
       GameManager.isMulti(false);
       _this._onLoadSingle(request);

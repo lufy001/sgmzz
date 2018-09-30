@@ -1,13 +1,13 @@
 var CheckboxView = (function() {
-  function CheckboxView() {
+  function CheckboxView(params) {
     var _this = this;
     var properties = {
-      title: {
-        type: 'Label',
+      icon: {
+        type: 'LBitmap',
+        data: params.icon,
         properties: {
-          text: '',
-          size: 20,
-          textAlign: 'right'
+          x: params.iconX,
+          y: params.iconY
         }
       },
       onButton: {
@@ -39,6 +39,8 @@ var CheckboxView = (function() {
   CheckboxView.prototype._onClick = function(event) {
     var _this = this;
     _this.updateView(!_this.value);
+    console.log('_this.value', _this.value);
+    _this.dispatchEvent('check:change');
   };
   CheckboxView.prototype.updateView = function(value) {
     var _this = this;
