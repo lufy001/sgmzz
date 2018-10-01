@@ -6,7 +6,7 @@ var Localization = (function() {
   };
   Localization.prototype.load = function() {
     var _this = this;
-    var settingData = LPlugin.GetData('setting_data', {});
+    var settingData = LPlugin.GetSetting();
     var language = settingData.language;
     var languageList = [{ name: 'language', type: 'text', path: 'resources/languages/' + language + '.json' }];
     return new Promise(function(resolve, reject) {

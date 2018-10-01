@@ -6,5 +6,16 @@
     "Events":"イベント",
     "en_US":"English",
     "ja_JP":"日本語",
-    "zh_CN":"简体中文"
+    "zh_CN":"简体中文",
+    "Story":"シナリオ",
+    "Battle":"対戦",
+    "Setting":"設定",
+    "Language":"言語",
+    "Chest Slot":"スロット",
+    "Language_change":"言語を変更しますか?",
+    "yes":"はい",
+    "no":"いいえ",
+    "Ranking":"ランキング",
+    "InBox":"受信ボックス",
+    "ok":"確定"
 }

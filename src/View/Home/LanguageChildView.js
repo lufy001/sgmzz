@@ -27,8 +27,8 @@ var LanguageChildView = (function() {
   }
   LanguageChildView.prototype.init = function() {
     var _this = this;
-    var settingData = LPlugin.GetData('setting_data', {});
-    var currentLanguage = settingData.language || 'en_US';
+    var settingData = LPlugin.GetSetting();
+    var currentLanguage = settingData.language;
     _this.inBackground.visible = currentLanguage === _this.model.value;
     _this.outBackground.visible = !_this.inBackground.visible;
   };
@@ -36,11 +36,11 @@ var LanguageChildView = (function() {
     var _this = this;
 
     var params = { width: 360, height: 200, hideClose: true };
-    params.message = 'Are you sure you want to change the language settings?';
+    params.message = Localization.get('Language_change');
     params.okEvent = function() {
-      var settingData = LPlugin.GetData('setting_data', {});
+      var settingData = LPlugin.GetSetting();
       settingData.language = _this.model.value;
-      LPlugin.SetData('setting_data', settingData);
+      LPlugin.SetSetting(settingData);
       gameRestart();
     };
     var dialog = new ConfirmDialogController(params);

@@ -28,7 +28,7 @@ var HomeBoxsDialogController = (function() {
     var _this = this;
     var enemyLayer = new LPanel(new LBitmapData(dataList['frame05']), 100, 100);
     enemyLayer.x = _this._boxLayer.numChildren * 115;
-    var label = Common.getStrokeLabel({ text: 'Chest Slot', size: 16 });
+    var label = Common.getStrokeLabel({ text: Localization.get('Chest Slot'), size: 16 });
     label.x = (100 - label.getWidth()) * 0.5;
     label.y = 20;
     enemyLayer.addChild(label);

@@ -7,6 +7,7 @@ var MULTI_BOX_ID = 5;
 var BATTLE_TOTAL_TIME = 120000;
 var BATTLE_DELAY_TIME = 8000;
 var BATTLE_READY_TIME = 3000;
+var DEFAULT_SETTING = {language:'en_US', music_disable:false, sfx_disable:false};
 var SERVICE_MESSAGES = {
   '300': 'INVALID_PARAM',
   '10002': 'INVALID_PARAM',
