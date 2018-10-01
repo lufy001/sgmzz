@@ -15,7 +15,7 @@ var ConfirmDialogController = (function() {
         type: 'CommonButton',
         parent: 'layer',
         onClick: '_yesClick',
-        label: 'yes',
+        label: Localization.get('yes'),
         properties: {
           x: request.width * 0.5 - 110,
           y: request.height - 60
@@ -25,7 +25,7 @@ var ConfirmDialogController = (function() {
         type: 'CommonButton',
         parent: 'layer',
         onClick: '_noClick',
-        label: 'no',
+        label: Localization.get('no'),
         properties: {
           x: request.width * 0.5 + 10,
           y: request.height - 60

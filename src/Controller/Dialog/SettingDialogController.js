@@ -1,7 +1,7 @@
 var SettingDialogController = (function() {
   function SettingDialogController(request) {
     var _this = this;
-    var settingData = LPlugin.GetData('setting_data', {});
+    var settingData = LPlugin.GetSetting();
     var properties = {
       title: {
         type: 'Label',
@@ -9,7 +9,7 @@ var SettingDialogController = (function() {
         properties: {
           x: 200,
           y: 10,
-          text: 'Setting',
+          text: Localization.get('Setting'),
           size: 38,
           textAlign: 'center'
         }
@@ -59,15 +59,15 @@ var SettingDialogController = (function() {
     var _this = this;
     _this.musicView.addEventListener('check:change', _this._onMusicChange, _this);
     _this.sfxView.addEventListener(LMouseEvent.MOUSE_UP, _this._onSfxChange, _this);
-    var settingData = LPlugin.GetData('setting_data', {});
+    var settingData = LPlugin.GetSetting();
     _this.musicView.updateView(!settingData.music_disable);
     _this.sfxView.updateView(!settingData.sfx_disable);
   };
   SettingDialogController.prototype._onMusicChange = function(event) {
     var _this = this;
-    var settingData = LPlugin.GetData('setting_data', {});
+    var settingData = LPlugin.GetSetting();
     settingData.music_disable = !_this.musicView.value;
-    LPlugin.SetData('setting_data', settingData);
+    LPlugin.SetSetting(settingData);
     if (SoundManager.currentBGM) {
       SoundManager.currentBGM.close();
     }
@@ -82,9 +82,9 @@ var SettingDialogController = (function() {
   };
   SettingDialogController.prototype._onSfxChange = function(event) {
     var _this = this;
-    var settingData = LPlugin.GetData('setting_data', {});
+    var settingData = LPlugin.GetSetting();
     settingData.sfx_disable = !_this.sfxView.value;
-    LPlugin.SetData('setting_data', settingData);
+    LPlugin.SetSetting(settingData);
   };
   SettingDialogController.prototype._onClickLanguage = function(event) {
     var _this = this;

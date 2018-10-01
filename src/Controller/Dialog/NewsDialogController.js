@@ -6,7 +6,7 @@ var NewsDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          text: 'InBox',
+          text: Localization.get('InBox'),
           size: 26,
           textAlign: 'center',
           x: request.width * 0.5,

@@ -6,7 +6,7 @@ var RankingDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          text: 'Ranking',
+          text: Localization.get('Ranking'),
           size: 26,
           textAlign: 'center',
           x: request.width * 0.5,

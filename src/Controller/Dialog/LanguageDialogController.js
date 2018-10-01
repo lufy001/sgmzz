@@ -8,7 +8,7 @@ var LanguageDialogController = (function() {
         properties: {
           x: 180,
           y: 10,
-          text: 'Language',
+          text: Localization.get('Language'),
           size: 38,
           textAlign: 'center'
         }

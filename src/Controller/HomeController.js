@@ -36,7 +36,7 @@ var HomeController = (function() {
       },
       btnSingleAttack: {
         type: 'CommonButton',
-        label: 'Story',
+        label: Localization.get('Story'),
         params: { img: 'btn_single_attack', size: 28, offsetX: 10, offsetY: -5 },
         onClick: '_gotoChapterMap',
         properties: {
@@ -46,7 +46,7 @@ var HomeController = (function() {
       },
       btnMultiAttack: {
         type: 'CommonButton',
-        label: 'Battle',
+        label: Localization.get('Battle'),
         params: { img: 'btn_multi_attack', size: 28, offsetX: 10, offsetY: -5 },
         onClick: '_gotoGame',
         properties: {
@@ -68,7 +68,7 @@ var HomeController = (function() {
   HomeController.prototype.onLoad = function(request) {
     var _this = this;
     SoundManager.playBGM('bg_home');
-    if (request.multiCheck) {
+    if (request.multiCheck && !window.setting.isLocal) {
       _this._checkContinueBattle();
     } else {
       _this._checkLoginBonus();

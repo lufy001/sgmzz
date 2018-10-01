@@ -40,3 +40,9 @@ LPlugin.DeleteData = function(key) {
     window.localStorage.setItem(key, undefined);
   }
 };
+LPlugin.GetSetting = function() {
+  return LPlugin.GetData('setting_data', DEFAULT_SETTING);
+};
+LPlugin.SetSetting = function(data) {
+  return LPlugin.SetData('setting_data', data);
+};
