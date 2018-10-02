@@ -3,7 +3,6 @@ var BoxDetailDialogController = (function() {
     var _this = this;
     _this._request = request;
     var coin = request.model.coin();
-    //var gem = request.model.gem();
     var properties = {
       boxView: {
         type: 'BoxIconView',
@@ -66,25 +65,6 @@ var BoxDetailDialogController = (function() {
           size: 24
         }
       },
-      /*gemIcon: {
-        type: 'LBitmap',
-        parent: 'layer',
-        data: 'icon_gem',
-        properties: {
-          x: 210,
-          y: 105
-        }
-      },
-      gemLabel: {
-        type: 'Label',
-        parent: 'layer',
-        properties: {
-          x: 270,
-          y: 115,
-          text: gem[0] + '~' + gem[1],
-          size: 24
-        }
-      },*/
       cardLayer: {
         type: 'LSprite',
         parent: 'layer',
@@ -136,7 +116,7 @@ var BoxDetailDialogController = (function() {
   };
   BoxDetailDialogController.prototype._videoClick = function(event) {
     var _this = this;
-    LPlatform.showVideoAsync('TEST_AD')
+    LPlatform.showVideoAsync(FB_AD_ID)
       .then(function() {
         UserService.instance().adUnlockBox(_this.model.id())
           .then(function(response) {
@@ -153,9 +133,10 @@ var BoxDetailDialogController = (function() {
   BoxDetailDialogController.prototype._reOpen = function(event) {
     var _this = this;
     _this.remove();
-    _this._request.model = PlayerManager.playerModel.boxs().find(function(box) {
-      return box.id() === _this.model.id();
-    });
+    _this._request.model = PlayerManager.playerModel.boxs()
+      .find(function(box) {
+        return box.id() === _this.model.id();
+      });
     var dialog = new BoxDetailDialogController(_this._request);
     dialogLayer.addChild(dialog);
 
@@ -179,7 +160,7 @@ var BoxDetailDialogController = (function() {
     params.okEvent = function() {
       _this._open();
     };
-    params.message = 'open this box?';
+    params.message = Localization.get('open_box_confirm');
       
     var dialog = new ConfirmGoldDialogController(params);
     dialogLayer.addChild(dialog);

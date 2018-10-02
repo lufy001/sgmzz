@@ -46,7 +46,7 @@ var NewsDialogController = (function() {
       buttonReturn: {
         type: 'CommonButton',
         parent: 'messageLayer',
-        label: 'Return',
+        label: Localization.get('Return'),
         onClick: '_showListView',
         properties: {
           x: 130,

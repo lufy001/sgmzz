@@ -16,7 +16,7 @@ var LanguageDialogController = (function() {
       listView: {
         type: 'LListView',
         width: 160,
-        height: 320,
+        height: 300,
         parent: 'layer',
         properties: {
           maxPerLine: 1,
@@ -32,14 +32,9 @@ var LanguageDialogController = (function() {
   }
   LanguageDialogController.prototype.onLoad = function(request) {
     var _this = this;
-    var languages = [
-      { title: 'English', value: 'en_US' },
-      { title: '简体中文', value: 'zh_CN' },
-      { title: '日本語', value: 'ja_JP' }
-    ];
     var items = [];
-    for (var i = 0; i < languages.length; i++) {
-      var child = new LanguageChildView(languages[i]);
+    for (var i = 0; i < LANGUAGES.length; i++) {
+      var child = new LanguageChildView(LANGUAGES[i]);
       items.push(child);
     }
     _this.listView.updateList(items);

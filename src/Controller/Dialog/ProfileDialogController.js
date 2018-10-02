@@ -6,7 +6,7 @@ var ProfileDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          text: 'Player Profile',
+          text: Localization.get('Player Profile'),
           size: 32,
           textAlign: 'center',
           x: request.width * 0.5,
@@ -26,7 +26,7 @@ var ProfileDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          text: '11',
+          text: '-',
           size: 20,
           textAlign: 'center',
           x: 25,
@@ -65,7 +65,7 @@ var ProfileDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          text: 'cup',
+          text: Localization.get('cup'),
           size: 18,
           x: 90,
           y: 124
@@ -102,7 +102,7 @@ var ProfileDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          text: 'best cup',
+          text: Localization.get('best cup'),
           size: 18,
           x: 290,
           y: 124
@@ -152,21 +152,6 @@ var ProfileDialogController = (function() {
         _this.maxCupLabel.text = response.maxCup();
       });
   };
-    
-  ProfileDialogController.prototype._showProfile = function(event) {
-    var _this = this;
-        
-  };
-  ProfileDialogController.prototype._showListView = function(players) {
-    var _this = this;
-    var items = [];
-    var contentX = 0;
-    var contentY = 20;
-    for (var index = 0; index < players.length; index++) {
-      var child = new RankingChildView(players[index], index % 2 === 0);
-      items.push(child);
-    }
-    _this.listView.updateList(items);
-  };
+
   return ProfileDialogController;
 })();

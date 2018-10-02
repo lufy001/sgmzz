@@ -7,7 +7,7 @@ var BoxMasterModel = (function() {
     return this.data.id;
   };
   BoxMasterModel.prototype.name = function() {
-    return this.data.name;
+    return Localization.get('box_title_' + this.data.id);
   };
   BoxMasterModel.prototype.img = function() {
     return this.data.img;
