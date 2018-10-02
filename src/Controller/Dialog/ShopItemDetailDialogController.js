@@ -9,7 +9,7 @@ var ShopItemDetailDialogController = (function() {
         properties: {
           x: request.width * 0.5,
           y: 30,
-          text: 'Get ' + request.model.name,
+          text: String.format(Localization.get('get_shop_item_title'), request.model.name),
           size: 30,
           textAlign: 'center'
         }

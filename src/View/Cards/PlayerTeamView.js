@@ -15,7 +15,7 @@ var PlayerTeamView = (function() {
       title: {
         type: 'Label',
         properties: {
-          text: 'Battle Deck',
+          text: Localization.get('Battle Deck'),
           textAlign: 'center',
           size: 24,
           x: 230,

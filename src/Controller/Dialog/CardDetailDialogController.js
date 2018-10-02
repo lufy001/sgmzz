@@ -53,7 +53,7 @@ var CardDetailDialogController = (function() {
         properties: {
           x: 260,
           y: 80,
-          text: 'rarity : ' + request.model.rarity(),
+          text: Localization.get('rarity') + ' : ' + request.model.rarity(),
           size: 24,
           textAlign: 'center'
         }
@@ -92,7 +92,10 @@ var CardDetailDialogController = (function() {
       statusSpeed: {
         type: 'CardStatusView',
         parent: 'layer',
-        params: { label: 'speed', value: model.attackSpeed(), background: 'frame05', icon: 'icon_speed' },
+        params: { 
+          label: 'speed', 
+          value: Localization.get(model.attackSpeed()), 
+          background: 'frame05', icon: 'icon_speed' },
         properties: {
           x: 30,
           y: 320

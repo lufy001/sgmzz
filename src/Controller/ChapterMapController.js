@@ -20,7 +20,7 @@ var ChapterMapController = (function() {
         parent: 'titleLayer',
         type: 'Label',
         properties: {
-          text: 'story challenge',
+          text: Localization.get('story challenge'),
           textAlign: 'center',
           size: 40,
           x: dataList['chapter-title'].width * 0.5,
@@ -146,7 +146,7 @@ var ChapterMapController = (function() {
     LTweenLite.to(_this.stageListView, 0.3, { x: LGlobal.width + 40, onComplete: function() {
       _this.stageListView.visible = false;
       _this.chapterListView.visible = true;
-      _this.titleLabel.text = 'story challenge';
+      _this.titleLabel.text = Localization.get('story challenge');
     } }).to(_this.chapterListView, 0.3, { x: 40, onComplete: function() {} });
   };
   ChapterMapController.prototype.die = function() {

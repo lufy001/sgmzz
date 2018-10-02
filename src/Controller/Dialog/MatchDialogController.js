@@ -8,7 +8,7 @@ var MatchDialogController = (function() {
         properties: {
           x: 200,
           y: 10,
-          text: 'Matchmaking',
+          text: Localization.get('Matchmaking'),
           size: 30,
           textAlign: 'center'
         }
@@ -24,7 +24,7 @@ var MatchDialogController = (function() {
       },
       cancelButton: {
         type: 'CommonButton',
-        label: 'Cancel',
+        label: Localization.get('Cancel'),
         parent: 'layer',
         onClick: '_onCancel',
         properties: {
@@ -43,6 +43,7 @@ var MatchDialogController = (function() {
   };
   MatchDialogController.prototype.onLoad = function(request) {
     var _this = this;
+    _this.title.text = Localization.get('Matchmaking');
     _this._tween = LTweenLite.to(_this.icon, 2, { loop: true, 
       coordinate: [ { x: 180, y: 50 }, { x: 180, y: 70 }, { x: 150, y: 70 }, { x: 150, y: 50 }] });
     _this._canceled = false;
@@ -99,7 +100,7 @@ var MatchDialogController = (function() {
     var _this = this;
     var player = MasterClient.player();
     var data = {};
-    _this.title.text = 'Connecting room';
+    _this.title.text = Localization.get('Connecting room');
     _this._matchId = response.matchId;
     MasterClient.addEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     var roomName = 'BattleRoom_' + response.matchId;

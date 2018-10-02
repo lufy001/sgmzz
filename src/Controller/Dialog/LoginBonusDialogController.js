@@ -6,7 +6,7 @@ var LoginBonusDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          text: 'Login Bonus',
+          text: Localization.get('Login Bonus'),
           size: 26,
           textAlign: 'center',
           x: request.width * 0.5,
@@ -24,7 +24,7 @@ var LoginBonusDialogController = (function() {
       getButton: {
         type: 'CommonButton',
         params: { img: 'btn03' },
-        label: 'GET',
+        label: Localization.get('GET'),
         parent: 'layer',
         onClick: '_getBonus',
         properties: {

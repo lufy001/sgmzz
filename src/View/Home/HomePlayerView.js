@@ -10,7 +10,6 @@ var HomePlayerView = (function() {
       },
       labelName: {
         type: 'Label',
-        //parent: 'playerLayer',
         properties: {
           text: PlayerManager.playerModel.name(),
           size: 24,
@@ -21,7 +20,6 @@ var HomePlayerView = (function() {
       amountBackground: {
         type: 'LBitmap',
         data: 'amount_bg',
-        //parent: 'playerLayer',
         properties: {
           x: 225,
           y: 17
@@ -30,7 +28,6 @@ var HomePlayerView = (function() {
       icon: {
         type: 'LBitmap',
         data: 'icon_cup',
-        //parent: 'playerLayer',
         properties: {
           scaleX: 0.6,
           scaleY: 0.6,
@@ -40,7 +37,6 @@ var HomePlayerView = (function() {
       },
       cupLabel: {
         type: 'Label',
-        //parent: 'playerLayer',
         properties: {
           text: PlayerManager.playerModel.cup(),
           size: 20,

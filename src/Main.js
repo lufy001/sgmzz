@@ -328,6 +328,7 @@ function gameRestart() {
     footerView.remove();
     headerView.remove();
   }
+  CommonEvent.removeAllEventListener();
   Localization.load().then(onGameStart);
 }
 

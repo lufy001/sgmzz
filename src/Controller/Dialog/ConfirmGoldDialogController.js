@@ -35,7 +35,7 @@ var ConfirmGoldDialogController = (function() {
       buttonOk: {
         type: 'CommonButton',
         parent: 'layer',
-        label: 'ok',
+        label: Localization.get('ok'),
         properties: {
           x: request.width * 0.5 - 50,
           y: request.height - 60

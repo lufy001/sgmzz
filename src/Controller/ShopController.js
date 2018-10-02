@@ -12,7 +12,7 @@ var ShopController = (function() {
       boxShopTitle: {
         parent: 'boxLayer',
         type: 'ShopTitleView',
-        params: 'Chests'
+        params: Localization.get('Chests')
       },
       coinLayer: {
         parent: 'layer',
@@ -21,7 +21,7 @@ var ShopController = (function() {
       coinShopTitle: {
         parent: 'coinLayer',
         type: 'ShopTitleView',
-        params: 'Coins'
+        params: Localization.get('Coins')
       },
       gemLayer: {
         parent: 'layer',
@@ -30,7 +30,7 @@ var ShopController = (function() {
       gemShopTitle: {
         parent: 'gemLayer',
         type: 'ShopTitleView',
-        params: 'Gems'
+        params: Localization.get('Gems')
       }
     };
     LExtends(_this, BaseController, [request, properties]);
