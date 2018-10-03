@@ -7,7 +7,7 @@ var CharacterMasterModel = (function() {
     return this.data.id;
   };
   CharacterMasterModel.prototype.name = function() {
-    return this.data.name;
+    return Localization.get("character_name_" + this.data.id);
   };
   CharacterMasterModel.prototype.introduction = function() {
     return this.data.introduction || ' ';
