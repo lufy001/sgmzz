@@ -7,7 +7,7 @@ var SkillMasterModel = (function() {
     return this.data.id;
   };
   SkillMasterModel.prototype.name = function() {
-    return this.data.name;
+    return Localization.get('skill_title_'+this.data.id);
   };
   SkillMasterModel.prototype.icon = function() {
     return this.data.icon;
@@ -28,7 +28,7 @@ var SkillMasterModel = (function() {
     return this.data.special;
   };
   SkillMasterModel.prototype.introduction = function() {
-    return this.data.introduction || ' ';
+    return Localization.get('skill_intr_'+this.data.id);
   };
     
   return SkillMasterModel;
