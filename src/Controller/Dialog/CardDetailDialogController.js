@@ -101,6 +101,18 @@ var CardDetailDialogController = (function() {
           y: 320
         }
       },
+      statusAttackType: {
+        type: 'CardStatusView',
+        parent: 'layer',
+        params: { 
+          label: 'attackType', 
+          value: Localization.get(model.attackType()), 
+          background: 'frame05', icon: 'icon_speed' },
+        properties: {
+          x: 230,
+          y: 320
+        }
+      },
       skillIcon: {
         type: 'SkillIconView',
         parent: 'layer',
