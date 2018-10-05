@@ -175,6 +175,7 @@ var loadData = [
   { type: 'js', path: 'src/Controller/Dialog/ProfileDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/MatchDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/LoginBonusDialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/StageDetailDialogController.js' },
   { type: 'js', path: 'src/Model/Master/CharacterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/ChapterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/StageMasterModel.js' },

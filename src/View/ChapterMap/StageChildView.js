@@ -47,6 +47,14 @@ var StageChildView = (function() {
           y: 80
         }
       },
+      buttonDetail: {
+        type: 'CommonButton',
+        label: Localization.get('detail'),
+        properties: {
+          x: 290,
+          y: 70
+        }
+      },
       markIcon: {
         type: 'LBitmap',
         data: model.id() > stageId ? 'icon_exclamation' : 'icon_ok'
@@ -82,9 +90,22 @@ var StageChildView = (function() {
     _this.card.bitmapData = new LBitmapData(dataList['xxx_' + rarity]);
     _this.levelLabel.text = 'Lv' + maxLevel;
   };
+  StageChildView.prototype._showDetail = function() {
+    var _this = this;
+    var params = { width: 400, height: 500, model: _this.model, hideClose: true };
+    var dialog = new StageDetailDialogController(params);
+    dialogLayer.addChild(dialog);
+  };
   StageChildView.prototype.onClick = function(event) {
     var _this = event.target;
     SoundManager.playSE('se_click');
+    if(event.selfX > _this.buttonDetail.x && 
+      event.selfX <= _this.buttonDetail.x + _this.buttonDetail.getWidth() &&
+      event.selfY > _this.buttonDetail.y && 
+      event.selfY <= _this.buttonDetail.y + _this.buttonDetail.getHeight()){
+        _this._showDetail();
+        return;
+      }
     var listView = event.currentTarget;
     var e = new LEvent('stageClick');
     e.model = _this.model;
