@@ -31,10 +31,10 @@ var CardView = (function() {
         type: 'Label',
         properties: {
           text: '0',
-          size: 16,
+          size: 12,
           textAlign: 'center',
           x: 50,
-          y: 90
+          y: 92
         }
       }
     };
@@ -90,7 +90,7 @@ var CardView = (function() {
     } else {
       _this.levelLabel.visible = true;
     }
-    _this.levelLabel.text = 'level ' + _this.characterModel.level();
+    _this.levelLabel.text = Localization.get('level') + ' ' + _this.characterModel.level();
   };
   CardView.prototype._updateName = function() {
     var _this = this;
