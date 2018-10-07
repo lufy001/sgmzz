@@ -12,6 +12,12 @@ var StageMasterModel = (function() {
   StageMasterModel.prototype.map = function() {
     return this.data.map;
   };
+  StageMasterModel.prototype.boxIds = function() {
+    return this.data.boxIds;
+  };
+  StageMasterModel.prototype.boxLv = function() {
+    return this.data.boxlv;
+  };
   StageMasterModel.prototype.enemys = function() {
     var _this = this;
     if (!_this.data._enemys) {

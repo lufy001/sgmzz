@@ -2,6 +2,7 @@ var StageChildView = (function() {
   function StageChildView(model, chapterId, stageId) {
     var _this = this;
     LExtends(_this, LListChildView, []);
+    _this._isClear = model.id() <= stageId;
     var properties = {
       background: {
         type: 'LPanel',
@@ -57,7 +58,7 @@ var StageChildView = (function() {
       },
       markIcon: {
         type: 'LBitmap',
-        data: model.id() > stageId ? 'icon_exclamation' : 'icon_ok'
+        data: _this._isClear ? 'icon_ok' : 'icon_exclamation'
       }
     };
     LExtends(_this, BaseView, [properties]);
@@ -92,20 +93,20 @@ var StageChildView = (function() {
   };
   StageChildView.prototype._showDetail = function() {
     var _this = this;
-    var params = { width: 400, height: 500, model: _this.model, hideClose: true };
+    var params = { width: 340, height: 600, model: _this.model, isClear: _this._isClear };
     var dialog = new StageDetailDialogController(params);
     dialogLayer.addChild(dialog);
   };
   StageChildView.prototype.onClick = function(event) {
     var _this = event.target;
     SoundManager.playSE('se_click');
-    if(event.selfX > _this.buttonDetail.x && 
+    if (event.selfX > _this.buttonDetail.x && 
       event.selfX <= _this.buttonDetail.x + _this.buttonDetail.getWidth() &&
       event.selfY > _this.buttonDetail.y && 
-      event.selfY <= _this.buttonDetail.y + _this.buttonDetail.getHeight()){
-        _this._showDetail();
-        return;
-      }
+      event.selfY <= _this.buttonDetail.y + _this.buttonDetail.getHeight()) {
+      _this._showDetail();
+      return;
+    }
     var listView = event.currentTarget;
     var e = new LEvent('stageClick');
     e.model = _this.model;
