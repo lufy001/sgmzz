@@ -5,6 +5,16 @@ var BoxIconView = (function() {
       bitmap: {
         type: 'LBitmap',
         data: null
+      },
+      labelLevel: {
+        type: 'Label',
+        properties: {
+          x: 50,
+          y: 80,
+          text: '',
+          size: 20,
+          textAlign: 'center'
+        }
       }
     };
     LExtends(_this, BaseView, [properties]);
@@ -48,9 +58,11 @@ var BoxIconView = (function() {
   BoxIconView.prototype._showIcon = function(data) {
     var _this = this;
     _this.data = data;
+    _this.labelLevel.text = 'lv.' + _this.boxModel.level();
     var bitmapData = new LBitmapData(data['1-0']);
     _this.bitmap.bitmapData = bitmapData;
     _this.bitmap.scaleX = _this.bitmap.scaleY = 100 / bitmapData.getWidth();
+    _this.dispatchEvent(LEvent.COMPLETE);
   };
   return BoxIconView;
 })();

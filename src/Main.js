@@ -57,6 +57,7 @@ var loadData = [
   { name: 'frame06', path: 'resources/images/ui/frame06.png' },
   { name: 'frame07', path: 'resources/images/ui/frame07.png' },
   { name: 'frame08', path: 'resources/images/ui/frame08.png' },
+  { name: 'frame09', path: 'resources/images/ui/frame09.png' },
   { name: 'translucent', path: 'resources/images/ui/translucent.png' },
   { name: 'card_background', path: 'resources/images/ui/card_background.png' },
   { name: 'card_background_r', path: 'resources/images/ui/card_background_r.png' },
@@ -226,6 +227,8 @@ var loadData = [
   
   { type: 'js', path: 'src/View/ChapterMap/ChapterMapChildView.js' },
   { type: 'js', path: 'src/View/ChapterMap/StageChildView.js' },
+  { type: 'js', path: 'src/View/ChapterMap/StageCardChildView.js' },
+  { type: 'js', path: 'src/View/ChapterMap/StageRewardChildView.js' },
 
   { type: 'js', path: 'src/View/Game/BattleView.js' },
   { type: 'js', path: 'src/View/Game/BattleCharacterView.js' },

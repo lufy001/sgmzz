@@ -62,13 +62,13 @@ var CardDetailDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         wordWrap: true,
-        lineHeight: 22,
+        lineHeight: 20,
         properties: {
           x: 130,
           y: 130,
           width: 260,
           text: request.model.introduction(),
-          size: 24
+          size: 14
         }
       },
       statusHert: {

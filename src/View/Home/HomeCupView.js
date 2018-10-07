@@ -32,7 +32,7 @@ var HomeCupView = (function() {
       },
       boxIcon: {
         type: 'BoxIconView',
-        params: BoxManager.getMasterModel(MULTI_BOX_ID),
+        params: new BoxModel({ boxId: MULTI_BOX_ID, lv: PlayerManager.playerModel.level() }),
         properties: {
           scaleX: 0.6,
           scaleY: 0.6,
@@ -43,7 +43,13 @@ var HomeCupView = (function() {
       }
     };
     LExtends(_this, BaseView, [properties]);
+    _this._init();
+    _this.boxIcon.labelLevel.visible = false;
   }
+  HomeCupView.prototype._init = function() {
+    var _this = this;
+    _this.boxIcon.addEventListener(LMouseEvent.MOUSE_UP, _this._iconClick, _this);
+  };
   HomeCupView.prototype.updateView = function() {
     var _this = this;
     var value = PlayerManager.playerModel.winTimesMulti();
@@ -52,7 +58,6 @@ var HomeCupView = (function() {
     _this.cupGreyLayer.visible = value < WIN_TIMES_MULTI_MAX || PlayerManager.playerModel.winBoxOver();
     _this.cupLayer.visible = !_this.cupGreyLayer.visible;
     _this.amountProgress.updateView(params);
-    _this.boxIcon.addEventListener(LMouseEvent.MOUSE_UP, _this._iconClick, _this);
   };
   HomeCupView.prototype._iconClick = function(event) {
     var _this = this;

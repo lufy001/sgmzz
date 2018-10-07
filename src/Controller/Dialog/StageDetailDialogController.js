@@ -7,46 +7,78 @@ var StageDetailDialogController = (function() {
         type: 'Label',
         parent: 'layer',
         properties: {
-          x: 200,
-          y: 10,
-          text: Localization.get('reward'),
-          size: 38,
-          textAlign: 'center'
+          x: 20,
+          y: 20,
+          text: Localization.get('possible rewards'),
+          size: 25,
+          //textAlign: 'center'
         }
       },
       listViewReward: {
         type: 'LListView',
         parent: 'layer',
+        width: 360,
+        height: 100,
         properties: {
-          maxPerLine: 4,
-          cellWidth: 100,
-          cellHeight: 150,
-          arrangement: LListView.Direction.Horizontal,
-          x: 40,
-          y: 300
+          maxPerLine: 5,
+          cellWidth: 50,
+          cellHeight: 50,
+          arrangement: LListView.Direction.Horizontal, 
+          x: 20,
+          y: 60
         }
       },
-      title: {
+      enemyTitle: {
         type: 'Label',
         parent: 'layer',
         properties: {
-          x: 200,
-          y: 10,
-          text: Localization.get('Setting'),
-          size: 38,
-          textAlign: 'center'
+          x: 20,
+          y: 175,
+          text: Localization.get('enemys'),
+          size: 25,
+          //textAlign: 'center'
         }
       },
-      listView: {
+      enemyListView_0: {
         type: 'LListView',
         parent: 'layer',
+        width: 300,
+        height: 118,
         properties: {
-          maxPerLine: 4,
+          maxPerLine: 3,
           cellWidth: 100,
-          cellHeight: 150,
-          arrangement: LListView.Direction.Horizontal,
-          x: 40,
-          y: 300
+          cellHeight: 118,
+          arrangement: LListView.Direction.Horizontal, 
+          x: 20,
+          y: 210
+        }
+      },
+      enemyListView_1: {
+        type: 'LListView',
+        parent: 'layer',
+        width: 300,
+        height: 118,
+        properties: {
+          maxPerLine: 3,
+          cellWidth: 100,
+          cellHeight: 118,
+          arrangement: LListView.Direction.Horizontal, 
+          x: 20,
+          y: 328
+        }
+      },
+      enemyListView_2: {
+        type: 'LListView',
+        parent: 'layer',
+        width: 300,
+        height: 118,
+        properties: {
+          maxPerLine: 3,
+          cellWidth: 100,
+          cellHeight: 118,
+          arrangement: LListView.Direction.Horizontal, 
+          x: 20,
+          y: 446
         }
       }
     };
@@ -54,39 +86,40 @@ var StageDetailDialogController = (function() {
   }
   StageDetailDialogController.prototype.onLoad = function(request) {
     var _this = this;
-    _this.musicView.addEventListener('check:change', _this._onMusicChange, _this);
-    _this.sfxView.addEventListener(LMouseEvent.MOUSE_UP, _this._onSfxChange, _this);
-    var settingData = LPlugin.GetSetting();
-    _this.musicView.updateView(!settingData.music_disable);
-    _this.sfxView.updateView(!settingData.sfx_disable);
+    _this.mobel = request.model;
+    _this._setRewards(request.isClear);
+    _this._setEnemys();
   };
-  StageDetailDialogController.prototype._onMusicChange = function(event) {
+  StageDetailDialogController.prototype._setRewards = function(isClear) {
     var _this = this;
-    var settingData = LPlugin.GetSetting();
-    settingData.music_disable = !_this.musicView.value;
-    LPlugin.SetSetting(settingData);
-    if (SoundManager.currentBGM) {
-      SoundManager.currentBGM.close();
+    var child;
+    var boxIds = _this.mobel.boxIds();
+    var items = [];
+    if (!isClear) {
+      child = new StageRewardChildView('gem');
+      items.push(child);
     }
-    if (settingData.music_disable) {
-      return;
+    for (var i = 0; i < boxIds.length; i++) {
+      child = new StageRewardChildView('box', { boxId: boxIds[i], lv: _this.mobel.boxLv() });
+      items.push(child);
     }
-    if (SoundManager.currentBGM) {
-      SoundManager.currentBGM.play();
-    } else {
-      SoundManager.playBGM(SoundManager.currentBGMName);
+    _this.listViewReward.updateList(items);
+  };
+  StageDetailDialogController.prototype._setEnemys = function() {
+    var _this = this;
+    var enemys = _this.mobel.enemys();
+    for (var i = 0; i < enemys.length; i++) {
+      _this._setRowEnemys(i, enemys[i]);
     }
   };
-  StageDetailDialogController.prototype._onSfxChange = function(event) {
+  StageDetailDialogController.prototype._setRowEnemys = function(index, childEnemys) {
     var _this = this;
-    var settingData = LPlugin.GetSetting();
-    settingData.sfx_disable = !_this.sfxView.value;
-    LPlugin.SetSetting(settingData);
-  };
-  StageDetailDialogController.prototype._onClickLanguage = function(event) {
-    var _this = this;
-    var dialog = new LanguageDialogController({ width: 360, height: 400 });
-    dialogLayer.addChild(dialog);
+    var items = [];
+    for (var i = 0; i < childEnemys.length; i++) {
+      var child = new StageCardChildView(childEnemys[i]);
+      items.push(child);
+    }
+    _this['enemyListView_' + index].updateList(items);
   };
     
   return StageDetailDialogController;
