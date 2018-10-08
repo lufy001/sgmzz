@@ -132,6 +132,9 @@ var Common = (function() {
     var res = 30 + Math.floor(30 * cup / 400);
     return res;
   };
+  Common.timeToGem = function(time) {
+    return Math.ceil(time / TIME_TO_GEM_UNIT);
+  };
   return Common;
 })();
 
