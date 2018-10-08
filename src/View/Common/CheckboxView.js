@@ -39,7 +39,6 @@ var CheckboxView = (function() {
   CheckboxView.prototype._onClick = function(event) {
     var _this = this;
     _this.updateView(!_this.value);
-    console.log('_this.value', _this.value);
     _this.dispatchEvent('check:change');
   };
   CheckboxView.prototype.updateView = function(value) {

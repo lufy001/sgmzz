@@ -22,6 +22,7 @@ var GameMenuView = (function() {
     var request = { message: 'quit game?', width: 300, height: 200 };
     request.okEvent = function() {
       _this.visible = false;
+      CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
       Common.changeScene('HomeController');
     };
     request.cancelEvent = function() {

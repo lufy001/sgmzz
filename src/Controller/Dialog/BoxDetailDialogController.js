@@ -94,7 +94,7 @@ var BoxDetailDialogController = (function() {
       button.x = (request.width - button.getWidth()) * 0.5;
       button.addEventListener(LMouseEvent.MOUSE_UP, _this._openClick, _this);
     } else {
-      var gem = BoxManager.timeToGem(_this.model.time() || _this.model.allTime());
+      var gem = Common.timeToGem(_this.model.time() || _this.model.allTime());
       button = Common.getButton(gem, { img: 'btn03', icon: 'icon_gem', iconWidth: 34, iconHeight: 34, offsetY: -2 });
       button.x = request.width * 0.5 + (request.width * 0.5 - button.getWidth()) * 0.5;
       button.addEventListener(LMouseEvent.MOUSE_UP, _this._openClick, _this);

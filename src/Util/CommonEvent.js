@@ -27,6 +27,7 @@ CommonEvent.RESULT_WIN = 'common:resultWin';
 CommonEvent.RESULT_TIE = 'common:resultTie';
 CommonEvent.RESULT_FAIL = 'common:resultFail';
 CommonEvent.GAME_START = 'common:gameStart';
+CommonEvent.GAME_OVER = 'common:gameOver';
 CommonEvent.GAME_MULTI_START = 'common:gameMultiStart';
 CommonEvent.GAME_CONTINUE = 'common:gameContinue';
 

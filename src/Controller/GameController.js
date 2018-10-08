@@ -91,18 +91,21 @@ var GameController = (function() {
     _this._removeResultEvent();
     _this.resultView.visible = true;
     _this.resultView.updateView({ isWin: true, stageId: _this.selectStageId });
+    CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
   };
   GameController.prototype._onResultTie = function() {
     var _this = this;
     _this._removeResultEvent();
     _this.resultView.visible = true;
     _this.resultView.updateView({ isTie: false, stageId: _this.selectStageId });
+    CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
   };
   GameController.prototype._onResultFail = function() {
     var _this = this;
     _this._removeResultEvent();
     _this.resultView.visible = true;
     _this.resultView.updateView({ isWin: false, stageId: _this.selectStageId });
+    CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
   };
   GameController.prototype._onMaskShow = function() {
     var _this = this;

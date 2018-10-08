@@ -25,6 +25,10 @@ var SkillCtrlView = (function() {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.BATTLE_SKILL_CREATE, _this._onBattleSkillCreate, _this);
   };
+  SkillCtrlView.prototype.clear = function() {
+    var _this = this;
+    _this.skillList.die();
+  };
   SkillCtrlView.prototype._onBattleSkillCreate = function(event) {
     var _this = this;
     var team = PlayerManager.playerModel.team();
