@@ -89,7 +89,7 @@ var CharacterModel = (function() {
   };
   CharacterModel.prototype.hp = function() {
     var _this = this;
-    return _this._master.hp() + this.level() * _this._master.hpPlus();
+    return (_this._master.hp() + _this.level() * _this._master.hpPlus()) * 2;
   };
   return CharacterModel;
 })();

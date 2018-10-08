@@ -11,13 +11,13 @@ var ConfirmGoldDialogController = (function() {
           text: request.message
         }
       },
-      goldLabel: {
+      gemLabel: {
         type: 'Label',
         parent: 'layer',
         properties: {
           x: request.width * 0.5,
           y: request.height - 100,
-          text: request.gold,
+          text: request.gem,
           textAlign: 'right'
         }
       },
