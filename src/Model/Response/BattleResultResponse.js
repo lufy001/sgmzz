@@ -12,6 +12,9 @@ var BattleResultResponse = (function() {
   BattleResultResponse.prototype.boxId = function() {
     return this.data.boxId;
   };
+  BattleResultResponse.prototype.boxLv = function() {
+    return this.data.boxlv;
+  };
   BattleResultResponse.prototype.coin = function() {
     return this.data.coin;
   };

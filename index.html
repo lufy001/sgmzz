@@ -21,7 +21,7 @@
         }
         document.write(tag);
         if (!window.setting.isLocal) {
-            document.write('<script type="text/javascript" src="./plugin/amplitude-4.4.0-min.gz.js"><\/script>');
+            document.write('<script type="text/javascript" src="./plugin/amplitude-4.4.0-min.js"><\/script>');
             Raven.config('https://9e20e60b59f3499c81a952fce251e7db@sentry.io/1274742', {
                 tags: {gameTitle: 'sgj-mzz', platform: window.setting.platform}
                 , environment: window.setting.env || 'default'
