@@ -157,7 +157,7 @@ var BattleResultView = (function() {
       });
     }
     if (params.boxId()) {
-      var boxModel = BoxManager.getMasterModel(params.boxId());
+      var boxModel = new BoxModel({ boxId: params.boxId(), lv: params.boxLv() });
       promise = promise.then(function() {
         _this.boxView.visible = true;
         _this.boxView.y = 0;

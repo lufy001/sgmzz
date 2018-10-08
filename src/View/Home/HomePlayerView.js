@@ -11,7 +11,7 @@ var HomePlayerView = (function() {
       labelName: {
         type: 'Label',
         properties: {
-          text: PlayerManager.playerModel.name(),
+          text: LPlatform.player().getName(),
           size: 24,
           x: 20,
           y: 18

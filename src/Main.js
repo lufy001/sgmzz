@@ -263,10 +263,8 @@ var height = window.innerHeight * width / window.innerWidth;
 LInit(1000 / 30, 'legend', width, height, main);
 function main() {
   LGlobal.setDebug(true);
-  if (LGlobal.mobile) {
-    LGlobal.stageScale = LStageScaleMode.SHOW_ALL;
-    LSystem.screen(LStage.FULL_SCREEN);
-  }
+  LGlobal.stageScale = LStageScaleMode.SHOW_ALL;
+  LSystem.screen(LStage.FULL_SCREEN);
   if (window.setting.isLocal) {
     loadingLayer = new LoadingSample4();
     addChild(loadingLayer);
@@ -286,11 +284,11 @@ function dataFristLoadComplete(data) {
   addChild(dialogLayer);
 
   var playerId = LPlatform.player().getID();
-  var playerName = LPlatform.player().getName();
+  //var playerName = LPlatform.player().getName();
   AnalyticService.instance().setUserId(playerId);
   AnalyticService.instance().setUserProperties('version', VERSION, false);
   
-  UserService.instance().login(playerId, playerName)
+  UserService.instance().login(playerId)
     .then(function(playerModel) {
       PlayerManager.playerModel = playerModel;
       LPlatform.setLoadingProgress(15);

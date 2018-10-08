@@ -7,7 +7,7 @@ var MULTI_BOX_ID = 5;
 var BATTLE_TOTAL_TIME = 120000;
 var BATTLE_DELAY_TIME = 8000;
 var BATTLE_READY_TIME = 3000;
-var FB_AD_ID = '111';
+var FB_AD_ID = '1760394977391942_1760396460725127';
 var DEFAULT_SETTING = { language: 'en_US', music_disable: false, sfx_disable: false };
 var LANGUAGES = [
   { title: 'English', value: 'en_US' },
