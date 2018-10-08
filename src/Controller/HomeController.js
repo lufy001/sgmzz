@@ -151,6 +151,7 @@ var HomeController = (function() {
         
     CommonEvent.addEventListener(CommonEvent.OPEN_BOX, _this._boxOpened, _this);
     CommonEvent.addEventListener(CommonEvent.PLAYER_UPDATE, _this._playerUpdate, _this);
+    CommonEvent.addEventListener(CommonEvent.BOXS_UPDATE, _this._boxUpdateView, _this);
   };
   HomeController.prototype._openRanking = function(event) {
     var dialog = new RankingDialogController({ width: 440, height: 500 });

@@ -48,6 +48,9 @@ var SoundManager = (function() {
       }
     }
     if (_this.list[name]) {
+      if (!_this.musicEnable()) {
+        return;
+      }
       _this.list[name].play();
       return;
     }

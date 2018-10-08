@@ -106,12 +106,12 @@ var BattleView = (function() {
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_CONTINUE, _this._onGameContinue, _this);
 
-    CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultOver, _this);
-    CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultOver, _this);
+    CommonEvent.addEventListener(CommonEvent.GAME_OVER, _this._onResultOver, _this);
   };
   BattleView.prototype._onResultOver = function(event) {
     var _this = this;
     _this.removeEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
+    _this.skillCtrlView.clear();
   };
   BattleView.prototype._onGameMultiStart = function(event) {
     var _this = this;
@@ -143,7 +143,7 @@ var BattleView = (function() {
     var _this = this;
     var times = GameManager.endTime - BaseService.getTime();
     if (times < 0) {
-      _this.removeEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
+      _this._onResultOver();
       _this._onTimeout();
       return;
     } else if (times > BATTLE_TOTAL_TIME) {
@@ -170,6 +170,7 @@ var BattleView = (function() {
       CommonEvent.dispatchEvent(CommonEvent.ENEMY_AUTO_SELECT);
       _this.gameTeam.hpProgress.visible = true;
     } });
+    _this.addEventListener(LEvent.ENTER_FRAME, _this._onframe, _this);
   };
   BattleView.prototype._onGameContinue = function(event) {
     var _this = this;
