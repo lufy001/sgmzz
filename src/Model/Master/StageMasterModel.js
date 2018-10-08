@@ -7,7 +7,7 @@ var StageMasterModel = (function() {
     return this.data.id;
   };
   StageMasterModel.prototype.title = function() {
-    return this.data.title;
+    return Localization.get('stage_' + this.data.id);
   };
   StageMasterModel.prototype.map = function() {
     return this.data.map;

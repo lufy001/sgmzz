@@ -7,7 +7,7 @@ var ChapterMasterModel = (function() {
     return this.data.id;
   };
   ChapterMasterModel.prototype.title = function() {
-    return this.data.title;
+    return Localization.get('chapter_' + this.data.id);
   };
   ChapterMasterModel.prototype.stages = function() {
     var _this = this;
