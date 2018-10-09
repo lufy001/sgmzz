@@ -1,7 +1,7 @@
 var GLOBAL_ROOM_NAME = 'GlobalRoom (SGMZZ Game)';
 var AppInfo = {
   //	Wss: true,
-  AppId: '6915e697-bc86-4518-9e90-ac2b5ad7800c',
+  AppId: window.setting.photonAppId,
   AppVersion: '1.0',
   //    FbAppId: "you fb app id", 
 };
@@ -24,7 +24,7 @@ var __photon_extends = this && this.__extends || (function() {
 var PhotonClient = (function(_super) {
   __photon_extends(PhotonClient, _super);
   function PhotonClient(masterClient) {
-    var _this = _super.call(this, window.Photon.ConnectionProtocol.Ws, AppInfo.AppId, AppInfo.AppVersion) || this;
+    var _this = _super.call(this, window.setting.wss ? window.Photon.ConnectionProtocol.Wss : window.Photon.ConnectionProtocol.Ws, AppInfo.AppId, AppInfo.AppVersion) || this;
     _this.logger = new window.Exitgames.Common.Logger('PhotonClient:', window.Exitgames.Common.Logger.Level.DEBUG);
     
     _this.masterClient = masterClient;
