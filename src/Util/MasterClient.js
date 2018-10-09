@@ -102,7 +102,7 @@ var MasterClient = (function() {
   };
   MasterClient.prototype.onActorLeave = function(actor) {
     var event = new LEvent(GameEvent.PLAYER_LEAVE);
-    event.actor = event;
+    event.actor = actor;
     this.dispatchEvent(event);
   };
   MasterClient.prototype.sendMessage = function(eventCode, data, options) {
