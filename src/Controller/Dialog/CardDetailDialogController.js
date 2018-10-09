@@ -128,7 +128,7 @@ var CardDetailDialogController = (function() {
         properties: {
           x: 100,
           y: 390,
-          text: skill.name(),
+          text: skill ? skill.name() : '',
           size: 24
         }
       },
@@ -141,7 +141,7 @@ var CardDetailDialogController = (function() {
           x: 100,
           y: 420,
           width: 300,
-          text: skill.introduction(),
+          text: skill ? skill.introduction() : '',
           size: 16
         }
       },
