@@ -8,28 +8,6 @@ var dialogLayer;
 
 window.setting = window.setting || {};
 var loadFristData = [
-  { name: 'frame01', path: 'resources/images/ui/frame01.png' },
-  { name: 'btn01', path: 'resources/images/ui/btn01.png' },
-  { name: 'translucent', path: 'resources/images/ui/translucent.png' },
-  { type: 'js', path: 'src/Util/Common.js' },
-  { type: 'js', path: 'src/Core/AutoDisplayObject.js' },
-  { type: 'js', path: 'src/Controller/BaseController.js' },
-  { type: 'js', path: 'src/Controller/Dialog/DialogController.js' },
-  { type: 'js', path: 'src/Controller/Dialog/AlertDialogController.js' },
-  { type: 'js', path: 'src/Config/GameConfig.js' },
-  { type: 'js', path: 'src/Util/LPlugin.js' },
-  { type: 'js', path: 'src/Util/MasterClient.js' },
-  { type: 'js', path: 'src/Model/CharacterModel.js' },
-  { type: 'js', path: 'src/Model/PlayerModel.js' },
-  { type: 'js', path: 'src/Model/BoxModel.js' },
-  { type: 'js', path: 'src/Model/Response/MastersResponse.js' },
-  { type: 'js', path: 'src/Manager/PlayerManager.js' },
-  { type: 'js', path: 'src/Service/BaseService.js' },
-  { type: 'js', path: 'src/Service/UserService.js' },
-  { type: 'js', path: 'src/Service/AnalyticService.js' },
-  { type: 'js', path: 'src/Service/MasterService.js' }
-];
-var loadData = [
   { name: 'title_frame01', path: 'resources/images/ui/title_frame01.png' },
   { name: 'top_background', path: 'resources/images/ui/top_background.jpg' },
   { name: 'hp_background', path: 'resources/images/ui/hp_background.png' },
@@ -102,6 +80,10 @@ var loadData = [
   { name: 'icon_bgm', path: 'resources/images/icons/bgm.png' },
   { name: 'icon_sfx', path: 'resources/images/icons/sfx.png' },
   { name: 'icon_language', path: 'resources/images/icons/language.png' },
+  
+  { name: 'chapter-title', path: 'resources/images/chapter/chapter-title.png' },
+  { name: 'area-background', path: 'resources/images/chapter/area-background.png' },
+  { name: 'stage-background', path: 'resources/images/chapter/stage-background.png' },
 
   { name: 'buffer_phy_def_down', path: 'resources/images/status/buffer_phy_def_down.png' },
   { name: 'buffer_phy_def_up', path: 'resources/images/status/buffer_phy_def_up.png' },
@@ -111,10 +93,6 @@ var loadData = [
   { name: 'buffer_atk_up', path: 'resources/images/status/buffer_phy_atk_up.png' },
   { name: 'buffer_poison', path: 'resources/images/status/buffer_poison.png' },
   { name: 'buffer_sleep', path: 'resources/images/status/buffer_sleep.png' },
-  
-  { name: 'chapter-title', path: 'resources/images/chapter/chapter-title.png' },
-  { name: 'area-background', path: 'resources/images/chapter/area-background.png' },
-  { name: 'stage-background', path: 'resources/images/chapter/stage-background.png' },
 
   { name: 'arrow-question', path: 'resources/images/game/arrow-question.png' },
   { name: 'arrow-down', path: 'resources/images/game/arrow-down.png' },
@@ -138,22 +116,13 @@ var loadData = [
   { name: 'hp_back_mini', path: 'resources/images/game/hp_back_mini.png' },
   { name: 'hp_front_mini', path: 'resources/images/game/hp_front_mini.png' },
 
+  { type: 'js', path: 'src/Config/GameConfig.js' },
   { type: 'js', path: 'src/Config/CharacterConfig.js' },
-  { type: 'js', path: 'src/Manager/GameManager.js' },
-  { type: 'js', path: 'src/Manager/CharacterManager.js' },
-  { type: 'js', path: 'src/Manager/EffectManager.js' },
-  { type: 'js', path: 'src/Manager/SkillManager.js' },
-  { type: 'js', path: 'src/Manager/LevelManager.js' },
-  { type: 'js', path: 'src/Manager/UserLevelManager.js' },
-  { type: 'js', path: 'src/Manager/BoxManager.js' },
-  { type: 'js', path: 'src/Manager/ChapterManager.js' },
-  { type: 'js', path: 'src/Manager/SoundManager.js' },
 
-  { type: 'js', path: 'src/Service/RankingService.js' },
-  { type: 'js', path: 'src/Service/GameService.js' },
-  { type: 'js', path: 'src/Service/CardService.js' },
-  { type: 'js', path: 'src/Service/ShopService.js' },
-
+  { type: 'js', path: 'src/Core/AutoDisplayObject.js' },
+  { type: 'js', path: 'src/Controller/BaseController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/DialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/AlertDialogController.js' },
   { type: 'js', path: 'src/Controller/CardsController.js' },
   { type: 'js', path: 'src/Controller/HomeController.js' },
   { type: 'js', path: 'src/Controller/GameController.js' },
@@ -177,6 +146,38 @@ var loadData = [
   { type: 'js', path: 'src/Controller/Dialog/MatchDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/LoginBonusDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/StageDetailDialogController.js' },
+
+  { type: 'js', path: 'src/Manager/PlayerManager.js' },
+  { type: 'js', path: 'src/Manager/GameManager.js' },
+  { type: 'js', path: 'src/Manager/CharacterManager.js' },
+  { type: 'js', path: 'src/Manager/EffectManager.js' },
+  { type: 'js', path: 'src/Manager/SkillManager.js' },
+  { type: 'js', path: 'src/Manager/LevelManager.js' },
+  { type: 'js', path: 'src/Manager/UserLevelManager.js' },
+  { type: 'js', path: 'src/Manager/BoxManager.js' },
+  { type: 'js', path: 'src/Manager/ChapterManager.js' },
+  { type: 'js', path: 'src/Manager/SoundManager.js' },
+
+  { type: 'js', path: 'src/Service/RankingService.js' },
+  { type: 'js', path: 'src/Service/GameService.js' },
+  { type: 'js', path: 'src/Service/CardService.js' },
+  { type: 'js', path: 'src/Service/ShopService.js' },
+  { type: 'js', path: 'src/Service/BaseService.js' },
+  { type: 'js', path: 'src/Service/UserService.js' },
+  { type: 'js', path: 'src/Service/AnalyticService.js' },
+  { type: 'js', path: 'src/Service/MasterService.js' },
+
+  { type: 'js', path: 'src/Util/LPlugin.js' },
+  { type: 'js', path: 'src/Util/MasterClient.js' },
+  { type: 'js', path: 'src/Util/Common.js' },
+  { type: 'js', path: 'src/Util/PseudoRandom.js' },
+  { type: 'js', path: 'src/Util/CommonEvent.js' },
+  { type: 'js', path: 'src/Util/Localization.js' },
+  
+  { type: 'js', path: 'src/Model/CharacterModel.js' },
+  { type: 'js', path: 'src/Model/PlayerModel.js' },
+  { type: 'js', path: 'src/Model/BoxModel.js' },
+  { type: 'js', path: 'src/Model/Response/MastersResponse.js' },
   { type: 'js', path: 'src/Model/Master/CharacterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/ChapterMasterModel.js' },
   { type: 'js', path: 'src/Model/Master/StageMasterModel.js' },
@@ -195,6 +196,7 @@ var loadData = [
   { type: 'js', path: 'src/Model/ContentsModel.js' },
   { type: 'js', path: 'src/Model/EnemyModel.js' },
   { type: 'js', path: 'src/Model/OpponentModel.js' },
+
   { type: 'js', path: 'src/View/Common/BaseView.js' },
   { type: 'js', path: 'src/View/Common/SkillIconView.js' },
   { type: 'js', path: 'src/View/Common/BoxIconView.js' },
@@ -221,9 +223,6 @@ var loadData = [
   { type: 'js', path: 'src/View/Cards/CardButtonsView.js' },
   { type: 'js', path: 'src/View/Cards/SelectCardView.js' },
   { type: 'js', path: 'src/View/Cards/CardStatusView.js' },
-  { type: 'js', path: 'src/Util/PseudoRandom.js' },
-  { type: 'js', path: 'src/Util/CommonEvent.js' },
-  { type: 'js', path: 'src/Util/Localization.js' },
   
   { type: 'js', path: 'src/View/ChapterMap/ChapterMapChildView.js' },
   { type: 'js', path: 'src/View/ChapterMap/StageChildView.js' },
@@ -255,6 +254,9 @@ var loadData = [
   { type: 'js', path: 'src/View/Shop/ShopTitleView.js' },
   { type: 'js', path: 'src/View/Shop/ShopItemView.js' },
 
+];
+var loadData = [
+
   //{ type: 'sound', name: 'se_click', path: 'resources/sound/se_click.wav' }
 ];
 LGlobal.aspectRatio = PORTRAIT;
@@ -283,27 +285,33 @@ function dataFristLoadComplete(data) {
   dialogLayer = new LSprite();
   addChild(dialogLayer);
 
-  var playerId = LPlatform.player().getID();
-  //var playerName = LPlatform.player().getName();
-  AnalyticService.instance().setUserId(playerId);
-  AnalyticService.instance().setUserProperties('version', VERSION, false);
+  if (!loadingLayer) {
+    loadingLayer = new LoadingSample4();
+    addChild(loadingLayer);
+  }
+  loadingLayer.alpha = 0.5;
+  loadingLayer.label.visible = false;
   
-  UserService.instance().login(playerId)
+  LPlatform.startGameAsync()
+    .then(function() {
+      var playerId = LPlatform.player().getID();
+      var playerName = LPlatform.player().getName();
+
+      AnalyticService.instance().setUserId(playerId);
+      AnalyticService.instance().setUserProperties('version', VERSION, false);
+
+      return UserService.instance().login(playerId, playerName);
+    })
     .then(function(playerModel) {
       PlayerManager.playerModel = playerModel;
       LPlatform.setLoadingProgress(15);
       return MasterService.instance().getList(playerModel.versions());
     })
     .then(function(response) {
-      dataLoad();
+      dataLoadComplete();
     });
 }
-function dataLoad() {
-  LLoadManage.load(loadData, function(progress) {
-    LPlatform.setLoadingProgress(20 + progress * 0.8);
-  }, dataLoadComplete);
-}
-function dataLoadComplete(data) {
+function dataLoadComplete() {
   var master = MasterService.instance().masters;
   CharacterManager.setMasters(master.masterCharacters());
   SkillManager.setMasters(master.masterSkills());
@@ -311,16 +319,12 @@ function dataLoadComplete(data) {
   LevelManager.setMasters(master.masterLevel());
   UserLevelManager.setMasters(master.masterUserLevel());
   ChapterManager.setMasters(master.masterChapters());
-  dataList = data;
 
-  if (loadingLayer) {
-    loadingLayer.remove();
-    loadingLayer = null;
-  }
   addCommonBackground();
 
   gameRestart();
   //Localization.load().then(onGameStart);
+  loadingLayer.visible = false;
 }
 
 function gameRestart() {
@@ -345,13 +349,10 @@ function onGameStart() {
   addChild(headerView);
 
   dialogLayer.parent.setChildIndex(dialogLayer, dialogLayer.parent.numChildren - 1);
-
+  loadingLayer.parent.setChildIndex(loadingLayer, loadingLayer.parent.numChildren - 1);
   Common.changeScene('HomeController', { multiCheck: true });
 
-  LPlatform.startGameAsync()
-    .then(function() {
-      return LPlatform.getDataAsync('player_data');
-    })
+  LPlatform.getDataAsync('player_data')
     .then(function(data) {
       PlayerManager.playerData = data || {};
       if (typeof PlayerManager.playerData.isNew === UNDEFINED) {
