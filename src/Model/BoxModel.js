@@ -23,7 +23,7 @@ var BoxModel = (function() {
     return value > 0 ? value : 0;
   };
   BoxModel.prototype.level = function() {
-    return this.data.level || this.data.lv || 1;
+    return this.data.level || this.data.lv || this.data.boxlv || 1;
   };
   BoxModel.prototype.status = function() {
     return this.data.status;
