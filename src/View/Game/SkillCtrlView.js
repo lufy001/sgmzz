@@ -31,7 +31,12 @@ var SkillCtrlView = (function() {
   };
   SkillCtrlView.prototype._onBattleSkillCreate = function(event) {
     var _this = this;
-    var team = PlayerManager.playerModel.team();
+    var team = PlayerManager.playerModel.team().filter(function(character) {
+      return !!character.skill();
+    });
+    if (team.length === 0) {
+      return;
+    }
     var character = team[team.length * Math.random() >>> 0];
     var battleSkillIconView = new BattleSkillIconView();
     battleSkillIconView.setModel(character);

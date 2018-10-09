@@ -15,7 +15,7 @@ var StageChildView = (function() {
         properties: {
           text: 'story ' + (chapterId - 99) + ' - ' + model.id() % 1000,
           textAlign: 'center',
-          size: 30,
+          size: 26,
           x: 100,
           y: 10
         }
@@ -24,9 +24,9 @@ var StageChildView = (function() {
         type: 'Label',
         properties: {
           text: model.title(),
-          size: 30,
+          size: 28,
           x: 100,
-          y: 50
+          y: 46
         }
       },
       card: {
@@ -53,7 +53,7 @@ var StageChildView = (function() {
         label: Localization.get('detail'),
         properties: {
           x: 290,
-          y: 70
+          y: 80
         }
       },
       markIcon: {
