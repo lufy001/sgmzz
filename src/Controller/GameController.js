@@ -96,7 +96,7 @@ var GameController = (function() {
     var _this = this;
     _this._removeResultEvent();
     _this.resultView.visible = true;
-    _this.resultView.updateView({ isTie: false, stageId: _this.selectStageId });
+    _this.resultView.updateView({ isTie: true, stageId: _this.selectStageId });
     CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
   };
   GameController.prototype._onResultFail = function() {

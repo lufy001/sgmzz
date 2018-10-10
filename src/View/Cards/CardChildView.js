@@ -53,11 +53,15 @@ var CardChildView = (function() {
   };
   CardChildView.prototype.onClick = function(event) {
     var _this = this;
-    if (!_this.model.id || !PlayerManager.playerModel.getCharacter(_this.model.id())) {
+    if (!_this.model.id) {
       return;
-    }
+    }/* else if (!PlayerManager.playerModel.getCharacter(_this.model.id())) {
+    	CommonEvent.dispatchEvent(CommonEvent.CARD_DETAIL_CLICK);
+      return;
+    }*/
+    var noCard = !PlayerManager.playerModel.getCharacter(_this.model.id());
     var listView = event.currentTarget;
-    var e = new LEvent(CommonEvent.CARD_CLICK);
+    var e = new LEvent(noCard ? CommonEvent.CARD_DETAIL_CLICK : CommonEvent.CARD_CLICK);
     e.model = _this.model;
     e.x = event.offsetX;
     e.y = event.offsetY;

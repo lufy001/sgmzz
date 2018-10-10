@@ -149,7 +149,7 @@ var CardDetailDialogController = (function() {
         type: 'CommonButton',
         parent: 'layer',
         label: levelData.coin,
-        params: { img: 'btn03' },
+        params: { img: 'btn03', icon: 'icon_coin', iconWidth: 34, iconHeight: 34 },
         properties: {
           x: (request.width - 160) * 0.5,
           y: request.height - 90
@@ -159,7 +159,7 @@ var CardDetailDialogController = (function() {
         type: 'CommonButton',
         parent: 'layer',
         label: levelData.coin,
-        params: { img: 'btn04' },
+        params: { img: 'btn04', icon: 'icon_coin', iconWidth: 34, iconHeight: 34 },
         properties: {
           x: (request.width - 160) * 0.5,
           y: request.height - 90
@@ -171,7 +171,7 @@ var CardDetailDialogController = (function() {
   CardDetailDialogController.prototype.onLoad = function(request) {
     var _this = this;
     _this.model = request.model;
-
+    _this.cardDisabled = request.cardDisabled;
     _this.buttonLevelUp.addEventListener(LMouseEvent.MOUSE_UP, _this._levelUpClick, _this);
     _this.updateView();
   };
@@ -179,8 +179,8 @@ var CardDetailDialogController = (function() {
     var _this = this;
     var levelData = LevelManager.getMaster(_this.model.level());
     var canUp = _this.model.amount() >= levelData.amount && PlayerManager.playerModel.coin() >= levelData.coin;
-    _this.buttonLevelUp.visible = canUp;
-    _this.buttonDisabled.visible = !canUp;
+    _this.buttonLevelUp.visible = !_this.cardDisabled && canUp;
+    _this.buttonDisabled.visible = !_this.cardDisabled && !canUp;
   };
   CardDetailDialogController.prototype._levelUpClick = function(event) {
     var _this = this;

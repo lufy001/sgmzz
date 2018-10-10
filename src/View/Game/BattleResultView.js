@@ -88,6 +88,7 @@ var BattleResultView = (function() {
     var _this = this;
     _this.reset(params);
     if (params.isTie) {
+      var player = MasterClient.player();
       var data = player.getData();
       if (data.isLeader || MasterClient.myRoomActorCount() === 1) {
         GameService.instance().matchCancel(true);
