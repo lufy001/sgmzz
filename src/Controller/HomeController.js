@@ -133,6 +133,7 @@ var HomeController = (function() {
     data.level = PlayerManager.playerModel.level();
     data.isLeader = response.isLeader;
     data.battleRoom = roomName;
+    data.matchId = response.matchId;
     player.setData(data);
     
     MasterClient.joinRoom(roomName);

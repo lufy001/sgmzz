@@ -21,6 +21,7 @@ var GameController = (function() {
     CommonEvent.addEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_TIE, _this._onResultTie, _this);
     CommonEvent.addEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
+    CommonEvent.addEventListener(CommonEvent.GAME_OVER, _this._onGameOver, _this);
     SoundManager.playBGM('bg_battle');
     if (request.battleType === 'single') {
       GameManager.isMulti(false);
@@ -47,8 +48,7 @@ var GameController = (function() {
     var actor = event.actor;
     if (actor.getId() === MasterClient.playerId()) {
       //自己掉线，返回Home，重新进入战斗
-      MasterClient.disconnect();
-      _this._removeResultEvent();
+      CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
       setTimeout(function() {
         Common.changeScene('HomeController', { multiCheck: true });
       }, 100);
@@ -60,8 +60,7 @@ var GameController = (function() {
           //对方掉线，继续战斗
         } else {
           //对战已被强制结束，返回Home
-          MasterClient.disconnect();
-          _this._removeResultEvent();
+          CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
           Common.changeScene('HomeController', { });
         }
       });
@@ -102,10 +101,16 @@ var GameController = (function() {
   };
   GameController.prototype._onResultFail = function() {
     var _this = this;
-    _this._removeResultEvent();
     _this.resultView.visible = true;
     _this.resultView.updateView({ isWin: false, stageId: _this.selectStageId });
     CommonEvent.dispatchEvent(CommonEvent.GAME_OVER);
+  };
+  GameController.prototype._onGameOver = function(event) {
+    var _this = this;
+    _this._removeResultEvent();
+    if (GameManager.isMulti()) {
+      MasterClient.disconnect();
+    }
   };
   GameController.prototype._onMaskShow = function() {
     var _this = this;
