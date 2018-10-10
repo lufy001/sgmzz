@@ -109,6 +109,7 @@ var MatchDialogController = (function() {
       response.startTime = parseInt(response.startTime);
     }
     data.startTime = response.startTime || 0;
+    data.nickname = LPlatform.player().getName();
     data.team = teamJson;
     data.level = PlayerManager.playerModel.level();
     data.cup = PlayerManager.playerModel.cup();

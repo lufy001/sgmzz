@@ -178,7 +178,7 @@ var PhotonPlayer = (function(_super) {
     return _this;
   }
   PhotonPlayer.prototype.getId = function() {
-    return this.client.getUserId();
+    return this.getCustomProperty('userId');
   };
   PhotonPlayer.prototype.getBattleRoom = function() {
     return this.getData().battleRoom;
@@ -194,6 +194,7 @@ var PhotonPlayer = (function(_super) {
   };
   PhotonPlayer.prototype.setInfo = function(id, data) {
     this.client.setUserId(id);
+    this.setCustomProperty('userId', id);
     this.setData(data);
   };
   return PhotonPlayer;
