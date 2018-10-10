@@ -146,8 +146,14 @@ var CardsController = (function() {
   };
   CardsController.prototype._cardDetailClick = function(event) {
     var _this = this;
-    var model = PlayerManager.playerModel.getCharacter(_this._selectModel.id());
-    var dialog = new CardDetailDialogController({ width: 440, height: 560, model: model });
+    var selectModel = event.model || _this._selectModel;
+    var model = PlayerManager.playerModel.getCharacter(selectModel.id());
+    var params = { width: 440, height: 560, model: model };
+    if (!model) {
+      params.model = new CharacterModel({ id: selectModel.id(), level: 1, amount: 0 });
+      params.cardDisabled = true;
+    }
+    var dialog = new CardDetailDialogController(params);
     dialogLayer.addChild(dialog);
     
   };
