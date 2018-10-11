@@ -44,6 +44,7 @@ var OpponentTeamView = (function() {
       hp += child.hp();
       _this.addCharacter(child);
     });
+    GameManager.multiEnemyHp(hp);
     _this.hpProgress.updateView({ progress: hp, sum: hp, fontSize: 22 });
   };
   OpponentTeamView.prototype._onChangeHp = function(event) {
@@ -55,6 +56,7 @@ var OpponentTeamView = (function() {
       hp = 0;
       MasterClient.gameOver();
     }
+    GameManager.multiEnemyHp(hp);
     _this.hpProgress.updateView({ progress: hp, sum: _this.hpProgress.sum, fontSize: 22 });
   };
   OpponentTeamView.prototype.addCharacter = function(data) {

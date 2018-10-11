@@ -2,13 +2,15 @@ var GameEvent = {
   ROOM_IN: 'photon:roomIn', //进入战斗房间
   GAME_INIT: 'photon:gameInit', //双方准备OK
   JOINED_LOBBY: 'photon:joinedLobby', //
-  PLAYER_LEAVE: 'photon:playerLeave'//玩家掉线或退出
+  PLAYER_LEAVE: 'photon:playerLeave',//玩家掉线或退出
+  PLAYER_JOIN: 'photon:playerJoin'//玩家上线
 };
 var ClientEvent = {
   READY: 1, //战斗准备OK
   ATTACK: 2, //攻击
   GAME_OVER: 3, //游戏结束
   SKILL_START: 4, //技能发动
+  SYNCHRONIZE: 5, //数据同步
 
   GAME_START: 101, //
 };
@@ -39,6 +41,12 @@ var MasterClient = (function() {
           CommonEvent.dispatchEvent(CommonEvent.RESULT_FAIL);
         }
         break;
+      case ClientEvent.SYNCHRONIZE:
+        if (this.client.myActor().getId() === content.id) {
+          break;
+        }
+        this._onSynchronize(content.params);
+        break;
       case ClientEvent.GAME_START:
         this._gameStart();
         break;
@@ -48,6 +56,12 @@ var MasterClient = (function() {
     var event = new LEvent(GameEvent.ROOM_IN);
     event.enemyPlayer = this.enemy();
     this.dispatchEvent(event);
+  };
+  MasterClient.prototype._onSynchronize = function(params) {
+    var e = new LEvent(CommonEvent.SYNCHRONIZE);
+    params.belong = CharacterBelong.OPPONENT;
+    e.params = params;
+    CommonEvent.dispatchEvent(e);
   };
   MasterClient.prototype._onSkillStart = function(params) {
     var e = new LEvent(CommonEvent.SKILL_START);
@@ -105,6 +119,11 @@ var MasterClient = (function() {
     event.actor = actor;
     this.dispatchEvent(event);
   };
+  MasterClient.prototype.onActorJoin = function(actor) {
+    var event = new LEvent(GameEvent.PLAYER_JOIN);
+    event.actor = actor;
+    this.dispatchEvent(event);
+  };
   MasterClient.prototype.sendMessage = function(eventCode, data, options) {
     data.id = this.client.myActor().getId();
     this.client.raiseEventAll(eventCode, data, options);
@@ -139,6 +158,9 @@ var MasterClient = (function() {
   };
   MasterClient.prototype.attack = function(event) {
     this.sendMessage(ClientEvent.ATTACK, { params: event.params });
+  };
+  MasterClient.prototype.synchronize = function(event) {
+    this.sendMessage(ClientEvent.SYNCHRONIZE, { params: event.params });
   };
   MasterClient.prototype.gameOver = function() {
     this.sendMessage(ClientEvent.GAME_OVER, { });
