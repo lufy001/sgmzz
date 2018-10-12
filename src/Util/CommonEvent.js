@@ -30,6 +30,7 @@ CommonEvent.GAME_START = 'common:gameStart';
 CommonEvent.GAME_OVER = 'common:gameOver';
 CommonEvent.GAME_MULTI_START = 'common:gameMultiStart';
 CommonEvent.GAME_CONTINUE = 'common:gameContinue';
+CommonEvent.SYNCHRONIZE = 'common:synchronize';
 
 CommonEvent.SKILL_START = 'common:skillStart';
 CommonEvent.BATTLE_SKILL_RESET = 'common:battleSkillReset';

@@ -35,5 +35,17 @@ var GameManager = (function() {
     }
     this._multi = value;
   };
+  GameManager.prototype.multiPlayerHp = function(value) {
+    if (typeof value === UNDEFINED) {
+      return this._multiPlayerHp;
+    }
+    this._multiPlayerHp = value;
+  };
+  GameManager.prototype.multiEnemyHp = function(value) {
+    if (typeof value === UNDEFINED) {
+      return this._multiEnemyHp;
+    }
+    this._multiEnemyHp = value;
+  };
   return new GameManager();
 })();

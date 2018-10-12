@@ -44,6 +44,12 @@ var CharacterModel = (function() {
     }
     return value >>> 0;
   };
+  CharacterModel.prototype.buffer = function(value) {
+    if (typeof value === UNDEFINED) {
+      return this._buffer;
+    }
+    this._buffer = value;
+  };
   CharacterModel.prototype.physiceDefense = function() {
     return this.data._buffer['phy_def'] || 1;
   };

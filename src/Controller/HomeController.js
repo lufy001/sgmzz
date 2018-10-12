@@ -111,11 +111,11 @@ var HomeController = (function() {
     }
     var player = MasterClient.player();
     var response = player.getData();
-    _this._matchOver({ success: true, matchId: response.matchId });
+    _this._matchOver({ reEntry: true, success: true, matchId: response.matchId });
   };
   HomeController.prototype._matchOver = function(event) {
     if (event.success) {
-      Common.changeScene('GameController', { battleType: 'multi', matchId: event.matchId });
+      Common.changeScene('GameController', { reEntry: event.reEntry, battleType: 'multi', matchId: event.matchId });
     }
   };
   HomeController.prototype._connectRoom = function() {

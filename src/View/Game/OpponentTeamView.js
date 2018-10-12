@@ -24,8 +24,18 @@ var OpponentTeamView = (function() {
   OpponentTeamView.prototype.init = function() {
     var _this = this;
     _this.hpProgress.label.visible = false;
+    MasterClient.addEventListener(GameEvent.SYNCHRONIZE_REQUEST, _this._onSynchronizeRequest, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameMultiStart, _this);
     CommonEvent.addEventListener(CommonEvent.ENEMY_AUTO_SELECT, _this._onEnemyAutoSelect, _this);
+  };
+  OpponentTeamView.prototype._onSynchronizeRequest = function(event) {
+    var _this = this;
+    var params = { hp: _this.hpProgress.progress, buffers: [] };
+    for (var i = 0; i < _this.layer.numChildren; i++) {
+      var characterView = _this.layer.childList[i];
+      params.buffers.push(characterView.model.buffer());
+    }
+    MasterClient.synchronize({ params: params });
   };
   OpponentTeamView.prototype._onEnemyAutoSelect = function(event) {
     var _this = this;
@@ -44,6 +54,7 @@ var OpponentTeamView = (function() {
       hp += child.hp();
       _this.addCharacter(child);
     });
+    GameManager.multiEnemyHp(hp);
     _this.hpProgress.updateView({ progress: hp, sum: hp, fontSize: 22 });
   };
   OpponentTeamView.prototype._onChangeHp = function(event) {
@@ -55,6 +66,7 @@ var OpponentTeamView = (function() {
       hp = 0;
       MasterClient.gameOver();
     }
+    GameManager.multiEnemyHp(hp);
     _this.hpProgress.updateView({ progress: hp, sum: _this.hpProgress.sum, fontSize: 22 });
   };
   OpponentTeamView.prototype.addCharacter = function(data) {

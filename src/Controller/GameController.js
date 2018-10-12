@@ -42,6 +42,9 @@ var GameController = (function() {
     GameManager.enemyModel = new PlayerModel(enemyData);
     var event = new LEvent(CommonEvent.GAME_MULTI_START);
     CommonEvent.dispatchEvent(event);
+    if (request.reEntry) {
+      MasterClient.synchronizeRequest();
+    }
   };
   GameController.prototype._onPlayerLeave = function(event) {
     var _this = this;
