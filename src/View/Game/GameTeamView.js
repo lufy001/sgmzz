@@ -25,7 +25,7 @@ var GameTeamView = (function() {
     var _this = this;
     CommonEvent.addEventListener(CommonEvent.GAME_MULTI_START, _this._onGameMultiStart, _this);
     CommonEvent.addEventListener(CommonEvent.GAME_START, _this._onGameStart, _this);
-    CommonEvent.addEventListener(CommonEvent.SYNCHRONIZE, _this._onSynchronize, _this);
+    MasterClient.addEventListener(GameEvent.SYNCHRONIZE, _this._onSynchronize, _this);
   };
   GameTeamView.prototype._onGameMultiStart = function(event) {
     var _this = this;
@@ -55,9 +55,13 @@ var GameTeamView = (function() {
     GameManager.multiEnemyHp(hp);
     _this.hpProgress.updateView({ progress: hp, sum: _this.hpProgress.sum, fontSize: 22 });
     for (var i = 0; i < _this.layer.numChildren; i++) {
-    	var characterView = _this.layer.childList[i];
-    	var buffer = buffers[i];
-    	characterView.model.buffer(buffer);
+      var characterView = _this.layer.childList[i];
+      var buffer = buffers[i];
+      for (var key in buffer) {
+        var bufferValue = buffer[key];
+        characterView.addBuffer(key, bufferValue.value, bufferValue.time);
+      }
+      characterView.model.buffer(buffer);
     }
   };
   GameTeamView.prototype._onChangeHp = function(event) {

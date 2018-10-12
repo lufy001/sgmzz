@@ -2110,10 +2110,10 @@ var LEventDispatcher = (function () {
 			this._eventList = [];
 		},
 		dispatchEvent : function (event) {
-			let length = this._eventList.length;
-			let ctype = (typeof event === 'string') ? event : event.eventType;
-			for (let i = 0; i < length; i++) {
-				let child = this._eventList[i];
+			var length = this._eventList.length;
+			var ctype = (typeof event === 'string') ? event : event.eventType;
+			for (var i = 0; i < length; i++) {
+				var child = this._eventList[i];
 				if (!child) {
 					continue;
 				}
@@ -2508,7 +2508,7 @@ var LInteractiveObject = (function() {
 	}
 	var p = {
 		addEventListener : function(type, listener, _this) {
-			let s = this;
+			var s = this;
 			if (type.indexOf('mouse') >= 0 || type.indexOf('touch') >= 0 || type === LMouseEvent.DOUBLE_CLICK) {
 				if (LMouseEventContainer.container[type] || ((type === LMouseEvent.MOUSE_OVER || type === LMouseEvent.MOUSE_OUT) && LMouseEventContainer.container[LMouseEvent.MOUSE_MOVE])) {
 					LMouseEventContainer.addMouseEvent(s, type, listener, _this);
@@ -3221,12 +3221,12 @@ var LMedia = (function () {
 	}
 	var p = {
 		onload : function () {
-			let s = this;
+			var s = this;
 			s.canplaythrough = s.canplaythrough || function() {
 				s.onload();
 			};
 			s.error = s.error || function(e) {
-				let event = new LEvent(LEvent.ERROR);
+				var event = new LEvent(LEvent.ERROR);
 				event.currentTarget = s;
 				event.target = e.target;
 				event.responseURL = e.target.src;
@@ -3246,7 +3246,7 @@ var LMedia = (function () {
 				s.data.removeEventListener('error', s.error);
 				s.data.removeEventListener('canplaythrough', s.canplaythrough);
 				s.length = s.data.duration - (LGlobal.android && !LGlobal.wx ? 0.1 : 0);
-				let e = new LEvent(LEvent.COMPLETE);
+				var e = new LEvent(LEvent.COMPLETE);
 				e.currentTarget = s;
 				e.target = s.data;
 				s.dispatchEvent(e);
@@ -5624,7 +5624,7 @@ var LTextField = (function () {
 		},
 		_wx_ll_input : function(value) {
 			if (LGlobal.inputTextField.hasEventListener(LTextEvent.TEXT_INPUT)) {
-				let event = new LEvent(LTextEvent.TEXT_INPUT);
+				var event = new LEvent(LTextEvent.TEXT_INPUT);
 				event.keyCode = value;
 				LGlobal.inputTextField.dispatchEvent(event);
 			}
@@ -7567,7 +7567,7 @@ var WxLocalRequest = (function () {
             if (!this.onreadystatechange) {
                 return;
             }
-            let event = {
+            var event = {
                 currentTarget: {
                     readyState: 4,
                     status: 200,
@@ -7589,7 +7589,7 @@ var WxLocalRequest = (function () {
             this.url = url;
         },
 		send:function(body){
-            let option = {
+            var option = {
                 filePath: this.url, 
                 success: (event) => {
                     this._onreadystatechange(event);
@@ -7631,8 +7631,8 @@ var LAjax = (function () {
 		getRequest : function (t, url, d, oncomplete, err) {
 			var s = this, k, data = "", a = "";
 			s.err = err;
-			let isLocalUrl = url.indexOf('http') < 0;
-			let ajax = s.getHttp(isLocalUrl);
+			var isLocalUrl = url.indexOf('http') < 0;
+			var ajax = s.getHttp(isLocalUrl);
 			if (!ajax) {
 				return;
 			}

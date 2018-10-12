@@ -36,21 +36,15 @@ var GameController = (function() {
     var startTime = MasterClient.startTime();
     GameManager.endTime = parseInt(startTime) + BATTLE_TOTAL_TIME + BATTLE_DELAY_TIME;
     MasterClient.addEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
-    MasterClient.addEventListener(GameEvent.PLAYER_JOIN, _this._onPlayerJoin, _this);
     GameManager.matchId = request.matchId;
     var enemy = MasterClient.enemy();
     var enemyData = enemy.getData();
     GameManager.enemyModel = new PlayerModel(enemyData);
     var event = new LEvent(CommonEvent.GAME_MULTI_START);
     CommonEvent.dispatchEvent(event);
-  };
-  GameController.prototype._onPlayerJoin = function(event) {
-    var _this = this;
-    var actor = event.actor;
-    if (actor.getId() === MasterClient.playerId()) {
-      return;
+    if (request.reEntry) {
+      MasterClient.synchronizeRequest();
     }
-    MasterClient.synchronize({});
   };
   GameController.prototype._onPlayerLeave = function(event) {
     var _this = this;
@@ -139,7 +133,6 @@ var GameController = (function() {
   GameController.prototype._removeResultEvent = function() {
     var _this = this;
     MasterClient.removeEventListener(GameEvent.PLAYER_LEAVE, _this._onPlayerLeave, _this);
-    MasterClient.removeEventListener(GameEvent.PLAYER_JOIN, _this._onPlayerJoin, _this);
     CommonEvent.removeEventListener(CommonEvent.RESULT_TIE, _this._onResultTie, _this);
     CommonEvent.removeEventListener(CommonEvent.RESULT_WIN, _this._onResultWin, _this);
     CommonEvent.removeEventListener(CommonEvent.RESULT_FAIL, _this._onResultFail, _this);
