@@ -59,8 +59,10 @@ var CtrlView = (function() {
         onClick: '_onClick',
         properties: {
           name: 'ok',
-          x: 220,
-          y: 64
+          x: 230,
+          y: 54,
+          scaleX: 1.4,
+          scaleY: 1.4
         }
       }
     };

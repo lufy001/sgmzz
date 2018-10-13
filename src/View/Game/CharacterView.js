@@ -9,15 +9,14 @@ var CharacterView = (function() {
     var _this = this;
     _this.callParent('init', arguments);
     _this.setActionDirection(CharacterAction.MOVE, CharacterDirection.RIGHT);
-
-    _this.character.addFrameScript(String.format('{0}-{1}', CharacterAction.ATTACK_START, CharacterDirection.RIGHT), function() {
-      _this._attackToHert();
-    }, []);
-    _this.character.addEventListener(LEvent.COMPLETE, _this.actionComplete, _this);
     _this.addEventListener(CommonEvent.SKILL_START, _this._onSkillStart, _this);
 
     CommonEvent.addEventListener(CommonEvent.ARROW_ATTACK, _this._onArrowAttack, _this);
     CommonEvent.addEventListener(CommonEvent.ON_HERT, _this._onHert, _this);
+
+    _this.character.addFrameScript(String.format('{0}-{1}', CharacterAction.ATTACK_START, CharacterDirection.RIGHT), function() {
+      _this._attackToHert();
+    }, []);
   };
   CharacterView.prototype.die = function() {
     var _this = this;
@@ -28,6 +27,7 @@ var CharacterView = (function() {
   };
   CharacterView.prototype._attackToHert = function() {
     var _this = this;
+    SoundManager.playSE('se_atk');
     var params = _this._params;
     var skill = params.skillId ? SkillManager.getMasterModel(params.skillId) : null;
     var directions = params.directions;
@@ -57,14 +57,6 @@ var CharacterView = (function() {
     skillParams.amount = 1;
     event.params = skillParams;
     CommonEvent.dispatchEvent(event);*/
-  };
-  CharacterView.prototype.actionComplete = function(event) {
-    var _this = this;
-    switch (_this.action) {
-      case CharacterAction.ATTACK:
-        _this.setActionDirection(CharacterAction.MOVE, _this.direction);
-        break;
-    }
   };
   CharacterView.prototype._onArrowAttack = function(event) {
     var _this = this;

@@ -49,6 +49,15 @@ var BattleCharacterView = (function() {
     _this.layer.addChild(_this.character);
     _this.character.setFrameSpeedAt(13, 0, 2);
     _this.addEventListener(LEvent.ENTER_FRAME, _this._onFrame, _this);
+    _this.character.addEventListener(LEvent.COMPLETE, _this.actionComplete, _this);
+  };
+  BattleCharacterView.prototype.actionComplete = function(event) {
+    var _this = this;
+    switch (_this.action) {
+      case CharacterAction.ATTACK:
+        _this.setActionDirection(CharacterAction.MOVE, _this.direction);
+        break;
+    }
   };
   BattleCharacterView.prototype.setActionDirection = function(action, direction) {
     var _this = this;
@@ -155,6 +164,7 @@ var BattleCharacterView = (function() {
   };
   BattleCharacterView.prototype._onSkillStart = function(event) {
     var _this = this;
+    SoundManager.playSE('se_skill');
     var params = event.params;
     var skill = params.skill;
     var directionCount = params.directionCount;
