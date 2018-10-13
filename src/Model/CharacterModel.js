@@ -51,10 +51,16 @@ var CharacterModel = (function() {
     this._buffer = value;
   };
   CharacterModel.prototype.physiceDefense = function() {
-    return this.data._buffer['phy_def'] || 1;
+    if (!this.data._buffer['phy_def']) {
+      return 1;
+    }
+    return this.data._buffer['phy_def'].value;
   };
   CharacterModel.prototype.magicDefense = function() {
-    return this.data._buffer['mag_def'] || 1;
+    if (!this.data._buffer['mag_def']) {
+      return 1;
+    }
+    return this.data._buffer['mag_def'].value;
   };
   CharacterModel.prototype.addBuffer = function(key, value, time) {
     return this.data._buffer[key] = { value: value, time: time };

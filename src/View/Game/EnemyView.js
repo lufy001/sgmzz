@@ -44,9 +44,12 @@ var EnemyView = (function() {
   EnemyView.prototype.init = function(data) {
     var _this = this;
     _this.callParent('init', arguments);
-          
     _this.setActionDirection(CharacterAction.MOVE, CharacterDirection.LEFT);
     _this._characterInit();
+
+    _this.character.addFrameScript(String.format('{0}-{1}', CharacterAction.ATTACK_START, CharacterDirection.LEFT), function() {
+      _this._attackToHert();
+    }, []);
   };
   
   EnemyView.prototype.updateView = function(model) {
@@ -123,10 +126,11 @@ var EnemyView = (function() {
       return;
     }
     _this._attackSpeedStep = _this._attackSpeed;
-    _this._attackToHert();
+    _this.setActionDirection(CharacterAction.ATTACK, _this.direction);
   };
   EnemyView.prototype._attackToHert = function() {
     var _this = this;
+    SoundManager.playSE('se_atk');
     var skill = _this.skill;
     var directionLength = (4 * Math.random() >> 0) + 2;
     _this._skill = null;

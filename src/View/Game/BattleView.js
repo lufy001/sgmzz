@@ -70,7 +70,7 @@ var BattleView = (function() {
       ctrlView: {
         type: 'CtrlView',
         properties: {
-          x: 320,
+          x: 300,
           y: 756
         }
       },
