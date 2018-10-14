@@ -76,6 +76,7 @@ var HomeController = (function() {
   };
   HomeController.prototype._checkContinueBattle = function() {
     var _this = this;
+    LoadingManager.show();
     GameService.instance().getMatchTarget()
       .then(function(response) {
         if (response.matchId) {
@@ -83,12 +84,14 @@ var HomeController = (function() {
           var playerId = LPlatform.player().getID();
           MasterClient.start(playerId, response);
         } else {
+          LoadingManager.hide();
           _this._checkLoginBonus();
         }
       });
   };
   HomeController.prototype._onFailJoinRoom = function(event) {
     var _this = this;
+    LoadingManager.hide();
     MasterClient.removeEventListener(GameEvent.JOINED_LOBBY, _this._onFailJoinRoom, _this);
     _this._checkLoginBonus();
   };
@@ -111,6 +114,7 @@ var HomeController = (function() {
     }
     var player = MasterClient.player();
     var response = player.getData();
+    LoadingManager.hide();
     _this._matchOver({ reEntry: true, success: true, matchId: response.matchId });
   };
   HomeController.prototype._matchOver = function(event) {

@@ -42,7 +42,20 @@
         lastStageId:100002,
         unlockBoxAdTimesWatched:11,
         winTimesMulti:2,
-        winBoxOver:false
+        winBoxOver:false,
+        competitionReward:{
+            rank:1,
+            boxId:1,
+            contents:{
+                gem:2,
+                coin:300,
+                cards:[
+                    {id:1, amount:22},
+                    {id:2, amount:2},
+                    {id:3, amount:10}
+                ]
+            }
+        }
     }
 ・characters 玩家拥有的卡牌，从cards表中获取，id是卡牌的card_id，也就是master_characters的id，level是卡牌等级，amount是卡牌的数量 
 
@@ -73,6 +86,8 @@
 ・winTimesMulti 当天对战胜利次数
 
 ・winBoxOver 已经领取过对战胜利宝箱
+
+・competitionReward 赛季奖励，其中的contents和调用openBox时的contents是一样的
 
 ### 获取玩家信息(getPlayer) 
 #### 参数
@@ -387,6 +402,7 @@
 
 ・contents 登录奖励，如果是宝箱的话，宝箱会自动打开，玩家直接显示宝箱内的奖励，所以服务器判断，玩家得到宝箱的时候，直接打开宝箱。   
 
+
 ## 表
 ### master_chapters 
 相当于一个大的章节目录
@@ -530,8 +546,37 @@ battle_match_ready表
     };
 
 ---------------------------------------
-### 一个赛季结束后的奖品发放
+### 一个赛季结束后的奖品处理
 #### 频率
 每周一次
 #### 处理说明
-待添加
+・每周排名前100的玩家可以获得高级宝箱奖励，每周一的00:00把`leaderboard_reward`表清空，然后把本次排名前100的玩家的排名数据登录到`leaderboard_reward`表里，玩家可以获得的宝箱id，从`competition_reward`表里获取。
+・用户login的时候，判断`leaderboard_reward`表的user_id和get_over，来获取奖励。
+
+#### 相关表
+
+##### leaderboard_reward 赛季奖品表
+
+|name|说明|
+|--|--|
+|user_id|玩家ID|
+|rank|排名|
+|box_id|奖励宝箱|
+|get_over|获取结束|
+
+##### competition_reward 赛季奖品表
+
+|name|说明|
+|--|--|
+|from_rank|起始排名|
+|to_rank|结束排名|
+|reward_box_id|奖励宝箱|
+
+##### competition_reward 中的数据
+
+|from_rank|to_rank|reward_box_id|
+|--|--|--|
+|1|1|9|
+|2|10|8|
+|11|30|7|
+|31|100|4|
