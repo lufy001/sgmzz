@@ -147,6 +147,7 @@ var loadFristData = [
   { type: 'js', path: 'src/Controller/Dialog/LoginBonusDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/StageDetailDialogController.js' },
 
+  { type: 'js', path: 'src/Manager/LoadingManager.js' },
   { type: 'js', path: 'src/Manager/PlayerManager.js' },
   { type: 'js', path: 'src/Manager/GameManager.js' },
   { type: 'js', path: 'src/Manager/CharacterManager.js' },
