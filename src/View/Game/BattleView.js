@@ -107,6 +107,25 @@ var BattleView = (function() {
     CommonEvent.addEventListener(CommonEvent.GAME_CONTINUE, _this._onGameContinue, _this);
 
     CommonEvent.addEventListener(CommonEvent.GAME_OVER, _this._onResultOver, _this);
+    MasterClient.addEventListener(GameEvent.SYNCHRONIZE_REQUEST, _this._onSynchronizeRequest, _this);
+  };
+  BattleView.prototype._onSynchronizeRequest = function(event) {
+    var _this = this;
+    var characterView, i;
+    var params = {};
+    var playerParams = { hp: _this.gameTeam.hpProgress.progress, buffers: [] };
+    for (i = 0; i < _this.gameTeam.layer.numChildren; i++) {
+      characterView = _this.gameTeam.layer.childList[i];
+      playerParams.buffers.push(characterView.model.buffer());
+    }
+    params.playerTeam = playerParams;
+    var opponentParams = { hp: _this.opponentTeam.hpProgress.progress, buffers: [] };
+    for (i = 0; i < _this.opponentTeam.layer.numChildren; i++) {
+      characterView = _this.opponentTeam.layer.childList[i];
+      opponentParams.buffers.push(characterView.model.buffer());
+    }
+    params.opponentTeam = opponentParams;
+    MasterClient.synchronize({ params: params });
   };
   BattleView.prototype._onResultOver = function(event) {
     var _this = this;

@@ -49,10 +49,10 @@ var GameTeamView = (function() {
   };
   GameTeamView.prototype._onSynchronize = function(event) {
     var _this = this;
-    var params = event.params;
+    var params = event.params.opponentTeam;
     var hp = params.hp;
     var buffers = params.buffers;
-    GameManager.multiEnemyHp(hp);
+    GameManager.multiPlayerHp(hp);
     _this.hpProgress.updateView({ progress: hp, sum: _this.hpProgress.sum, fontSize: 22 });
     for (var i = 0; i < _this.layer.numChildren; i++) {
       var characterView = _this.layer.childList[i];
