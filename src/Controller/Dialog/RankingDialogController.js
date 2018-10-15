@@ -39,7 +39,7 @@ var RankingDialogController = (function() {
         
     CommonEvent.addEventListener(CommonEvent.SHOW_PLAYER_PROFILE, _this._showProfile, _this);
   };
-  RankingDialogController.prototype.die = function() {
+  RankingDialogController.prototype.onClose = function() {
     CommonEvent.removeEventListener(CommonEvent.SHOW_PLAYER_PROFILE, this._showMessage, this);
   };
   RankingDialogController.prototype._showProfile = function(event) {

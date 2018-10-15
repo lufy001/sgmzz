@@ -70,7 +70,7 @@ var NewsDialogController = (function() {
     _this.listView.updateList(items);
     CommonEvent.addEventListener(CommonEvent.SHOW_NEWS_MESSAGE, _this._showMessage, _this);
   };
-  NewsDialogController.prototype.die = function() {
+  NewsDialogController.prototype.onClose = function() {
     CommonEvent.removeEventListener(CommonEvent.SHOW_NEWS_MESSAGE, this._showMessage, this);
   };
   NewsDialogController.prototype._showMessage = function(event) {

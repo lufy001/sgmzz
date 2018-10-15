@@ -89,7 +89,6 @@ var MatchDialogController = (function() {
   };
   MatchDialogController.prototype._joinRoom = function(e) {
     var _this = this;
-    MasterClient.removeEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
     var event = new LEvent('close');
     event.success = true;
     event.matchId = _this._matchId;
@@ -125,7 +124,9 @@ var MatchDialogController = (function() {
     }
   };
   MatchDialogController.prototype.onClose = function() {
-    LTweenLite.remove(this._tween);
+    var _this = this;
+    MasterClient.removeEventListener(GameEvent.ROOM_IN, _this._joinRoom, _this);
+    LTweenLite.remove(_this._tween);
   };
   MatchDialogController.prototype._onCancel = function() {
     var _this = this;

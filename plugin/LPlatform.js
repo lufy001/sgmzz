@@ -20,7 +20,7 @@ var LPlatform = (function() {
     return this.sdk.setLoadingProgress(parseFloat(progress).toFixed(2));
   };
   LPlatform.prototype.getDataAsync = function(key) {
-    return this.sdk.getDataAsync([key])
+    return this.player().getDataAsync([key])
       .then(function(data) {
         return Promise.resolve(data[key]);
       });
@@ -28,7 +28,7 @@ var LPlatform = (function() {
   LPlatform.prototype.setDataAsync = function(key, value) {
     var data = {};
     data[key] + value;
-    return this.sdk.setDataAsync(data);
+    return this.player().setDataAsync(data);
   };
   LPlatform.prototype.setSessionData = function(key, value) {
     this._fbSessionData[key] = value;
