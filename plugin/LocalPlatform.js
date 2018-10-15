@@ -16,6 +16,12 @@ var FBInstant = (function() {
       },
       getName: function() {
         return _this._playerName;
+      },
+      getDataAsync: function(key) {
+        return Promise.resolve({});
+      },
+      setDataAsync: function(data) {
+        return Promise.resolve();
       }
     };
     _this.context = {
@@ -51,12 +57,6 @@ var FBInstant = (function() {
     if (this.loadingDisplay) {
       this.loadingDisplay.setProgress(parseFloat(progress).toFixed(2));
     }
-  };
-  FBInstant.prototype.getDataAsync = function(key) {
-    return Promise.resolve({});
-  };
-  FBInstant.prototype.setDataAsync = function(data) {
-    return Promise.resolve();
   };
   FBInstant.prototype.setSessionData = function(data) {
     //
