@@ -75,13 +75,13 @@ var CardsController = (function() {
     var _this = this;
     var team = PlayerManager.playerModel.teamData();
     _this.teamView.updateView(PlayerManager.playerModel.team());
-    var itemList = _this.listView.getItems();
+    /*var itemList = _this.listView.getItems();
     if (itemList.length > 0) {
       for (var i = 0; i < itemList.length; i++) {
         itemList[i].updateModel();
       }
       return;
-    }
+    }*/
     
     var items = [];
     CharacterManager.masterArray.sort(function(a, b) {
