@@ -67,6 +67,40 @@ var CharacterView = (function() {
     _this._params = params;
     _this.setActionDirection(CharacterAction.ATTACK, _this.direction);
   };
+  CharacterView.prototype.showSkillCtrl = function(value) {
+    var _this = this;
+    if (_this.skillCtrl) {
+      _this.skillCtrl.visible = true;
+      _this.skillCtrl.alpha = 1;
+      return;
+    }
+    var skill = _this.model.skill();
+    var skillArrows = skill ? skill.arrows() : [];
+    if (skillArrows.length === 0) {
+      return;
+    }
+    var arrowList = new ArrowListView(skillArrows);
+    _this.skillCtrl = arrowList;
+    arrowList.x = -25;
+    arrowList.scaleX = arrowList.scaleY = 0.6;
+    _this.addChild(arrowList);
+  };
+  CharacterView.prototype._onFrame = function(event) {
+    var _this = this;
+    _this.callParent('_onFrame', arguments);
+    if (!_this.skillCtrl || !_this.skillCtrl.visible) {
+      return;
+    }
+    if (_this.skillCtrl.alpha > 0.7) {
+      _this.skillCtrl.alpha -= 0.005;
+    } else {
+      _this.skillCtrl.alpha -= 0.05;
+    }
+    if (_this.skillCtrl.alpha < 0) {
+      _this.skillCtrl.alpha = 0;
+      _this.skillCtrl.visible = false;
+    }
+  };
   CharacterView.prototype.addHp = function(value) {
     var event = new LEvent('player:changeHp');
     event.value = value;

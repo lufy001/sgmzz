@@ -340,7 +340,20 @@ var UserService = (function() {
       exp: 2222,
       lv: 11,
       loginBonusCalled: 1,
-      lastStageId: 102002
+      lastStageId: 102002,
+      competitionReward: {
+        rank: 1,
+        boxId: 1,
+        contents: {
+          gem: 2,
+          coin: 300,
+          cards: [
+            { id: 1, amount: 22 },
+            { id: 2, amount: 2 },
+            { id: 3, amount: 10 }
+          ]
+        }
+      }
     };
     var response = new PlayerModel(res);
     return Promise.resolve(response);
