@@ -35,9 +35,14 @@ var ChapterMapChildView = (function() {
     };
     LExtends(_this, BaseView, [properties]);
     _this.model = model;
+    _this._init();
   }
-  ChapterMapChildView.prototype.init = function() {
+  ChapterMapChildView.prototype._init = function() {
     var _this = this;
+    if (_this.titleLabel.getWidth() > 360) {
+      _this.titleLabel.width = 360;
+      _this.titleLabel.setWordWrap(true);
+    }
   };
   ChapterMapChildView.prototype.onClick = function(event) {
     var _this = event.target;
