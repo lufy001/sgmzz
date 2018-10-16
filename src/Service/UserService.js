@@ -341,7 +341,8 @@ var UserService = (function() {
       lv: 11,
       loginBonusCalled: 1,
       lastStageId: 102002,
-      competitionReward: {
+      competitionReward: null
+      /*competitionReward: {
         rank: 1,
         boxId: 1,
         contents: {
@@ -353,7 +354,7 @@ var UserService = (function() {
             { id: 3, amount: 10 }
           ]
         }
-      }
+      }*/
     };
     var response = new PlayerModel(res);
     return Promise.resolve(response);

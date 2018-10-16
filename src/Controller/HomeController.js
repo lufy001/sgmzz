@@ -68,11 +68,23 @@ var HomeController = (function() {
   HomeController.prototype.onLoad = function(request) {
     var _this = this;
     SoundManager.playBGM('bg_home');
-    if (request.multiCheck && !window.setting.isLocal) {
+    var competitionReward = PlayerManager.playerModel.competitionReward();
+    if (competitionReward) {
+      _this._showCompetitionReward();
+    } else if (request.multiCheck && !window.setting.isLocal) {
       _this._checkContinueBattle();
     } else {
       _this._checkLoginBonus();
     }
+  };
+  HomeController.prototype._showCompetitionReward = function() {
+    var _this = this;
+    var params = { width: 360, height: 300, hideClose: true };
+    params.closeEvent = function() {
+      _this._checkLoginBonus();
+    };
+    var dialog = new CompetitionRewardDialogController(params);
+    dialogLayer.addChild(dialog);
   };
   HomeController.prototype._checkContinueBattle = function() {
     var _this = this;

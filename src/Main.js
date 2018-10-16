@@ -146,6 +146,7 @@ var loadFristData = [
   { type: 'js', path: 'src/Controller/Dialog/MatchDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/LoginBonusDialogController.js' },
   { type: 'js', path: 'src/Controller/Dialog/StageDetailDialogController.js' },
+  { type: 'js', path: 'src/Controller/Dialog/CompetitionRewardDialogController.js' },
 
   { type: 'js', path: 'src/Manager/LoadingManager.js' },
   { type: 'js', path: 'src/Manager/PlayerManager.js' },
@@ -197,6 +198,7 @@ var loadFristData = [
   { type: 'js', path: 'src/Model/ContentsModel.js' },
   { type: 'js', path: 'src/Model/EnemyModel.js' },
   { type: 'js', path: 'src/Model/OpponentModel.js' },
+  { type: 'js', path: 'src/Model/CompetitionRewardModel.js' },
 
   { type: 'js', path: 'src/View/Common/BaseView.js' },
   { type: 'js', path: 'src/View/Common/SkillIconView.js' },
