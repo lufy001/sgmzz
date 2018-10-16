@@ -82,6 +82,7 @@ var GameTeamView = (function() {
     var _this = this;
     var character = new CharacterView(data, _this.layer.numChildren);
     character.addEventListener('player:changeHp', _this._onChangeHp, _this);
+    character.addEventListener(LMouseEvent.MOUSE_UP, character.showSkillCtrl, character);
     character.y = 76 * _this.layer.numChildren;
     _this.layer.addChild(character);
   };

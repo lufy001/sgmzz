@@ -11,7 +11,7 @@ var BattleSkillIconView = (function() {
     _this.addChild(_this._icon);
     _this._mask = Common.getTranslucentBitmap(64, 64);
     _this.addChild(_this._mask);
-    CommonEvent.addEventListener(CommonEvent.SKILL_READY, _this._onSkillReady, _this);
+    //CommonEvent.addEventListener(CommonEvent.SKILL_READY, _this._onSkillReady, _this);
     
   };
   BattleSkillIconView.prototype.setModel = function(characterModel) {
@@ -46,16 +46,19 @@ var BattleSkillIconView = (function() {
     event.currentTarget.deleteChildView(_this);
     CommonEvent.dispatchEvent(e);
   };
-  BattleSkillIconView.prototype._onSkillReady = function() {
+  BattleSkillIconView.prototype.isReady = function() {
+    return !this._mask;
+  };
+  BattleSkillIconView.prototype.skillReady = function() {
     var _this = this;
     _this._mask.remove();
     _this._mask = null;
     _this.cacheAsBitmap(false);
     _this.updateView();
-    CommonEvent.removeEventListener(CommonEvent.SKILL_READY, _this._onSkillReady, _this);
+    /*CommonEvent.removeEventListener(CommonEvent.SKILL_READY, _this._onSkillReady, _this);
     setTimeout(function() {
       CommonEvent.dispatchEvent(CommonEvent.BATTLE_SKILL_CREATE);
-    });
+    });*/
   };
   return BattleSkillIconView;
 })();
