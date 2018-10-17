@@ -155,8 +155,12 @@ var PlayerModel = (function() {
     }
     return this.data.unlockBoxAdTimesWatched || 0;
   };
-  PlayerModel.prototype.competitionReward = function() {
+  PlayerModel.prototype.competitionReward = function(value) {
     var _this = this;
+    if (typeof value !== UNDEFINED) {
+      this.data.competitionReward = value;
+      _this.data._competitionReward = null;
+    }
     if (!_this.data._competitionReward) {
       _this.data._competitionReward = _this.data.competitionReward ? new CompetitionRewardModel(_this.data.competitionReward) : null;
     }
