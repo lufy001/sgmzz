@@ -81,6 +81,7 @@ var HomeController = (function() {
     var _this = this;
     var params = { width: 360, height: 300, hideClose: true };
     params.closeEvent = function() {
+      PlayerManager.playerModel.competitionReward(null);
       _this._checkLoginBonus();
     };
     var dialog = new CompetitionRewardDialogController(params);
